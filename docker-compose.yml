@@ -1,0 +1,8 @@
+version: '3'
+services:
+  jekyll_builder:
+    image: bretfisher/jekyll
+    volumes:
+      - ./:/site
+    entrypoint: bash
+    command: -c "bundle install --retry 5 --jobs 20 && bundle exec jekyll build --watch"
