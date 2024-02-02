@@ -31,7 +31,7 @@ Above the SQL DB there is the TAO layer which contains at least two levels of ca
 I could not find anything on what software / DB they actually use for their cached graphs
 Let's take a look at this, friend connections are top left:
 
-enter image description here
+**enter image description here**
 
 Well, this is a graph. It doesn't tell you how to build it in SQL, there are several ways to do it but this site has a good amount of different approaches. Attention: Consider that a relational DB is what it is: It's thought to store normalised data, not a graph structure. So it won't perform as good as a specialised graph database.
 

@@ -25,7 +25,7 @@ I want you to act as PHP expert.
 - Never skip code when answering
 ```
 
-## Refactoring the Code
+## Refactoring some Code
 
 I've picked a more or less random method `describeContainerServices()` from the Symfony framework that had a high cyclomatic complexity, the [TextDescriptor](https://github.com/symfony/symfony/blob/7.1/src/Symfony/Bundle/FrameworkBundle/Console/Descriptor/TextDescriptor.php) from the Console bundle.
 
@@ -164,7 +164,9 @@ protected function describeContainerServices(ContainerBuilder $container, array 
 }
 ```
 
-This is already q pretty reasonable and much more readable method and it broke the huge method down into logical chunks, very nice! Now lets see if it could refactor the whole code properly:
+This is already a pretty reasonable and much more readable method and it broke the huge method down into logical chunks, very nice! You can actually understand what the method as a whole does. Each of the extracted methods has now a clear name and a single responsibility.
+
+Now lets see if it could refactor the whole code properly:
 
 My prompt:
 
@@ -322,6 +324,6 @@ protected function outputTable(array $options, array $tableHeaders, array $table
 
 ## Conclusion
 
-ChatGTP can be already used to improve readability and maintainability of code a lot by simply telling it to follow the instructions from the suprisingly short initial promt.
+ChatGTP can be already used to improve readability and maintainability of code a lot by simply telling it to follow the instructions from the suprisingly short initial promt. It also shows that applying the SOLID principles leads almost instantly to much better to read and understand code.
 
 On the negative side is that it also likes to over engineers, but this is subject to an opinionated debate what exactly over engineered means, I leave this up to personal opinion of the reader.

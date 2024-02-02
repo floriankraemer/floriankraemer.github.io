@@ -1,19 +1,15 @@
 ---
 layout: post
-title: Why don't you replace your 30 year old system?
+title: Why don't you just replace that old thing?
 categories: software-architecture
-tags: software-architecture ddd
+tags: software-architecture
 ---
 
 Recently on an online discussion forum this statement was made:
 
-```text
-Migrating away from COBOL is kinda expensive and risky.
-```
+> Migrating away from COBOL is kinda expensive and risky.
 
 The author of that statement was asked to elaborate on it. However the author did not bother to reply but I found it quiet interesting to shed some light on it. Especially the question was seemingly asked by somebody without an IT background.
-
---
 
 ## The problem
 
@@ -35,8 +31,8 @@ The so called "total cost of ownership" (TCO) of that system is just awesome if 
 
 Each time I proposed a change to the architecture in one of my jobs, part of the analysis had to be either, the impact of not doing it on the business (risks, e.g. increasing cost over time, scalability issues, security,...) or a benefit like being able to deliver code, features, faster. "If we change X developers can write code X faster and we will save X amount of money". It's all about money in many businesses, not about the ultimately perfect solution.
 
-```text
-The result achieved by the 300 IBM programmers, analysts, engineers, and subcontractors was impressive. An analysis accomplished after the Challenger accident showed that the IBM-developed PASS software had a latent defect rate of just 0.11 errors per 1,000 lines of codefor all intents and purposes, it was considered error-free. But this remarkable achievement did not come easily or cheap. In an industry where the average line of code cost the government (at the time of the report) approximately $50 (written, documented, and tested), the Primary Avionics System Software cost NASA slightly over $1,000 per line. A total of $500 million was paid to IBM for the initial development and support of PASS.22
-```
+> The result achieved by the 300 IBM programmers, analysts, engineers, and subcontractors was impressive. An analysis accomplished after the Challenger accident showed that the IBM-developed PASS software had a latent defect rate of just 0.11 errors per 1,000 lines of code for all intents and purposes, it was considered error-free. But this remarkable achievement did not come easily or cheap.
+> 
+> In an industry where the average line of code cost the government (at the time of the report) approximately $50 (written, documented, and tested), the Primary Avionics System Software cost NASA slightly over $1,000 per line. A total of $500 million was paid to IBM for the initial development and support of PASS.22
 
 [Source](https://www.nasa.gov/history/sts1/pages/computer.html#:~:text=In%20an%20industry%20where%20the,slightly%20over%20%241%2C000%20per%20line).

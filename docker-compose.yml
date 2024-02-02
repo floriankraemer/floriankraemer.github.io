@@ -5,4 +5,3 @@ services:
     volumes:
       - ./:/site
     entrypoint: bash
-    command: -c "bundle install --retry 5 --jobs 20 && bundle exec jekyll build --watch"
