@@ -1,7 +1,12 @@
 ---
 layout: post
 categories: software-architecture
-tags: software-architecture ddd
+tags:
+    - DDD
+    - software-architecture ddd
+    - Spryker
+draft: true
+title: DDD in Spryker
 ---
 
 # Tactical DDD in Spryker
