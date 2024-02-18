@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Social graph connections"
-date:   2023-12-06 22:32:02 +0000
+date:   2015-02-26 22:32:02 +0000
 categories: software-architecture
 tags: software-architecture database eventual-consistency
 ---
@@ -33,7 +33,7 @@ Let's take a look at this, friend connections are top left:
 
 ![Graph Example Diagram](/assets/images/graph-example.png){: style="display: block; margin: auto;"}
 
-Well, this is a graph. It doesn't tell you how to build it in SQL, there are several ways to do it but this site has a good amount of different approaches. Attention: Consider that a relational DB is what it is: It's thought to store normalised data, not a graph structure. So it won't perform as good as a specialised graph database.
+This is a graph. It doesn't tell you how to build it in SQL, there are several ways to do it but this site has a good amount of different approaches. Attention: Consider that a relational DB is what it is: It's thought to store normalized data, not a graph structure. So it won't perform as good as a specialized graph database.
 
 Also consider that you have to do more complex queries than just friends of friends, for example when you want to filter all locations around a given coordinate that you and your friends of friends like. A graph is the perfect solution here.
 
@@ -75,7 +75,7 @@ I've started experimenting with OrientDB to do the graph-queries and mapping my 
 
 ## How can I create a well performing social network site?
 
-Use different read and write repositories, build specific read repositories based on faster non-relational DB systems made for that purpose, don't be afraid of denormalizing data. Write to a normalized DB but read from specialized views.
+Use different read and write repositories, build specific read repositories based on faster non-relational DB systems made for that purpose, don't be afraid of de-normalizing data. Write to a normalized DB but read from specialized views.
 
 * Use eventual consistency.
 * Take a look at CQRS.

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Exceptions - good or bad? | Florian Krämer</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Exceptions - good or bad?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Exception-driven development, also known as “throw first, ask questions later”, is considered a bad practice. This article will provide a list of reasons when exceptions are bad and why you should not use them without a good reason." />
+<meta property="og:description" content="Exception-driven development, also known as “throw first, ask questions later”, is considered a bad practice. This article will provide a list of reasons when exceptions are bad and why you should not use them without a good reason." />
+<link rel="canonical" href="http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions.html" />
+<meta property="og:site_name" content="Florian Krämer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-05-10T09:28:36+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Exceptions - good or bad?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-10T09:28:36+00:00","datePublished":"2023-05-10T09:28:36+00:00","description":"Exception-driven development, also known as “throw first, ask questions later”, is considered a bad practice. This article will provide a list of reasons when exceptions are bad and why you should not use them without a good reason.","headline":"Exceptions - good or bad?","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions.html"},"url":"http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Florian Krämer" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Florian Krämer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/articles/">Articles</a><a class="page-link" href="/services/consulting/">Consulting</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/imprint/">Imprint</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Exceptions - good or bad?</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-05-10T09:28:36+00:00" itemprop="datePublished">May 10, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Exception-driven development, also known as “throw first, ask questions later”, is considered a bad practice. This article will provide a list of reasons when exceptions are bad and why you should not use them without a good reason.</p>
+
+<h2 id="why-can-exceptions-be-bad">Why can exceptions be bad?</h2>
+
+<p>Here are some reasons why they could be considered bad:</p>
+
+<ul>
+  <li><strong>Code readability and flow control:</strong>
+    <ul>
+      <li>Code with excessive use of exceptions for <em>flow control can be harder to read and understand</em>.</li>
+      <li>The primary purpose of exceptions is to handle <em>exceptional</em>, error conditions, not to guide program flow.</li>
+    </ul>
+  </li>
+  <li><strong>Performance:</strong>
+    <ul>
+      <li>Throwing and catching exceptions can be <em>relatively expensive</em> in terms of performance compared to other control flow mechanisms.</li>
+      <li>Using exceptions for normal program flow <em>may introduce unnecessary overhead</em>.</li>
+    </ul>
+  </li>
+  <li><strong>Debugging complexity:</strong>
+    <ul>
+      <li>Exception-driven code can make debugging more challenging because the control flow is less obvious.</li>
+      <li>Developers may have a harder time understanding the exact sequence of events that led to an exception.</li>
+    </ul>
+  </li>
+  <li><strong>Unexpected side effects:</strong>
+    <ul>
+      <li>Throwing exceptions in response to common or expected situations might lead to unexpected behavior.</li>
+      <li>Overuse of exceptions can make it difficult to distinguish between expected and unexpected errors.</li>
+    </ul>
+  </li>
+  <li><strong>Maintenance challenges:</strong>
+    <ul>
+      <li>Code that relies heavily on exceptions may be more challenging to maintain, especially when multiple developers are involved.</li>
+      <li>Changes to the code may inadvertently introduce new exception paths or alter the expected flow.</li>
+    </ul>
+  </li>
+  <li><strong>Resource management:</strong>
+    <ul>
+      <li>If exceptions are used to handle resource cleanup (e.g., closing files or connections), it may lead to resource leaks if not handled properly.</li>
+    </ul>
+  </li>
+  <li><strong>Lack of expressiveness:</strong>
+    <ul>
+      <li>Overuse of exceptions may result in code that lacks expressiveness, making it harder to convey the developer’s intent.</li>
+    </ul>
+  </li>
+  <li><strong>Testing difficulties:</strong>
+    <ul>
+      <li>Testing code that heavily relies on exceptions can be more complex, as both the expected and exceptional paths need to be thoroughly tested.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="when-to-use-an-exception">When to use an exception?</h2>
+
+<p>But when might it make sense to use an exception? There must be cases that can be considered as useful?</p>
+
+<ul>
+  <li>An exception <strong>SHOULD</strong> be used for <em>unexpected</em> and <em>unrecoverable</em> behavior that can’t be handled by the component.</li>
+  <li>Exceptions <strong>SHOULD</strong> mostly be used in the domain and by libraries and frameworks and in the infrastructure layer in applications.</li>
+  <li>An application <strong>SHOULD</strong> handle them in a graceful way (UX).</li>
+  <li>An exception <strong>MUST NOT</strong> be used to control program flow.</li>
+</ul>
+
+<p>For example throwing a <code class="language-plaintext highlighter-rouge">HttpNotFoundException()</code>`, that will be caught and transformed into a HTTP status 404 response is what I consider exception driven development. This is no exceptional nor an unrecoverable state the system went into. If a resource was not found, then this is a clear, possible and expected outcome of an operation. So why don’t you just return the correct state explicitly instead of relying on a mechanism that is abused for that?</p>
+
+<p>Some people argue about convenience and having to type more, both is simply not true, though it depends on how your concrete system works.</p>
+
+<p>Just return the correct response object if the record does not exist, e.g. is null.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Using a response object that represents a HTTP 404 response</span>
+<span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">ProductRepository</span><span class="o">-&gt;</span><span class="nf">getBySku</span><span class="p">(</span><span class="nv">$sku</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$roduct</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">NotFoundResponse</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Throwing an exception:</p>
+
+<ul>
+  <li>Catch it somewhere, like in a middleware or error handler, and turn it into a 404 response.</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Throwing the HttpNotFoundException manually</span>
+<span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">ProductRepository</span><span class="o">-&gt;</span><span class="nf">getBySku</span><span class="p">(</span><span class="nv">$sku</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$roduct</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nc">HttpNotFoundException</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you use an exception, like a RecordNotFoundException in the repository.</p>
+
+<ul>
+  <li>Catch it somewhere, like in a middleware or error handler, and turn it into a 404 response.</li>
+  <li>Or catch it manually, return a proper response object or throw a PageNotFoundException.</li>
+</ul>
+
+<p>⚠ This leaks persistence infrastructure knowledge into the application layer!</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ProductRepository class:</span>
+<span class="k">public</span> <span class="k">function</span> <span class="n">getBySku</span><span class="p">(</span><span class="kt">string</span> <span class="nv">$sku</span><span class="p">):</span> <span class="kt">Product</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$product</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nc">RecordNotFoundException</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Throws the RecordNotFoundException in the repository</span>
+<span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">ProductRepository</span><span class="o">-&gt;</span><span class="nf">getBySku</span><span class="p">(</span><span class="nv">$sku</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="example-exceptions-for-infrastructure">Example: Exceptions for infrastructure</h3>
+
+<p>Lets assume your DB has some trouble and your program can’t connect to it. Most drivers throw an exception in such a case. But why is it a valid case?</p>
+
+<p>The program can’t recover from this on its own, some interaction is very likely required. However, in this case, the user of the driver could probably do something about it by catching the exception, logging the issue, informing somebody about the outage and even trying to connect to a backup system.</p>
+
+<p>So we have a technically unrecoverable state of the application that can’t be resolved easily, but the execption still provides a way for an engineer to handle this case.</p>
+
+<h3 id="example-exceptions-in-the-domain-layer">Example: Exceptions in the domain layer</h3>
+
+<p>Another very valid case for using exceptions is within the domain layer. As we know the domains duty is to ensure the correctness of the business logic, by making sure that the state of a process is never invalid.</p>
+
+<p>Here is a <a href="https://en.wikipedia.org/wiki/Value_object">value object</a> that will throw an exception if the passed string value is not a valid email address. For those who don’t know what value object is, one of its purposes is to ensure exactly what we see here, the correctness of the data within the aggregate or business process. If the email is invalid, things can go really bad, e.g. a customer could not receive an invoice.</p>
+
+<p>The exception here will prevent an <em>unrecoverable</em> wrong state. You might think “Well, but I can update it?” but, because when the invoice was attempted to send to an invalid address, the problem already happened.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Email</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span>
+        <span class="kt">string</span> <span class="nv">$email</span>
+    <span class="p">)</span> <span class="p">{}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">fromString</span><span class="p">(</span><span class="kt">string</span> <span class="nv">$email</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">assertValidEmail</span><span class="p">(</span><span class="nv">$email</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">static</span><span class="p">(</span><span class="nv">$email</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cd">/**
+     * @throws \InvalidArgumentException
+     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="n">assertValidEmail</span><span class="p">(</span><span class="kt">string</span> <span class="nv">$email</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* Implementation of the check */</span> 
+        <span class="k">throw</span> <span class="k">new</span> <span class="nc">InvalidArgumentException</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span>
+            <span class="s1">'`%s` is not a valid email address.'</span><span class="p">,</span>
+            <span class="nv">$email</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="be-pragmatic">Be pragmatic</h2>
+
+<p>If your framework or library works with exceptions to implement certain things, I personally would probably not consider it as great but it is what it is. If the framework helps you to get your job done this is in my opinion an acceptable downside if you get a net win from it.</p>
+
+<p>But I would not recommend to intentionally go for exception based workflows.</p>
+
+  </div><a class="u-url" href="/programming/software-architecture/development/2023/05/10/exceptions.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Florian Krämer</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Florian Krämer</li><li><a class="u-email" href="mailto:contact@florian-kraemer.net">contact@florian-kraemer.net</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/floriankraemer"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">floriankraemer</span></a></li><li><a href="https://www.linkedin.com/in/fkr%C3%A4mer"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">fkrämer</span></a></li><li><a href="https://www.twitter.com/floriankraemer"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">floriankraemer</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>My personal website about me, software architecture, software development and technology in general.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

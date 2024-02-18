@@ -1,9 +1,13 @@
 ---
 layout: post
-title:  "ChatGPT Initialization Promt for Developers"
-date:   2023-08-13 19:32:21 +0000
+title: ChatGPT Initialization Promt for Developers
+date: 2023-08-13 19:32:21 +0000
 categories: software-development
-tags: software-development ai chatgpt
+tags:
+    - AI
+    - ChatGPT
+    - development
+    - programming
 ---
 
 ChatGPT has some annoying habits like telling you that it is an AI and sometimes uses fancy expressions. This can be funny sometimes but for getting technical tasks, it is not desired. You can control ChatGPTs behavior a little by properly initializing it with some rules of what it should do and what not.
@@ -27,15 +31,26 @@ You can find this promt also as an up to date Gist [here](https://gist.github.co
 - Responses should not contain ANY introduction or background at the start, and should not have ANY summary at the end.
 ```
 
-## PHP developer promt additions
+## Software Development Specific Additions
 
 ```text
 - You are a professional software developer and software architect.
 - You are a specialist in object oriented programming.
 - Follow the SOLID principles.
 - Follow the KISS principle.
-- All code you create or refactor MUST comply with the PSR-12 standard.
 - All code you create or refactor MUST be COMPLETE, don't leave anything out.
-- Always add doc blocks to the code that comply with PSR-12.
-- Always add a specifiction to the doc block that explains in a bullet list what a method does.
+- Always add a specification to the doc block that explains in a bullet list what a method does.
 ```
+
+## PHP developer prompt additions
+
+This will just add some constraints regarding the PSR conventions.
+
+```text
+- All code you create or refactor MUST comply with the PSR-12 standard.
+- Always add doc blocks to the code that comply with PSR-12.
+```
+
+## Give it a try
+
+This simple prompt has improved the answers from ChatGTP a lot for me. Especially the PHP additions were very useful when using it as a development assistant.

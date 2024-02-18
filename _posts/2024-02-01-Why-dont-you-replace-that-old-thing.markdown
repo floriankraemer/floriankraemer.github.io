@@ -25,6 +25,11 @@ Count the lines of your projects vendor folder, no matter if its Node packages o
 
 Why would you change a system that runs fine for 20-30 years with little effort?
 
+* Longevity and stability of a system may not be a sufficient reason to change.
+* Total Cost of Ownership (TCO) is a crucial factor in deciding to change or not.
+* TCO includes the entire life cycle cost of the application.
+* Justification for change often requires demonstrating increased business value, such as revenue generation or cost savings.
+
 If you have an old computer running with Windows 3.11 in an isolated environment to control some machine and it gets its job done, why would you change it? If there is a software, that was written back in the day for that system and it still works fine for your current days requirements, why would you change it?
 
 The so called "total cost of ownership" (TCO) of that system is just awesome if it still works. TCO means all the cost of the whole life cycle of the application. If it works and you don't have a very good reason to change (e.g. the new system will generate more revenue for some reason) you don't change it. The reality for a business is that it must justify "business value" for a change in a system.

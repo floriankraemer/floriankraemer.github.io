@@ -4,15 +4,21 @@ title: Imprint
 permalink: /imprint/
 ---
 
+Information according to § 5 TMG:
+
 Florian Krämer
 Reichensächser Straße 5
 Wehretal, 37287
 Germany
 
+Responsible for the content according ot §55 Abs. 2 RStV:
+
+Florian Krämer
+
 ### Contact
 
-- **Email:** contact@floriankraemer.net
+**Email:** contact@floriankraemer.net
 
-### VAT Identification Number:
+### VAT Identification Number
 
 Your VAT Identification Number

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Result objects vs simple return types
+title: Result Objects vs simple Return Types
 categories: software-architecture
 tags: software-architecture
 ---

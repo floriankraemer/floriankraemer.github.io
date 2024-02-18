@@ -2,6 +2,9 @@
 layout: post
 categories: software-architecture
 tags: software-architecture ddd
+title: "DDD: Application vs Domain Layer Services"
+date: 2023-02-01T13:48:25.000Z
+published: false
 ---
 
 ## Domain Layer Services

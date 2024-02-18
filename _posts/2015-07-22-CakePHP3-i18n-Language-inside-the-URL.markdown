@@ -16,6 +16,7 @@ Router::addUrlFilter(function ($params, $request) {
     } elseif (!isset($params['language'])) {
         $params['language'] = 'eng'; // set your default language here
     }
+
     return $params;
 });
 

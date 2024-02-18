@@ -5,8 +5,8 @@ tags:
     - DDD
     - software-architecture ddd
     - Spryker
-draft: true
 title: DDD in Spryker
+published: false
 ---
 
 # Tactical DDD in Spryker

@@ -1,8 +1,15 @@
 ---
 layout: post
 date: 2016-08-07 01:31:28 +0000
-tags: 
-    - cakephp
+tags:
+   - cakephp
+   - php
+   - development
+categories:
+   - CakePHP
+   - Development
+keywords: development
+title: Complex Rules in CakePHP3
 ---
 
 I had a pretty interesting task recently. We have profiles that must implement certain constraints depending on what kind of profile / product the client purchased. So a profile can have a specific number of languages depending on the constraints. This means we need to validate the number of languages an user has picked by a value from another database table that needs to be picked up somehow at runtime.
@@ -15,7 +22,7 @@ I had a pretty interesting task recently. We have profiles that must implement c
 
 When validation rules are applied the entity has not yet been marshalled, in other words, the entity has not yet really been constructed and processed, the data is still a simple array.
 
-So when you inspect the $context, the 2nd arg of a validation rule, you'll notice that the `data` key of the array just contains what you've passed, but **not** the whole entity!
+So when you inspect the `$context`, the 2nd arg of a validation rule, you'll notice that the `data` key of the array just contains what you've passed, but **not** the whole entity!
 
 ## Application rules will do it
 

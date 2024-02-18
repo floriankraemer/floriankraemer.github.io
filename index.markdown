@@ -4,3 +4,9 @@
 
 layout: home
 ---
+
+# Hey, I’m Florian Krämer
+
+I’ve been a web developer for 22 years. I like software architecture and programming!
+
+Check [the about page](/about) to learn more about me or enjoy one of my articles.

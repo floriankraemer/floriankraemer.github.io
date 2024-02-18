@@ -4,6 +4,7 @@ title: REST is not CRUD
 categories: software-architecture
 tags: software-architecture
 draft: true
+published: false
 comments: true
 ---
 
