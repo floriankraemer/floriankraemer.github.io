@@ -90,33 +90,34 @@ if ($passwordUpdate->hasFailed()) {
 $passwordUpdate->getUser();
 ```
 
+
 ## Simple Return Types
 
-* Simplicity:
+* **Simplicity:**
   * Advantage: Simple return types, such as primitive values or basic data structures, are easy to understand and use.
   * Use Case: Appropriate for straightforward operations where the result can be easily represented by a single value (e.g., a boolean, integer, string).
-* Readability:
+* **Readability:**
   * Advantage: The code is often more readable when the return type is straightforward and the intention is clear.
   * Use Case: Suitable for simple functions or methods where the result is unambiguous.
-* Reduced Overhead:
+* **Reduced Overhead:**
   * Advantage: Less overhead in terms of object creation and memory usage.
   * Use Case: Appropriate for scenarios where simplicity and minimal resource usage are essential.
 
 ## Result Objects
 
-* Semantic Clarity:
+* **Semantic Clarity:**
   * Advantage: Result objects provide a way to encapsulate not just the result but additional context or metadata about the operation.
   * Use Case: Useful when the operation can result in multiple outcomes, and it's important to communicate more than just the final value (e.g., success/failure, error details). 
-* Error Handling:
+* **Error Handling:**
   * Advantage: Result objects can include information about errors or exceptions, making it easier to handle and propagate errors in a standardized way.
   * Use Case: Beneficial when dealing with operations that may encounter errors, allowing for more robust error handling.
-* Extensibility:
+* **Extensibility:**
   * Advantage: Result objects can be extended to include additional information as needed, providing flexibility for future changes.
   * Use Case: Useful in scenarios where the result may evolve or require more context over time.
-* Consistency:
+* **Consistency:**
   * Advantage: Result objects enforce a consistent approach to handling results across the codebase.
   * Use Case: Suitable for projects where a standardized approach to result handling is desirable.
-* Testability:
+* **Testability:**
   * Advantage: Result objects can facilitate testing by encapsulating both the expected result and any additional information that needs to be verified.
   * Use Case: Valuable in test-driven development (TDD) and unit testing scenarios.
 

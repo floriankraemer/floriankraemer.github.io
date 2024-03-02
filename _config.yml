@@ -21,7 +21,7 @@
 destination: _site
 
 title: Florian Krämer
-email: contact@florian-kraemer.net
+email: fk@kreative-design.net
 description: >- # this means to ignore newlines until "baseurl:"
   My personal website about me, software architecture, software development and technology in general.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -30,13 +30,14 @@ twitter_username: floriankraemer
 github_username:  floriankraemer
 linkedin_username: fkrämer
 mastodon_username: floriankraemer
-
-show_excerpts: true
+disqus:
+    shortname: https://https-florian-kraemer-net.disqus.com
+show_excerpts: false
 
 # Build settings
 theme: minima
 plugins:
-  - jekyll-feed
+    - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.

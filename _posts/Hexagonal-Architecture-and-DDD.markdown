@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is Software Architecture?
+title: "Hexagonal architecture and DDD - not the same"
 categories: software-architecture
 tags: software-architecture
 draft: true

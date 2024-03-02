@@ -25,5 +25,5 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * SOLID, YAGNI - Concepts that create good code.
 * Frameworks are just tools, I'm not dogmatic about them.
 * While I'm proficient in PHP, I would love to work on c# and Java related projects as well.
-* Artifical intelligence 🤖, neural networks - super interesting.
+* Artificial intelligence 🤖, neural networks - super interesting.
 * I'm grateful to anyone who gave and will give me chance to grow. 🙇

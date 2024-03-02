@@ -4,6 +4,8 @@ layout: post
 categories: software-architecture
 tags: software-architecture
 comments: true
+draft: false
+published: false
 ---
 
 Recently , I read this statement and I do not think it is true.

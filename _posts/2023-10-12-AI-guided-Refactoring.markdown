@@ -6,11 +6,22 @@ categories: software-development
 tags: software-development ai chatgpt
 ---
 
-## Introduction
-
 With the rise of AI tools, especially ChatGTP it has become an interesting topic how and if AI can be used to write or refactor code. Here is a little experiment on how well ChatGPT can refactor code to make it easier to understand and therefore to maintain and reduce the cost.
 
-## Initializing ChatGPT
+Based on the fact that humans can only comprehend between three to seven variables at the same time I wrote some simple analyzer to get those metrics from a code base. I made ChatGTP write me a shell script to extract those metrics recursively from a given folder using the php parser library.
+
+Everything in this document was achieved within roughly one hour.
+
+```sh
++-------------------------------------------------------------------------------------------------------+---------------------------------------+----------------------
+| Class                                                              | Method                           | Arguments | Variables | if Statements | if-else Statements 
++-------------------------------------------------------------------------------------------------------+---------------------------------------+----------------------
+| Symfony\Bundle\FrameworkBundle\Console\Descriptor\TextDescriptor   | describeContainerService         | 3         | 4         | 2             | 1                  
+| Symfony\Bundle\FrameworkBundle\Console\Descriptor\TextDescriptor   | describeContainerServices        | 2         | 24        | 14            | 4                  
+| Symfony\Bundle\FrameworkBundle\Console\Descriptor\TextDescriptor   | describeContainerDefinition      | 3         | 26        | 13            | 6                  
+```
+
+## Initializing ChatGPT for refactoring
 
 Usually you initialize a ChatGPT conversation with a prompt that sets some constraints and information for it.
 
