@@ -179,7 +179,7 @@ The example table from the paper is almost good! There are just a few recommende
             2
         </td>
         <td>
-The system requests for the identification Of the library user requesting a loan.
+            The <b>system</b> requests for the identification Of the library user requesting a loan.
         </td>
     </tr>
         <tr>
@@ -187,7 +187,7 @@ The system requests for the identification Of the library user requesting a loan
             3
         </td>
         <td>
-Actor librarian provides identification data of the library user to the system.
+            Actor librarian provides identification data of the library user to the system.
         </td>
     </tr>
         <tr>
@@ -195,7 +195,7 @@ Actor librarian provides identification data of the library user to the system.
             4
         </td>
         <td>
-The system requests for the identification of the books to be loaned.
+            The system requests for the identification of the books to be loaned.
         </td>
     </tr>
         <tr>
@@ -203,7 +203,7 @@ The system requests for the identification of the books to be loaned.
             5
         </td>
         <td>
-Actor librarian provides identification data of the books to be loan to the system.
+            Actor librarian provides identification data of the books to be loan to the system.
         </td>
     </tr>
         <tr>
@@ -211,8 +211,7 @@ Actor librarian provides identification data of the books to be loan to the syst
             6
         </td>
         <td>
-The system displays the return date for each of the books to be loan and requests
-loan confirmation for each of them.
+            The system displays the return date for each of the books to be loan and requests loan confirmation for each of them.
         </td>
     </tr>
         <tr>
@@ -220,8 +219,7 @@ loan confirmation for each of them.
             7
         </td>
         <td>
-Actor library user confirms the librarian which books he or she wants to loan after
-knowing return dates.
+            Actor library user confirms the librarian which books he or she wants to loan after knowing return dates.
         </td>
     </tr>
         <tr>
@@ -229,8 +227,7 @@ knowing return dates.
             8
         </td>
         <td>
-Actor librarian re—conjirms the book loans confirmed by the library user to the
-system.
+            Actor librarian re—conjirms the book loans confirmed by the library user to the system.
         </td>
     </tr>
         <tr>
@@ -238,7 +235,7 @@ system.
             9
         </td>
         <td>
-The system informs that the book loans have been successfully registered.
+            The system informs that the book loans have been successfully registered.
         </td>
     </tr>
     <tr>
@@ -293,6 +290,6 @@ The system informs that the book loans have been successfully registered.
 
 ## Experience
 
-In my role as an architect in this company I had no power to introduce new workflows for the product managers, so the adoption of this proposed standard was voluntarily. However, in general the initiative was appreciated and the PMs started using it but not all wanted to play by the rules and considered the strictness as too time consuming and even dumbed down the table. The result for those PMs was lower quality and ambiguous tables and therefore limited value.
+In my role as an architect in this company I had no power to introduce new workflows for the product managers, so the adoption of this proposed standard was voluntarily. However, in general the initiative was appreciated and the PMs started using it but not all wanted to play by the rules and considered the strictness as too time consuming and even dumbed down the table. The result for those PMs was a less ambiguous and therefore less useful table.
 
 If you don't want to use the suggested rules in this article it is perfectly fine, but it is highly recommended to have a strict set of your own rules to remove ambiguity from the process. If applied correctly and people agree and follow the rules, this format can be a great utility to communicate use cases.

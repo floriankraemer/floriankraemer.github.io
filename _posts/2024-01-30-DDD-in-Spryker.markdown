@@ -5,11 +5,9 @@ tags:
     - DDD
     - software-architecture ddd
     - Spryker
-title: DDD in Spryker
+title: Tactical DDD in Spryker
 published: false
 ---
-
-# Tactical DDD in Spryker
 
 ## Introduction
 
@@ -18,7 +16,9 @@ This is a hypothesis on how the Spryker architecture could be improved by using 
 ## Status Quo
 
 * Sprykers modules very fine grained.
-* Sprykers current implementation doesn't draw a clear consistency boundary between the domain models.
+* Sprykers current implementation doesn't draw a clear consistency boundary between the domain models
+  * DB Schema is shared and pass domain boundaries
+  * Transfers are shared and pass domain boundaries
 
 ## Problem Statement
 
@@ -34,7 +34,7 @@ This is a hypothesis on how the Spryker architecture could be improved by using 
 It is very likely to determine what belongs together by analyzing the Git history and detect what modules were changed often together. There is a high probabitly that what changes often together actually should belong together.
 
 ```php
-class Wishlist extends AbstractAggregate-
+class Wishlist extends AbstractAggregate
 {
     public function __construct(
         protected WishlistAggregateTransfer $wishlistAggregateTransfer

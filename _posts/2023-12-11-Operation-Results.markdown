@@ -90,7 +90,6 @@ if ($passwordUpdate->hasFailed()) {
 $passwordUpdate->getUser();
 ```
 
-
 ## Simple Return Types
 
 * **Simplicity:**
