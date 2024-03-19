@@ -1,6 +1,6 @@
 ---
 layout: post
-title: On Validation and Anti Corruption Layers
+title: About Validation and Anti Corruption Layers
 categories: software-architecture
 tags: software-architecture
 draft: true

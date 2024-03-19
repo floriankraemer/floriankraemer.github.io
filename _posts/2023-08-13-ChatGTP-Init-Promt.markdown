@@ -12,7 +12,7 @@ tags:
 
 ChatGPT has some annoying habits like telling you that it is an AI and sometimes uses fancy expressions. This can be funny sometimes but for getting technical tasks, it is not desired. You can control ChatGPTs behavior a little by properly initializing it with some rules of what it should do and what not.
 
-You can find this promt also as an up to date Gist [here](https://gist.github.com/floriankraemer/b78c983cf904122586c37c192bdfeceb).
+You can find this prompt also as an up to date Gist [here](https://gist.github.com/floriankraemer/b78c983cf904122586c37c192bdfeceb).
 
 ## Generic prompt
 

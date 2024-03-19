@@ -12,9 +12,9 @@ comments: true
 
 During my work I faced the problem, that in the communication with product managers, there was often no unified format in which information was communicated.
 
-Yes, there are many other tools, like user flow diagrams, BPMN diagrams, and more. However, all of them require some training and express the intend mostly in a visual fashion. The problem with user stories is, they are not formalized and kind of hard to talk about. In my opinion use case tables are a good compromise between diagrams expressing just the flow and free style user stories.
+Yes, there are many other tools, like user flow diagrams, BPMN diagrams, and more. However, all of them require some training and express the intend mostly in a visual fashion. The problem with user stories is, they are not formalized and kind of hard to talk about, because they lack the necessary details to address a specific point without getting into explaining what exactly you mean. If you don't get what I'm trying to explain at this point, wait until you get to the use case tables. In my opinion use case tables are a good compromise between diagrams expressing just the flow and free style user stories. The advantage is that they are formalized and you can easily address a specific use case and step or exception, because everything is annotated with identifiers and structured in the same way.
 
-This article is mostly based on my experience with Use Cases and this very nice paper *[Empirical Evaluation and Review of a Metrics-Based Approach for Use Case Verification](https://www.researchgate.net/publication/220536177_Empirical_Evaluation_and_Review_of_a_Metrics-Based_Approach_for_Use_Case_Verification)* by Beatriz Bernárdez Amador, Durán Toro and Marcela Genero.
+This article is mostly based on my experience with use cases and this very nice paper *[Empirical Evaluation and Review of a Metrics-Based Approach for Use Case Verification](https://www.researchgate.net/publication/220536177_Empirical_Evaluation_and_Review_of_a_Metrics-Based_Approach_for_Use_Case_Verification)* by Beatriz Bernárdez Amador, Durán Toro and Marcela Genero.
 
 ## Example Use Case Table from the Paper
 
@@ -292,4 +292,6 @@ The example table from the paper is almost good! There are just a few recommende
 
 In my role as an architect in this company I had no power to introduce new workflows for the product managers, so the adoption of this proposed standard was voluntarily. However, in general the initiative was appreciated and the PMs started using it but not all wanted to play by the rules and considered the strictness as too time consuming and even dumbed down the table. The result for those PMs was a less ambiguous and therefore less useful table.
 
-If you don't want to use the suggested rules in this article it is perfectly fine, but it is highly recommended to have a strict set of your own rules to remove ambiguity from the process. If applied correctly and people agree and follow the rules, this format can be a great utility to communicate use cases.
+If you don't want to use the suggested rules in this article it is perfectly fine, but it is highly recommended to have a strict set of your own rules to remove ambiguity from the process. If applied correctly and people agree and follow the rules, this format can be a great utility to communicate use cases. 
+
+I would recommend you to give use case table definitions a try to see if you like them and if they improve the clarity of communication among different stakeholders. Let me know what your experience was!

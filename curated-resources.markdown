@@ -117,6 +117,7 @@ The framework listed here are explicitly not the well known big ones.
 
 * [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
 * [Conways's Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
+* [Pareto Principle](https://en.wikipedia.org/wiki/Pareto_principle) - The Pareto principle (also known as the 80/20 rule, the law of the vital few and the principle of factor sparsity states that for many outcomes, roughly 80% of consequences come from 20% of causes (the "vital few").
 
 ## People to follow on Twitter / X
 

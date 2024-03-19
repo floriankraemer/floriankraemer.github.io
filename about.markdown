@@ -10,7 +10,7 @@ Hey, I’m Florian Krämer.
 
 I’m a software developer and software architect. I started coding in 2000 and specialize in building web apps, primarily with PHP or whatever I can get my hands on, recently exploring Java and Spring.
 
-Email me at <a href="mailto:contact@floriankraemer.net">contact@floriankraemer.net<a/>.
+Email me at <a href="mailto:fk@kreative-design.net">contact@floriankraemer.net<a/>.
 
 Let's connect and explore how my skills and knowledge can contribute to the success of your projects.
 

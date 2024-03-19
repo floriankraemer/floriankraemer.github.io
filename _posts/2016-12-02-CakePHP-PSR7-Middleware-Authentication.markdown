@@ -1,6 +1,7 @@
 ---
 layout: post
 date: 2016-12-02 17:04:01 +0000
+title: "CakePHP3: A new PSR7 Middleware Authentication"
 tags: 
     - cakephp
 ---

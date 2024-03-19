@@ -28,8 +28,6 @@ https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
 > The key abstraction of information in REST is a resource. Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today's weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author's hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.
 
-
-
 > REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components.
 
 https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm

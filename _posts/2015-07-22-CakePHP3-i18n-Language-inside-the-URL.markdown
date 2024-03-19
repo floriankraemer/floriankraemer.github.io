@@ -1,6 +1,7 @@
 ---
 layout: post
 date: 2015-07-22 00:02:51 +0000
+title: "CakePHP3 i18n Language inside the URL"
 tags:
     - cakephp
 ---
