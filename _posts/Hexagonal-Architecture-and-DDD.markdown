@@ -17,6 +17,6 @@ Hexagonal architecture, also known as ports and adapters architecture, is a desi
 
 ## How does DDD fit into that?
 
-I personally do not consider the tactical aspect of DDD an architecture, it is just a pattern. In DDD, tactical patterns provide guidance on how to structure the domain model within a bounded context to effectively capture and represent the business domain. These patterns include Aggregate, Entity, Value Object, Repository, and more.
+I personally do not consider the tactical aspect of DDD an architecture, it is just a "tactical" pattern. In DDD, tactical patterns provide guidance on how to structure the domain model within **a bounded context** to effectively capture and represent the business domain. These patterns include Aggregate, Entity, Value Object, Repository, and more. In what bigger picture you apply those patterns is up to you, it doesn't has to be a hexagonal architecture.
 
 ![DDD in the Hexagonal Architecture Diagram](/assets/diagrams/DDD-Hexagonal-Architecture.svg)

@@ -32,6 +32,9 @@ if (name.isPresent()) {
 
 Limitations in PHP: Lack of generics.
 
+```php
+```
+
 ## When to use which?
 
 Use Result Object When:
@@ -49,6 +52,10 @@ Use Optional When:
 * You want to encourage a more functional programming style.
 
 Use Optional when you want to represent the absence of a value more explicitly and avoid dealing with null directly.
+
+When to not use any of both:
+
+* Your return value is unambigious, e.g. a boolean or an int.
 
 ## Conclusion
 

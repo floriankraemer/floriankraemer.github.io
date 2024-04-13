@@ -8,7 +8,7 @@ published: true
 comments: true
 ---
 
-There is a surprisingly large number of people, at least in the PHP world, who haven't seemingly heard of or thought about when and where to put constraints in their program. Often there are DB entities that are sharing the validation with the input validation and have no clear boundary.
+There is a surprisingly large number of people, at least in the PHP world, who haven't seemingly heard of or thought about when and where to put constraints on their program. Often there are DB entities that are sharing the validation with the input validation and have no clear boundary.
 
 You can think of the roles in this way:
 
@@ -18,21 +18,21 @@ You can think of the roles in this way:
 
 Recap: Anti Corruption Layer:
 
-> In Domain-Driven Design (DDD), an Anti-Corruption Layer (ACL) is a design pattern that acts as a boundary between different subsystems or bounded contexts, preventing the direct communication and potential corruption of their respective models. 
+> In Domain-Driven Design (DDD), an Anti-Corruption Layer (ACL) is a design pattern that acts as a boundary between different subsystems or bounded contexts, preventing the direct communication and potential corruption of their respective models.
 >
 > The primary purpose of an Anti-Corruption Layer is to translate and adapt data and interactions between different contexts, ensuring that each subsystem can operate independently with its own internal language and model. This layer serves as a protective barrier, allowing changes in one subsystem to occur without causing unintended consequences or inconsistencies in the other. It typically involves a set of mapping and transformation mechanisms to facilitate communication and maintain consistency between different contexts within a complex software system.
 
-Therefore a "deeper" layer should not validate data that is outside of its scope.
+Therefore, a "deeper" layer should not validate data that is outside its scope.!
 
-![Validation through the Layers Diagram](/assets/images/validation-through-the-layers.png){: .align-center}
+[Validation through the Layers Diagram](/assets/images/validation-through-the-layers.png){:.align-center}
 
-If the input was already wrong because the bouncer didn't do it's job and is passed into the domain, "the guardian" has to deal with possible violations of the trespasser. While things could be already wrong, because the guardian slept, the persistence layer is kind of a last line of defense to prevent at least inconsistencies in the data, that can be avoided by using constraints. It won't catch a wrong calculation but it can ensure that all required data is at least present.
+If the input was already wrong because the bouncer didn't do its job and is passed into the domain, "the guardian" has to deal with possible violations of the trespasser. While things could already be wrong, because the guardian slept, the persistence layer is kind of a last line of defense to prevent at least inconsistencies in the data, that can be avoided by using constraints. It won't catch a wrong calculation Validation, but it can ensure that all required data is at least present.
 
-Lets go over each layer and its responsibilities:
+Let's go over each layer and its responsibilities:
 
 ## Input Validation
 
-This is where you usually want to fail gracefully and early, to inform the client of the system about that their input is not acceptable and provide reasons why.
+This is where you usually want to fail gracefully and early, to inform the client of the system about their input is not acceptable and provide reasons why.
 
 The input can come from very diverse and different channels, in different formats, but can lead to the same outcome. Imagine an operation can be performed via CLI input, HTTP request and via an event, each of them accepts slightly different input notation, e.g. one uses camel cased, the other one snake cased and the third one is using even different field names. But why would that happen? In larger systems that grew over time, it is not uncommon that the different input channels evolved differently over time or that they have a little different requirements.
 
@@ -57,7 +57,7 @@ You can't verify all business rules within the frontend. OK, you could check tha
 
 ## Protection of Data Integrity
 
-In the infrastructure layer the primary concern, at least for DB systems, should be to ensure integrity. This is can be implemented by using schemas and constraints on the schema, if the DB system supports it. But it is the DB system that will enforce this and it will very likely lead in the most cases to exceptions in your applications. I've seen cases in which people caught such exceptions an delegated the messages to the output the user sees, as a kind of validation. This is very problematic, because you bypass your domain to ensure the correctness of your data and rely on the infrastructure. If the infrastructure changes or has a bug, your whole "validation" is gone.
+In the infrastructure layer the primary concern, at least for DB systems, should be to ensure integrity. This is can be implemented by using schemas and constraints on the schema, if the DB system supports it. But it is the DB system that will enforce this and it will very likely lead in the most cases to exceptions in your applications. I've seen cases in which people caught such exceptions and delegated the messages to the output the user sees, as a kind of validation. This is very problematic, because you bypass your domain to ensure the correctness of your data and rely on the infrastructure. If the infrastructure changes or has a bug, your whole "validation" is gone.
 
 Your input validation might match some of the DB constraints, e.g. checking that an email is unique for a new account, this is however no duplication, because each layer serves a very different purpose.
 
