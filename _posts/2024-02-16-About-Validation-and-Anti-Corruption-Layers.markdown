@@ -22,9 +22,9 @@ Recap: Anti Corruption Layer:
 >
 > The primary purpose of an Anti-Corruption Layer is to translate and adapt data and interactions between different contexts, ensuring that each subsystem can operate independently with its own internal language and model. This layer serves as a protective barrier, allowing changes in one subsystem to occur without causing unintended consequences or inconsistencies in the other. It typically involves a set of mapping and transformation mechanisms to facilitate communication and maintain consistency between different contexts within a complex software system.
 
-Therefore, a "deeper" layer should not validate data that is outside its scope.!
+Therefore, a "deeper" layer should not validate data that is outside its scope!
 
-[Validation through the Layers Diagram](/assets/images/validation-through-the-layers.png){:.align-center}
+![Validation through the Layers Diagram](/assets/images/validation-through-the-layers.png){: .align-center}
 
 If the input was already wrong because the bouncer didn't do its job and is passed into the domain, "the guardian" has to deal with possible violations of the trespasser. While things could already be wrong, because the guardian slept, the persistence layer is kind of a last line of defense to prevent at least inconsistencies in the data, that can be avoided by using constraints. It won't catch a wrong calculation Validation, but it can ensure that all required data is at least present.
 
