@@ -6,7 +6,6 @@ tags: software-architecture
 draft: false
 published: true
 comments: true
-
 ---
 
 This article tries to address an observation I've made, that there are many articles, at least in the PHP world, that claim to be DDD, but that most of those articles actually miss 85% or more of what DDD really is: the modeling process. The code part that most articles talk about is the implementation of a long process that happened before, and it is never mentioned in those articles.
@@ -70,10 +69,4 @@ The inconvenient truth is that you won't do nor learn the essence of DDD by just
 
 If you really want to get into it I recommend you to read those books. Especially the blue book is not an easy read and most people never read the whole book.
 
-<div style="display:flex; justify-content:center;">
-
-    [![Validation through the Layers Diagram](/assets/images/books/ddd-distilled.jpg)](https://www.amazon.de/-/en/dp/0134434420)
-    [![Implementing Domain-Driven Design](/assets/images/books/implementing-ddd.jpg)](https://www.amazon.de/-/en/dp/0321834577)
-    [![Domain-Driven Design: Tackling Complexity in the Heart of Software](/assets/images/books/ddd-eric-evans.jpg)](https://www.amazon.de/-/en/dp/0321125215)
-
-</div>
+[![Validation through the Layers Diagram](/assets/images/books/ddd-distilled.jpg)](https://www.amazon.de/-/en/dp/0134434420){: .center-image } [![Implementing Domain-Driven Design](/assets/images/books/implementing-ddd.jpg)](https://www.amazon.de/-/en/dp/0321834577){: .center-image } [![Domain-Driven Design: Tackling Complexity in the Heart of Software](/assets/images/books/ddd-eric-evans.jpg)](https://www.amazon.de/-/en/dp/0321125215){: .center-image }
