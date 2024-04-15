@@ -26,7 +26,10 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * Artificial intelligence 🤖, neural networks - super interesting.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
 
-<!-- 
+<!--
+
+## My experience & how I work
+
 I have experience with backend and frontend development, more on the backend side. I’m familiar with the **SOLID principles**, **YAGNI** and **KISS**. I also have experience with risk analysis, quality attributes, service level agreements and architecture documentation.
 
 One of my strengths is the analysis of business processes and to plan the software architecture accordingly. Understanding business is, in my opinion, the key to a successful product architecture. For that reason, I practice **domain driven design** - pragmatic, not dogmatic - and I think it is the best methodology to capture a holistic understanding of the business domain and to translate it into efficient software. I’m also interested in microservices, even **driven systems** and **distributed systems**, not just on a professional level but also in private.
@@ -40,4 +43,41 @@ But I don’t see only technology as part of my work and the processing, but als
 During my career, I also planned and introduced a CI/CD process, I implemented a security incident handling process within a department in cooperation with the security team to ensure that our processing complied with SOC2 and ISO 27001. To measure performance metrics of the product, I selected a tool and created a process that, as a part of the release process, verifies the quality of performance of the product. Together with the product owners, I’ve created service level objectives for this initiative.
 
 I’m pro-active and try to see problems before they escape and plan accordingly. I  like to communicate with the stakeholders in a project.
+
+## Achievements in my career
+
+### Freelancer
+
+#### 
+
+My first bigger project was the complete process of gathering requirements, defining the technology and finding solutions for a mid-sized business repairing motor spindles. The repair process required a complete documentation from the beginning to the end of the process that included a photo documentation of certain steps and to generate a 27 page PDF report at the end.
+
+### PSA Publishers Ltd: World Architects
+
+#### 
+
+* Introduced a CI/CD process and a branching strategy.
+* Upgraded the application over 2 major releases of the framework.
+* Planned a CRM system.
+
+#### Microservices
+
+Planned a refactoring of the application into microservices. Why microservices? Usually microservices are used to distribute work and responsibility between teams and to create separately maintainable domains.
+
+World architects suffered from the problem that we never had enough people for all the work to be done and the constant updates of libraries and the framework caused additional work. The reason to choose microservices here was simply to extract certain functionality from the monolith, mostly infrastructure related concerns, from the core application and to implement them once and to no have the need to maintain them more then necessary because they would not be accessible from the outside, so we could focus on our domain instead.
+
+### Spryker Systems GmbH
+
+#### Authentication & Authorzation Abstraction
+
+After my probation time my first task was to design an abstract authentication and authorization system that will work across all layers in Sprykers architecture.
+
+#### Unified Commerce Architecture
+
+#### Warehouse Management Architecture
+
+#### Defining a Security Incident Process
+
+#### Defining a performance Process
+
 -->
