@@ -1,13 +1,16 @@
 ---
 layout: post
-title: "Hexagonal architecture and DDD - not the same"
+title: "Hexagonal architecture and DDD are not the same"
 categories: software-architecture
-tags: software-architecture
+tags: 
+    - software-architecture
+    - DDD
+    - hexagonal-architecture
+    - decoupling
 draft: false
 published: true
 comments: true
 ---
-
 
 ## Recap: Hexagonal Architecture
 
@@ -19,4 +22,25 @@ Hexagonal architecture, also known as ports and adapters architecture, is a desi
 
 I personally do not consider the tactical aspect of DDD an architecture, it is just a "tactical" pattern. In DDD, tactical patterns provide guidance on how to structure the domain model within **a bounded context** to effectively capture and represent the business domain. These patterns include Aggregate, Entity, Value Object, Repository, and more. In what bigger picture you apply those patterns is up to you, it doesn't has to be a hexagonal architecture.
 
+The diagram is probably a lot more expressive than any tex:
+
 ![DDD in the Hexagonal Architecture Diagram](/assets/diagrams/DDD-Hexagonal-Architecture.svg)
+
+## So what should go into which layer?
+
+| Domain Layer | Application Layer | Infrastructure Layer | Interface Layer (Optional) |
+|--------------|-------------------|----------------------|----------------------------|
+| - Entities (Core domain objects) | - Application Services / Use Cases | - ORM Configurations | - Controllers (for Web APIs or MVC) |
+| - Value Objects | - Command and Query Objects | - Database Migrations | - View Models |
+| - Aggregates | - DTOs (Data Transfer Objects) | - External Service Integrations | - Views (for web applications) |
+| - Domain Events | - Mappers/Assemblers (Domain <-> DTO) | - Messaging Systems (e.g., Message Queues) | - API Resources/Presenters |
+| - Domain Services | - Input Validation | - Caching Mechanisms | - Request/Response Formatters |
+| - Repository Interfaces | - Application-specific Exceptions | - Logging and Monitoring | - Authentication Middleware |
+| - Domain Exceptions | - Event Handlers (for Domain Events) | - Security Implementations | - Route Definitions |
+| - Specification Objects | - Facades (if needed to simplify complex subsystems) | - File System Operations | - User Interface Components |
+| - Domain-specific Interfaces | - Mediator (for CQRS implementations) | - Email Services | |
+| - Enumeration Classes | | - Repository Implementations | |
+| | | - Infrastructure-specific Exceptions | |
+| | | - Third-party Library Wrappers | |
+| | | - Configuration Management | |
+| | | - Dependency Injection Container Configuration | |

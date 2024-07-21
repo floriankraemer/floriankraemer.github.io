@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Problem Details for HTTP APIs
+title: 'Problem Details for HTTP APIs: RFC 9475'
 categories: software-architecture
 tags:
   - API
@@ -8,12 +8,14 @@ tags:
   - REST
   - software-architecture
   - RFC
-date: 2024-03-15T21:45:00.000Z
+date: 2024-06-18T21:45:00.000Z
 ---
 
 If you designed APIs before, you probably have had the problem as well, to define how an error response should look like. Usually some HTTP Status codes are defined for certain outcomes and when it comes to the response body you have to get creative.
 
 There is now a more or less new RFC targeting API responses: [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html). It was published in July 2023 and I just found it recently and wrote [a PHP implementation](https://github.com/Phauthentic/error-response) of a proper response object for it.
+
+**Request**:
 
 ```text
 POST /purchase HTTP/1.1
@@ -26,6 +28,8 @@ Accept: application/json, application/problem+json
   "quantity": 2
 }
 ```
+
+**Response:**
 
 ```text
 HTTP/1.1 403 Forbidden
@@ -43,7 +47,7 @@ Content-Language: en
 }
 ```
 
-Example of multiple errors of the same type:
+**Example of multiple errors of the same type:**
 
 ```text
 HTTP/1.1 422 Unprocessable Content
@@ -83,3 +87,9 @@ The rationale behind it is, that if the request goes through some proxies or loa
 So, why would you use the RFC?
 
 * Its kind of a standard
+
+## How does this play well with JSend API or JSON API?
+
+TL;DR: This is up to you.
+
+I personally try to be not dogmatic, so you could come up with your own convention that says, that whenever your application returns an error it will be of *content type* `application/problem+json`. Your API consumer has to check only the content type header for that type. Therefore you can even integrate it backward compatible and start with some endpoints and slowly migrate.
