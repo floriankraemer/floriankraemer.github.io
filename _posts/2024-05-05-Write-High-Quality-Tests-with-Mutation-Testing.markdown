@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Write high quality tests with Mutation Testing
+title: Write high-quality tests with Mutation Testing
 categories: software-architecture
 tags:
     - software-architecture
@@ -20,18 +20,18 @@ Executing the code is not enough:
 
 * We need to check the functional behavior.
 * Does a piece of code actually do what we want?
-* Automated oracles can be spec, model
+* Automated oracles can be spec, model, etc.
 * Else, manual oracles have to be defined
 
-If you think that 100% code coverage will make your tests good, then you are wrong; It says nothing about tests accuracy or use-cases completeness, and that’s why mutation testing actually matters. You can easily achieve 100% coverage but still having bad quality tests. Mutation testing will very likely improve your tests even if you have 100% coverage by discovering missed cases.
+If you think that 100% code coverage will make your tests good, then you are wrong; it says nothing about test accuracy or use-case completeness, and that’s why mutation testing actually matters. You can easily achieve 100% coverage but still have low-quality tests. Mutation testing will very likely improve your tests even if you have 100% coverage by discovering missed cases.
 
 ![Mutation Testing Illustration](/assets/images/illustrations/mutation-testing.png){: .align-center}
 
 ## Mutation Testing Libraries
 
-* **PHP:** For PHP there is just one libraries available [Infection](https://github.com/infection/infection). There is also [Humbug](https://github.com/humbug/humbug) but it is discontinued and refers to Infection.
+* **PHP:** For PHP, there is just one library available: [Infection](https://github.com/infection/infection). There is also [Humbug](https://github.com/humbug/humbug) but it is discontinued and refers to Infection.
 * **Java:** [PIT](https://pitest.org/) seems to be the gold standard for mutation testing in Java. [Here](https://www.baeldung.com/java-mutation-testing-with-pitest) is a short tutorial.
-* **C#, JS & Scala**: [Stryker Mutator](https://stryker-mutator.io/) supports three languages.
+* **C#, JS & Scala**: [Stryker Mutator](https://stryker-mutator.io/) supports these languages.
 
 ## Benefits of Mutation Testing
 
@@ -51,9 +51,9 @@ Mutation testing fosters a culture of continuous improvement by providing action
 
 ## Mutation Categories
 
-### Fist Order Mutations
+### First-Order Mutations
 
-First-order mutations involve **simple, localized changes** to the source code. These mutations typically include altering arithmetic operations, changing variable values, or modifying conditional statements. First-order mutations aim to simulate common programming errors or typos that developers might make.Example of first-order mutation:
+First-order mutations involve **simple, localized changes** to the source code. These mutations typically include altering arithmetic operations, changing variable values, or modifying conditional statements. First-order mutations aim to simulate common programming errors or typos that developers might make. Example of a first-order mutation:
 
 ```php
 // Original code
@@ -67,9 +67,9 @@ In this example, the mutation involves changing the addition operation to subtra
 
 **First order mutations are easy to detect and kill.**
 
-### Higher Order Mutations
+### Higher-Order Mutations
 
- Higher-order mutations are **more complex and involve changes that affect multiple parts** of the codebase or introduce structural modifications. These mutations aim to simulate more advanced programming mistakes or logic errors that may be harder to detect. Higher-order mutations often involve changes across different methods, classes, or even modules.Example of higher-order mutation:
+Higher-order mutations are **more complex and involve changes that affect multiple parts** of the codebase or introduce structural modifications. These mutations aim to simulate more advanced programming mistakes or logic errors that may be harder to detect. Higher-order mutations often involve changes across different methods, classes, or even modules. Example of a higher-order mutation:
 
 ---
 
@@ -99,9 +99,9 @@ if ($arr[$j] >= $arr[$j + 1]) { // Mutation: Changed '>' to '>='
 
 ## Interpretation of the test results
 
-Interpreting the results of mutation testing requires a keen eye and a discerning mindset. When analyzing the outcome of mutation testing, it's essential to pay attention to two key metrics: **mutation score** and **mutation detection rate**. The mutation score indicates the percentage of mutations that were successfully detected by the test suite, with a higher score suggesting better test coverage and robustness.
+Interpreting the results of mutation testing requires a keen eye and a discerning mindset. When analyzing the outcome of mutation testing, it's essential to pay attention to two key metrics: mutation score and mutation detection rate. The mutation score indicates the percentage of mutations that were successfully detected by the test suite, with a higher score suggesting better test coverage and robustness.
 
-However, a high mutation score alone **may not** necessarily imply flawless testing; it's equally crucial to examine the mutation detection rate, which highlights the proportion of mutants that were correctly identified as faulty. By scrutinizing these metrics in tandem, developers can gain insights into the effectiveness of their test suite and identify areas for improvement, ultimately striving towards the creation of more resilient and dependable software applications.
+However, a high mutation score alone may not necessarily imply flawless testing; it's equally crucial to examine the mutation detection rate, which highlights the proportion of mutants that were correctly identified as faulty. By scrutinizing these metrics in tandem, developers can gain insights into the effectiveness of their test suite and identify areas for improvement, ultimately striving towards the creation of more resilient and dependable software applications.
 
 Running this ```bin/infection``` will generate:
 
@@ -178,6 +178,7 @@ Check out the example repository if you want to see it in action. You can simply
 
 ```text
 git clone git@github.com:floriankraemer/mutation-testing-example.git
+cd mutation-testing-example
 composer install
 bin/infection
 ```
