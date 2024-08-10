@@ -5,7 +5,7 @@ categories: software-architecture
 tags:
   - home-office
   - work
-date: 2024-07-01T18:16:11.000Z
+date: 2024-08-14T18:16:11.000Z
 draft: false
 published: true
 comments: true

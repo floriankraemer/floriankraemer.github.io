@@ -7,6 +7,9 @@ tags:
   - software-architecture
   - open-source
 date: 2024-07-25T21:15:00.000Z
+draft: false
+published: true
+comments: true
 ---
 
 ## The Library
@@ -54,7 +57,6 @@ Event Sourcing will be a good architecture pattern for your application if you h
 * **Integration with Other Systems**
   * **Integration:** Events can be published to other systems or services, enabling easy integration with other parts of your application or external systems.
   * **Asynchronous Processing:** Events can be processed asynchronously, allowing for scalable and decoupled architectures.
-
 
 ## When to not use it
 

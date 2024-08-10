@@ -187,7 +187,7 @@ bin/infection
 
 Mutation testing is about making your test better. By challenging your tests with mutations, you can uncover weaknesses and fine-tune your test suite, ensuring your code is ready to tackle whatever comes its way. So, embrace mutation testing as your trusty sidekick in the quest for software reliability and resilience!
 
-# References
+## References
 
 * [The Oracle Problem in Software Testing: A Survey](https://ieeexplore.ieee.org/document/6963470)
 [2] https://www.st.cs.uni-saarland.de/edu/testingdebugging10/slides/10-MutationTesting.pdf

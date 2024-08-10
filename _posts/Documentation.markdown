@@ -2,16 +2,15 @@
 
 
 | Role           | Architecture | Developer | Testing | End User |
-|----------------|----------|----------|----------|----------|
-| Architects     |          |          |          |          |
-| Developers     |          |          |          |          |
-| End Users      |          |          |          |          |
-| Tech Leads     |          |          |          |          |
-| Management     |          |          |          |          |
-| Product Owners |          |          |          |          |
-| Testers        |          |          |          |          |
-| Operations     |          |          |          |          |
-
+|----------------|--------------|-----------|---------|----------|
+| Architects     | Yes          | No        | Yes     | No       |
+| Developers     | Yes          | Yes       | Yes     | No       |
+| End Users      | No           | No        | No      | Yes      |
+| Tech Leads     | Yes          | Yes       | Yes     | No       |
+| Management     | Yes          | No        | Yes     | Yes      |
+| Product Owners | Yes          | No        | Yes     | Yes      |
+| Testers        | Yes          | Yes       | Yes     | No       |
+| Operations     | Yes          | Yes       | Yes     | No       |
 
 ## Types of Documentation
 
