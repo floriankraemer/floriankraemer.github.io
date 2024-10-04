@@ -14,11 +14,23 @@ comments: true
 
 Programming is both a technical and cognitive task. While technical skills and knowledge are essential, cognitive abilities play a critical role in how effectively a developer can write, read, and understand code. Understanding the limits of human cognitive capacities can help software architects and developers design code that is more readable, maintainable, and less error-prone.
 
+### Complex vs Complicated
+
+To be able to differentiate between complex and complicated code lets define what the difference actually is:
+
+**Complex** refers to something with many interconnected parts, which may or may not be difficult to understand. A system can be complex but still function smoothly if its elements interact harmoniously. For example, the human body is complex, with various systems working together in intricate ways.
+
+**Complicated** means something is difficult to understand or deal with due to its intricacy or convoluted nature. It often implies unnecessary difficulty or confusion. A tax form with unclear instructions might be described as complicated.
+
+Therefore, cognitive complexity means the degree to which a piece of code or a system challenges the mental effort required to understand it, focusing on how the code's structure, interdependencies, and flow affect comprehension, without necessarily being complicated or convoluted.
+
 ## The Cognitive Load in Programming
 
 Cognitive load refers to the mental effort required to process information. In programming, cognitive load is influenced by factors like code complexity, the number of concepts a developer must keep in mind, and how well these concepts are organized. Human cognitive capacity, particularly working memory, is finite, typically handling around 4 to 7 discrete items at a time. This limitation is crucial in programming, where maintaining a mental model of code structure, logic flow, and variables is necessary.
 
-## Impact on Code Readability and Understandability
+## The Impact of Code Readability and Understandability
+
+## The Impact on the Developers
 
 Complex code structures, such as deeply nested loops or convoluted logic, exceed the typical capacity of working memory. When developers cannot easily grasp the entirety of a code block, they are more prone to errors and misunderstandings. This underscores the importance of breaking down complex functions into smaller, manageable units.
 
@@ -26,22 +38,44 @@ Complex code structures, such as deeply nested loops or convoluted logic, exceed
 * **Chunking and Modularity:** Chunking is a cognitive strategy where individuals group information into larger, more manageable units. In programming, this is analogous to modular design—breaking down a system into discrete, self-contained modules. This approach aligns with the brain’s natural tendency to chunk information, making the code easier to understand and maintain.
 * **Consistent Patterns:** Human brains are wired to recognize patterns. Consistent coding patterns and styles reduce the cognitive load because developers can predict how code is likely to behave. Inconsistent coding styles force developers to expend more cognitive resources to understand the deviations.
 
+### The impact on the Business
+
+> “Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. ...[Therefore,] making it easy to read makes it easier to write.”
+
+ — Robert C. Martin, Clean Code: A Handbook of Agile Software Craftsmanship
+
+Because we not only write code for fun at work, being more efficient in understanding the code means also reduced costs for the business. If we consider that we read code 10 times more often than that we write code, it should be a natural conclusion that it is in the best interest of the business to reduce the time it takes to read and understand code.
+
 ## Measuring Cognitive Load in Code
 
 Measuring the cognitive load imposed by code is challenging but possible. Metrics like cyclomatic complexity (which measures the number of linearly independent paths through a program's source code) provide a proxy for cognitive complexity. Tools like Halstead complexity measures also give insights into the mental effort required to read and understand code. These metrics can guide developers in refactoring code to be more comprehensible.
 
-## My PHP Cognitive Code Analysis Tool
+### Metrics used in the Calculation to measure Cognitive Complexity
 
-Base on this I've written a cognitive code analyzer: [Cognitive Code Analysis](https://github.com/Phauthentic/cognitive-code-analysis).  It gathers these metrics and calculates a cognitive score from it.
+* **Line Count** - Measures the size of the method in terms of lines of code, which can indicate complexity and readability.
+* **Argument Count** - High argument counts can suggest a method is doing too much or is overly dependent on external inputs, signaling a need for refactoring.
+* **Return Count** - Multiple return points can complicate a method's flow, making it harder to follow and maintain, often indicating a need for refactoring.
+* **Variable Count** - A high variable count suggests a method is doing too much or is overly complex, helping ensure methods remain simple and focused.
+* **Property Call Count** - Frequent property accesses may indicate high coupling to an object's internal state, complicating testing and maintenance.
+* **If Nesting Level** - Deeply nested if statements are harder to follow and may indicate a need for refactoring into smaller, manageable pieces.
+* **Else Count** - A high else count can suggest complex or tightly coupled branching logic, making code more difficult to understand.
+If Count - A high if count can increase branching logic complexity, making the code harder to understand and maintain.
 
-* Line Count
-* Method Argument Count
-* Return Statement Count
-* Variable Count
-* Property Call Count
-* If Count
-* If Nesting Level
-* Else Count
+## My Cognitive Code Analysis Tools
+
+### For PHP
+
+Base on this I've written a cognitive code analyzer: [Cognitive Code Analysis](https://github.com/Phauthentic/cognitive-code-analysis). It gathers these metrics and calculates a cognitive score from it.
+
+You can install it via Composer by running:
+
+```shell
+composer require phauthentic/cognitive-code-analysis
+```
+
+### For Java
+
+Writing [the same tool for Java](https://github.com/floriankraemer/cognitive-code-analysis-java), which I just started to get deeper into, is a fun task. It already works but I'll continue to improve it until it matches the quality of the PHP tool, so consider it as work in progress and there is no build yet.
 
 ### Score Calculation
 
@@ -51,9 +85,13 @@ Given a value of 75 that is greater than the threshold of 50, the function calcu
 
 ### Result Interpretation
 
-Interpreting the results of code complexity metrics like cognitive complexity, cyclomatic complexity, and other traditional measures requires understanding what each metric tells you about the code and how to use that information effectively.
+Interpreting the results of any code metrics like cognitive complexity, cyclomatic complexity, efferent and afferent dependencies and other traditional measures requires understanding what each metric tells you about the code and how to use that information effectively. Each of those metrics are indicators but not absolute truths.
 
-Also consider that something that you perceive as easy or understandable might not be the same for someone else.
+There are cases in which the code simply ends up with a lot of things that might result in a bad score but are necessary and acceptable under certain circumstances. For example a complex calculation or a complex algorithm might have plenty of variables and input arguments. If the problem can't be divided (if it can you really should!) into smaller logical units (methods), the score for that method will inevitably be high.
+
+* **Bias** - When it comes to cognition, consider that something that you perceive as easy or understandable, might not be the same for someone else. Especially if you wrote the code.
+* **Constructors** - Constructors are often more complex than other methods because they have to initialize the object's state. This can lead to higher cognitive complexity scores, which may be acceptable in some cases.
+* **Data Structure Building** - Methods that build complex data structures or perform complex calculations that involve a large number of (input) variables, may have higher cognitive complexity scores. Typical examples here are methods like `fromArray()` or `toArray()`, mapping functions, that map between entities or JSON and XML generating code. This is often unavoidable and may be acceptable if the complexity is necessary for the task at hand. In this case it is recommended to ignore those methods. My tool provides a configuration for that.
 
 ### Examples
 

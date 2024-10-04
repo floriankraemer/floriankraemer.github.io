@@ -3,10 +3,10 @@ layout: post
 title: "Hexagonal architecture and DDD are not the same"
 categories: software-architecture
 tags: 
-    - software-architecture
-    - DDD
-    - hexagonal-architecture
-    - decoupling
+    software-architecture
+    DDD
+    hexagonal-architecture
+    decoupling
 draft: false
 published: true
 comments: true
@@ -28,19 +28,20 @@ The diagram is probably a lot more expressive than any tex:
 
 ## So what should go into which layer?
 
+
 | Domain Layer | Application Layer | Infrastructure Layer | Interface Layer (Optional) |
 |--------------|-------------------|----------------------|----------------------------|
-| - Entities (Core domain objects) | - Application Services / Use Cases | - ORM Configurations | - Controllers (for Web APIs or MVC) |
-| - Value Objects | - Command and Query Objects | - Database Migrations | - View Models |
-| - Aggregates | - DTOs (Data Transfer Objects) | - External Service Integrations | - Views (for web applications) |
-| - Domain Events | - Mappers/Assemblers (Domain <-> DTO) | - Messaging Systems (e.g., Message Queues) | - API Resources/Presenters |
-| - Domain Services | - Input Validation | - Caching Mechanisms | - Request/Response Formatters |
-| - Repository Interfaces | - Application-specific Exceptions | - Logging and Monitoring | - Authentication Middleware |
-| - Domain Exceptions | - Event Handlers (for Domain Events) | - Security Implementations | - Route Definitions |
-| - Specification Objects | - Facades (if needed to simplify complex subsystems) | - File System Operations | - User Interface Components |
-| - Domain-specific Interfaces | - Mediator (for CQRS implementations) | - Email Services | |
-| - Enumeration Classes | | - Repository Implementations | |
-| | | - Infrastructure-specific Exceptions | |
-| | | - Third-party Library Wrappers | |
-| | | - Configuration Management | |
-| | | - Dependency Injection Container Configuration | |
+| Entities (Core domain objects) | Application Services / Use Cases | ORM Configurations | Controllers (for Web APIs or MVC) |
+| Value Objects | Command and Query Objects | Database Migrations | View Models |
+| Aggregates | DTOs (Data Transfer Objects) | External Service Integrations | Views (for web applications) |
+| Domain Events | Mappers/Assemblers (Domain <-> DTO) | Messaging Systems (e.g., Message Queues) | API Resources/Presenters |
+| Domain Services | Input Validation | Caching Mechanisms | Request/Response Formatters |
+| Repository Interfaces | Application-specific Exceptions | Logging and Monitoring | Authentication Middleware |
+| Domain Exceptions | Event Handlers (for Domain Events) | Security Implementations | Route Definitions |
+| Specification Objects | Facades (if needed to simplify complex subsystems) | File System Operations | User Interface Components |
+| Domain-specific Interfaces | Mediator (for CQRS implementations) | Email Services | |
+| Enumeration Classes | | Repository Implementations | |
+| | | Infrastructure-specific Exceptions | |
+| | | Third-party Library Wrappers | |
+| | | Configuration Management | |
+| | | Dependency Injection Container Configuration | |
