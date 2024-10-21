@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Imprint
-permalink: /imprint/
+title: Diagram Templates
+permalink: /diagram-templates/
 ---
 
 ## Draw.io Diagram Templates
