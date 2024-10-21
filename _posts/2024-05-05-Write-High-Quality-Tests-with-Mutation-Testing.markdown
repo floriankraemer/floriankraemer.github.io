@@ -25,7 +25,7 @@ Executing the code is not enough:
 
 If you think that 100% code coverage will make your tests good, then you are wrong; it says nothing about test accuracy or use-case completeness, and that’s why mutation testing actually matters. You can easily achieve 100% coverage but still have low-quality tests. Mutation testing will very likely improve your tests even if you have 100% coverage by discovering missed cases.
 
-![Mutation Testing Illustration](/assets/images/illustrations/mutation-testing.png){: .align-center}
+![Mutation Testing Illustration](/assets/images/illustrations/mutation-testing.jpg){: .align-center}
 
 ## Mutation Testing Libraries
 

@@ -28,9 +28,7 @@ Therefore, cognitive complexity means the degree to which a piece of code or a s
 
 Cognitive load refers to the mental effort required to process information. In programming, cognitive load is influenced by factors like code complexity, the number of concepts a developer must keep in mind, and how well these concepts are organized. Human cognitive capacity, particularly working memory, is finite, typically handling around 4 to 7 discrete items at a time. This limitation is crucial in programming, where maintaining a mental model of code structure, logic flow, and variables is necessary.
 
-## The Impact of Code Readability and Understandability
-
-## The Impact on the Developers
+### The Impact on the Developers
 
 Complex code structures, such as deeply nested loops or convoluted logic, exceed the typical capacity of working memory. When developers cannot easily grasp the entirety of a code block, they are more prone to errors and misunderstandings. This underscores the importance of breaking down complex functions into smaller, manageable units.
 
@@ -72,6 +70,8 @@ You can install it via Composer by running:
 ```shell
 composer require phauthentic/cognitive-code-analysis
 ```
+
+![Screenshot of the PHP Analysis Tool](/assets/images/screenshots/cognitive-code-analysis-php.jpg){: .align-center}
 
 ### For Java
 

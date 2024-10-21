@@ -1,0 +1,119 @@
+---
+layout: post
+title: 'Approval Testing - A Test Approach for (not only) Legacy Systems'
+categories: software-architecture
+tags:
+  - software-architecture
+  - testing
+  - software-testing
+date: 2024-11-01T01:13:30.000Z
+draft: true
+published: false
+comments: true
+---
+
+## Introduction
+
+I'm again in a position to have to deal with a 14 year old, very organically grown systems that is composed of three bigger applications and a lot minor "services" around them. The whole project started with just two people.
+
+History repeats itself and it is pretty *normal* that those applications suffer from very tight coupling, even across their boundaries by for example sharing parts of one of the many databases they use. In my experience it is very rare that start ups, especially 10-20 years ago, started with well designed systems. Growth and quick results are more important to get further investments than a well designed system. The long term impact of that is worth another article.
+
+But what makes such systems really worse is that they usually lack proper tests and test coverage. It is more or less impossible to make a change to the system with good faith in not breaking something else. This leeds to the problem of how you can get quickly sufficient tests that allow you to gain some confidence in that your changes won't break everything.
+
+Approval tests will help us here. Let's get into what they are and how they'll help us here.
+
+## What is Approval Testing?
+
+Approval testing is a distinct approach within the software testing landscape that focuses on verifying complex system outputs by comparing them to a pre-approved baseline. Unlike traditional unit testing, which relies on specific assertions, approval testing involves generating output from the code and saving it as a reference point. Future tests then compare the system’s output against this "approved" version, and any discrepancies are flagged for review. This technique is especially valuable when output is too intricate for simple assertions, such as visual UI components or large data structures, making it a powerful tool for ensuring system behavior remains consistent.
+
+Approval testing is increasingly popular because it excels in scenarios where traditional assertions fall short, particularly when dealing with complex or non-deterministic outputs. Systems that produce extensive or dynamic results—like rendering large reports, processing machine learning models, or generating HTML—are difficult to validate with line-by-line assertions. Approval testing allows developers to review the overall output holistically, ensuring the output aligns with expectations even when it isn't practical to define precise conditions upfront. This flexibility makes it an ideal solution for testing legacy code, refactoring efforts, and systems that generate varying results based on external factors.
+
+# How Approval Testing Works
+
+![Validation through the Layers Diagram](/assets/images/illustrations/stamping-approval.jpg){: .align-right}
+
+Approval testing works by comparing the current output of software to an approved baseline, often referred to as a "golden master." This baseline is established during the initial run of the test, where the output is manually reviewed and marked as the correct or expected result. Hence the name "Approval Testing".
+
+Future tests generate new outputs and automatically compare them against this baseline. If the outputs match, the test passes, confirming the system behaves as expected. If they differ, the test fails, and the differences are flagged for review. This approach ensures that any unintended changes to the system's behavior are caught early, making approval testing particularly effective in maintaining consistency in complex systems.
+
+While assertions check specific conditions, approval testing checks broader, less deterministic results.
+
+## Example (Java)
+
+The example is using [the approval testing library for Java](https://github.com/approvals/ApprovalTests.Java).
+
+```java
+import org.approvaltests.Approvals;
+import org.junit.jupiter.api.Test;
+
+public class ApprovalTestExample {
+
+    public String formatMessage(String name, int age) {
+        return "Name: " + name + ", Age: " + age;
+    }
+
+    @Test
+    public void testFormatMessage() {
+        String result = formatMessage("John Doe", 30);
+        Approvals.verify(result); // Thats all!
+    }
+}
+```
+
+## Tools and Frameworks
+
+There is [a whole website](https://approvaltests.com/) available that provides links to approval testing libraries in many languages:
+
+* [Java](https://github.com/approvals/approvaltests.java)
+* [C#](https://github.com/approvals/approvaltests.net)
+* [C++](https://github.com/approvals/approvaltests.cpp)
+* [PHP](https://github.com/approvals/approvaltests.php)
+* [Python]()
+* [Swift]()
+* [NodeJS]()
+* [Perl]()
+* [Go Lang]()
+* [Lua]()
+* [Objective-C]()
+* [Ruby]()
+* [Labview]()
+* [Dart]()
+* [Elixir]()
+
+## When and Why Approval Testing is Useful
+
+Complex Outputs:
+
+Useful when testing large or complex outputs (e.g., UI components, reports, serialized objects).
+Non-Deterministic Results:
+
+Ideal for scenarios where traditional assertions are cumbersome or difficult (e.g., machine learning outputs, auto-generated content).
+Refactoring or Legacy Code:
+
+Helps with refactoring by locking down existing behavior before making changes to the system.
+Provides safety nets for legacy systems where understanding the full functionality may be challenging.
+Collaboration:
+
+Encourages team reviews, as everyone can see and approve changes to the system's output.
+
+## Benefits of Approval Testing
+
+* Easier maintenance for complex outputs.
+* Improves test coverage without writing exhaustive assertions.
+* Facilitates collaboration and communication within teams.
+
+## Potential Drawbacks and Considerations
+
+Over-reliance on Baselines:
+Can become a bottleneck if the baseline is frequently updated or overly broad.
+False Positives:
+
+Minor changes can lead to frequent failures, requiring human intervention to review and approve.
+
+## Conclusion
+
+Approval testing offers a valuable addition to traditional assertion-based testing techniques by addressing cases where conventional tests are either too rigid or difficult to maintain. In scenarios involving complex outputs—such as rendered UIs, large text reports, or intricate data structures—writing detailed assertions can be cumbersome and prone to error. By focusing on the full output rather than isolated values, approval testing provides a more flexible and maintainable testing strategy for handling complex system behavior.
+
+Especially for developers working with legacy code bases, approval testing can be a particularly powerful tool. Legacy code often lacks comprehensive test coverage, making it risky to modify or refactor without introducing unintended changes.
+
+Approval testing allows developers to capture the current behavior of the system and lock it down, providing a safeguard against regressions during refactoring. Similarly, for systems that generate non-deterministic outputs—like those involving machine learning models or dynamically generated content—approval testing's ability to capture and compare large outputs is invaluable. Exploring approval testing in these contexts can dramatically improve test coverage and system stability without the overhead of managing hundreds of individual assertions.
