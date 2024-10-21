@@ -10,7 +10,7 @@ The following diagrams are templates I use with Draw.io, the best free and open 
 
 To import it click on the edit icon in your Scratchpad. When the dialog opens click on import. All done!
 
-![alt text](image.png){: .align-right}
+![alt text](/assets/images/screenshots/drawio-scratchpad-screenshot.png){: .align-right}
 
 ### Domain Message Flow
 

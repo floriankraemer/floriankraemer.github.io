@@ -18,7 +18,3 @@ Florian Krämer
 ### Contact
 
 **Email:** contact@floriankraemer.net
-
-### VAT Identification Number
-
-Your VAT Identification Number
