@@ -42,10 +42,10 @@ The guidelines SHOULD be followed, but they are not hard rules.
 
 ### Language & Structure
 
-* Avoid personal forms like “I want to…” use “CMH” or “The company” or team names.
-* Do not propose, guess or suggest, be precise and clearly define what you want or don’t want.
+* Avoid personal forms like “I want to…” use “Your Company Name” or “The company” or team names.
+* Do not propose, guess or suggest, **be precise and clearly define** what you want or don’t want.
 * Be as objective as you can, avoid subjective ratings.
-Try to be short but very clear and on point.
+* Try to be short but very clear and on point.
 * Don’t mix the status quo with the problem – a problem is the consequence of the status quo.
 * Don’t mix different concerns within a section or paragraph, stay focused, use a new section for a different concern.
 
