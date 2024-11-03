@@ -4,17 +4,17 @@ title: 'Are the SOLID Principles problematic?'
 categories: software-architecture
 tags:
   - software-architecture
-date: 2024-10-03T11:15:30.000Z
+date: 2024-11-13T11:12:34.000Z
 draft: false
 published: true
 comments: true
 ---
 
-## My SOLID History
+The article attempts to define what a software principle is, how they should be used, if the solid principles are ambiguous and useful and if they are hard to understand and learn.
 
 Before I'll go into what the article is about I'll give you some historical context that also explains my motivation and thought process behind this article. Feel free to skip the story if you aren't interested in this part.
 
----
+## My SOLID History
 
 I have never really heard about them, nor had anyone taught me the principles before this. What happened was that I've requested an external code review for the company I was working for at this time, which was luckily granted by the CTO. Originally I wanted to get Matthias Noback, but he was already booked and busy at this time so he recommended us X.
 
@@ -34,33 +34,47 @@ A principle is **a fundamental truth or guideline** that **shapes behavior, acti
 
 In one simple sentence: Software engineering principles act as guardrails that steer the development towards certain quality attributes. Those attributes are Readability, Understandability, Simplicity, Flexibility, Maintainability.
 
-## Software Principles
+## Software Principles in general
 
-Software principles are **not absolute** and **require situational judgment**, which can be expected from developers at some level. While in some scenarios, there can be a controversial discussion on if and what principle applies, but in most cases there are obvious and clear violations of the principles to find that are unambiguous. Those should be found by anyone who is familiar with the principles. Some controversial cases require more experience and judgment but *should* be found and decided by more experienced senior developers.
+Software principles are **not absolute** and **require situational judgment**, which can be expected from developers at some level. While in some scenarios, there can be a controversial discussion on if and what principle applies, but in most cases there are obvious and clear violations of the principles to find that are unambiguous. 
 
-## SOLID Principles
+In my opinion, those should be found by anyone who is familiar with the principles. Some controversial cases require more experience and judgment but *should* be found and decided by more experienced developers.
 
-For the sake of a cohesive reading experience and convenience: Here are the principles.
+## The SOLID Principles
 
-1. Single Responsibility Principle (SRP): A class should have only one reason to change.
+For the sake of providing a cohesive reading experience and convenience, here are the principles. I've linked them to the according Wikipedia articles if you want to read a more lengthy and detailed explanation of them, which is not needed for this article.
 
-2. Open/Closed Principle (OCP): Software entities should be open for extension, but closed for modification.
+1. **[Single Responsibility Principle (SRP)](https://en.wikipedia.org/wiki/Single-responsibility_principle):** A class should have only one reason to change.
+2. **[Open/Closed Principle (OCP)](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle):** Software entities should be open for extension, but closed for modification.
+3. **[Liskov Substitution Principle (LSP)](https://en.wikipedia.org/wiki/Liskov_substitution_principle):** Subtypes must be substitutable for their base types.
+4. **[Interface Segregation Principle (ISP)](https://en.wikipedia.org/wiki/Interface_segregation_principle):** Prefer many specific interfaces over a single general-purpose one.
+5. **[Dependency Inversion Principle (DIP):](https://en.wikipedia.org/wiki/Dependency_inversion_principle)** Depend on abstractions, not on concrete implementations.
 
-3. Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types.
+If you are not already familiar with them, would you say they are easy to understand? I think the answer is very likely no. Even if you are already capable of writing code you probably will struggle with those sentences. I would agree if people, who just read those 5 lines, will say that the principles are ambiguous. They are not in my opinion, but this limited information makes them look like they are.
 
-4. Interface Segregation Principle (ISP): Prefer many specific interfaces over a single general-purpose one.
+If people are still motivated and not scared away by those sentences, they'll face a plethora of articles that try to explain them. Some seem like copies of others, and many of those aren't good either, in my personal opinion, because they are either to abstract or to simple. I also do not think that code examples are the best way to explain them because its about understanding concepts, that then result in an implementation. So code is basically already showing a concrete solution.
 
-5. Dependency Inversion Principle (DIP): Depend on abstractions, not on concrete implementations.
+### A Code free Explanation attempt of SOLID
 
-If you are not already familiar with them, would you say they they are easy to understand? I think the answer is very likely no. Even if you are already capable of writing code you probably will struggle with those sentences. I would agree if people, who just read those 5 lines, will say that the principles are ambiguous. They are not in my opinion, but this limited information makes them look like they are.
+I do not think that code examples are the most beneficial way to explain the principles. Mostly for the reason that they just show an implementation or application but not necessary the thought process and decisions that went into them. Therefor I'll try to provide some examples in just human language.
 
-If people are still motivated and not scared away by those sentences, they'll face a plethora of articles that they to explain them. Some seem like copies of others, and many of those aren't good either, in my personal opinion, because they are either to abstract or to simple.
+**SRP**: If two things do different things separate them into different classes. A discount calculation must not be done within a repository class, because the only responsibility of the repository is to fetch data. Assuming you have a shopping cart, should be the tax and discount calculation part of the same class? No, because they do different things.
+
+**OCP**: OCP is often explained as plugin system in other articles, but this is more than just about plugin systems: If your discount calculation code is separated from the shopping cart code, its not only fulfilling the SRP principle but also the OCP principle. You won't have to directly modify the shopping cart but you can modify it through discount calculator instance passed to it.
+
+**LSP**: Your discount and tax calculators should be replaceable without changing the actual behavior. A good example of behavior is when one discount calculator would throw an exception in the case it gets into a negative total while another one would do it correctly and return a total of 0.00. They behave differently and are not a valid substitution. The except would force the shopping cart to change, because it now has to catch an exception.
+
+**ISP**: Assuming you have a tax and discount calculation within the same "ShoppingCart" class, it not only violates SRP but also the LSP principle: You should define two classes or interfaces for each of the responsibilities. So discounts and tax calculations can not only evolve independently but can also be optionally used.
+
+**DIP**: If our cart would depend on a concrete implementation of, lets say a "MariaDbRepository", it would depend on a lower level element and depend on that concrete implementation, coming very likely from the infrastructure and persistance layer. To inverse the dependency, the shopping cart business layer would declare a "ShoppingCartRepositoryInterface" instead that is then implemented by a concrete implementation within the persistence layer. Your shopping cart module is now independent from a concrete framework or persistence implementation.
 
 ### How to learn them the best?
 
 By practicing them. Reflect on your own doing and if you are in the position that you have somebody to mentor you ask this person for help.
 
 If you are unsure and you don't have an experienced person helping you, metrics that measure cohesion and coupling might help you to compare your before and after state base on a measurement. The only danger here is that you might over-engineer and just go by the numbers to make them smaller. Try to think about the impact of the changes you make as a whole and not apply the principles dogmatically. For training reasons you could of course go and over-engineer as much as you can, to explore how far you could go.
+
+<!--
 
 ### LSP Violation Example
 
@@ -98,31 +112,55 @@ public PositiveInteger getPositiveInteger()
 
 It should be impossible, at least much harder, to change the behavior of the method to an unintended behavior now.
 
+-->
+
 ## Validity of the SOLID Principles
 
-There is empirical evidence by multiple studies [1][2][3] that the SOLID principles improve the code quality and associated quality attributes.
+There is empirical evidence by multiple studies, [1][2][3][4] that the SOLID principles improve the code quality and associated quality attributes.
+
+### An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics (2018)
 
 The following quote is taking from the conclusion section of the study:
 
 > “*This work shows that SOLID design principles increase the maintainability of the code, generally reduce complexity of the code and reduce dependency, providing flexibility to the code. Design principles improve the separation of concern through weaker coupling and stronger cohesion. However, if these principles are applied without measure then some potentially undesirable consequences may occur.*”
 
-...
+### An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis (2022)
 
 > "*It can be stated that the application of these SOLID design Principles together could lead us to create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach and evaluates the quality of software using CKJM matrices. For our sample application, we have **reduced the coupling by 59%** (approx.) and **introduced the cohesion by 39%** (approx.).*"
 
 What I like especially about this study is that they've used easily measurable metrics to assess the before and after state of the code. A tool to measure the JCKM metrics mentioned in the quote above can be found [here](https://github.com/dspinellis/ckjm) for Java.
 
-### Criticism and Pragmatism
+### Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment (2015)
+
+This quote looks remarkably similar to the one before, but it is from another study. I've briefly checked if there are more parts that similar, but it looks like this is the only one. What is interesting is that that the results are also very similar and show the positive impact of the SOLID principles.
+
+> "*It can be stated that the application of these SOLID design Principles together could lead us to
+create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach, and evaluates the quality of software using CKJM matrices. For our sample application we have **reduced the coupling by 69%** (appox.) and **introduce the cohesion by 29%** (approx.).*"
+
+## Criticism and Pragmatism
 
 Of course there is almost nothing that is purely black and white, and so there are shades of grey in the application of the principles as well.
 
 > "*Solid  design principles are just principles, not rules.  It’s not  a compulsion to  apply SOLID principles in  even a small codebase.  It  becomes a  necessity  while  dealing with  a large codebase. Always use common sense while applying SOLID. For the sake of SRP, must avoid over-fragmenting of code.*"
 
+Source: [1]
+
+### Stay pragmatic: Analyze and judge your Case
+
+Let's assume you have an aggregate (in the context of DDD) and you add annotations or attributes (depending on your language features) to the aggregate to enable it to be used by a persistence system as well. Very strictly seen you could argue, that you've just broken the SRP. Is it bad in this case? Well, it depends. The overall system has to be understood, its goals and quality attributes, to answer that question.
+
+Another, often done and also very similar case, is the use of validation rule annotations or attributes on data transfer objects or even on persistence entities or domain entities. The answer is again an "it depends" on the context. For a simple CRUD application this is very likely good. If you have a system modelling social benefits or tax laws, it is very likely ending up in a hard to maintain system. Regarding the topic of where to do validation [check my other article](2024-02-16-About-Validation-and-Anti-Corruption-Layers.markdown) I wrote specifically about this topic.
+
 ## Use of AI to find SOLID Violations
 
-AI is doing a surprisingly good job to find (most of the time) and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**! If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously!
+AI is doing a surprisingly good job (most of the time) to find and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**! If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously!
 
-[1] [An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics](https://dergipark.org.tr/en/download/article-file/1555528) by Osman Turan, Ömer Özgür.
+Even without giving it a lengthy prompt I've got often good results by just telling it the programming language and asking it to refactor or explain a single method or a whole class based on the SOLID principles.
+
+## Sources
+
+[1] [An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics](https://dergipark.org.tr/en/download/article-file/1555528) by Osman Turan, Ömer Özgür, 2018
 [2] [Investigating the Impact of SOLID Design Principles on Machine
-Learning Code Understanding](https://arxiv.org/pdf/2402.05337)
-[3] [An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis](https://www.ijraset.com/research-paper/an-experimental-assessment-on-effects-of-solid-design) by Bhaumik Tyagi, Yusra Beg.
+Learning Code Understanding](https://arxiv.org/pdf/2402.05337) by Raphael Cabral, Hugo Villamizar, Marcos Kalinowski, Tatiana Escovedo, Maria Teresa Baldassarre, Hélio Lopes Rio de Janeiro, 2024
+[3] [An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis](https://www.ijraset.com/research-paper/an-experimental-assessment-on-effects-of-solid-design) by Bhaumik Tyagi, Yusra Beg, 2022
+[4] [Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment](https://www.ijser.org/researchpaper/Effect-of-SOLID-Design-Principles-on-Quality-of-Software-An-Empirical-Assessment.pdf) by Harmeet Singh, Syed Imtiyaz Hassan, 2015
