@@ -4,7 +4,7 @@ title: 'Are the SOLID Principles problematic?'
 categories: software-architecture
 tags:
   - software-architecture
-date: 2024-11-13T11:12:34.000Z
+date: 2024-11-7T11:12:34.000Z
 draft: false
 published: true
 comments: true
@@ -16,13 +16,13 @@ Before I'll go into what the article is about I'll give you some historical cont
 
 ## My SOLID History
 
-I have never really heard about them, nor had anyone taught me the principles before this. What happened was that I've requested an external code review for the company I was working for at this time, which was luckily granted by the CTO. Originally I wanted to get Matthias Noback, but he was already booked and busy at this time so he recommended us X.
+I have never really heard about them, nor had anyone taught me the principles before this. What happened was that I've requested an external code review for the company I was working for at this time, which was luckily granted by the CTO. Originally I wanted to get [Matthias Noback](https://matthiasnoback.nl/), but he was already booked and busy at this time so he recommended us [Ross Tuck](https://www.rosstuck.com/).
 
-So the outcome of the meeting we had with the auditor was, at least for me personally as the main driver of the whole software, not so great. I don't remember the exact wording but it was something along the lines of "Its OK, but I've seen better.". This was a little shocking to me and I've asked for a few reasons and how to improve it. One of the things named were the SOLID principles.
+The outcome of the meeting we had with Ross was, at least for me personally as the main driver of the whole project, not so great. I don't remember the exact wording but it was something along the lines of "Its OK, but I've seen better.". This was a little shocking for me and I've asked for a few reasons and how to improve it. One of the things named were the SOLID principles.
 
 I had to let the whole thing sack for around two weeks until I've digested the whole scope of suggestions and improvements. Not because of the quantity or the critic but to really understand what I was told. I think it still took me quiet some time to get used to the principles, because I was spending most of the time trying to understand them on my own.
 
-However, after I've understood what I was told, my code became **a lot** better. Not only because of the principles but they were very useful. One year later I've sent X a message to thank him for his feedback. Sure, he got paid for it, but I really appreciated the value it had for me personally.
+However, after I've understood what I was told, my code became **a lot** better. Not only because of the principles but they were very useful. One year later I've sent Ross a message to thank him for his feedback. Sure, he got paid for it, but I really appreciated the value it had for me personally.
 
 What I find sad is that I haven't had been taught them before and much earlier during my professional training, nor by any professional nor by any teacher or mentor I've encountered until this time. I've recently asked around and to my surprise, it looks like the principles are still not widely taught for some reason. Why is that?
 
@@ -116,23 +116,23 @@ It should be impossible, at least much harder, to change the behavior of the met
 
 ## Validity of the SOLID Principles
 
-There is empirical evidence by multiple studies, [1][2][3][4] that the SOLID principles improve the code quality and associated quality attributes.
+There is empirical evidence by multiple studies [1][2][3][4], that the SOLID principles improve the code quality and associated quality attributes.
 
-### An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics (2018)
-
-The following quote is taking from the conclusion section of the study:
+The following quote is taking from the conclusion section of the study "*An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics (2018)*" [1]:
 
 > “*This work shows that SOLID design principles increase the maintainability of the code, generally reduce complexity of the code and reduce dependency, providing flexibility to the code. Design principles improve the separation of concern through weaker coupling and stronger cohesion. However, if these principles are applied without measure then some potentially undesirable consequences may occur.*”
 
-### An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis (2022)
+From the study "*An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis (2022)*" [3]:
 
 > "*It can be stated that the application of these SOLID design Principles together could lead us to create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach and evaluates the quality of software using CKJM matrices. For our sample application, we have **reduced the coupling by 59%** (approx.) and **introduced the cohesion by 39%** (approx.).*"
 
-What I like especially about this study is that they've used easily measurable metrics to assess the before and after state of the code. A tool to measure the JCKM metrics mentioned in the quote above can be found [here](https://github.com/dspinellis/ckjm) for Java.
+Also from that study:
 
-### Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment (2015)
+> "*Software Design should be based on Solid principles so that it would be effortless to reuse and scale the amenities.*"
 
-This quote looks remarkably similar to the one before, but it is from another study. I've briefly checked if there are more parts that similar, but it looks like this is the only one. What is interesting is that that the results are also very similar and show the positive impact of the SOLID principles.
+What I like especially about this study [3] is that they've used easily measurable metrics to assess the before and after state of the code. A tool to measure the JCKM metrics mentioned in the quote above can be found [here](https://github.com/dspinellis/ckjm) for Java.
+
+This quote from the study "*Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment (2015)*" [4] looks remarkably similar to the one before, but it is from another study. I've briefly checked if there are more parts that similar, but it looks like this is the only one. What is interesting is that that the results are also very similar and show the positive impact of the SOLID principles.
 
 > "*It can be stated that the application of these SOLID design Principles together could lead us to
 create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach, and evaluates the quality of software using CKJM matrices. For our sample application we have **reduced the coupling by 69%** (appox.) and **introduce the cohesion by 29%** (approx.).*"
@@ -141,9 +141,15 @@ create a highly maintainable and scalable system. The research demonstrates the 
 
 Of course there is almost nothing that is purely black and white, and so there are shades of grey in the application of the principles as well.
 
+From "An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis" [3]:
+
 > "*Solid  design principles are just principles, not rules.  It’s not  a compulsion to  apply SOLID principles in  even a small codebase.  It  becomes a  necessity  while  dealing with  a large codebase. Always use common sense while applying SOLID. For the sake of SRP, must avoid over-fragmenting of code.*"
 
-Source: [1]
+This confirms what I wrote before, that one needs to judge each case based on a holistic understanding of the impact on the system. SOLID for the sake of SOLID is as wrong as blindly applying any principle.
+
+Also from the same study [3]:
+
+> "Do not aim to attain SOLID, use Solid to attain maintainability. Solid design principles are just principles, not rules."
 
 ### Stay pragmatic: Analyze and judge your Case
 
@@ -153,7 +159,7 @@ Another, often done and also very similar case, is the use of validation rule an
 
 ## Use of AI to find SOLID Violations
 
-AI is doing a surprisingly good job (most of the time) to find and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**! If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously!
+AI is doing a surprisingly good job (most of the time) to find and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**! If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously! I'm using mostly ChatGTP but I assume you'll get similarly good results with other AIs like Claude AI.
 
 Even without giving it a lengthy prompt I've got often good results by just telling it the programming language and asking it to refactor or explain a single method or a whole class based on the SOLID principles.
 
