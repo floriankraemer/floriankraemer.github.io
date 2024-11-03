@@ -165,8 +165,7 @@ Even without giving it a lengthy prompt I've got often good results by just tell
 
 ## Sources
 
-[1] [An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics](https://dergipark.org.tr/en/download/article-file/1555528) by Osman Turan, Ömer Özgür, 2018
-[2] [Investigating the Impact of SOLID Design Principles on Machine
-Learning Code Understanding](https://arxiv.org/pdf/2402.05337) by Raphael Cabral, Hugo Villamizar, Marcos Kalinowski, Tatiana Escovedo, Maria Teresa Baldassarre, Hélio Lopes Rio de Janeiro, 2024
-[3] [An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis](https://www.ijraset.com/research-paper/an-experimental-assessment-on-effects-of-solid-design) by Bhaumik Tyagi, Yusra Beg, 2022
-[4] [Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment](https://www.ijser.org/researchpaper/Effect-of-SOLID-Design-Principles-on-Quality-of-Software-An-Empirical-Assessment.pdf) by Harmeet Singh, Syed Imtiyaz Hassan, 2015
+- [1] [An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics](https://dergipark.org.tr/en/download/article-file/1555528) by Osman Turan, Ömer Özgür, 2018
+- [2] [Investigating the Impact of SOLID Design Principles on Machine Learning Code Understanding](https://arxiv.org/pdf/2402.05337) by Raphael Cabral, Hugo Villamizar, Marcos Kalinowski, Tatiana Escovedo, Maria Teresa Baldassarre, Hélio Lopes Rio de Janeiro, 2024
+- [3] [An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis](https://www.ijraset.com/research-paper/an-experimental-assessment-on-effects-of-solid-design) by Bhaumik Tyagi, Yusra Beg, 2022
+- [4] [Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment](https://www.ijser.org/researchpaper/Effect-of-SOLID-Design-Principles-on-Quality-of-Software-An-Empirical-Assessment.pdf) by Harmeet Singh, Syed Imtiyaz Hassan, 2015
