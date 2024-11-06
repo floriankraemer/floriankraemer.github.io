@@ -30,7 +30,7 @@ It supports informed decision making by providing a detailed analysis of differe
 
 ## 📑 Guidelines
 
-The guidelines SHOULD be followed, but they are not hard rules.
+The guidelines **SHOULD** be followed, but they are not hard rules.
 
 ### Generic Advice
 
@@ -59,18 +59,82 @@ Something that is not a feature but will improve an application or team without 
 
 Something that is not a feature but will impact other applications or teams directly or has side-effects on other teams or applications should be addressed via an RFC.
 
-
 ## Use Decision Tables
 
-Use decision tables to figure out the best option.
+* Use [decision tables](https://en.wikipedia.org/wiki/Decision_table) to figure out the best option.
+* Use quality attributes for them whenever possible.
+* Consider the company's primary quality attributes.
+* Do not just use “yes/no” but provide a short but meaningful rationale in the fields of the table if the answer can’t be a simple yes or no.
 
-Use quality attributes for them whenever possible.
-Consider the company's primary quality attributes.
-Do not just use “yes/no” but provide a short but useful rationale in the fields of the table if the answer can’t be a simple yes or no.
+<style>
+
+</style>
+
+<table class="uc-table">
+    <thead>
+        <tr>
+            <th>
+                Attributes
+            </th>
+            <th>
+                <b>Solution #1</b>
+            </th>
+            <th>
+                <b>Solution #2</b>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Flexibility
+            </td>
+            <td>
+                test
+            </td>
+            <td>
+                test
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Scalability
+            </td>
+            <td>
+                test
+            </td>
+            <td>
+                test
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Afforadbility - Initial cost
+            </td>
+            <td>
+                test
+            </td>
+            <td>
+                test
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Afforadbility - Maintenance cost
+            </td>
+            <td>
+                test
+            </td>
+            <td>
+                test
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## 🏆 Goal & Expected Outcome
 
-The goal is **not to plan every single detail** of the implementation but to have a holistic view of the system and the impact of the changes to the system a new feature requires. A company or the development department wants to be aware of large scale problems and possible obstacles and not discover them during the development. Some discoveries and problems unevitable will come up anyway and have to be dealt with when they come up. The goal is not to foresee every possible problem, but to avoid **most** of them, that could be avoided by thinking about it before jumping into implementation. The requirements should be clear and understood before the design document is written.
+The goal is **not to plan every single detail** of the implementation but to have a holistic view of the system and the impact of the changes to the system a new feature requires. The business and the development department should be aware of large scale problems and possible obstacles and not discover them during the development. Some discoveries and problems inevitable will come up anyway and have to be dealt with when they come up. The goal is not to foresee every possible problem, but to avoid **most** of them, that could be avoided by thinking about the task at hand before jumping into the implementation. The requirements should be clear and understood before the design document is written.
 
 The expected outcome is that all relevant elements of the system that will be involved were identified, gaps and problems were identified and all required stakeholders were informed and involved in the process if needed.
 

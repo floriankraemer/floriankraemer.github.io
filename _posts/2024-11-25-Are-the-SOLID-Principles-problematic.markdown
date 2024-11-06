@@ -16,7 +16,7 @@ Before I'll go into what the article is about I'll give you some historical cont
 
 ## My SOLID History
 
-I have never really heard about them, nor had anyone taught me the principles before this. What happened was that I've requested an external code review for the company I was working for at this time, which was luckily granted by the CTO. Originally I wanted to get [Matthias Noback](https://matthiasnoback.nl/), but he was already booked and busy at this time so he recommended us [Ross Tuck](https://www.rosstuck.com/).
+I had never really heard about them, nor had anyone taught me the principles before this. What happened was that I've requested an external code review for the company I was working for at this time, which was luckily granted by the CTO. Originally I wanted to get [Matthias Noback](https://matthiasnoback.nl/), but he was already booked and busy at this time so he recommended us [Ross Tuck](https://www.rosstuck.com/).
 
 The outcome of the meeting we had with Ross was, at least for me personally as the main driver of the whole project, not so great. I don't remember the exact wording but it was something along the lines of "Its OK, but I've seen better.". This was a little shocking for me and I've asked for a few reasons and how to improve it. One of the things named were the SOLID principles.
 
