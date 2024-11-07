@@ -4,7 +4,7 @@ title: 'Are the SOLID Principles problematic?'
 categories: software-architecture
 tags:
   - software-architecture
-date: 2024-11-7T11:12:34.000Z
+date: 2024-12-01T11:12:34.000Z
 draft: false
 published: true
 comments: true
@@ -62,7 +62,7 @@ I do not think that code examples are the most beneficial way to explain the pri
 
 **OCP**: OCP is often explained as plugin system in other articles, but this is more than just about plugin systems: If your discount calculation code is separated from the shopping cart code, its not only fulfilling the SRP principle but also the OCP principle. You won't have to directly modify the shopping cart but you can modify it through discount calculator instance passed to it.
 
-**LSP**: Your discount and tax calculators should be replaceable without changing the actual behavior. A good example of behavior is when one discount calculator would throw an exception in the case it gets into a negative total while another one would do it correctly and return a total of 0.00. They behave differently and are not a valid substitution. The except would force the shopping cart to change, because it now has to catch an exception.
+**LSP**: Your discount and tax calculators should be replaceable without changing the actual behavior. A good example of behavior is when one discount calculator would throw an exception in the case it gets into a negative total while another one would do it correctly and return a total of 0.00. They behave differently and are not a valid substitution. The exception would force the shopping cart to change, because it now has to catch an exception.
 
 **ISP**: Assuming you have a tax and discount calculation within the same "ShoppingCart" class, it not only violates SRP but also the LSP principle: You should define two classes or interfaces for each of the responsibilities. So discounts and tax calculations can not only evolve independently but can also be optionally used.
 
@@ -162,6 +162,14 @@ Another, often done and also very similar case, is the use of validation rule an
 AI is doing a surprisingly good job (most of the time) to find and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**! If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously! I'm using mostly ChatGTP but I assume you'll get similarly good results with other AIs like Claude AI.
 
 Even without giving it a lengthy prompt I've got often good results by just telling it the programming language and asking it to refactor or explain a single method or a whole class based on the SOLID principles.
+
+## Conclusion
+
+The article should have proven that SOLID principles are useful and often more or less obvious to find and fix. Further the papers mentioned in this article have shown that analyzer tools can help to measure an actual impact of the SOLID principles. Therefore you can not only make improvements, you can actually measure the improvement.
+
+Something that I could not really find an answer for is why the SOLID principles are not more wide spread and taught. I still think they're more or less simple to learn, maybe not so easy to master, but given their impact on the code, they're worth the effort. Why aren't they taught more often? Either in schools, universities or companies? Especially a company should have an interest in improving their code quality, flexibility, maintainability to reduce the production and maintenance cost for software projects.
+
+To further explore the real world usage of the SOLID principles I'll try to conduct a survey and publish the results here.
 
 ## Sources
 

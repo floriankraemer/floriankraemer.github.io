@@ -1,3 +1,9 @@
+---
+layout: page
+title: Feature Design Workflow
+permalink: /feature-design/workflow
+---
+
 # Feature Design Workflow
 
 ## Introduction

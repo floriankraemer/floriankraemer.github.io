@@ -12,8 +12,6 @@ published: true
 comments: true
 ---
 
-## The Library
-
 I've been working on an event sourcing library for some time now and I think it is time to release it.
 
 [https://github.com/phauthentic/event-sourcing](https://github.com/phauthentic/event-sourcing)

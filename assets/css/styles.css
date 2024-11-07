@@ -1,3 +1,6 @@
+---
+---
+
 .text-align-center {
     text-align: center;
     display: block;
@@ -5,5 +8,11 @@
 
 .center-image {
     margin: 20px 20px 20px 20px;
+    display: block;
+}
+
+.align-right {
+    float: right;
+    text-align: right;
     display: block;
 }

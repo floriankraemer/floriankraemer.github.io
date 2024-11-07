@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Diagram Templates
+title: Draw.io Templates
 permalink: /diagram-templates/
 ---
-
-## Draw.io Diagram Templates
 
 The following diagrams are templates I use with Draw.io, the best free and open source diagram tool you can probably find. [Get the templates from here](/assets/files/Scratchpad.xml).
 

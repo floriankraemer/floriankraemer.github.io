@@ -32,12 +32,25 @@ linkedin_username: fkrämer
 mastodon_username: floriankraemer
 disqus:
     shortname: https://https-florian-kraemer-net.disqus.com
-show_excerpts: false
+show_excerpts: true
 
 # Build settings
 theme: minima
 plugins:
     - jekyll-feed
+    - jekyll-seo-tag
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+header_pages:
+  - articles.markdown
+  - curated-resources.markdown
+  - diagram-templates.markdown
+  - consulting.markdown
+  - about.markdown
+  - imprint.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.

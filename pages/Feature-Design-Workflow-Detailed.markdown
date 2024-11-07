@@ -1,3 +1,9 @@
+---
+layout: page
+title: Feature Design Template
+permalink: /feature-design/template
+---
+
 # \<title\>
 
 | Owner / Driver(s) | \<name(s)\> |

@@ -1,0 +1,10 @@
+services:
+  jekyll:
+    image: bretfisher/jekyll
+    ports:
+      - "4000:4000" # Maps Jekyll's default port to localhost
+    volumes:
+      - .:/site     # Mounts the current directory to /site in the container
+    environment:
+      - JEKYLL_ENV=development
+    #command: jekyll serve --watch --force_polling

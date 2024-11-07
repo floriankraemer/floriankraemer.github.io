@@ -12,8 +12,6 @@ published: true
 comments: true
 ---
 
-## Introduction
-
 I'm again in a situation in which to have to deal with a 14 year old, very organically grown systems that is composed of three bigger applications and a lot smaller services (AWS Lambda functions) around them. The whole project started with just two people.
 
 History repeats itself and it is pretty *normal* that those applications suffer from very tight coupling, even across their boundaries by for example sharing parts of one of the many databases they use. In my experience it is very rare that start ups, especially 10-20 years ago, started with well designed systems. Growth and quick results are more important to get further investments than a well designed system in the beginning. Fair enough. The long term impact of not addressing that in the mid to long term is worth another article.

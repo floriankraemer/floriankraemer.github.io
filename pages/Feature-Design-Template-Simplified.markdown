@@ -1,3 +1,9 @@
+---
+layout: page
+title: Feature Design Simplified Template
+permalink: /feature-design/simplified-template
+---
+
 # \<title\>
 
 | Owner(s) / Driver(s) | \<name(s)\> |

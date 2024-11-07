@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right" : .align-right}
+![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right"}
 
 Hey, I’m Florian Krämer.
 

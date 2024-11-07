@@ -5,8 +5,6 @@ categories: software-architecture
 tags: software-architecture
 ---
 
-## Introduction
-
 In software development, dealing with null values is a common source of bugs and errors. The Optional object, popularized by Java 8, offers a way to handle null values gracefully, reducing the risk of NullPointerException. This guide adapts the concept for PHP, demonstrating how to use an Optional class to improve code safety and readability.
 
 ## What is Optional?

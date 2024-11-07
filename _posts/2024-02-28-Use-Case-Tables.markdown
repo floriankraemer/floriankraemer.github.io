@@ -8,8 +8,6 @@ published: true
 comments: true
 ---
 
-## Introduction
-
 During my work I faced the problem, that in communication with product managers, there was often no unified format in which information was communicated.
 
 Yes, there are many other tools, like user flow diagrams, BPMN diagrams, and more. However, all of them require some training and express the intention mostly in a visual fashion. The problem with user stories is, they are not formalized and kind of hard to talk about, because they lack the necessary details to address a specific point without getting into explaining what exactly you mean. If you don’t get what I’m trying to explain at this point, wait until you get to the used case tables. In my opinion, using case tables is a good compromise between diagrams expressing just the flow and free-style user stories. The advantage is that they are formalized, and you can easily address a specific use case and step or exception, because everything is annotated with identifiers and structured in the same way.

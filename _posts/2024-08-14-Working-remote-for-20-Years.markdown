@@ -11,8 +11,6 @@ published: true
 comments: true
 ---
 
-## Working Remote for 20 Years
-
 This is my experience after working 20 years remotely and the need to find a new remote job.
 
 I live in the countryside and enjoy almost all aspects of it. The slower internet compared to cities and the need to travel 5-20 minutes for errands or to see a doctor are probably considered negatives by some. There are also no large IT companies near my location. The nearest larger cities, Kassel and Göttingen, are roughly 1 to 1.5 hours away, depending on the specific destination and traffic conditions.

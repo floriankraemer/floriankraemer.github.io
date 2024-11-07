@@ -10,8 +10,6 @@ published: true
 comments: true
 ---
 
-## Introduction
-
 Developers spend a lot of time reading and understanding code, actually much more than writing code. Readability and understandability of code is a very valuable quality attribute, because it impacts development speed and therefore development cost. Understandability can be improved a lot by just naming things properly.
 
 > “Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. ...[Therefore,] making it easy to read makes it easier to write.”

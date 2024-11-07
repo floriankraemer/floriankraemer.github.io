@@ -6,8 +6,6 @@ tags:
     - cakephp
 ---
 
-## Introduction and background
-
 Let's start with some background story on this topic. One of the parts of the CakePHP framework I like the less is the authentication and authorization. There are a few reasons why. For example, the authentication and authorization. Firstly, both authentication and authorization have been married through the AuthComponent, secondly, the component is an ugly monolith that is coupled to the controller layer of the MVC pattern.
 
 While CakePHP 3 is an awesome framework, it carries some of the older parts of the framework along to ensure backward compatibility which is, in my personal opinion, good. Software development should be an evolution and not a revolution. Also, a soft migration path should be provided if possible. So the requirement for a new implementation was to stay backward compatible to some degree.

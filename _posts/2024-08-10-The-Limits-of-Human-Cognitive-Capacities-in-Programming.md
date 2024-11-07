@@ -10,11 +10,9 @@ published: true
 comments: true
 ---
 
-## Introduction
-
 Programming is both a technical and cognitive task. While technical skills and knowledge are essential, cognitive abilities play a critical role in how effectively a developer can write, read, and understand code. Understanding the limits of human cognitive capacities can help software architects and developers design code that is more readable, maintainable, and less error-prone.
 
-### Complex vs Complicated
+## Complex vs Complicated
 
 To be able to differentiate between complex and complicated code lets define what the difference actually is:
 
