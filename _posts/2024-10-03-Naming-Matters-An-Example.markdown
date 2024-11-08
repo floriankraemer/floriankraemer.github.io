@@ -10,7 +10,7 @@ published: true
 comments: true
 ---
 
-Developers spend a lot of time reading and understanding code, actually much more than writing code. Readability and understandability of code is a very valuable quality attribute, because it impacts development speed and therefore development cost. Understandability can be improved a lot by just naming things properly.
+Developers spend a lot of time reading and understanding code, actually much more than writing code. Readability and understandability of code are very valuable quality attributes, because it impacts development speed and therefore development cost. Understandability can be improved a lot by just naming things properly.
 
 > “Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. ...[Therefore,] making it easy to read makes it easier to write.”
 
@@ -28,9 +28,9 @@ class IsoUelnFeiCodeService
 
 Do you have any idea what this class is doing by its name? Probably not.
 
-So just in case you didn’t guess what this means: The class name is is just a concatenation of abbreviated horse domain specific identifiers. – What are you going to do if we need to add yet another identifier? Rename the class?
+So just in case you didn’t guess what this means: The class name is just a concatenation of abbreviated, horse domain specific identifiers. – What are you going to do if we need to add yet another identifier? Should we rename the class?
 
-And what makes it a service? There always was and still is a tendency to call everything a service or manager *Everything manages or does something, don’t tell the obvious, tell what it does!*
+And what makes it a service? There has always been and still is a tendency to call everything a service or manager *Everything manages or does something, don’t tell the obvious, tell what it does!*
 
 It also has ambiguous method names, here is just one of them:
 
@@ -40,7 +40,7 @@ getIso3166Numeric(string $numeric): ?array
 
 Just by the signature of the method, lacking any documentation of its behavior, what would you expect it to do? Why do you have to input something "numeric" when the method, assuming by its name, gets you something numeric back? But why does it return an array instead?
 
-The underlying implementation actually returns this. Luckily somebody put this information at least in the doc-block.
+The underlying implementation actually returns the following. Luckily somebody put this information at least in the doc-block.
 
 ```php
 /**
@@ -48,7 +48,7 @@ The underlying implementation actually returns this. Luckily somebody put this i
  */
 ```
 
-So it actually returns a set of three, strictly seen 4, *different* types of data for a country:
+So it actually returns a set of three, strictly speaking four, *different* types of data for a country:
 
 - Country name
 - Country IDs:
@@ -67,13 +67,13 @@ The way the method is used in the code actually covers two cases that are not ob
 
 And what is actually ISO3166? Without looking it up or remembering it, it is not possible to tell what this means.
 
-The method was therefore renamed to
+The method was therefore, renamed to
 
 ```php
 getCountryDataFromNumeric(string $numeric): ?array
 ```
 
-and
+and another method
 
 ```php
 isValidNumericCountryCode(string $numeric): bool
@@ -103,16 +103,16 @@ return self::hasValidStart($start)
 
 The single responsibility principle does not only improve the technical quality of the code but also makes it better to understand. Some might argue that this is over-engineered, which might be true, but this argument doesn’t consider the importance of readability and understanding the code.
 
-The class was not renamed at the time of writing this for good reasons, but will be renamed to `HorseIdentifierHelper`. For the time being it will be the ambiguous "Helper", because it deals with two concerns: Validation and conversion, which should be split as well (Single Responsibility principle from the SOLID principles), but might not be very pragmatic in this case. 
+The class was not renamed at the time of writing this for good reasons, but it will be renamed to `HorseIdentifierHelper`. For the time being it will be the ambiguous "Helper", because it deals with two concerns: Validation and conversion, which should be split as well (Single Responsibility principle from the SOLID principles), but might not always be very pragmatic in this case.
 
 The ultimate goal should be to have a `HorseIdentifierValidator` and a `HorseIdentifierConversion` class, using the validator, would improve the understandability greatly.
 
 ## Conclusion: Name your things properly
 
-If you encounter strange names don't hesitate to change them. Refactoring naming is easy using today's powerful IDEs as long as the [locality of connascence](https://connascence.io/locality.html) is within the same system and does not go beyond the systems boundaries of the application by being exposed to external services.
+If you encounter strange names don't hesitate to change them. Refactoring naming is easy using today's powerful IDEs as long as the [locality of connascence](https://connascence.io/locality.html) is within the same system and does not go beyond the system's boundaries of the application by being exposed to external services.
 
 > “You know you are working on clean code when each routine you read turns out to be pretty much what you expected. You can call it beautiful code when the code also makes it look like the language was made for the problem.”
 
 — Ward Cunningham
 
-**There is no excuse to not fix naming when you encounter bad naming!**
+**There is no excuse not to fix naming when you encounter bad naming!**
