@@ -1,4 +1,7 @@
-```text
+
+<table>
+    <tr>
+        <td style="font-family: monospace;  line-height: 1.2; padding: 10px; white-space: pre; v-align: top">
 /laravel-app
 ├── app
 │   ├── Console
@@ -22,9 +25,8 @@
 │   └── logs
 ├── tests
 └── vendor
-```
-
-```text
+        </td>
+        <td style="font-family: monospace;  line-height: 1.2; padding: 10px; white-space: pre;     ">
 /symfony-app
 ├── bin
 ├── config
@@ -37,9 +39,8 @@
 ├── translations
 ├── var
 └── vendor
-```
-
-```text
+        </td>
+        <td style="font-family: monospace;  line-height: 1.2; padding: 10px; white-space: pre;     ">
 /cakephp-app
 ├── bin
 ├── config
@@ -53,9 +54,8 @@
 ├── tests
 ├── tmp
 └── vendor
-```
-
-```text
+        </td>
+        <td style="font-family: monospace;  line-height: 1.2; padding: 10px; white-space: pre;     ">
 /yii-app
 ├── assets
 ├── commands
@@ -67,4 +67,6 @@
 ├── tests
 ├── views
 └── vendor
-```
+        </td>
+    </tr>
+</table>
