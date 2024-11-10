@@ -12,11 +12,11 @@ published: true
 comments: true
 ---
 
-I'm again in a situation in which I have to deal with a ~14 year old, very organically grown systems that are composed of three bigger applications and a lot smaller services (AWS Lambda functions) around them. The whole project began with just two people.
+I'm once again in a situation where I need to work with a ~14-year-old, organically grown system consisting of three larger applications and numerous smaller services (primarily AWS Lambda functions). The entire project began with just two people.
 
-History repeats itself and it is pretty *normal* that those applications suffer from very tight coupling, even across their boundaries by for example sharing parts of one of the many databases they use. In my experience it is very rare that start ups, especially 10-20 years ago, started with well designed systems. Growth and quick results are more important to get further investments than a well designed system in the beginning. Fair enough. The long term impact of not addressing that in the mid to long term is worth another article.
-b
-But what makes such systems really hard to work with is that they usually lack proper tests and test coverage. It is more or less impossible to make a change to the system with good faith in not breaking something else. This leeds to the problem of how you can get quickly sufficient tests that allow you to gain some confidence in that your changes won't break everything.
+History repeats itself, and it’s unsurprising that these applications suffer from tight coupling—even across boundaries—by, for instance, sharing parts of one of the many databases in use. In my experience, it's rare for startups, especially those founded 10-20 years ago, to begin with well-designed systems. Early growth and rapid results are often prioritized to secure further investment over creating a robust architecture. Fair enough. The long-term impact of failing to address this in the mid-to-long term, however, is worth a separate discussion.
+
+What makes such systems especially difficult to work with is their typical lack of adequate tests and test coverage. As a result, it's nearly impossible to make changes confidently without risking unintended breakages. This raises the question of how to quickly develop sufficient tests to gain confidence that changes won’t disrupt other parts of the system.
 
 Approval tests will help us here.
 
@@ -30,7 +30,7 @@ Approval testing is increasingly popular because it excels in scenarios where tr
 
 ![Stamping Code Illustration](/assets/images/illustrations/stamping-approval.jpg){: .align-right}
 
-Approval testing works by comparing the current output of software to an approved baseline, often referred to as a "golden master." This baseline is established during the initial run of the test, where the output is manually reviewed and marked as the correct or expected result. Hence the name "Approval Testing".
+Approval testing works by comparing the current output of software to an approved baseline, often referred to as a "golden master." This baseline is established during the initial run of the test, where the output is manually reviewed and marked as the correct or expected result, hence the name "Approval Testing."
 
 Future tests generate new outputs and automatically compare them against this baseline. If the outputs match, the test passes, confirming the system behaves as expected. If they differ, the test fails, and the differences are flagged for review. This approach ensures that any unintended changes to the system's behavior are caught early, making approval testing particularly effective in maintaining consistency in complex systems.
 
@@ -80,6 +80,6 @@ There is [a whole website](https://approvaltests.com/) available that provides l
 
 Approval testing offers a valuable addition to traditional assertion-based testing techniques by addressing cases where conventional tests are either too rigid or difficult to maintain. In scenarios involving complex outputs—such as rendered UIs, large text reports, or intricate data structures—writing detailed assertions can be cumbersome and prone to error. By focusing on the full output rather than isolated values, approval testing provides a more flexible and maintainable testing strategy for handling complex system behavior.
 
-Especially for developers working with legacy code bases, approval testing can be a particularly powerful tool. Legacy code often lacks comprehensive test coverage, making it risky to modify or refactor without introducing unintended changes.
+For developers working with legacy codebases, approval testing can be a particularly powerful tool. Legacy code often lacks comprehensive test coverage, making it risky to modify or refactor without introducing unintended changes.
 
 Approval testing allows developers to capture the current behavior of the system and lock it down, providing a safeguard against regressions during refactoring. Similarly, for systems that generate non-deterministic outputs—like those involving machine learning models or dynamically generated content—approval testing's ability to capture and compare large outputs is invaluable. Exploring approval testing in these contexts can dramatically improve test coverage and system stability without the overhead of managing hundreds of individual assertions.

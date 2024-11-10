@@ -42,13 +42,15 @@ In my opinion, those should be found by anyone who is familiar with the principl
 
 ## The SOLID Principles
 
+The SOLID principles are a set of principles that were defined over time by different people and turned out to be useful principles in software development.
+
 For the sake of providing a cohesive reading experience and convenience, here are the principles. I've linked them to the according Wikipedia articles if you want to read a more lengthy and detailed explanation of them, which is not needed for this article.
 
-1. **[Single Responsibility Principle (SRP)](https://en.wikipedia.org/wiki/Single-responsibility_principle):** A class should have only one reason to change.
-2. **[Open/Closed Principle (OCP)](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle):** Software entities should be open for extension, but closed for modification.
-3. **[Liskov Substitution Principle (LSP)](https://en.wikipedia.org/wiki/Liskov_substitution_principle):** Subtypes must be substitutable for their base types.
-4. **[Interface Segregation Principle (ISP)](https://en.wikipedia.org/wiki/Interface_segregation_principle):** Prefer many specific interfaces over a single general-purpose one.
-5. **[Dependency Inversion Principle (DIP):](https://en.wikipedia.org/wiki/Dependency_inversion_principle)** Depend on abstractions, not on concrete implementations.
+1. **[Single Responsibility Principle (SRP)](https://en.wikipedia.org/wiki/Single-responsibility_principle):** "A class should have only one reason to change." - [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_Cecil_Martin), 2003 [Agile Software Development, Principles, Patterns, and Practices](https://www.amazon.de/-/en/Software-Development-Principles-Patterns-Practices/dp/1292025948)
+2. **[Open/Closed Principle (OCP)](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle):** "Software entities should be open for extension, but closed for modification." - Bertrand Meyer, 1988 [Object-Oriented Software Construction](https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)
+3. **[Liskov Substitution Principle (LSP)](https://en.wikipedia.org/wiki/Liskov_substitution_principle):** "Subtypes must be substitutable for their base types." - Barbara Liskov, 1987, Keynote "Data abstraction and hierarchy"
+4. **[Interface Segregation Principle (ISP)](https://en.wikipedia.org/wiki/Interface_segregation_principle):** "Prefer many specific interfaces over a single general-purpose one."" - Robert C. Martin while consulting Xerox.
+5. **[Dependency Inversion Principle (DIP):](https://en.wikipedia.org/wiki/Dependency_inversion_principle)** "Depend on abstractions, not on concrete implementations." - No clear origin.
 
 If you are not already familiar with them, would you say they are easy to understand? I think the answer is very likely no. Even if you are already capable of writing code you probably will struggle with those sentences. I would agree if people, who just read those 5 lines, will say that the principles are ambiguous. They are not in my opinion, but this limited information makes them look like they are.
 
@@ -60,7 +62,7 @@ I do not think that code examples are the most beneficial way to explain the pri
 
 **SRP**: If two things do different things separate them into different classes. A discount calculation must not be done within a repository class, because the only responsibility of the repository is to fetch data. Assuming you have a shopping cart, should be the tax and discount calculation part of the same class? No, because they do different things.
 
-**OCP**: OCP is often explained as plugin system in other articles, but this is more than just about plugin systems: If your discount calculation code is separated from the shopping cart code, its not only fulfilling the SRP principle but also the OCP principle. You won't have to directly modify the shopping cart but you can modify it through discount calculator instance passed to it.
+**OCP**: It is often explained as plugin system in other articles, but this is more than just about plugin systems: If your discount calculation code is separated from the shopping cart code, its not only fulfilling the SRP principle but also the OCP principle. You won't have to directly modify the shopping cart but you can modify it through discount calculator instance passed to it.
 
 **LSP**: Your discount and tax calculators should be replaceable without changing the actual behavior. A good example of behavior is when one discount calculator would throw an exception in the case it gets into a negative total while another one would do it correctly and return a total of 0.00. They behave differently and are not a valid substitution. The exception would force the shopping cart to change, because it now has to catch an exception.
 
@@ -159,7 +161,7 @@ Another, often done and also very similar case, is the use of validation rule an
 
 ## Use of AI to find SOLID Violations
 
-AI is doing a surprisingly good job (most of the time) to find and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**! If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously! I'm using mostly ChatGTP but I assume you'll get similarly good results with other AIs like Claude AI.
+AI is doing a surprisingly good job (most of the time) to find and explain when SOLID principles aren’t followed. But **don’t blindly trust the AI**. If the reasoning or code provided by the AI makes no sense or you have doubts about it, don’t take its response seriously! I'm using mostly ChatGTP but I assume you'll get similarly good results with other AIs like Claude AI.
 
 Even without giving it a lengthy prompt I've got often good results by just telling it the programming language and asking it to refactor or explain a single method or a whole class based on the SOLID principles.
 
