@@ -12,22 +12,33 @@ published: true
 comments: true
 ---
 
-## Recap: Hexagonal Architecture
+I've seen recently some people discussing if DDD and and hexagonal architecture is the same thing or how they work together. This article will provide a comprehensive answer.
 
-Hexagonal architecture, also known as ports and adapters architecture, is a design pattern that promotes the separation of concerns in software systems. The core principle is to organize the application into concentric hexagons, each representing a different layer of the system. At the center lies the application core, containing the business logic and domain entities. Surrounding it are the ports, which define interfaces through which the core interacts with the external world. Adapters, forming the outermost layer, implement these interfaces and connect the application to external dependencies such as databases, UIs, or third-party services.
+## Recap: Ports & Adapters (aka Hexagonal Architecture)
 
-![Hexagonal Architecture Diagram](/assets/diagrams/Hexagonal-Architecture.svg)
+Hexagonal architecture, also known as ports and adapters architecture, is a design pattern that promotes the separation of concerns in software systems. The core principle is to organize the application into layers, like an onion, each representing a different layer of the system. At the center lies the application core, containing the business logic and domain entities.
+
+The **inner** layers define the ports, which define interfaces through which the core interacts with the external world. Adapters, forming the outermost layer, implement these interfaces and connect the application to external dependencies such as databases, UIs, or third-party services.
+
+The name "hexagonal" comes from the the fact that this architecture was and still is often presented using a hexagonal diagram. [Vaughn Vernon](https://vaughnvernon.com/), the author of the book "[Implementing Domain-Driven Design](https://www.amazon.de/-/dp/0321834577)", popularized this architecture but called it "Ports and Adapters".
+
+![DDD in the Hexagonal Architecture Diagram](/assets/diagrams/ddd-ports-and-adapters.svg)
 
 ## How does DDD fit into that?
 
-I personally do not consider the tactical aspect of DDD an architecture, it is just a "tactical" pattern. In DDD, tactical patterns provide guidance on how to structure the domain model within **a bounded context** to effectively capture and represent the business domain. These patterns include Aggregate, Entity, Value Object, Repository, and more. In what bigger picture you apply those patterns is up to you, it doesn't has to be a hexagonal architecture.
+I personally do not consider the tactical aspect of DDD an architecture, it is just a "tactical" pattern. In DDD, tactical patterns provide guidance on how to structure the domain model within **a bounded context** to effectively capture and represent the business domain. These patterns include Aggregate, Entity, Value Object, Repository, and more. In what bigger picture you apply those patterns is up to you, it certainly doesn't has to be a hexagonal architecture style!
 
 The diagram is probably a lot more expressive than any tex:
 
-![DDD in the Hexagonal Architecture Diagram](/assets/diagrams/DDD-Hexagonal-Architecture.svg)
+![DDD in the Hexagonal Architecture Diagram](/assets/diagrams/ddd-in-ports-and-adapters-detailed.svg)
 
 ## So what should go into which layer?
 
+### Cross-cutting Concerns
+
+Logging and security are usually cross-cutting concerns that can be used throught the layers, so the table suggests where the actual implementation of those concerns could be placed.
+
+### Mapping Table
 
 | Domain Layer | Application Layer | Infrastructure Layer | Interface Layer (Optional) |
 |--------------|-------------------|----------------------|----------------------------|
@@ -45,3 +56,7 @@ The diagram is probably a lot more expressive than any tex:
 | | | Third-party Library Wrappers | |
 | | | Configuration Management | |
 | | | Dependency Injection Container Configuration | |
+
+## Conclusion
+
+There is a very clear separation of concerns between the layers in the ports and adapters architecture. DDDs tactical patterns fit very well into it, because DDD itself forces a boundary by its patterns around the domain.

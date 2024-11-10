@@ -17,6 +17,6 @@ NASA, being a bureaucratic organization, is also entangled with politics. While 
 
 An engineer's craftsmanship is to make scientific findings practically usable. But this includes in my opinion being cost-conscious as well. It is like software developers who prefer developing super fancy abstractions when a "dirty" script could suffice to demonstrate a functionality and already delivery value, instead of craving for perfectionism but failing to deliver while generating a lot costs.
 
-Are you familiar with the [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle)? If I want to deliver a product without tests, I need to achieve not just 80% but 100%, consuming 80% of the time. Not using real prototypes and being unable to test the entire system will yield less insight than multiple quick prototypes.
+Are you familiar with the [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle)? If I want to deliver a product without tests, I need to achieve not just 80% but 100%, consuming 80% of the time. Not using real prototypes and being unable to test the entire system can yield less insight than multiple quick prototypes.
 
-Personally, I believe SpaceX's iterative approach is the better one. This applies to software and business value as well. I could wait five times longer to sell something, or I could sell a means of transportation from the MVP stage.
+Personally, I believe SpaceX's iterative approach is for their purpose a good one. This applies to software and business value as well. I could wait five times longer to sell something, or I could sell a means of transportation from the MVP stage.
