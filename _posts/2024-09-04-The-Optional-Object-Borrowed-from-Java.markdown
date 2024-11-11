@@ -2,10 +2,10 @@
 layout: post
 title: "The Optional Object (borrowed From Java): A Guide to Handling Null Values Gracefully"
 categories: software-architecture
-tags: software-architecture
+tags: software-architecture, oop
 ---
 
-In software development, dealing with null values is a common source of bugs and errors. The Optional object, popularized by Java 8, offers a way to handle null values gracefully, reducing the risk of NullPointerException. This guide adapts the concept for PHP, demonstrating how to use an Optional class to improve code safety and readability.
+In software development, dealing with null values is a common source of bugs and errors. The Optional object, popularized by Java 8, offers a way to handle null values gracefully, reducing the risk of NullPointerException. While we do not have this risk in PHP the optional still provides benefits. This guide adapts the concept for PHP, demonstrating how to use an Optional class to improve code safety and readability.
 
 ## What is Optional?
 
