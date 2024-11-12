@@ -14,7 +14,7 @@ The following conventions are **a minimum** that I would strongly recommend *any
 
 ### Keywords
 
-The keywords follow the IETF [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119):
+The keywords in this document follow [IETF RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119):
 
 [1](https://datatracker.ietf.org/doc/html/rfc2119#section-1). **MUST**  This word, or the terms "REQUIRED" or "SHALL", mean that the definition is an absolute requirement of the specification.
 
@@ -70,6 +70,7 @@ The keywords follow the IETF [RFC 2119](https://datatracker.ietf.org/doc/html/rf
 | Untested code **MUST** be tested before it can be changed, this must be visible in the commit history. | Changing untested code always bears risks. To mitigate those risks, code that is untested and needs to be changed must be tested before changes are made, to mitigate the probability of bugs. |
 | Any legacy code **CAN** be refactored at any time. | The teams are free to do refactoring sessions whenever they want and they have time. Free resources should be allocated to refactoring. |
 | Bug fixes **MUST** have test cases that cover all possible paths and scenarios within the affected code. | This convention will ensure that the risk of regressions is reduced. |
+| Pre-Commit Hooks that check changed files **MUST** be used | This will ensure that the checks are executed fast and reduce the number of failing CI/CD builds.
 
 ## Rationale {#rationale}
 
