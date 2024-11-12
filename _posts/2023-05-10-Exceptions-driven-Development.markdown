@@ -50,7 +50,7 @@ But when might it make sense to use an exception? There must be cases that can b
 * An application **SHOULD** handle them in a graceful way (UX).
 * An exception **MUST NOT** be used to control program flow.
 
-For example throwing a `HttpNotFoundException()``, that will be caught and transformed into a HTTP status 404 response is what I consider exception driven development. This is no exceptional nor an unrecoverable state the system went into. If a resource was not found, then this is a clear, possible and expected outcome of an operation. So why don't you just return the correct state explicitly instead of relying on a mechanism that is abused for that?
+For example throwing a `HttpNotFoundException()`, that will be caught and transformed into a HTTP status 404 response is what I consider exception driven development. This is no exceptional nor an unrecoverable state the system went into. If a resource was not found, then this is a clear, possible and expected outcome of an operation. So why don't you just return the correct state explicitly instead of relying on a mechanism that is abused for that?
 
 Some people argue about convenience and having to type more, both is simply not true, though it depends on how your concrete system works.
 
@@ -95,6 +95,8 @@ public function getBySku(string $sku): Product
 // Throws the RecordNotFoundException in the repository
 $product = $this->ProductRepository->getBySku($sku);
 ```
+
+Persistence related information propagates through the application stack, instead of doing a proper check if a result is present or was returned. You'll now also have to map that exception somewhere to a  proper HTTP response or a console error output. Sure, a middleware could catch them, but this is very intransparent for the reader of the code as well.
 
 ### Example: Exceptions for infrastructure
 
