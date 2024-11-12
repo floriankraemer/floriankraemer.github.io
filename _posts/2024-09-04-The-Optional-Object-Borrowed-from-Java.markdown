@@ -5,11 +5,13 @@ categories: software-architecture
 tags: software-architecture, oop
 ---
 
-In software development, dealing with null values is a common source of bugs and errors. The Optional object, popularized by Java 8, offers a way to handle null values gracefully, reducing the risk of NullPointerException. While we do not have this risk in PHP the optional still provides benefits. This guide adapts the concept for PHP, demonstrating how to use an Optional class to improve code safety and readability.
+In software development, dealing with null values is a common source of bugs and errors. The [Optional](https://docs.oracle.com/javase/8/docs/api/index.html?java/util/Optional.html) object, popularized by Java 8, offers a way to handle null values gracefully, reducing the risk of NullPointerException. While we do not have the risk of a NullPointerException in PHP, the optional still provides benefits. This guide adapts the concept for PHP, demonstrating how to use an Optional class to improve code safety and readability.
 
 ## What is Optional?
 
 Optional is a container object that may or may not contain a non-null value. It provides a way to express the presence or absence of a value explicitly, allowing developers to handle potential nulls more effectively. The PHP version of Optional can be used to avoid tedious null checks and improve the overall quality of your code.
+
+Optional is also kind of a [Monad](https://en.wikipedia.org/wiki/Monad_(functional_programming)), it follows the basic monadic principles found in functional programming by encapsulating a potentially absent value and providing controlled ways to interact with it. A monad is essentially a type that wraps a value and provides operations to manipulate that value without "unwrapping" it. Optional wraps a value that may or may not be present, encapsulating null in a safer, more explicit way.
 
 **The main purpose of an optional is basically to *explicitly* tell the user the object *might* not exist.**
 
@@ -19,7 +21,7 @@ Optional is a container object that may or may not contain a non-null value. It 
 * Improves Readability: It makes the code more readable by clearly indicating when a value may be absent.
 * Encourages Functional Programming: Optional promotes the use of functional programming techniques, such as mapping and flat mapping.
 
-Optionals are intended to be used as return types. Don't use them anywhere else.
+Optionals are intended to be used as return types, you should not use them anywhere else.
 
 ----
 
@@ -96,7 +98,7 @@ Use Optional when you want to represent the absence of a value more explicitly a
 
 ### When to not use any of both
 
-Your return value is an unambiguous primitive type , e.g. a boolean or an int and will NOT return null.
+Your return value is a primitive type, e.g. a boolean or an int or the function will **not** return null.
 
 ## Conclusion
 
