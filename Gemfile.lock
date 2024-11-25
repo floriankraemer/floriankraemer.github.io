@@ -125,6 +125,7 @@ DEPENDENCIES
   jekyll-feed (~> 0.12)
   jekyll-seo-tag (~> 2.6)
   jekyll-theme-clean-blog
+  jekyll-toc
   minima (~> 2.5)
   tzinfo (>= 1, < 3)
   tzinfo-data

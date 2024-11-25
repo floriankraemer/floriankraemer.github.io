@@ -2,6 +2,7 @@
 layout: page
 title: Minimum Development Conventions
 permalink: /minimum-development-conventions
+toc: true
 ---
 
 The code quality impacts the business directly by being coupled and overly complex, causing a higher development effort and therefore costs for the business to produce and maintain the code.
@@ -64,6 +65,8 @@ The keywords in this document follow [IETF RFC 2119](https://datatracker.ietf.or
 
 #### Development Process
 
+The following conventions are applicable to the development process, to ensure quality and velocity.
+
 | Convention | Explanation |
 | ----- | :---- |
 | Legacy code that is touched during feature development **MUST** be refactored when it is touched. | Code that is touched during the development process must be refactored to increase the quality over time. Especially improving the readability of code by extracting functionality from large code blocks is easy by using “Extract Method” of modern IDEs. |
@@ -78,19 +81,19 @@ The conventions are expected to be followed unless the author or reviewer of the
 
 Valid reasons might be that a method is exceeding the line limit because of a long array declaration with many items (Why not move it to a property? Make it a separate data collection object? Could the items be objets as well? An array is fragile, an object is much less fragile) or when mapping large data structures. Sometimes a complex algorithm might require a deep nesting of if-else statements, but this is a rare occurrence as well, usually even then the statements can be broken down into separate methods with well understandable naming.
 
-## Definition of Principle {#definition-of-principle}
+## Definition of Principle
 
 A principle is a fundamental truth or guideline that **shapes behavior, actions, or thought**. It serves as a foundational rule or belief that **influences decision-making, providing consistency and direction**. Principles are often universal and **help individuals or groups align their choices** with a core set of values or goals. In essence, a principle acts as **a baseline for quality, coherence**, and purpose in actions or creations.
 
 To express it in one simple sentence: Software engineering principles act as guardrails that steer the development towards certain quality attributes.
 
-## The Impact on the Stakeholders {#the-impact-on-the-stakeholders}
+## The Impact on the Stakeholders
 
-### Accountability Definition {#accountability-definition}
+### Accountability Definition
 
 Accountability is about being answerable for the outcomes of tasks or projects. While multiple people may share responsibility, only one person or a specific role is usually accountable for the final result.
 
-### Responsibility Definition {#responsibility-definition}
+### Responsibility Definition
 
 Responsibility refers to the specific tasks, roles, and actions that team members are expected to perform. It implies ownership of processes, such as coding, testing, or managing infrastructure.
 
@@ -106,15 +109,15 @@ Responsibilities can often be shared among team members, as multiple developers 
 | **Everyone who writes or changes code** | **Developer Experience:** Easier to read and understand code should also have **a positive impact on the developer experience**, because when the code is easier to understand and maintain, the likelihood of tedious bugs and hours of understanding the code should decrease. Will be ***responsible*** and ***accountable*** for learning the SOLID principles. Will be ***accountable*** for not following the conventions. |
 | **Product Owners & Managers** | Are ***informed*** about the conventions and measures to enforce them. |
 
-## The Impact on the System {#the-impact-on-the-system}
+## The Impact on the System
 
 Clear, standardized practices also improve collaboration across developers, leading to more reliable systems because it reduces the time it takes to understand and change code. The expectation is that the system's flexibility will increase over time if the conventions are applied consistently.
 
-## The Impact on the Business {#the-impact-on-the-business}
+## The Impact on the Business
 
 The short term impact may be a slower development speed due to the expected learning phase. The business should give the development teams time and room to adapt to the changes this RFC will introduce. The mid term benefit should be visible in an increased development speed and less defects in the long term. The long term perspective and expectation is a reduction in the production and maintenance costs of the code and also increased flexibility.
 
-# References {#references}
+## References
 
 1. [Coding conventions \- Wikipedia](https://en.wikipedia.org/wiki/Coding_conventions)  
 2. [SOLID \- Wikipedia](https://en.wikipedia.org/wiki/SOLID)  
