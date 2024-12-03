@@ -4,7 +4,7 @@ title: 'Are the SOLID Principles problematic?'
 categories: software-architecture
 tags:
   - software-architecture
-date: 2024-12-01T11:12:34.000Z
+date: 2024-12-10T11:12:34.000Z
 draft: false
 published: true
 comments: true
@@ -36,9 +36,21 @@ In one simple sentence: Software engineering principles act as guardrails that s
 
 ## Software Principles in general
 
-Software principles are **not absolute** and **require situational judgment**, which can be expected from developers at some level. While in some scenarios, there can be a controversial discussion on if and what principle applies, but in most cases there are obvious and clear violations of the principles to find that are unambiguous. 
+Software principles are **not absolute** and **require situational judgment**, which can be expected from developers at some level. While in some scenarios, there can be a controversial discussion on if and what principle applies, but in most cases there are obvious and clear violations of the principles to find that are unambiguous.
 
 In my opinion, those should be found by anyone who is familiar with the principles. Some controversial cases require more experience and judgment but *should* be found and decided by more experienced developers.
+
+## The Principle Of Applying Principles
+
+I came across this principle while doing research for this article. It is actually a whole article about this principle. The author doesn't want to show his real name on his website, so I can't refer him properly. So I'll just [link his article here](https://fragiledeveloper.com/2019/06/09/the-principle-of-applying-principles-(POAP).html).
+
+> Principles, patterns, and practices are not final purposes. The good and proper application of each is therefore inspired and constrained by a superior, more final purpose.
+>
+> **You need to understand why you’re doing what you’re doing!**
+>
+> (The POAP is not exempt from the POAP.)
+
+This means that some experience, analytical skills and system thinking are required to apply any principle properly.
 
 ## The SOLID Principles
 
@@ -117,6 +129,18 @@ It should be impossible, at least much harder, to change the behavior of the met
 -->
 
 ## Validity of the SOLID Principles
+
+This statement and others that are similar were made in conversations I had:
+
+> 'stick to SOLID principles' needs clarification, because there is no common view on how to follow them
+
+I respectfully disagree with the statement made. The SOLID principles are well-defined, and if there is seemingly no shared understanding, it might indicate that the statement was not clearly expressed, the intent was different, or there was a misunderstanding of the principles by the author of the statement.
+
+The challenging part is determining when it’s better to **not to apply them**, as blindly following them can lead to over-engineering. People unfamiliar with these principles often struggle to identify them initially, and this can sometimes lead to over-enthusiasm and over-engineering later.
+
+However, this doesn't invalidate the principles or makes them ambiguous.
+
+### Empirical Evidence
 
 There is empirical evidence by multiple studies [1][2][3][4], that the SOLID principles improve the code quality and associated quality attributes.
 
