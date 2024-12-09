@@ -4,7 +4,7 @@ title: 'Are the SOLID Principles problematic?'
 categories: software-architecture
 tags:
   - software-architecture
-date: 2024-12-10T11:12:34.000Z
+date: 2024-12-27T11:12:34.000Z
 draft: false
 published: true
 comments: true
@@ -127,6 +127,18 @@ public PositiveInteger getPositiveInteger()
 It should be impossible, at least much harder, to change the behavior of the method to an unintended behavior now.
 
 -->
+
+## WHen to NOT apply the SOLID principles
+
+| Principle                                                                 | Purpose                                                                     | Pitfalls                                                                                                                                                     |
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Single responsibility](https://en.wikipedia.org/wiki/Single-responsibility_principle) | Makes changes isolated, easy to test and reason about.                      | Hyper-decomposition. You probably don't need a full class to set a page/screen title.                                                                        |
+| [Open–closed](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)           | Helps prevent new features from breaking old ones.                          | "Closing" a module you own, maintain, and can safely extend can lead to unnecessary complexity, inheritance chains, LOC, and added binary/bundle size.       |
+| [Liskov substitution](https://en.wikipedia.org/wiki/Liskov_substitution_principle)   | Helps prevent code that looks *correct* from being *incorrect*.             | Over-reliance on LSP as a signal for correctness.                                                                                                            |
+| [Interface segregation](https://en.wikipedia.org/wiki/Interface_segregation_principle) | Allows variables/functions to accept more types; reduces boilerplate usage. | Requiring the smallest possible interface may conflict with the intent of LSP.                                                                              |
+| [Dependency inversion](https://en.wikipedia.org/wiki/Dependency_inversion_principle) | Makes more of the system reusable, swappable, and testable.                 | Over-inversion. Creating and "inverting" abstractions with no gain, adding complexity, making code harder to read and reason about.                         |
+| Bonus: [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) | Helps prevent inconsistent application of business rules throughout the system. | Over-application: Code that looks the same might serve different purposes, and behavior that *should* diverge becomes difficult to change.                  |
+
 
 ## Validity of the SOLID Principles
 
