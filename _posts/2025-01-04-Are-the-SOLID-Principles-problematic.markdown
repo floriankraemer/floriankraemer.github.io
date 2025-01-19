@@ -10,11 +10,11 @@ published: true
 comments: true
 ---
 
-The article attempts to define what a software principle is, how they should be used, if the solid principles are ambiguous and useful and if they are hard to understand and learn.
+The article attempts to define what a software principle is, how they should be used, if the SOLID principles are unambiguous and useful and if they are hard to understand and learn.
 
 Before I'll go into what the article is about I'll give you some historical context that also explains my motivation and thought process behind this article. Feel free to skip the story if you aren't interested in this part.
 
-## My SOLID History
+## My SOLID Story
 
 I had never really heard about them, nor had anyone taught me the principles before this. What happened was that I've requested an external code review for the company I was working for at this time, which was luckily granted by the CTO. Originally I wanted to get [Matthias Noback](https://matthiasnoback.nl/), but he was already booked and busy at this time so he recommended us [Ross Tuck](https://www.rosstuck.com/).
 
@@ -47,6 +47,8 @@ I think it is fair to draw the following conclusions from that Software principl
 In my opinion, those should be found by anyone who is familiar with the principles. Some controversial cases require more experience and judgment but *should* be found and decided by more experienced developers.
 
 ## The five SOLID Principles
+
+If you already know them you can skip this section and scroll down to the section that discusses the validity of them.
 
 The SOLID principles are a set of principles that were defined over time by different people and turned out to be useful principles in software development.
 

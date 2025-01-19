@@ -26,6 +26,18 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * Artificial intelligence 🤖, neural networks - super interesting.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
 
+---
+
+- I've been part of the CakePHP core team.
+  - Extracted and refactored the authentication & authorization into extensions.
+  - Maintained several CakePHP plugins.
+- I've done a large scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling.
+- I've successfully introduced a CI/CD process in a company.
+- Architected the Unified Commerce foundation for Sprykers Commerce OS.
+- Designed a security issue workflow and process within the Core Commerce department.
+- Introduced performance and quality metrics.
+
+
 <!--
 
 ## My experience & how I work
