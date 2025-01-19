@@ -5,8 +5,8 @@ categories: software-architecture
 tags:
   - software-architecture
 date: 2024-12-01T11:12:34.000Z
-draft: false
-published: true
+draft: true
+published: false
 comments: true
 ---
 
