@@ -1,14 +1,29 @@
-# Developers, behavioral changes and decisions
+---
+layout: post
+title: 'Developers, Behavioral Changes and Decisions'
+categories: software-architecture
+tags:
+  - software-architecture
+  - requirements
+date: 2025-01-20T22:11:34.000Z
+draft: false
+published: true
+comments: true
+---
 
-We've had an internal training with [Emily Bache](https://emilybache.com/) that I organized, and one of the refactoring exercises sparked a very interesting discussion from a behavioral change perspective.
+# Developers, Behavioral Changes and Decisions
 
-While I hope that the behavioral change was obvious for all attendees, I was asking myself what would happen if the developer just made the change without alignment with the product owner. We'll explore the impact of this in the article.
+We've had an internal training with [Emily Bache](https://emilybache.com/) that I organized, and one of the refactoring exercises sparked a very interesting discussion from a behavioral change in the code.
+
+While I hope that the behavioral change was obvious for all attendees, I was asking myself if the developers are aware of the impact, if they made the change without alignment with the product owner. We'll explore the impact of this in the article.
 
 ## Subject of the discussion
 
-Before we get to the decision, we need to understand the context in which it needs to be made.
+Before we get to the decision, we need to understand the context in which it needs to be made. It is important to understand the context to be able to make a good decision.
 
-There is an old-fashioned input of a text file, which has a header in the first two lines, describing how many commands there are and what the initial position is. In the following example, we have two commands and an initial position of `10 22`, followed by the actual commands where to move.
+We have a program that drives a roboter based on a series of commands that tell it the direction in which it has to move.
+
+It uses an old-fashioned input of a text file, which has a header in the first two lines, describing how many commands there are and what the initial position is. In the following example, we have two commands and an initial position of `10 22`, followed by the actual commands where to move.
 
 ```text
 2
@@ -68,6 +83,6 @@ Consider that this is a simplified example. Moving could require further validat
 
 ## Conclusion
 
-Behavioral changes should not be decided by developers alone but aligned and decided with the product owners together. A developer must be aware of what the requirements are and what the impact of the change is.
+Behavioral changes should not be decided by developers alone but aligned and decided with the product owners together. A developer must be aware of what the requirements are, what a behavior change is and what the impact of the change is.
 
 That means that product owners need to keep their developers informed and developers need to be aware of when they need to talk to their product owners - teamwork.
