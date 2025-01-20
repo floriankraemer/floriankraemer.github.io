@@ -28,7 +28,7 @@ logs:
 # Open a shell in the running Jekyll container
 .PHONY: bash
 bash:
-	docker compose exec jekyll /bin/sh
+	docker compose exec jekyll-jekyll-1 /bin/sh
 
 # Build the Jekyll container
 .PHONY: build
