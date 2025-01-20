@@ -4,7 +4,8 @@ title: 'Are the SOLID Principles problematic?'
 categories: software-architecture
 tags:
   - software-architecture
-date: 2024-12-01T11:12:34.000Z
+  - solid-principles
+date: 2025-02-14T20:43:22.000Z
 draft: true
 published: false
 comments: true
@@ -186,7 +187,7 @@ Something I haven’t been able to find a clear answer to is why the SOLID princ
 
 To further explore the real-world usage of SOLID principles, I’ll attempt to conduct a survey and publish the results here.
 
-## Sources
+## References
 
 - [1] [An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics](https://dergipark.org.tr/en/download/article-file/1555528) by Osman Turan, Ömer Özgür, 2018
 - [2] [Investigating the Impact of SOLID Design Principles on Machine Learning Code Understanding](https://arxiv.org/pdf/2402.05337) by Raphael Cabral, Hugo Villamizar, Marcos Kalinowski, Tatiana Escovedo, Maria Teresa Baldassarre, Hélio Lopes Rio de Janeiro, 2024
