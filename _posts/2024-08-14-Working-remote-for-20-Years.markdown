@@ -7,7 +7,6 @@ tags:
   - work
 date: 2024-08-14T18:16:11.000Z
 draft: false
-published: true
 comments: true
 ---
 

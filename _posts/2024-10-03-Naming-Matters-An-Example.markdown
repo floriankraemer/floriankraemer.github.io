@@ -6,7 +6,6 @@ tags:
   - software-architecture
 date: 2024-10-03T11:15:30.000Z
 draft: false
-published: true
 comments: true
 ---
 

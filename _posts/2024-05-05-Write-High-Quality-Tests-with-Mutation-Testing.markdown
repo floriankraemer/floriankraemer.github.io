@@ -6,7 +6,6 @@ tags:
     - software-architecture
     - testing
 draft: false
-published: true
 comments: true
 slug: write-high-quality-tests-mutation-testing
 description: What is mutation testing and how does it help to improve the quality of your tests?

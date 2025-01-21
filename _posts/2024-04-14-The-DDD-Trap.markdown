@@ -4,7 +4,6 @@ title: The DDD Trap
 categories: software-architecture
 tags: software-architecture
 draft: false
-published: true
 comments: true
 ---
 

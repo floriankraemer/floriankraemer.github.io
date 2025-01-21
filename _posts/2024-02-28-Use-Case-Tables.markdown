@@ -4,7 +4,6 @@ title: "Simple but useful: Use Case Tables"
 categories: software-architecture
 tags: software-architecture
 draft: false
-published: true
 comments: true
 ---
 

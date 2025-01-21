@@ -4,7 +4,6 @@ title: About Validation and Anti Corruption Layers
 categories: software-architecture
 tags: software-architecture
 draft: true
-published: true
 comments: true
 ---
 

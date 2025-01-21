@@ -7,7 +7,6 @@ tags:
   - solid-principles
 date: 2025-02-14T20:43:22.000Z
 draft: true
-published: false
 comments: true
 ---
 
