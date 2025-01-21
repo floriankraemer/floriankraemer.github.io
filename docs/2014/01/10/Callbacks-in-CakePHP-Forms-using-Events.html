@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Callbacks In Cakephp Forms Using Events | Florian Krämer</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Callbacks In Cakephp Forms Using Events" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you ever have the need to inject fields or other things into a form, for example when building a blog or CMS system, you can use the event system that comes with CakePHP. The basic concept can be used everywhere within the views and is not limited to forms only, but a form is a good example." />
+<meta property="og:description" content="If you ever have the need to inject fields or other things into a form, for example when building a blog or CMS system, you can use the event system that comes with CakePHP. The basic concept can be used everywhere within the views and is not limited to forms only, but a form is a good example." />
+<link rel="canonical" href="http://0.0.0.0:4000/2014/01/10/Callbacks-in-CakePHP-Forms-using-Events.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/2014/01/10/Callbacks-in-CakePHP-Forms-using-Events.html" />
+<meta property="og:site_name" content="Florian Krämer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-01-10T03:08:49+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Callbacks In Cakephp Forms Using Events" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2014-01-10T03:08:49+00:00","datePublished":"2014-01-10T03:08:49+00:00","description":"If you ever have the need to inject fields or other things into a form, for example when building a blog or CMS system, you can use the event system that comes with CakePHP. The basic concept can be used everywhere within the views and is not limited to forms only, but a form is a good example.","headline":"Callbacks In Cakephp Forms Using Events","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2014/01/10/Callbacks-in-CakePHP-Forms-using-Events.html"},"url":"http://0.0.0.0:4000/2014/01/10/Callbacks-in-CakePHP-Forms-using-Events.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Florian Krämer" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Florian Krämer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/articles/">Articles</a><a class="page-link" href="/services/consulting/">Consulting</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/imprint/">Imprint</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Callbacks In Cakephp Forms Using Events</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-01-10T03:08:49+00:00" itemprop="datePublished">Jan 10, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>If you ever have the need to inject fields or other things into a form, for example when building a blog or CMS system, you can use the event system that comes with CakePHP. The basic concept can be used everywhere within the views and is not limited to forms only, but a form is a good example.</p>
+
+<p>You can find the complete sample as a working application in the <a href="https://github.com/burzum/cakephp-samples/tree/cake2-form-events">cake2-form-events</a> branch of my <a href="https://github.com/burzum/cakephp-samples">Github cakephp-sample repository</a>.</p>
+
+<p>Please note that this sample code is using PHP 5.4 specific notations.</p>
+
+<p>The form in a view file is dispatching two events, the <code class="language-plaintext highlighter-rouge">View.Form.someFormStart</code> and <code class="language-plaintext highlighter-rouge">View.Form.someFormEnd</code> event. The places where these callbacks are fired are the places where custom fields or other output is going to be injected by the triggered event listener callbacks.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nf">create</span><span class="p">();</span>
+
+<span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CakeEvent</span><span class="p">(</span><span class="s1">'View.Form.someFormStart'</span><span class="p">,</span> <span class="nv">$this</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">getEventManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">dispatch</span><span class="p">(</span><span class="nv">$Event</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nf">input</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
+
+<span class="nv">$event</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CakeEvent</span><span class="p">(</span><span class="s1">'View.Form.someFormEnd'</span><span class="p">,</span> <span class="nv">$this</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">getEventManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">dispatch</span><span class="p">(</span><span class="nv">$event</span><span class="p">);</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nf">submit</span><span class="p">(</span><span class="nf">__</span><span class="p">(</span><span class="s1">'Submit'</span><span class="p">));</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nb">end</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>The event listener class that will inject something into your form events. I would not write a lot of view code in the event listener itself; it is just done for demonstration purposes in this sample. I would always put the additional things I would like to display in an element and only echo that element from the event to keep the view pieces it will inject separated from the event listener to respect separation of concerns.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">App</span><span class="o">::</span><span class="nf">uses</span><span class="p">(</span><span class="s1">'CakeEventListener'</span><span class="p">,</span> <span class="s1">'Event'</span><span class="p">);</span>
+<span class="nc">App</span><span class="o">::</span><span class="nf">uses</span><span class="p">(</span><span class="s1">'Object'</span><span class="p">,</span> <span class="s1">'Core'</span><span class="p">);</span>
+
+<span class="kd">class</span> <span class="nc">FormListener</span> <span class="kd">extends</span> <span class="nc">Object</span> <span class="kd">implements</span> <span class="nc">CakeEventListener</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">implementedEvents</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s1">'View.Form.someFormStart'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'callable'</span> <span class="o">=&gt;</span> <span class="s1">'someFormStart'</span>
+            <span class="p">],</span>
+            <span class="s1">'View.Form.someFormEnd'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'callable'</span> <span class="o">=&gt;</span> <span class="s1">'someFormEnd'</span>
+            <span class="p">]</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">someFormStart</span><span class="p">(</span><span class="kt">CakeEvent</span> <span class="nv">$Event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$View</span> <span class="o">=</span> <span class="nv">$Event</span><span class="o">-&gt;</span><span class="nf">subject</span><span class="p">();</span>
+        <span class="nv">$View</span><span class="o">-&gt;</span><span class="n">viewVars</span><span class="p">[</span><span class="s1">'user'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">requestAction</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s1">'controller'</span> <span class="o">=&gt;</span> <span class="s1">'samples'</span><span class="p">,</span>
+                <span class="s1">'action'</span> <span class="o">=&gt;</span> <span class="s1">'view'</span><span class="p">,</span>
+                <span class="s1">'1'</span>
+            <span class="p">]</span>
+        <span class="p">);</span>
+        <span class="k">echo</span> <span class="nv">$View</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nf">input</span><span class="p">(</span><span class="s1">'nick_name'</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">someFormEnd</span><span class="p">(</span><span class="kt">CakeEvent</span> <span class="nv">$Event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$View</span> <span class="o">=</span> <span class="nv">$Event</span><span class="o">-&gt;</span><span class="nf">subject</span><span class="p">();</span>
+        <span class="k">echo</span> <span class="nv">$View</span><span class="o">-&gt;</span><span class="nf">element</span><span class="p">(</span><span class="s1">'additional_fields'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can put your event listeners into App/Event, for example. After you’ve created your event listener and saved it to App/Event/FormListener.php, you have to attach your listener to the CakeEventManager. In your App/Config/bootstrap.php, add this to attach the listener to the global event manager.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">App</span><span class="o">::</span><span class="nf">uses</span><span class="p">(</span><span class="s1">'CakeEventManager'</span><span class="p">,</span> <span class="s1">'Event'</span><span class="p">);</span>
+<span class="nc">App</span><span class="o">::</span><span class="nf">uses</span><span class="p">(</span><span class="s1">'FormListener'</span><span class="p">,</span> <span class="s1">'Event'</span><span class="p">);</span>
+<span class="nc">CakeEventManager</span><span class="o">::</span><span class="nf">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">attach</span><span class="p">(</span><span class="k">new</span> <span class="nc">FormListener</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>The additional_fields element will output the user we fetched in the first event for demonstration purposes to give you an idea of what is possible and how it works, and data is made available between the different steps.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nf">input</span><span class="p">(</span><span class="s1">'age'</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Form</span><span class="o">-&gt;</span><span class="nf">input</span><span class="p">(</span><span class="s1">'gender'</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nf">h</span><span class="p">(</span><span class="nv">$user</span><span class="p">[</span><span class="s1">'User'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>I hope you enjoyed the article and learned something. Any kind of criticism to improve it is welcome!</p>
+
+  </div><a class="u-url" href="/2014/01/10/Callbacks-in-CakePHP-Forms-using-Events.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Florian Krämer</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Florian Krämer</li><li><a class="u-email" href="mailto:contact@florian-kraemer.net">contact@florian-kraemer.net</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/floriankraemer"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">floriankraemer</span></a></li><li><a href="https://www.linkedin.com/in/fkr%C3%A4mer"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">fkrämer</span></a></li><li><a href="https://www.twitter.com/floriankraemer"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">floriankraemer</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>My personal website about me, software architecture, software development and technology in general.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
