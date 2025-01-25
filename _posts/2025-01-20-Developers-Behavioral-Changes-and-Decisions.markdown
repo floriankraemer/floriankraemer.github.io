@@ -146,4 +146,4 @@ Consider that this is a simplified example scenario. Moving could require furthe
 
 Behavioral changes should not be decided by developers alone but aligned and decided with the product owners together. A developer must be aware of what the requirements are, what a behavior change is and what the impact of the change is.
 
-That means that product owners need to keep their developers informed and developers need to be aware of when they need to talk to their product owners - teamwork.
+That means that product owners need to keep their developers informed and developers need to be aware of when they need to talk to their product owners. Once again, teamwork is key!
