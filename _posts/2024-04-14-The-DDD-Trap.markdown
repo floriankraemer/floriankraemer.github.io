@@ -64,7 +64,7 @@ You don't need DDD as a whole if you do not have the need to manage the complexi
 
 ## The inconvenient truth
 
-The inconvenient truth is that you won't do nor learn the essence of DDD by just following those articles that tell you to implement the tactical patterns. In my opinion DDD provides a great way to understand a business and to define the bounded contexts. Of course you are free to apply just the tactical patterns but they might not live up to your expectations if you use them for simple domain.
+The inconvenient truth is that you won't do nor learn the essence of DDD by just following those articles that tell you to implement the tactical patterns. In my opinion DDD provides a great way to understand a business and to define the bounded contexts. Of course you are free to apply just the tactical patterns but they might not live up to your expectations if you use them for just a simple domain.
 
 If you really want to get into it I recommend you to read those books. Especially the blue book is not an easy read and most people never read the whole book.
 

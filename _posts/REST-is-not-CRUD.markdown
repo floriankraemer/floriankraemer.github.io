@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Most of you are not doing REST
+title: Most of you are not doing RESTful
 categories: software-architecture
 tags: software-architecture
 draft: true
@@ -14,7 +14,7 @@ The paper aims to analyze architectural styles for network-based systems, identi
 
 Fielding demonstrates how REST principles shape the success of the web, advocating for its adoption in designing distributed systems with universal, stateless interfaces and clear resource-based interactions.
 
-In his dissertation he does not prescribe the specific use of HTTP verbs (like GET, POST, PUT, DELETE) or focus on CRUD-style APIs as REST is often implemented today. Instead, the dissertation describes REST as an architectural style that provides principles and constraints for building network-based applications, using the web as its foundational example.
+In his dissertation he does **not** prescribe the specific use of HTTP verbs (like GET, POST, PUT, DELETE) or focus on CRUD-style APIs as REST is often implemented today. Instead, the dissertation describes REST as an architectural style that provides principles and constraints for building network-based applications, using the web as its foundational example.
 
 Roy Fielding has explicitly criticized the oversimplification of REST in CRUD-style APIs, emphasizing that many so-called "RESTful" APIs fail to implement key REST constraints, particularly the use of hypermedia for driving application state transitions. In his 2008 blog post, "REST APIs must be hypertext-driven," Fielding states:
 
@@ -25,6 +25,8 @@ This underscores his view that without hypermedia controls, an API does not fulf
 ## What Does "Driven by Hypertext" Mean?
 
 The phrase "not being driven by hypertext" in Roy Fielding's criticism refers to the absence of Hypermedia as the Engine of Application State ([HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)) in many APIs that claim to be RESTful. HATEOAS is a fundamental principle of REST, requiring that the client dynamically discover actions and interactions through hypermedia links embedded in server responses, rather than relying on out-of-band knowledge (e.g., API documentation).
+
+So you are probably more likely do to "RESTful" by implementing HATEOAS than by arguing about if you are allowed to use verbs or no verbs at all.
 
 ## Six Criteria for what Fielding considers a RESTful API
 
@@ -42,22 +44,9 @@ Fielding describes six rules that you should consider before calling your API a 
 
 * A REST API should be entered with no prior knowledge beyond the initial URI (bookmark) and set of standardized media types that are appropriate for the intended audience (i.e., expected to be understood by any client that might use the API). From that point on, all application state transitions must be driven by client selection of server-provided choices that are present in the received representations or implied by the user’s manipulation of those representations. The transitions may be determined (or limited by) the client’s knowledge of media types and resource communication mechanisms, both of which may be improved on-the-fly (e.g., code-on-demand). [Failure here implies that out-of-band information is driving interaction instead of hypertext.]
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-When it comes to RESTful APIs there are in my opinion a lot wrong assumptions.
+When it comes to RESTful APIs there are in my opinion a lot of common but wrong assumptions.
 
 1. REST is CRUD.
 2. A resource is an entity (usually mapped to a DB entity).
@@ -76,7 +65,7 @@ When it comes to REST it makes sense to actually read [the dissertation](https:/
 https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
 > The key abstraction of information in REST is a resource. Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today's weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author's hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.
-
+>
 > REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components.
 
 https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm
@@ -85,4 +74,6 @@ https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm
 
 ## Conclusion
 
-Be pragmatic. Build whatever makes sense for *your* project. Who is the consumer of your API? How easy will it be for it to learn and use the API? Will it be intuitive to use?
+Be pragmatic.
+
+Build whatever makes sense for *your* project. Who is the consumer of your API? How easy will it be for it to learn and use the API? Will it be intuitive to use?

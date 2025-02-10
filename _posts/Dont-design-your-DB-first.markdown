@@ -12,7 +12,7 @@ Recently , I read this statement and I do not think it is true.
 
 > Data has to be well organized in DB. Business process changes, but data points associated remain almost the same.
 
-It is in my opinion not correct, that data behind processes rarely changes, at least not in all businesses. Imagine a business that has a lot rules and conditions or has to follow ever changing laws and regulations. e.g. insurances, taxes, medical, flight, or banking stuff. Your data will change for sure and relatively often. For example if the income tax introduces a new variable or thing to be calculated, you will have to change the process and very likely the data accordingly.
+It is in my opinion not correct, that data behind processes rarely changes, at least not in all businesses. Imagine a business that has a lot rules and conditions or has to follow ever changing laws and regulations. e.g. insurances, taxes, medical, flight, or banking stuff. Your data will change for sure and relatively often. For example if the income tax introduces a new variable or thing to be calculated, you will have to change the process and very likely the data accordingly. The generalization of the statement is therefore not really justified.
 
 The pretty complex income tax calculation here in Germany is updated every year. [See the most recent version](https://www.bundesfinanzministerium.de/Content/DE/Downloads/Steuern/Steuerarten/Lohnsteuer/Programmablaufplan/2024-01-29-PAP-2024-Enwurf.pdf). And yes, all of the diagrams belong to the same process.
 

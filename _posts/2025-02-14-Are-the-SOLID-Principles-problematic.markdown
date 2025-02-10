@@ -5,6 +5,7 @@ categories: software-architecture
 tags:
   - software-architecture
   - solid-principles
+  - principles
 date: 2025-02-14T20:43:22.000Z
 draft: true
 comments: true
@@ -42,7 +43,7 @@ The [Oxford dictionary](https://www.oxfordlearnersdictionaries.com/definition/en
 
 ### Definition of "Software Principle"
 
-I think it is fair to draw the following conclusions from that Software principles are **not absolute** and **require situational judgment**, which I think can be expected from developers at some level. While in some scenarios, there can be a controversial discussion on if and what principle applies, but in most cases there are obvious and clear violations of the principles to find that are unambiguous.
+I think it is fair to draw the following conclusions from that Software principles are **not absolute** and **require situational judgment**, which I think can be expected from experienced developers at some level. While in some scenarios, there can be a controversial discussion on if and what principle applies, but in most cases there are obvious and clear violations of the principles to find that are unambiguous.
 
 In my opinion, those should be found by anyone who is familiar with the principles. Some controversial cases require more experience and judgment but *should* be found and decided by more experienced developers.
 
@@ -65,9 +66,13 @@ For the sake of providing a cohesive reading experience and convenience, here ar
 5. **[Dependency Inversion Principle (DIP)](https://en.wikipedia.org/wiki/Dependency_inversion_principle)**
    "Depend on abstractions, not on concrete implementations." - No clear origin.
 
+The origin and the person defining it *might* not be accurate, it is what I could figure out by doing some research. If you have a different or older source please let me know.
+
+### Are they easy to understand?
+
 If you are not already familiar with them, would you say they are easy to understand? I think the answer is very likely no. Even if you are already capable of writing code you probably will struggle with those sentences. I would agree if people, who just read those 5 lines, will say that the principles are ambiguous. They are not in my opinion, but this limited information makes them look like they are.
 
-If people are still motivated and not scared away by those sentences, they'll face a plethora of articles that try to explain them. Some seem like copies of others, and many of those aren't good either, in my personal opinion, because they are either to abstract or to simple. I also do not think that code examples are the best way to explain them because its about understanding concepts, that then result in an implementation. So code is basically already showing a concrete solution.
+If people are still motivated and not scared away by those sentences, they'll face a plethora of articles that try to explain them. Some seem like copies of others, and many of those aren't good either, in my personal opinion, because they are either to abstract or to simple. I also do not think that code examples are the best way to explain them because its about understanding *concepts*, that then result in an implementation. So code is basically already showing a concrete solution.
 
 ### A Code free Explanation attempt of SOLID
 
@@ -128,9 +133,9 @@ Another, often done and also very similar case, is the use of validation rule an
 
 ### How to learn them the best?
 
-By practicing them. Reflect on your own doing and if you are in the position that you have somebody to mentor you ask this person for help.
+By practicing them. Reflect on your own doing and if you are in the position that you have somebody to mentor you ask this person for help and have a discussion.
 
-If you are unsure and you don't have an experienced person helping you, metrics that measure cohesion and coupling might help you to compare your before and after state base on a measurement. The only danger here is that you might over-engineer and just go by the numbers to make them smaller. Try to think about the impact of the changes you make as a whole and not apply the principles dogmatically. For training reasons you could of course go and over-engineer as much as you can, to explore how far you could go.
+If you are unsure and you don't have an experienced person helping you, metrics that measure cohesion and coupling might help you to compare your before and after state base on a measurement. The only danger here is that you might over-engineer and just go by the numbers to make them go down. But instead of paying too much attention to the numbers, try to think about the impact of the changes you make as a whole and not apply the principles dogmatically. For training reasons you could of course go and over-engineer as much as you can, to explore how far you could go.
 
 <!--
 
@@ -174,17 +179,15 @@ It should be impossible, at least much harder, to change the behavior of the met
 
 ## Use of AI to find SOLID Violations
 
-AI is doing a surprisingly good job (most of the time) of identifying and explaining when SOLID principles aren’t followed. But don’t blindly trust the AI. At the time of writing, AI is good at finding violations, but it is not perfect! If the reasoning or code provided by the AI makes no sense or raises doubts, don’t take its response seriously! I'm mostly using ChatGPT, but I assume you'll get similarly good results with other AIs like Claude AI.
+AI is doing a surprisingly good job (most of the time) of identifying and explaining when SOLID principles aren’t followed. But **don’t** blindly trust the AI. At the time of writing, AI is good at finding violations, but it is not perfect! If the reasoning or code provided by the AI makes no sense or raises doubts, don’t take its response seriously! I'm mostly using ChatGPT, but I assume you'll get similarly good results with other AIs like Claude AI.
 
-Even without giving it a lengthy prompt, I often get good results by simply specifying the programming language and asking it to refactor or explain a single method or a whole class based on the SOLID principles.
+Even without giving it a lengthy prompt, I often get good results by simply specifying the programming language and asking it to refactor or explain a single method or a whole class based on the SOLID principles. Usually it is good enough to tell it "Refactor this code following the SOLID principles: paste-your-code".
 
 ## Conclusion
 
-The article should have demonstrated that SOLID principles are useful and often relatively easy to identify and address. Furthermore, the papers mentioned in this article have shown that analyzer tools can help measure the actual impact of applying the SOLID principles. This means you can not only make improvements but also measure those improvements.
+The article has hopefully demonstrated that SOLID principles are useful and often relatively easy to identify and address. Furthermore, the papers mentioned in this article have shown that analyzer tools can help measure the actual impact of applying the SOLID principles. This means you can not only make improvements but also measure those improvements.
 
-Something I haven’t been able to find a clear answer to is why the SOLID principles aren’t more widely taught and adopted. I still believe they are relatively simple to learn—perhaps not so easy to master—but given their impact on code quality, they’re worth the effort. Why aren’t they taught more frequently? Whether in schools, universities, or companies? Especially companies, as they should have a vested interest in improving code quality, flexibility, and maintainability to reduce the costs of software development and maintenance.
-
-To further explore the real-world usage of SOLID principles, I’ll attempt to conduct a survey and publish the results here.
+Something I haven’t been able to find a clear answer to is why the SOLID principles aren’t more widely taught and adopted. I still believe they are relatively simple to learn — perhaps not so easy to master — but given their impact on code quality, they’re worth the effort. Why aren’t they taught more frequently? Whether in schools, universities, or companies? Especially companies, as they should have a vested interest in improving code quality, flexibility, and maintainability to reduce the costs of software development and maintenance. I hope to find answers to those questions at some point in the future.
 
 ## References
 

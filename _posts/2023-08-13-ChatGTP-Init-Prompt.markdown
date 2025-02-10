@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ChatGPT Initialization Promt for Developers
+title: ChatGPT Initialization Prompt for Developers
 date: 2023-08-13 19:32:21 +0000
 categories: software-development
 tags:
