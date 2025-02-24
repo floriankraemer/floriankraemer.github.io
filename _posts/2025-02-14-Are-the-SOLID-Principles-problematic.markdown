@@ -6,7 +6,7 @@ tags:
   - software-architecture
   - solid-principles
   - principles
-date: 2025-02-14T20:43:22.000Z
+date: 2025-02-24T20:43:22.000Z
 draft: true
 comments: true
 ---
