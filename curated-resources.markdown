@@ -73,6 +73,7 @@ This is a collection of useful resources that taught me somethign or that I find
 * [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
 * [Conways Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
 * [Goodharts Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) - Its basically saying that a metric becomes bad one if one just aims for fulfilling the numbers without respect to quality.
+* [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - The Law of Demeter states that an object should only interact with its immediate neighbors—its own fields, method parameters, and objects it creates—and avoid calling methods on objects returned by those neighbors, minimizing dependencies and promoting loose coupling.
 
 ## Youtube
 

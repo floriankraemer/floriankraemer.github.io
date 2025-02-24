@@ -84,7 +84,7 @@ I don't think that code examples are the most beneficial way to explain the prin
 
 **LSP**: Your discount and tax calculators should be replaceable without changing the actual behavior. A good example of behavior is when one discount calculator throws an exception if it results in a negative total, while another one handles it correctly and returns a total of 0.00. They behave differently and are not valid substitutions. The exception would force the shopping cart to change because it would now have to catch an exception.
 
-**ISP**: Assuming you have tax and discount calculations within the same "ShoppingCart" class, it not only violates SRP but also the LSP principle: You should define two classes or interfaces for each of the responsibilities. This way, discounts and tax calculations can evolve independently and can also be optionally used.
+**ISP**: If the ShoppingCart class uses an interface that includes methods for both tax and discount calculations, and some implementations don't need all methods, it violates ISP. To adhere to ISP, define separate interfaces like TaxCalculation and DiscountCalculation, ensuring classes only implement what they need."
 
 **DIP**: If our cart depends on a concrete implementation of, let's say, a "MariaDbRepository," it would depend on a lower-level element and that concrete implementation, likely coming from the infrastructure and persistence layer. To invert the dependency, the shopping cart business layer would declare a "ShoppingCartRepositoryInterface" instead, which would then be implemented by a concrete class within the persistence layer. Your shopping cart module is now independent of a specific framework or persistence implementation.
 
@@ -92,24 +92,23 @@ I don't think that code examples are the most beneficial way to explain the prin
 
 There is empirical evidence by multiple studies [1][2][3][4], that the SOLID principles improve the code quality and associated quality attributes.
 
-The following quote is taking from the conclusion section of the study "*An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics (2018)*" [1]:
+**An Experimental Evaluation of the Effect of SOLID Principles to Microsoft VS Code Metrics - 2018**
 
-> “*This work shows that SOLID design principles increase the maintainability of the code, generally reduce complexity of the code and reduce dependency, providing flexibility to the code. Design principles improve the separation of concern through weaker coupling and stronger cohesion. However, if these principles are applied without measure then some potentially undesirable consequences may occur.*”
+> “This work shows that SOLID design principles increase the maintainability of the code, generally reduce complexity of the code and reduce dependency, providing flexibility to the code. Design principles improve the separation of concern through weaker coupling and stronger cohesion. However, if these principles are applied without measure then some potentially undesirable consequences may occur.”
 
-From the study "*An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis (2022)*" [3]:
+**Investigating the Impact of SOLID Design Principles on Machine Learning Code Understanding - 2024**
 
-> "*It can be stated that the application of these SOLID design Principles together could lead us to create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach and evaluates the quality of software using CKJM matrices. For our sample application, we have **reduced the coupling by 59%** (approx.) and **introduced the cohesion by 39%** (approx.).*"
+> “The results indicate that the adoption of each of the five SOLID design principles can significantly facilitate ML code understanding. Moreover, the application of the principles was also perceived to lead to expected benefits related to applying the SOLID principles. These benefits include having clearly defined ML code responsibilities, facilitating ML code extensions without substantially changing existing code, enabling substitution of ML code elements, favoring low coupling, and ensuring proper segregation of interfaces”
 
-Also from that study:
+**An Experimental Assessment on Effects of Solid Design Principles on the quality of Software using CKJM Metric Analysis - 2018**
 
-> "*Software Design should be based on Solid principles so that it would be effortless to reuse and scale the amenities.*"
+> "It can be stated that the application of these SOLID design Principles together could lead us to create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach and evaluates the quality of software using CKJM matrices. For our sample application, we have reduced the coupling by 59% (approx.)"
 
 What I like especially about this study [3] is that they've used easily measurable metrics to assess the before and after state of the code. A tool to measure the JCKM metrics mentioned in the quote above can be found [here](https://github.com/dspinellis/ckjm) for Java.
 
-This quote from the study "*Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment (2015)*" [4] looks remarkably similar to the one before, but it is from another study. I've briefly checked if there are more parts that similar, but it looks like this is the only one. What is interesting is that that the results are also very similar and show the positive impact of the SOLID principles.
+**Effect of SOLID Design Principles on Quality of Software: An Empirical Assessment - 2015**
 
-> "*It can be stated that the application of these SOLID design Principles together could lead us to
-create a highly maintainable and scalable system. The research demonstrates the empirical assessment of a Software application against the Design approach, and evaluates the quality of software using CKJM matrices. For our sample application we have **reduced the coupling by 69%** (appox.) and **introduce the cohesion by 29%** (approx.).*"
+> "It can be stated that the application of these SOLID design Principles together could lead us to create a highly maintainable and scalable system."
 
 ## Criticism and Pragmatism
 
@@ -125,6 +124,8 @@ Also from the same study [3]:
 
 > "Do not aim to attain SOLID, use Solid to attain maintainability. Solid design principles are just principles, not rules."
 
+I totally agree with it as well.
+
 ### Stay pragmatic: Analyze and judge your Case
 
 Let's assume you have an aggregate (in the context of DDD) and you add annotations or attributes (depending on your language features) to the aggregate to enable it to be used by a persistence system as well. Very strictly seen you could argue, that you've just broken the SRP. Is it bad in this case? Well, it depends. The overall system has to be understood, its goals and quality attributes, to answer that question.
@@ -137,46 +138,6 @@ By practicing them. Reflect on your own doing and if you are in the position tha
 
 If you are unsure and you don't have an experienced person helping you, metrics that measure cohesion and coupling might help you to compare your before and after state base on a measurement. The only danger here is that you might over-engineer and just go by the numbers to make them go down. But instead of paying too much attention to the numbers, try to think about the impact of the changes you make as a whole and not apply the principles dogmatically. For training reasons you could of course go and over-engineer as much as you can, to explore how far you could go.
 
-<!--
-
-### LSP Violation Example
-
-This principle addresses **unintended changes of behavior in sub types**. Given we have two classes, Alpha and Beta, both extending an abstract base class or implementing the same interface, getPositiveInteger() as follows, it will break the behavior, despite being valid code:
-
-```java
-class Alpha implements PositiveIntegerProvider {
-    @Override
-    public int getPositiveInteger() {
-        return 2 + 2;
-    }
-}
-
-class Beta implements PositiveIntegerProvider {
-    @Override
-    public int getPositiveInteger() {
-        int result = 2 - 4;
-    }
-}
-```
-
-Even the type check here does not prevent a change in behavior by returning a negative number in this case. Solutions:
-
-1. Return a value object "PositiveNumber" as data type, that does the check internally and does not accept negative values. Bonus: This also communicates intent and also fulfills SRP. You can immediately tell by the name of the type what it does.
-
-2. Declare a "@throws NegativeResultException" in the docblock of the interface or parent class and hope (or enforce it via an architectural rule checker) everyone implements it or the static analyzer is capable of finding that it is not thrown.
-
-```java
-// Throws exception from value object
-public PositiveInteger getPositiveInteger()
-{
-    return PositiveInteger::fromInteger(2 - 4);
-}
-```
-
-It should be impossible, at least much harder, to change the behavior of the method to an unintended behavior now.
-
--->
-
 ## Use of AI to find SOLID Violations
 
 AI is doing a surprisingly good job (most of the time) of identifying and explaining when SOLID principles aren’t followed. But **don’t** blindly trust the AI. At the time of writing, AI is good at finding violations, but it is not perfect! If the reasoning or code provided by the AI makes no sense or raises doubts, don’t take its response seriously! I'm mostly using ChatGPT, but I assume you'll get similarly good results with other AIs like Claude AI.
@@ -185,9 +146,17 @@ Even without giving it a lengthy prompt, I often get good results by simply spec
 
 ## Conclusion
 
+### Validity and Usefulness
+
 The article has hopefully demonstrated that SOLID principles are useful and often relatively easy to identify and address. Furthermore, the papers mentioned in this article have shown that analyzer tools can help measure the actual impact of applying the SOLID principles. This means you can not only make improvements but also measure those improvements.
 
-Something I haven’t been able to find a clear answer to is why the SOLID principles aren’t more widely taught and adopted. I still believe they are relatively simple to learn — perhaps not so easy to master — but given their impact on code quality, they’re worth the effort. Why aren’t they taught more frequently? Whether in schools, universities, or companies? Especially companies, as they should have a vested interest in improving code quality, flexibility, and maintainability to reduce the costs of software development and maintenance. I hope to find answers to those questions at some point in the future.
+### Learning & Teaching
+
+Something I haven’t been able to find a clear answer to is why the SOLID principles aren’t more widely taught and adopted. I still believe they are relatively simple to learn — perhaps not so easy to master — but given their impact on code quality, they’re worth the effort. Why aren’t they taught more frequently? Why aren’t they taught more frequently in schools, universities, or even companies? Especially companies, as they should have a vested interest in improving code quality, flexibility, and maintainability to reduce the costs of software development and maintenance. I hope to find answers to those questions at some point in the future.
+
+Often people describe themselves as engineers and we are talking about software engineering. But a lot people and companies don't act like an engineering discipline. Herbert Hoover, an engineer-turned-president, wrote in his 1951 memoir: "Engineering is the profession in which a knowledge of the mathematical and natural sciences… is applied."
+
+If the software industry wants to be taken seriously as an engineering discipline, we should focus on proven principles like SOLID when developing software and teaching new professionals. We also need to measure our work to assess that we deliver a well built and maintainable product.
 
 ## References
 
