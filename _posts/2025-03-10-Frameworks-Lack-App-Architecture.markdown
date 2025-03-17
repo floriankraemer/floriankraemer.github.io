@@ -1,6 +1,17 @@
+---
+layout: post
+title: 'Frameworks, Architecture & Screaming Architecture'
+categories: software-architecture
+tags:
+  - software-architecture
+date: 2025-03-10
+draft: false
+comments: true
+---
+
 # Frameworks, Architecture & Screaming Architecture
 
-Take a look at the following directory structures. What do you see in any of the four different structures? What do you think is the purpose of the applications you're looking at?
+Take a look at the following directory structures. What do you see in any of the four different structures? What do you think is the purpose of the applications you're looking at? TEST
 
 <table>
     <tr>
@@ -76,13 +87,15 @@ Take a look at the following directory structures. What do you see in any of the
 
 Now let's take a look at a few different pictures of buildings.
 
+**!!!!!add picture of raw construction materials!!!!**
+
 So what can you see? I assume that you have clearly identified that the pictures show a church, a warehouse, some kind of educational facility and a car repair workshop.
 
 Based on what criteria did you identify that? I guess you can tell that a church is a church based on certain characteristics that make it a church, like having a tower. A warehouse has usually.this box like design with the ports for the trucks to load and unload. A car repair workshop has usually this big door where cars for repair enter and leave the building. The form follows its function.
 
 What are you seeing in the next picture?
 
-<add picture of raw construction materials>
+**!!!!!add picture of raw construction materials!!!!**
 
 Probably nothing specific, because you're looking at just the building blocks of a building. Thats your framework, and nothing more.
 
@@ -101,7 +114,7 @@ By decoupling the framework from your application core by using adapters, it wil
 Robert C. Martin's "Screaming Architecture" suggests that the directory structure of a project should explicitly communicate its business domain rather than technical concerns. Instead of organizing code by layers (e.g., controllers/, services/, repositories/), it should be structured around core business concepts.
 
 <pre>
-ecommerce/
+application/
 │── src/
 │   ├── Cart/
 │   │   ├── Application/
@@ -134,6 +147,10 @@ ecommerce/
 </pre>
 
 This structure keeps business concerns at the forefront while maintaining separation of concerns inside each domain.
+
+ * You instantly know that this is an e-commerce application.
+ * The business model is clear (Orders, Payments, Cart, etc.).
+ * The framework doesn’t dictate structure (Laravel, Symfony, etc., can be swapped out).
 
 Top-level directories reflect business domains, not technical layers. Each domain (Cart, Order, Payment, ...) has an application Layer: Use cases (commands, queries). The Domain Layer: Core domain models, entities, repositories. Infrastructure Layer: Persistence, framework-related code, external services.
 

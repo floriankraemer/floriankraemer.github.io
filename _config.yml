@@ -51,6 +51,14 @@ header_pages:
   - about.markdown
   - imprint.markdown
 
+# Include posts without dates in the site.posts collection
+include:
+  - _posts/*.md
+  - _posts/*.markdown
+
+# Enable future posts
+future: false
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
