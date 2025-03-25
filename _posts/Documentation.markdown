@@ -5,25 +5,45 @@ categories: software-architecture
 tags: software-architecture, documentation
 ---
 
-Is this article will try to give you an overview of the different types of documentations For Whom they are useful and should be written and provide you some tips and tricks what you could do to write better documentation.
+Is this article will try to give you an overview of the different types of documentations For whom they are useful and should be written for and provide you some tips and tricks what you could do to write better documentation.
 
-## "Self-documenting code" is a Lie
+Let's start with one of the biggest false claims I've seen: Self documenting code.
 
-The so-called "self documenting cod"e is very often, if not always, a big lie or an excuse when people knowingly use it to justify the abundance of proper documentation.
+## "Self-documenting code" is a big Lie
 
-Code that will be very self-explanatory to a very high degree would mean, that the code will have to be very expressive, very decoupled and very well named. Take a moment and reflect about that sentence. How often do you see code that actually reflects the ubiquity's language that the business is using in the code and how often is the domain model well separated from the actual frameworks surrounding it? We are basically talking about clean architecture and applying the ubiquitous language. This is in fact very rarely seen in the real world.
+The so-called "self documenting code" is very often, if not always, a big lie or an excuse when people knowingly use it to justify the abundance of proper documentation.
+
+Code that will be very self-explanatory to a very high degree would mean, that the code will have to be very expressive, very decoupled and very well named. Take a moment and reflect about that sentence. How often do you see code that actually reflects the ubiquity's language that the business is using in the code and how often is the domain model well separated from the actual frameworks surrounding it? We are basically talking about clean architecture, clean code and applying the ubiquitous language. This is in fact not a very common thing to see in the real world.
 
 How is code supposed to document the actual requirements of your infrastructure and your non-functional requirements? How is code documenting the decisions that led to its existence and how it is structured? Code is within the solution space that solves problems from the problem space coming from the business and not technology, so how is code supposed to reflect any of that?
 
-Code can have a very good readability and understandability, but that the doesn't mean it is documenting anything. It will just make the code more accessible but not really documenting it. Being good faith I assume that this is actually what most people mean when they talk about self-documenting code.
+Code can have a very good readability and understandability, but that doesn't mean it is documenting anything. It will just make the code more accessible, easier to read and understand but not really documenting it. Being good faith I assume that this is actually what most people mean when they talk about self-documenting code.
+
+In a nutshell: If your non-technical stakeholders, who can't write code, like your product owner, can read your code and also your test code and *understand* it and see it matches their requirements based on the language they read, then you have achieved very clean code. But that still doesn't mean it is documented. I know this is not what some of you wanted to read.
 
 ## Types of Documentation
 
-There are all different types of documentation that target different audiences and purposes, because not every stakeholder is interested in the same type of documentation.
+Developers very often tend to think about documentation as either "doc blocks", inline comments or the best some documents they can put into the repository. These 
+
+But there are different types of documentation that target different audiences and purposes, because not every stakeholder is interested in the same type of documentation. The different types require a different maintenance effort or can be discarded after they fulfilled their purpose.
 
 ### Architectural Documentation
 
-Architectural documentation provides a comprehensive overview of the system's structure, components, and interactions. It outlines the design decisions, patterns, and principles guiding the development of the software architecture. This documentation serves as a roadmap for developers, guiding them in implementing and maintaining the system. It typically includes architectural diagrams, component descriptions, design rationale, and key interfaces.
+Architectural documentation provides a comprehensive overview of the system's structure, components, and interactions. It outlines the design decisions, patterns, and principles guiding the development of the software architecture. This documentation serves as a map for developers, guiding them in implementing and maintaining the system. It typically includes architectural diagrams, component descriptions, design rationale, and key interfaces.
+
+There are different "views" on the system. High-level diagrams, showing the overall system architecture, deployment or infrastructure related views that explain how the application is deployed within the environment it lives in.
+
+C4 and Arc42 are two way of documenting architecture.
+
+Those architectural documents are usually long-lived and should be maintained by the architects to represent the status quo of the system.
+
+### Architectural Decision Records (ADRs)
+
+How often did you encounter the situation in which you were asking yourself "Why was this ever done like it is?". Well, there might have been a time in which the perceived bad thing you see today was a good decision and the system evolved but was not properly refactored and adapted. An ADR would be able to give you the historic context and maybe even alternatives that you could apply today.
+
+ADRs are documents that capture important architectural decisions, along with their context and rationale. They help teams track why certain choices were made, ensuring continuity and shared understanding over time. ADRs typically follow a structured format, including the decision, its reasoning, alternatives considered, and consequences.
+
+By maintaining ADRs, teams improve knowledge sharing, facilitate future refactoring, and avoid revisiting past decisions unnecessarily. They are especially useful in complex, long-lived projects where architectural choices evolve with changing requirements and constraints.
 
 ### Development Documentation
 
@@ -45,6 +65,8 @@ Release documentation documents the changes, enhancements, bug fixes, and new fe
 
 Compliance documentation ensures that the software complies with industry regulations, standards, and legal requirements. It includes certifications, audit reports, security assessments, and privacy policies that demonstrate the software's adherence to relevant compliance standards.
 
+One of such compliance examples is GDPR or SOC2. Both require you to be compliant with certain requirements and to document that your systems or processes comply. This can be important for legal reasons or simply to get a certification.
+
 ## Different Stakeholders different Needs
 
 Different stakeholders have different needs. The developers need to understand the code, the business needs to understand the
@@ -60,6 +82,8 @@ requirements and the DevOps or cloud team needs to understand the infrastructure
 | Product Owners | Yes          | No        | Yes     | Yes      |
 | Testers        | Yes          | Yes       | Yes     | No       |
 | Operations     | Yes          | Yes       | Yes     | No       |
+
+Consider that the template is not complete nor necessarily complete for your specific organizations structure and roles.
 
 ### Onboarding
 
@@ -93,7 +117,7 @@ You can try to use onboarding time to productivity as a metric. Good documentati
 
 ## Recommended book
 
-One of my jobs I was tasked as part of my job as an architect to read books and to give presentations about my view of the book. One of the books I've got to read is called “[Documenting Software Architectures: Views and Beyond]((https://www.amazon.de/-/en/dp/0321552687))”. When I heard the title I was a little shocked because I was thinking “Oh my god why do I get such a boring topic!”.
+At Srpyker I was tasked as part of my job as an architect to read books and to give a presentations about them and my view on them. One of the books I've got to read is called “[Documenting Software Architectures: Views and Beyond]((https://www.amazon.de/-/en/dp/0321552687))”. When I heard the title I was a little shocked because I was thinking “Oh my god why do I get such a boring topic!”.
 
 It turned out that the book was actually not that bad as I thought, in fact it's a great book that taught me a lot about documentation!
 
