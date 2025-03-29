@@ -3,45 +3,49 @@ layout: post
 title: "Documentation - You think its boring?"
 categories: software-architecture
 tags: software-architecture, documentation
+draft: false
+comments: true
 ---
 
 Is this article will try to give you an overview of the different types of documentations For whom they are useful and should be written for and provide you some tips and tricks what you could do to write better documentation.
 
-Let's start with one of the biggest false claims I've seen: Self documenting code.
+Let's start with one of the biggest false claims I've seen: Self documenting code. After that we'll look at different types of documentation and stakeholders and their needs.
 
 ## "Self-documenting code" is a big Lie
 
-The so-called "self documenting code" is very often, if not always, a big lie or an excuse when people knowingly use it to justify the abundance of proper documentation.
+The so-called "self-documenting code" is very often, if not always, a big lie or an excuse when people knowingly use it to justify the absence of proper documentation.
 
-Code that will be very self-explanatory to a very high degree would mean, that the code will have to be very expressive, very decoupled and very well named. Take a moment and reflect about that sentence. How often do you see code that actually reflects the ubiquity's language that the business is using in the code and how often is the domain model well separated from the actual frameworks surrounding it? We are basically talking about clean architecture, clean code and applying the ubiquitous language. This is in fact not a very common thing to see in the real world.
+For code to be truly self-explanatory, it would have to be very expressive, highly decoupled, and well-named. Take a moment to reflect on that sentence. How often do you see code that actually reflects the ubiquitous language of the business, and how often is the domain model well-separated from the actual frameworks surrounding it? We are essentially talking about clean architecture, clean code, and applying the ubiquitous language. In reality, this is not very common.
 
-How is code supposed to document the actual requirements of your infrastructure and your non-functional requirements? How is code documenting the decisions that led to its existence and how it is structured? Code is within the solution space that solves problems from the problem space coming from the business and not technology, so how is code supposed to reflect any of that?
+How is code supposed to document the actual requirements of your infrastructure and non-functional requirements? How does it document the decisions that led to its existence and structure? Code exists within the solution space, solving problems from the problem space that comes from the business, not technology. So how can code reflect any of that?
 
-Code can have a very good readability and understandability, but that doesn't mean it is documenting anything. It will just make the code more accessible, easier to read and understand but not really documenting it. Being good faith I assume that this is actually what most people mean when they talk about self-documenting code.
+Code can be highly readable and understandable, but that doesn't mean it is documented. Readable code makes it easier to understand but does not replace documentation. In good faith, I assume that when people talk about self-documenting code, this is actually what they mean.
 
-In a nutshell: If your non-technical stakeholders, who can't write code, like your product owner, can read your code and also your test code and *understand* it and see it matches their requirements based on the language they read, then you have achieved very clean code. But that still doesn't mean it is documented. I know this is not what some of you wanted to read.
+Do this if you want to validate if your code is "self documenting": If your non-technical stakeholders, such as your product owner, can read your code and tests, understand them, and see that they match their requirements based on the language used, then you have achieved very clean code.
+
+But that still doesn’t mean it is documented.
 
 ## Types of Documentation
 
-Developers very often tend to think about documentation as either "doc blocks", inline comments or the best some documents they can put into the repository. These 
+Developers often think of documentation as either "doc blocks," inline comments, or, at best, some documents stored in the repository.
 
-But there are different types of documentation that target different audiences and purposes, because not every stakeholder is interested in the same type of documentation. The different types require a different maintenance effort or can be discarded after they fulfilled their purpose.
+But there are different types of documentation, each targeting different audiences and serving different purposes. Not every stakeholder is interested in the same type of documentation. Some documentation requires ongoing maintenance, while others can be discarded after serving their purpose.
 
 ### Architectural Documentation
 
-Architectural documentation provides a comprehensive overview of the system's structure, components, and interactions. It outlines the design decisions, patterns, and principles guiding the development of the software architecture. This documentation serves as a map for developers, guiding them in implementing and maintaining the system. It typically includes architectural diagrams, component descriptions, design rationale, and key interfaces.
+Architectural documentation provides a comprehensive overview of the system's structure, components, and interactions. It outlines the design decisions, patterns, and principles guiding software architecture. This documentation serves as a roadmap for developers, helping them implement and maintain the system. It typically includes architectural diagrams, component descriptions, design rationale, and key interfaces.
 
-There are different "views" on the system. High-level diagrams, showing the overall system architecture, deployment or infrastructure related views that explain how the application is deployed within the environment it lives in.
+There are different "views" of the system, such as high-level diagrams that show the overall system architecture and deployment or infrastructure-related views that explain how the application is deployed within its environment.
 
-C4 and Arc42 are two way of documenting architecture.
+C4 and Arc42 are two common ways of documenting architecture.
 
-Those architectural documents are usually long-lived and should be maintained by the architects to represent the status quo of the system.
+Architectural documents are usually long-lived and should be maintained by architects to reflect the system's current state.
 
 ### Architectural Decision Records (ADRs)
 
-How often did you encounter the situation in which you were asking yourself "Why was this ever done like it is?". Well, there might have been a time in which the perceived bad thing you see today was a good decision and the system evolved but was not properly refactored and adapted. An ADR would be able to give you the historic context and maybe even alternatives that you could apply today.
+How often have you asked yourself, "Why was this ever done like this?" Well, there might have been a time when the decision that seems bad today was actually a good one. The system may have evolved, but without proper refactoring and adaptation. An ADR provides historical context and may even document alternative approaches that could be applied today.
 
-ADRs are documents that capture important architectural decisions, along with their context and rationale. They help teams track why certain choices were made, ensuring continuity and shared understanding over time. ADRs typically follow a structured format, including the decision, its reasoning, alternatives considered, and consequences.
+ADRs capture important architectural decisions along with their context and rationale. They help teams track why certain choices were made, ensuring continuity and shared understanding over time. ADRs typically follow a structured format, including the decision, its reasoning, alternatives considered, and consequences.
 
 By maintaining ADRs, teams improve knowledge sharing, facilitate future refactoring, and avoid revisiting past decisions unnecessarily. They are especially useful in complex, long-lived projects where architectural choices evolve with changing requirements and constraints.
 
@@ -55,7 +59,11 @@ End user documentation is tailored for the system's end users, providing guidanc
 
 ### Testing Documentation
 
-Testing documentation documents the testing strategy, test cases, test plans, and test results used to verify and validate the software's functionality, performance, and reliability. It ensures that the software meets the specified requirements and quality standards before deployment.
+Testing documentation document the testing strategy, test cases, test plans, and test results used to verify and validate the software's functionality, performance, and reliability. It ensures that the software meets the specified requirements and quality standards before deployment.
+
+Part of testing documentation can be the definition of SLOs as well, service level objectives. The documentation can contain also test results and reports to document an improvement or decline in quality.
+
+Testers, developers but also other stakeholders, especially those who have an interest in quality, want to read this type of documentation.
 
 ### Release Documentation
 
@@ -99,7 +107,15 @@ Feedback from stakeholders, including developers, users, and project managers, c
 
 You can try to use onboarding time to productivity as a metric. Good documentation can improve the time of the onboarding for internal and external stakeholders and it is measurable. For example the time it takes a developer to create a new component confidently and with good quality can be measured. A/B testing could be done here to get an approximate idea of the impact of documentation.
 
+## Documentation for the Management Stakeholders
+
+The management is usually not interested in deep analysis or raw piles of data. You want to provide short but "crispy" reports, sometimes just bullet points. They are often mostly interested in the outcome of something or getting options  to choose from to enable them to make a decision
+
+Don't bother them with lengthy tests, keep them short, precise and on point. Refer to details, data, reports if they want to take a closer look at the data they can do it, but don't overload them with it. They'll very likely mostly interested in the details when things went wrong.
+
 ## Challenges with Documentation
+
+Documentation is not an easy topic, because there are certainly challenges to it:
 
 * Where do we put it?
 * How well will it be searchable?
@@ -108,12 +124,14 @@ You can try to use onboarding time to productivity as a metric. Good documentati
 * What will be the cost of generating  and maintaining it?
 * What could be the cost of not having it or not maintaining it?
 
+Regarding structure my best advice would be to define a good structure that matches your needs and enforce it and stick to it. This will require a lot discipline, because there are no tools that can enforce it. The quality of the search in different tools varies a lot and the AI based search assistants were not really helpful at the time of writing this.
+
 ## Improving documentation
 
-* Make it easy to report issues within the documentation.
-* Make it easy to improve and contribute to the documentation.
-* Link your documentation in related documents and code.
-* Ensure that each document has an owner who can be contacted and will take care of maintenance.
+* Make it easy to report issues within the documentation - for everyone.
+* Make it easy to improve and contribute to the documentation - for everyone.
+* Link your documentation in related documents and code where it is appropriate and helpful.
+* Ensure that each document has an owner who can be contacted and will take care of maintenance and who is responsible for the document.
 
 ## Recommended book
 
