@@ -9,8 +9,6 @@ draft: true
 comments: true
 ---
 
-## Frameworks, Architecture & Screaming Architecture
-
 This article explores how applications are often structured around frameworks rather than business needs and why this may not always be the best choice.
 
 Take a look at the following directory structures. What do you see in any of the four different structures? What do you think is the purpose of the applications you're looking at?
