@@ -9,7 +9,7 @@ draft: true
 comments: true
 ---
 
-# Frameworks, Architecture & Screaming Architecture
+## Frameworks, Architecture & Screaming Architecture
 
 This article explores how applications are often structured around frameworks rather than business needs and why this may not always be the best choice.
 
@@ -88,8 +88,11 @@ If you haven't figured it out already, from left to right, this is the directory
 Now let's take a look at a few different pictures of buildings.
 
 ![](/assets/images/illustrations/church.webp){: .align-center}
+
 ![](/assets/images/illustrations/warehouse.webp){: .align-center}
+
 ![](/assets/images/illustrations/university.webp){: .align-center}
+
 ![](/assets/images/illustrations/car-repair-workshop.webp){: .align-center}
 
 What can you see? I assume that you have very likely identified that the pictures show a church, a warehouse, some kind of educational facility and a car repair workshop.
