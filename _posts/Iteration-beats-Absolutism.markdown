@@ -13,7 +13,7 @@ SpaceX just lunched their 3rd prototype of their space ship.
 * [2] Depending on the source, Starship costs range from $2-10 billion.
 * [3] A spaceship launch costs approximately ~1.3% of the average NASA launch cost - $152 million.
 
-NASA, being a bureaucratic organization, is also entangled with politics. While SpaceX aims for in-house production, NASA projects involve numerous suppliers across states due to their high system complexity. This is desired by politics but makes processes bulkier and slower. This might be why NASA can't execute rapid iterative processes. NASA can only afford this due to taxpayer funding, it would not be able to compete on the free market.
+NASA, being a very bureaucratic organization, is also entangled with politics. While SpaceX aims for in-house production, NASA projects involve numerous suppliers across states due to their high system complexity. This is desired by politics but makes processes bulkier and slower. This might be why NASA can't execute rapid iterative processes. NASA can only afford this due to taxpayer funding, it would not be able to compete on the free market.
 
 An engineer's craftsmanship is to make scientific findings practically usable. But this includes in my opinion being cost-conscious as well. It is like software developers who prefer developing super fancy abstractions when a "dirty" script could suffice to demonstrate a functionality and already delivery value, instead of craving for perfectionism but failing to deliver while generating a lot costs.
 

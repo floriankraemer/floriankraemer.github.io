@@ -1,37 +1,31 @@
-# Use the latest Alpine Linux as the base image
-FROM alpine:latest
+# Use Ruby as a parent image (more appropriate for Jekyll)
+FROM ruby:3.2-slim
 
-# Set environment variables for Ruby and Jekyll
-ENV LANG=C.UTF-8 \
-    LC_ALL=C.UTF-8 \
-    GEM_HOME=/usr/local/bundle \
-    PATH=/usr/local/bundle/bin:$PATH
-
-# Install required dependencies
-RUN apk update && apk add --no-cache \
-    build-base \
-    ruby \
-    ruby-dev \
-    ruby-bundler \
-    bash \
-    libffi-dev \
-    zlib-dev \
+# Update the package index and install necessary packages
+RUN apt-get update && apt-get install -y \
+    build-essential \
     git \
-    nodejs \
-    npm
+    && rm -rf /var/lib/apt/lists/*
 
-RUN rm -rf ~/.gem
-RUN gem update
-RUN gem install bundle
-RUN gem install --no-document jekyll 
-RUN jekyll --version
-RUN apk del build-base ruby-dev
+# Set the working directory to /site
+WORKDIR /site
 
-# Set a working directory
-WORKDIR /srv/jekyll
+# Copy Gemfile and Gemfile.lock to the container
+COPY Gemfile Gemfile.lock ./
 
-# Expose default Jekyll server port
-EXPOSE 4000
+# Install Jekyll and dependencies
+RUN gem install bundler && \
+    bundle install
 
-# Default command
-CMD ["jekyll", "serve", "--host", "0.0.0.0"]
+# Expose ports for Jekyll server and livereload
+EXPOSE 4000 35729
+
+# Create an entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+
+# Default command (can be overridden)
+CMD ["serve", "--host", "0.0.0.0"]
