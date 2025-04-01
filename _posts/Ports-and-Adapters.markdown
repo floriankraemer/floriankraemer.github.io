@@ -15,7 +15,7 @@ Ports and adapters are also known as “hexagonal architecture”. Ports and ada
 
 ## History & Meaning of the Hexagon
 
-The geometric shape of the hexagon has nothing to do with the architecture. It just happened that Alistair Cockburn has chosen the hexagon for the diagram in his presentation:
+The geometric shape of the hexagon has nothing to do with the architecture. It just happened that [Alistair Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn), the person who described this style first, has chosen the hexagon for the diagram in his presentation:
 
 “The hexagon is not a hexagon because the number six is important, but rather to allow the people doing the drawing to have room to insert ports and adapters as they need, not being constrained by a one-dimensional layered drawing. The term ‘’hexagonal architecture’’ comes from this visual effect.” - Alistair Cockburn
 
