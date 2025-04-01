@@ -6,13 +6,17 @@ permalink: /about/
 
 ![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right"}
 
-Hey, I’m Florian Krämer.
+### Who I am
 
-I’m a software developer and software architect. I started coding in 2000 and specialize in building web apps, primarily with PHP or whatever I can get my hands on, recently exploring Java and Spring.
+Hey, I’m Florian Krämer
+
+a software engineer and software architect. I've started programming in ~2000 and specialized in building web applications, primarily with PHP or whatever I can get my hands on, recently exploring Java and Spring, but loving anything that is object oriented.
 
 Email me at [fk@kreative-design.net](mailto:fk@kreative-design.net).
 
 Let's connect and explore how my skills and knowledge can contribute to the success of your projects.
+
+### How I am
 
 * I'm intrinsically motivated, I love my profession and technology.
 * Understanding new businesses and domains is something I like, I'm curious by nature.
@@ -20,23 +24,38 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * DDD - Domain Driven Design. Communication and processes that ultimately manifests in great code is what I like and believe in without being dogmatic.
 * Being an architect is more than technology - teams, people and social interactions are part of the process.
 * I like to refactor legacy systems if I get the opportunity to do so.
-* SOLID, YAGNI - Concepts that create good code.
+* SOLID, YAGNI * Concepts that create good code.
 * Frameworks are just tools, I'm not dogmatic about them.
-* While I'm proficient in PHP, I would love to work on c# and Java related projects as well.
-* Artificial intelligence 🤖, neural networks - super interesting.
+* While I'm proficient in PHP, I love to work on c# and Java related projects as well.
+* Artificial intelligence 🤖, neural networks - super interesting!
+* Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin and others.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
 
----
+### Achievements
 
-- I've been part of the CakePHP core team.
-  - Extracted and refactored the authentication & authorization into extensions.
-  - Maintained several CakePHP plugins.
-- I've done a large scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling.
-- I've successfully introduced a CI/CD process in a company.
-- Architected the Unified Commerce foundation for Sprykers Commerce OS.
-- Designed a security issue workflow and process within the Core Commerce department.
-- Introduced performance and quality metrics.
+* I've been part of the CakePHP core team.
+  * Extracted and refactored the authentication & authorization into extensions.
+  * Maintained several CakePHP plugins.
+* I've done a large scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling.
+* I've successfully introduced a CI/CD process in a company.
+* Architected the Unified Commerce foundation for Sprykers Commerce OS.
+* Designed a security issue workflow and process within the Core Commerce department.
+* Introduced performance and quality metrics.
+* Defined a security incident process.
+* Architected a modular system with ports & adapters to enable microservices later on.
 
+### Reference Open Source Projects
+
+* [An event sourcing library for PHP](https://github.com/Phauthentic/event-sourcing)
+* Cognitive Code Analysis
+  * [Cognitive Code Analysis Tool for PHP](https://github.com/Phauthentic/cognitive-code-analysis)
+  * [Cognitive Code Analysis Tool for Java](https://github.com/floriankraemer/cognitive-code-analysis-java)
+  * [My Article about this topic](https://florian-kraemer.net/software-architecture/2024/07/25/The-Limits-of-Human-Cognitive-Capacities-in-Programming.html)
+* [File Storage Library](https://github.com/Phauthentic/file-storage)
+* A framework agnostic [authentication](https://github.com/Phauthentic/authentication) and [authorization](https://github.com/Phauthentic/authorization) library.
+* [Optional (from Java) for PHP](https://github.com/Phauthentic/php-optional) - [see my article](https://florian-kraemer.net/software-architecture/2024/09/04/The-Optional-Object-Borrowed-from-Java.html) about it.
+
+And [many more repositories](https://github.com/orgs/Phauthentic/repositories?q=sort%3Astars) of my Github Organzation Phauthentic.
 
 <!--
 
@@ -44,7 +63,7 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 
 I have experience with backend and frontend development, more on the backend side. I’m familiar with the **SOLID principles**, **YAGNI** and **KISS**. I also have experience with risk analysis, quality attributes, service level agreements and architecture documentation.
 
-One of my strengths is the analysis of business processes and to plan the software architecture accordingly. Understanding business is, in my opinion, the key to a successful product architecture. For that reason, I practice **domain driven design** - pragmatic, not dogmatic - and I think it is the best methodology to capture a holistic understanding of the business domain and to translate it into efficient software. I’m also interested in microservices, even **driven systems** and **distributed systems**, not just on a professional level but also in private.
+One of my strengths is the analysis of business processes and to plan the software architecture accordingly. Understanding business is, in my opinion, the key to a successful product architecture. For that reason, I practice **domain driven design** * pragmatic, not dogmatic * and I think it is the best methodology to capture a holistic understanding of the business domain and to translate it into efficient software. I’m also interested in microservices, even **driven systems** and **distributed systems**, not just on a professional level but also in private.
 
 My decisions are based on data, if the data can be collected and evaluated. I’m aware that data is not everything and pragmatism is often required to make the best architectural decision, because architecture is often the challenge of finding the best compromise of different factors.
 
