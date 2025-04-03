@@ -163,7 +163,7 @@ This structure keeps business concerns at the forefront while maintaining separa
 
  * You instantly know that this is very likely an e-commerce application.
  * The different business concerns are clear (Orders, Payments, Cart, etc.).
- * The framework doesn’t dictate structure (Laravel, Symfony, etc., could be replaceable e.g. via ports and adapters).
+ * The framework doesn’t dictate structure (Laravel, Symfony, etc., could be replaceable e.g. via Clean Architecture).
 
 Top-level directories reflect business concerns, not technical layers. Each domain (Cart, Order, Payment, ...) has an application Layer: Use cases (commands, queries). The Domain Layer: Core domain models, entities, repositories. Infrastructure Layer: Persistence, framework-related code, external services.
 
@@ -177,18 +177,18 @@ The next section will briefly introduce you two to different approaches that cou
 
 I may explore these approaches in more detail in future articles.
 
-### Ports & Adapters
+### Ports & Adapters + Clean Architecture
 
-Ports and adapters or hexagonal architecture will slice your system into four layers and the higher layers will be allowed to only talk to lower layers:
+Clean Architecture will slice your system into four layers and the higher layers will be allowed to only talk to lower layers:
 
 * Presentation
 * Application
   * Domain
   * Infrastructure
 
-It is called ports and adapters because a "port" is anything that goes in or out of your applications core and that is your business logic. It is isolated in the domain layer. Using Inversion of Control (IoC), the domain defines repositories and other dependencies via interfaces, which are implemented by the infrastructure and used by the application layer. The presentation layer contains the adapters (e.g. HTTP or CLI) to your applications ports (Use Cases or "Services").
+It is called ports and adapters because a “port” is anything that goes in or out of your applications core and that is your business logic. It is isolated in the domain layer. Using Inversion of Control (IoC), the domain defines repositories and other dependencies via interfaces, which are implemented by the infrastructure and used by the application layer. The presentation layer contains the adapters (e.g. HTTP or CLI) to your applications ports (Use Cases or "Services").
 
-The ports and adapters will help you to not only decouple the different layers from each other but also from your framework. For example sending an email could use an adapter and not the framework directly.
+Clean Architecture and Ports & Adapters will help you to not only decouple the different layers from each other but also from your framework. For example sending an email could use an adapter and not the framework directly.
 
 <pre>
 application/
@@ -210,7 +210,7 @@ application/
 
 ### Vertical Slices
 
-A vertical slice is, you guessed it, a vertical slice through the layers of an application. The key here is to make sure each slice is **fully** separated. Compared to ports and adapters a slice seems to be "dirty" and yes, it can be "dirty". This is of course no invitation to write the most bad code on earth but it can be less strict. What internal level of quality you aim for in this slice is up to you.
+A vertical slice is, you guessed it, a vertical slice through the layers of an application. The key here is to make sure each slice is **fully** separated. Compared to Clean Architecture a slice seems to be "dirty" and yes, it can be "dirty". This is of course no invitation to write the most bad code on earth but it can be less strict. What internal level of quality you aim for in this slice is up to you.
 
 <pre>
 application/
@@ -233,11 +233,11 @@ You get a lot freedom within a slice but you **must** adhere to high-cohesion an
 
 ## Mixing Vertical Slices and Ports & Adapters
 
-Here is a crazy idea: Group your business capabilities or features by module and decide depending on the complexity if you want to go for ports and adapters or vertical slices per module. A module can become a collection of related but separate use cases, e.g. have a use case "Signup" and "PasswordReset" as module or group them underneath a module "Customers". Use vertical slices for experimentation and ports and adapters for more complex and business critical functionality.
+Here is a crazy idea: Group your business capabilities or features by module and decide depending on the complexity if you want to go for Clean Architecture or vertical slices per module. A module can become a collection of related but separate use cases, e.g. have a use case "Signup" and "PasswordReset" as module or group them underneath a module "Customers". Use vertical slices for experimentation and Clean Architecture for more complex and business critical functionality.
 
 ## Coupling as a trade-off
 
-Whatever framework you are using, it really doesn't matter, but you want to be careful how much you couple yourself to the framework. In my personal experience, it becomes easier if you decouple from the framework to some extend and work with only what you need for your specific business domain instead of merging your business logic and your input and output ports tightly with the framework. **You** will be in control of these interfaces. You can control the granularity, complexity and reusability of them. Ports and adapters, the facade pattern and not merging persistence entities with domain entities helps **a lot** here. Also testing your business logic becomes more easy. I might write a follow up article on that.
+Whatever framework you are using, it really doesn't matter, but you want to be careful how much you couple yourself to the framework. In my personal experience, it becomes easier if you decouple from the framework to some extend and work with only what you need for your specific business domain instead of merging your business logic and your input and output ports tightly with the framework. **You** will be in control of these interfaces. You can control the granularity, complexity and reusability of them. Clean Architecture, the facade pattern and not merging persistence entities with domain entities helps **a lot** here. Also testing your business logic becomes more easy. I might write a follow up article on that.
 
 As usual, I do not try to preach absolutism. I want everyone to be enabled to form their own opinion based on information and facts. I hope the article gave you a few new ideas and reasoning to try something else than you did before. It is the best if you gather your own experience and try to build an application as proposed here. Personally, I prefer working with applications that abstract the framework to some degree.
 
