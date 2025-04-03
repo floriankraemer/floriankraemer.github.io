@@ -11,32 +11,40 @@ draft: true
 comments: true
 ---
 
-Error Messages are simple, right? It's just a message, isn't it? Yes, but even an error message can and really should provide value for the person reading it in one way or another and then it suddenly isn't that simple anymore. Good error messages are a more or less complex topic and we should treat them as 1st class citizens.
+Error Messages are simple, right? It's just a message, isn't it? Yes, but even an error message can and really should provide value for the person reading it in one way or another and then it suddenly isn't that simple anymore. Good error messages are in fact a more or less complex topic and we should treat them as 1st class citizens.
 
-## Error Message Stakeholders
+## Who is addressed by the error messages?
+
+There are many different stakeholders with different needs regarding the amount and depth of the information an error message should communicate:
 
 * End Users who use the software.
 * Developers who need to debug the software.
 * Developers who use/integrate with your software via its APIs.
 * Client Systems that need to do something with them.
 
-## Error Messages
+## Error Messages nobody likes
 
 What do you think about an error message like this one?
 
 > An error occurred.
 
+Or how about that?
+
+> 500 - Server Error
+
 A completely useless error message, right? I guess that you have unfortunately encountered error messages like that many times before. As an user affect by this we usually are angry about the lack of information. This should already motivate us to build better error messages than the ones that annoy us in our daily life.
 
-Error messages really should contain **all** required information to understand and identify the cause of the problem and the entities and actors involved in the given context.
+Error messages really should contain **all** required information to *understand what happened* and to *identify the cause* of the problem and the entities and actors involved in the given context.
 
-So what could a proper error message look like?
+## Better Error Messages
+
+So what could a proper error message look like? Maybe something like this?
 
 > An error occurred in the ProcessActivation component; The process can’t be activated without giving the `modify` permission to the logged in user.
 
-Note that above it says “logged in” user, this can, in other circumstances, be very well another “user” like an “Approver” or “Supervisor”. That's why it is important to mention the actual actor in the right context.
+Note that above it says “logged in” user, this can, in other circumstances, be very well another actor like an “Approver” or “Supervisor”. That's why it is important to mention the actual actor in the right context.
 
-A good error message should contain these points:
+A good error message should contain these points if possible:
 
 * Who?
 * What?
@@ -75,6 +83,8 @@ The error message contains all necessary information to identify the involved co
 
 Maybe the user has indeed the correct permission but the system failed to resolve that.
 
+Be careful what information you expose. Imagine a medical system that somehow leaks a diagnosis to an unauthorized person, or anything within the legal system that leaks information to a person or entity that should not know about it. While the message should be as expressive as possible, it must not expose critical information either.
+
 ### Error Code Suggestions
 
 Error codes MUST be human readable and not hard to comprehend values like an UUID.
@@ -93,6 +103,10 @@ The definition of the error codes is up to the service. The error codes MUST be 
   * Error codes **MUST** be human readable and memorable.
   * If the error message is translatable is a decision made by the service providing the API.
 
+### What if I need to hide information?
+
+You can still use an ID, ideally a correlation ID, and display this as part of the error message. If a user reports his problem with this ID you'll be, depending on your APM and logging, be able to track down the exact process and th involved building blocks that caused this issue.
+
 ## Conclusion
 
-By investing just some time to come up with proper error messages, you'll save the users of your programm, API or library hours or even days of work and annoying research into why they've got that error. So you invest in developer experience and customer satisfactions, depending on what type of product and software you are working on.
+By investing just some time to come up with proper error messages, you'll save the users of your program, API or library hours or even days of work and annoying research into why they've got that error. So you invest in developer experience and customer satisfactions, depending on what type of product and software you are working on.

@@ -136,7 +136,7 @@ This ensures:
 
 Now that we have clarified the high-level layers, we will take a look at the inner structure of each. The structure should work well in any framework and probably most object oriented languages.
 
-Below this section I'll provide an exhaustive rational for this structure. Nothing in it was chosen randomly but with an intention and idea behind it. You are welcome to provide a constructive critic in the comments or to contact me on twitter or Linked in.
+Below this section I'll provide an exhaustive rational for this structure. Nothing in it was chosen randomly but with an intention and idea behind it. You are welcome to provide a constructive critic in the comments or to contact me on twitter or Linked in if you want to discuss an aspect of it!
 
 ```text
 src/

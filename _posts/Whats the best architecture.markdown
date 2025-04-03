@@ -1,3 +1,13 @@
+---
+layout: post
+title: What is the best Architecture?
+categories: software-architecture
+tags: software-architecture
+draft: true
+published: false
+comments: true
+---
+
 TL;DR: If your goal is just to write better code explore the SOLID principles, learn about coupling and cohesion, TDD, "clean architecture" and "extreme programming".
 
 Long answer: You won't build microservices solo nor gain the real experience of running them by doing so. The tricky part is to slice the system correctly and then run the system, not to build 1-2 tiny services to test and to run, well, just API calls. That doesn't give you the real experience of a microservice architecture.
