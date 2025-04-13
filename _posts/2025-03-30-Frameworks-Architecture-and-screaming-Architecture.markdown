@@ -5,7 +5,8 @@ categories: software-architecture
 tags:
   - software-architecture
 date: 2025-03-30
-draft: true
+draft: false
+published: true
 comments: true
 ---
 
@@ -210,17 +211,86 @@ application/
 
 ### Vertical Slices
 
-A vertical slice is, you guessed it, a vertical slice through the layers of an application. The key here is to make sure each slice is **fully** separated. Compared to Clean Architecture a slice seems to be "dirty" and yes, it can be "dirty". This is of course no invitation to write the most bad code on earth but it can be less strict. What internal level of quality you aim for in this slice is up to you.
+A vertical slice is, you guessed it, a vertical slice through the layers of an application. The key here is to make sure each slice is separated or even fully separated. Compared to Clean Architecture a slice seems to be "dirty" and yes, it can be "dirty". This is of course no invitation to write the bad code but it can be less strict. What internal level of quality you aim for in a slice is up to you.
+
+Vertical slices will organize your system by behavior/use case.
+
+The following is one proposed structure, how exactly your slice looks like is in my opinion not that important as long as they stay isolated from each other.
 
 <pre>
 application/
-│── src/
-│   ├── Cart/
-│       ├── CartController.php
-│       ├── CartRepository.php
-│       ├── TaxCalculator.php
-│       ├── DiscountCalculator.php
-│       ├── Templates/
+└── src/
+    └── Cart/
+        ├── AddItem/
+        │   ├── AddItemController.php
+        │   ├── AddItemRequest.php
+        │   ├── AddItemService.php
+        │   ├── AddItemResponse.php
+        │   ├── AddItemTemplate.twig.php
+        │   ├── AddItemCommand.php
+        |   ├── CartRepository.php
+        │   ├── CartItem.php
+        │   └── Cart.php
+        │
+        ├── RemoveItem/
+        │   ├── RemoveItemController.php
+        │   ├── RemoveItemRequest.php
+        │   ├── RemoveItemService.php
+        │   ├── RemoveItemResponse.php
+        │   ├── RemoveItemTemplate.twig.php
+        │   ├── RemoveItemCommand.php
+        |   ├── CartRepository.php
+        │   ├── CartItem.php
+        │   └── Cart.php
+        │
+        └── Checkout/
+            ├── CheckoutController.php
+            ├── CheckoutRequest.php
+            ├── CheckoutService.php
+            ├── CheckoutResponse.php
+            ├── CheckoutTemplate.twig.php
+            ├── CheckoutCommand.php
+            ├── CartRepository.php
+            ├── CartItem.php
+            └── Cart.php
+</pre>
+
+You may have noticed that there is a lot duplication between the slices. There will be very likely cases in which you need to share some logic between the cases. Maybe tax and cart calculation in our case?
+
+However, moving shared code to a central Shared/ folder introduces coupling between slices. That’s a trade-off between modularity and reuse. If the slices depend on the shared folder, the consequence is that a change to the shared folder will impact *all* slices using it.
+
+<pre>
+application/
+└── src/
+    └── Cart/
+        ├── AddItem/
+        │   ├── AddItemController.php
+        │   ├── AddItemRequest.php
+        │   ├── AddItemService.php
+        │   ├── AddItemResponse.php
+        │   ├── AddItemTemplate.twig.php
+        │   ├── AddItemCommand.php
+        │
+        ├── RemoveItem/
+        │   ├── RemoveItemController.php
+        │   ├── RemoveItemRequest.php
+        │   ├── RemoveItemService.php
+        │   ├── RemoveItemResponse.php
+        │   ├── RemoveItemTemplate.twig.php
+        │   ├── RemoveItemCommand.php
+        │
+        ├── Checkout/
+        │   ├── CheckoutController.php
+        │   ├── CheckoutRequest.php
+        │   ├── CheckoutService.php
+        │   ├── CheckoutResponse.php
+        │   ├── CheckoutTemplate.twig.php
+        │   ├── CheckoutCommand.php
+        │
+        └── Shared/
+            ├── CartRepository.php
+            ├── CartItem.php
+            └── Cart.php
 </pre>
 
 The primary benefit, if done properly, is that you can modify or throw away a complete vertical slice without affecting another part of the application. You could go as far as that you drop even the tests into this folder, it's up to you.
@@ -233,7 +303,7 @@ You get a lot freedom within a slice but you **must** adhere to high-cohesion an
 
 ## Mixing Vertical Slices and Ports & Adapters
 
-Here is a crazy idea: Group your business capabilities or features by module and decide depending on the complexity if you want to go for Clean Architecture or vertical slices per module. A module can become a collection of related but separate use cases, e.g. have a use case "Signup" and "PasswordReset" as module or group them underneath a module "Customers". Use vertical slices for experimentation and Clean Architecture for more complex and business critical functionality.
+Here is a crazy idea: Group your business capabilities or features by module and decide *depending on the complexity* if you want to go for Clean Architecture or vertical slices per module. A module can become a collection of related but separate use cases, e.g. have a use case "Signup" and "PasswordReset" as module or group them underneath a module "Customers". Use vertical slices for less complex use cased and Clean Architecture for more complex and business critical functionality.
 
 ## Coupling as a trade-off
 
@@ -242,6 +312,10 @@ Whatever framework you are using, it really doesn't matter, but you want to be c
 As usual, I do not try to preach absolutism. I want everyone to be enabled to form their own opinion based on information and facts. I hope the article gave you a few new ideas and reasoning to try something else than you did before. It is the best if you gather your own experience and try to build an application as proposed here. Personally, I prefer working with applications that abstract the framework to some degree.
 
 A well designed framework should not force you to couple to it a lot but instead be able to adept to your structure and to only intersect slightly with your application for the parts you really need.
+
+## There is no magic Bullet
+
+This article explicitly doesn't recommend any of both solutions but is thought to encourage you to think about when to use which of the different approaches and even to mix and match them as it makes sense in *your* context. You'll have to a proper analysis and judgement of your quality attributes and business goals to make a decision that will suit your context.
 
 ## Digging Deeper into the Topic
 

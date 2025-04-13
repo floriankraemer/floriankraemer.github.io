@@ -14,7 +14,7 @@ It is not only that I sometimes have to explain what I do beyond "Something with
 
 > "*Software architecture is the set of structures needed to reason about a software system and the discipline of creating such structures and systems. Each structure comprises software elements, relations among them, and properties of both elements and relations*" - Clements, Paul; Felix Bachmann; Len Bass; David Garlan; James Ivers; Reed Little; Paulo Merson; Robert Nord; Judith Stafford (2010). [Documenting Software Architectures: Views and Beyond, Second Edition](https://www.amazon.de/dp/0321552687).
 
-
+---
 
 > "*Every system has an architecture, but an architecture is not a system; an architecture and an architecture description are not the same thing; architecture standards, descriptions, and development processes can differ and be developed separately; architecture descriptions are inherently multiviewed; and separating the concept of an object's view from its specification is an effective way to write architecture description standards.*" - [Software architecture: introducing IEEE Standard 1471](https://ieeexplore.ieee.org/document/917550)
 

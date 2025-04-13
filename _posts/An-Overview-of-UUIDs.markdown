@@ -1,9 +1,12 @@
 ---
 layout: post
-title: The differences of UUIds
+title: The differences of UUIDs
 categories: software-architecture
 tags: software-architecture
 ---
+
+Did you know that there are many versions of the UUID? Have you ever bothered to check them out and what their differences are? This article tries to shed some light on them and their different use cases.
+
 
 There are 8 versions of UUIDs:
 
@@ -40,6 +43,8 @@ There are 8 versions of UUIDs:
    - **Use Case Example:** Experimental Features - In a research project exploring new ways to encode and compress large datasets, UUID v8 can be customized to include specific data patterns or information relevant to the experiment, allowing for tailored identification schemes.
 
 ## Comparison Table
+
+Use this table to figure out which one might be the best for your use case. But don't rely blindly on it, analyze your case and pick the right one.
 
 | Version | Name | Description | Structure | Uniqueness | Use Cases |
 |---------|------|-------------|-----------|------------|-----------|
