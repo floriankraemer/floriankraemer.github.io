@@ -13,6 +13,7 @@ I specialize in empowering software development teams to elevate their performan
 * **Legacy System Modernization:** Transition your legacy codebase to modern architectures, reducing technical debt and streamlining future development.
 * **Clean, Maintainable Code:** Develop code that is not only efficient but also easy to read, refactor, and extend, ensuring long-term adaptability.
 * **Domain-Driven Design (DDD):** Apply DDD principles to structure your application around core business logic, improving alignment with business goals and increasing clarity in your codebase.
+* **Architectural Review & Code Review:** An external view and opinion might be beneficial for your existing project, especially when you already have known problems.
 * **Test-Driven Development:** Enhance your team's testing strategies to improve software quality and build robust, scalable applications.
 * **CI/CD and Development Processes:** Optimize your continuous integration/continuous delivery pipeline, automating workflows and implementing best practices to accelerate releases and improve overall development efficiency.
 * **Development Process Optimization:** Introduce and refine development processes tailored to your team's needs, improving collaboration, productivity, and overall project delivery through structured workflows and best practices.
