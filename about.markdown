@@ -23,10 +23,9 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
   * Maintained several CakePHP plugins.
 * I've done a large scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling.
 * I've successfully introduced a CI/CD process in a company.
-* Architected the Unified Commerce foundation for Sprykers Commerce OS.
-* Designed a security issue workflow and process within the Core Commerce department.
+* Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for [Sprykers](https://spryker.com/) Commerce OS.
+* Implemented a security incident workflow and process in a department.
 * Introduced performance and quality metrics.
-* Defined a security incident process.
 * Architected a modular system with ports & adapters to enable microservices later on.
 
 ### How I am
@@ -34,6 +33,7 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * I'm intrinsically motivated, I love my profession and technology.
 * Understanding new businesses and domains is something I like, I'm curious by nature.
 * I like to learn new things.
+* I'm a clean code & architecture advocate.
 * DDD - Domain Driven Design. Communication and processes that ultimately manifests in great code is what I like and believe in without being dogmatic.
 * Being an architect is more than technology - teams, people and social interactions are part of the process.
 * I like to refactor legacy systems if I get the opportunity to do so.
