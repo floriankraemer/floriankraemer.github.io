@@ -257,7 +257,7 @@ application/
 
 You may have noticed that there is a lot duplication between the slices. There will be very likely cases in which you need to share some logic between the cases. Maybe tax and cart calculation in our case?
 
-However, moving shared code to a central Shared/ folder introduces coupling between slices. That’s a trade-off between modularity and reuse. If the slices depend on the shared folder, the consequence is that a change to the shared folder will impact *all* slices using it.
+But moving shared code to a central Shared/ folder introduces coupling between slices. That’s a trade-off between modularity and reuse. If the slices depend on the shared folder, the consequence is that a change to the shared folder will impact *all* slices using it.
 
 <pre>
 application/
