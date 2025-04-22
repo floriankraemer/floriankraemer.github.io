@@ -11,16 +11,7 @@ draft: true
 comments: true
 ---
 
-Error Messages are simple, right? It's just a message, isn't it? Yes, but even an error message can and really should provide value for the person reading it in one way or another and then it suddenly isn't that simple anymore. Good error messages are in fact a more or less complex topic and we should treat them as 1st class citizens.
-
-## Who is addressed by the error messages?
-
-There are many different stakeholders with different needs regarding the amount and depth of the information an error message should communicate:
-
-* End Users who use the software.
-* Developers who need to debug the software.
-* Developers who use/integrate with your software via its APIs.
-* Client Systems that need to do something with them.
+Error Messages are simple, right? It's just a message, isn't it? Yes, but even an error message can and really should provide *value* for the person reading it in one way or another and then it suddenly isn't that simple anymore. Good error messages are in fact a more or less complex topic and we should treat them as 1st class citizens.
 
 ## Error Messages nobody likes
 
@@ -32,9 +23,18 @@ Or how about that?
 
 > 500 - Server Error
 
-A completely useless error message, right? I guess that you have unfortunately encountered error messages like that many times before. As an user affect by this we usually are angry about the lack of information. This should already motivate us to build better error messages than the ones that annoy us in our daily life.
+A completely useless error message, right? I guess that you have unfortunately encountered error messages like that many times before. As an user affect by this we usually are, to put it mildly, disappointed about the lack of information. This should already motivate us to build better error messages than the ones that annoy us in our daily life.
 
 Error messages really should contain **all** required information to *understand what happened* and to *identify the cause* of the problem and the entities and actors involved in the given context.
+
+## Who is addressed by the error messages?
+
+But who is actually addressed by the error message? There are many different stakeholders with *different* needs regarding the amount and depth of the information an error message should communicate:
+
+* End Users who use the software.
+* Developers who need to debug the software.
+* Developers who use/integrate with your software via its APIs.
+* Client Systems that need to do something with them.
 
 ## Better Error Messages
 
@@ -51,7 +51,7 @@ A good error message should contain these points if possible:
 * Where?
 * Why?
 
-A [Problem Details RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) Response example. The fields `type`, `status`, `title`, `detail`, and `"instance` are part of RFC 9457, the additional field are `extensions` and provide additional information.
+A [Problem Details RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) Response example. The fields `type`, `status`, `title`, `detail`, and `"instance` are part of RFC 9457, the additional field are `extensions` and provide additional information beyond the fields specified by RF 9457.
 
 ```json
 {
@@ -87,13 +87,23 @@ Be careful what information you expose. Imagine a medical system that somehow le
 
 ### Error Code Suggestions
 
-Error codes MUST be human readable and not hard to comprehend values like an UUID.
+If error codes are used in an user facing context, they should be human readable and not hard to comprehend and remember values like an UUID.
 
 For example AP-E1 must be unique within the service and identifies the error E1 in the “Activation Process" (AP). It’s short enough to be remembered and written out, yet it carries at least *some* information.
 
-The definition of the error codes is up to the service. The error codes MUST be unique per component and must not be re-used within, so the location of the error within the system can be determined.
+When you are dealing with machine to machine communication you could use whatever you want and provide documentation to map the codes to something more meaningful. But do not forget that there will be still humans, developers, who will very likely have to work with this.
+
+The error codes should be unique per component and must not be re-used within, so the location of the error within the system can be determined easily and accurately.
+
+### What if I need to hide information?
+
+There are good reasons and sometimes if regulatory or compliance requirements that you must hide certain information. Imagine the case in which you are working with a medical record system and an error message exposes a severe diagnosis like cancer to people who should not have access to that information.
+
+To work around that, you can still use an ID, ideally a [correlation ID](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CorrelationIdentifier.html), and display this ID as part of the error message. If a user reports his problem with this ID you'll be, depending on your APM and logging, be able to track down the exact process and the involved components that caused this issue.
 
 ### Proposed Conventions
+
+The following are proposed conventions that you could use or adept them to your needs to enforce expressive error messages.
 
 * Error message **MUST** be expressive and clear:
   * The cause of the error **MUST** be clearly defined if known.
@@ -103,10 +113,8 @@ The definition of the error codes is up to the service. The error codes MUST be 
   * Error codes **MUST** be human readable and memorable.
   * If the error message is translatable is a decision made by the service providing the API.
 
-### What if I need to hide information?
-
-You can still use an ID, ideally a correlation ID, and display this as part of the error message. If a user reports his problem with this ID you'll be, depending on your APM and logging, be able to track down the exact process and th involved building blocks that caused this issue.
-
 ## Conclusion
 
 By investing just some time to come up with proper error messages, you'll save the users of your program, API or library hours or even days of work and annoying research into why they've got that error. So you invest in developer experience and customer satisfactions, depending on what type of product and software you are working on.
+
+One way you could test if your error messages are good is to ask the audience who will experience them later for their feedback. Give it a try, it's quick and easy to do!

@@ -14,13 +14,13 @@ Ports and adapters are also known as “hexagonal architecture”. Ports and ada
 
 ## Before we start
 
-The proposed structure is for a modular system following ports and adapters is very likely not the only one and you can and should diverge from it as it matches your needs, as long as it sticks to the core principles of the architecture, the layering with the uni-directional dependencies and the concept of ports and adapters. More about that later. It is nonetheless recommended, that if you change it, you'll have very good reasons in form of quality attributes to change it.
+The proposed structure is for a modular system following ports and adapters is very likely not the only one and you can and should diverge from it as it matches **your** needs, as long as it sticks to the core principles of the architecture, the layering with the uni-directional dependencies and the concept of ports and adapters. More about that later. It is nonetheless recommended, that if you change it, you'll have very good reasons in form of quality attributes to change it.
 
 The structure can be used with modules or bounded contexts, this article will use the concept of a business "Capability" as name for what someone else might call a module. Capabilities or modules are thought to be able to interact with each other through a clearly defined interface: A facade.
 
 Also, consider this structure as opinionated despite the fact that it tried to align well with Vernaugh and Evans.
 
-### History & Meaning of the Hexagon
+### The History & Meaning of the Hexagon
 
 The geometric shape of the hexagon has nothing to do with the architecture. It just happened that [Alistair Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn), the person who described this style first, has chosen the hexagon for the diagram in his presentation:
 
@@ -35,6 +35,12 @@ His diagrams:
 ![](/assets/images/illustrations/Hexagonal-architecture-with-adapters.gif){: .align-center}
 
 You can find them and his description if it on [his website](https://alistair.cockburn.us/hexagonal-architecture/).
+
+## What are Ports & Adapters?
+
+The basic idea of this architecture is to separate the ingoing and outgoing things from the part of your application that implements the business logic.
+
+The benefits here are 
 
 ## Layers in Clean Architecture
 
