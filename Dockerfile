@@ -27,5 +27,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 # Set the entrypoint
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
+#RUN "rm -rf .jekyll-metadata _site"
+
 # Default command (can be overridden)
-CMD ["serve", "--host", "0.0.0.0"]
+CMD ["serve", "--drafts", "--future", "--host", "0.0.0.0"]

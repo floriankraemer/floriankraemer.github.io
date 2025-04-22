@@ -5,7 +5,7 @@ categories: software-architecture
 tags:
   - Software Architecture
   - Architecture
-date: 2025-01-20T22:11:34.000Z
+date: 2025-04-30T19:11:34.000Z
 draft: true
 comments: true
 ---
@@ -40,9 +40,52 @@ You can find them and his description if it on [his website](https://alistair.co
 
 The basic idea of this architecture is to separate the ingoing and outgoing things from the part of your application that implements the business logic.
 
-The benefits here are 
+## Clean Architecture, Ports & Adapters or both?
 
-## Layers in Clean Architecture
+They are different yet they complement each other very well.
+
+In a nutshell, Ports and Adapters is less detailed conceptionally than Clean Architecture, while clean architecture defines layers in more detail.
+
+The table below shows a high level comparison of both styles.
+
+| Aspect                    | Ports and Adapters (Hexagonal)      | Clean Architecture                           |
+|--------------------------|--------------------------------------|-----------------------------------------------|
+| **Focus**                | Interaction between system and external actors | Layered control of business logic and data flow |
+| **Structure**            | Hexagon with input/output ports      | Onion/circular layers from Entities to Frameworks |
+| **Terminology**          | Ports, Adapters                      | Entities, Use Cases, Interface Adapters       |
+| **Layers Defined**       | Flexible, less formally defined      | Strict: Entities → Use Cases → Interfaces → Frameworks |
+| **Primary Concern**      | Decoupling from delivery & tech details | Organizing business logic in concentric layers |
+| **Interaction Direction**| Adapters call Ports                  | Outer layers depend on inner ones             |
+| **Entry Points**         | Multiple adapters (CLI, Web, etc.)   | Controllers or Gateways                       |
+| **Origin**               | Alistair Cockburn (2005)             | Robert C. Martin (Uncle Bob, 2012)            |
+| **Use of Interfaces**    | At the boundary (Ports)              | At every layer boundary                       |
+| **Dependency Rule**      | Core doesn’t depend on outer layers  | Same (Dependency Inversion Principle)         |
+
+### Ports & Adapters
+
+Interfaces in Application layer act as Ports.
+
+Infrastructure implementations (e.g., Persistence, Email, Message) are Adapters.
+
+External triggers (CLI, HTTP, Messaging) are handled in Presentation and Infrastructure layers, calling into the Application layer via facades or use cases.
+
+### Clean Architecture
+
+Clear separation into layers: Application, Domain, Infrastructure, Presentation.
+
+Application layer orchestrates domain logic via use cases and facades.
+
+Domain layer contains pure business logic (aggregates, entities, value objects, services).
+
+Presentation and Infrastructure layers depend on the inner layers — but never the reverse.
+
+DTOs (Request/Response), facades, and error classes follow Clean Architecture conventions.
+
+### What are we building?
+
+This article aims for a Clean Architecture implementation that also fully aligns with Ports and Adapters. We are going to essentially apply both of them in the structure that is described further down in the article.
+
+## Layers
 
 The Application, Domain, and Infrastructure layers provide a clear separation of concerns, making software more maintainable, scalable, and adaptable. The Domain layer encapsulates core business rules, remaining independent of technical implementations. This separation ensures that business logic does not get entangled with application flow or infrastructure concerns, making it easier to update and extend.
 
@@ -95,7 +138,7 @@ Business logic refers to the core rules, constraints, compliance requirements, c
 
 ### Naming the “Services”
 
-The naming of the services must follow the ubiquitous language, unless something is named “Service”, classes and files are not using the suffix “Service”. For example a “TaxCalculator” doesn’t need the “Service” suffix. It doesn’t add any value or information to it. That's as good as suffixing anything mechanical that can be driven with “Vehicle”: CarVehicle, TankVehicle, BikeVehicle. It adds no additional value or expressiveness.
+The naming of the services must follow the ubiquitous language, unless something is named “Service”, classes and files are not using the suffix “Service”. For some reason there is a tendency among people to suffix things with "Service" or "Manager". For example a “TaxCalculator” doesn’t need the “Service” suffix. It doesn’t add any value or information to it. That's as good as suffixing anything mechanical that can be driven with “Vehicle”: CarVehicle, TankVehicle, BikeVehicle. It adds no additional value or expressiveness.
 
 ### Domain Services
 

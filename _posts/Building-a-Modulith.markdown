@@ -5,3 +5,4 @@
 * You want an extendible application platform as product in which modules can be fully replaced or customized.
 * You want a clean architecture that keeps you the door open to extract and move modules into separate deployment units (Microserivces) later for e.g. scalability reasons.
 
+

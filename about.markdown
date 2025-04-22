@@ -16,21 +16,6 @@ Email me at [fk@kreative-design.net](mailto:fk@kreative-design.net).
 
 Let's connect and explore how my skills and knowledge can contribute to the success of your projects.
 
-### How I am
-
-* I'm intrinsically motivated, I love my profession and technology.
-* Understanding new businesses and domains is something I like, I'm curious by nature.
-* I like to learn new things.
-* DDD - Domain Driven Design. Communication and processes that ultimately manifests in great code is what I like and believe in without being dogmatic.
-* Being an architect is more than technology - teams, people and social interactions are part of the process.
-* I like to refactor legacy systems if I get the opportunity to do so.
-* SOLID, YAGNI * Concepts that create good code.
-* Frameworks are just tools, I'm not dogmatic about them.
-* While I'm proficient in PHP, I love to work on c# and Java related projects as well.
-* Artificial intelligence 🤖, neural networks - super interesting!
-* Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin and others.
-* I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
-
 ### Achievements
 
 * I've been part of the CakePHP core team.
@@ -38,11 +23,26 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
   * Maintained several CakePHP plugins.
 * I've done a large scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling.
 * I've successfully introduced a CI/CD process in a company.
-* Architected the Unified Commerce foundation for Sprykers Commerce OS.
-* Designed a security issue workflow and process within the Core Commerce department.
+* Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for [Sprykers](https://spryker.com/) Commerce OS.
+* Implemented a security incident workflow and process in a department.
 * Introduced performance and quality metrics.
-* Defined a security incident process.
 * Architected a modular system with ports & adapters to enable microservices later on.
+
+### How I am
+
+* I'm intrinsically motivated, I love my profession and technology.
+* Understanding new businesses and domains is something I like, I'm curious by nature.
+* I like to learn new things.
+* I'm a clean code & architecture advocate.
+* DDD - Domain Driven Design. Communication and processes that ultimately manifests in great code is what I like and believe in without being dogmatic.
+* Being an architect is more than technology - teams, people and social interactions are part of the process.
+* I like to refactor legacy systems if I get the opportunity to do so.
+* SOLID, YAGNI - Concepts that create good code.
+* Frameworks are just tools, I'm not dogmatic about them.
+* While I'm proficient in PHP, I love to work on c# and Java related projects as well.
+* Artificial intelligence 🤖, neural networks - super interesting!
+* Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin and others.
+* I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
 
 ### Reference Open Source Projects
 

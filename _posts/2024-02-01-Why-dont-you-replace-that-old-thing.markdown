@@ -3,6 +3,8 @@ layout: post
 title: Why don't you just replace that old thing?
 categories: software-architecture
 tags: software-architecture
+published: true
+date: 2024-02-01
 ---
 
 Sometimes people are very eager and quick to say "Just replace X!" but don't consider the deeper implications of changing an integral part of a companies system. This article was inspired by a statement mate recently by someone stating this:
