@@ -6,8 +6,10 @@ tags:
   - software-architecture
   - api
   - api-design
-date: 2025-02-14T20:43:22.000Z
-draft: true
+  - error-messages
+  - user-experience
+date: 2025-04-26T20:43:22.000Z
+draft: false
 comments: true
 ---
 

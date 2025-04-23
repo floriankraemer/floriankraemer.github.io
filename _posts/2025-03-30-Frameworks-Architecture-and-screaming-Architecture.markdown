@@ -112,7 +112,7 @@ Instead let's try to structure our applications like well-designed rooms that cl
 
 ## Focus on your Businesses Structure not the Framework
 
-When building an application, you should focus on the domain, the business logic you are building and not on the framework. The framework is supposed to *support* you in building an application like the building materials, wooden and steel beams support a building, but they alone don't give the building the shape. Only in combination with other elements the building blocks become a concept as a whole. The framework should not determine the shape of your application.
+When building an application, you should focus on the domain, the business logic you are building and not on the framework. The framework is supposed to *support* you in building an application like the building materials, wooden and steel beams support a building, but they alone don't give the building the shape. Only in combination with other elements the building blocks become a concept as a whole. *The framework must not determine the shape of **your** application.*
 
 As usual in architecture, it really depends on your goals: Are you building just a quick prototype? Is it mostly CRUD? Well, then it might be fine to just stick to whatever the frameworks shelves and pallets offers you.
 
@@ -126,15 +126,15 @@ By decoupling the framework from your application core by using adapters, it wil
 
 Who do you think profits the most from using a framework? Is it you or the framework developers? I will go as far and argue that it helps mostly the framework developers. I explicitly want to express that the next few paragraphs are an observation and not a fact based statement. It is an observation that I've made, but it's hard to bake it by empirical data.
 
-If you take a look at the very popular Laravel framework in the PHP world, that took it with storm, then you will realize that it is very widespread and became popular very quickly. But why is that so?
+If you take a look at one particular, very popular framework in the PHP world (Sorry, no obvious name and shame here, make your guess!), that took it with storm, then you will realize that it is very widespread and became popular very quickly. But why is that so?
 
-The framework's focus was very likely easy of use to make it accessible for the lesser experienced developers, to get something quickly with the framework done. So learnability and ease of use was seemingly the primary quality attribute of the design. Given that there, most of the time, are more inexperienced people in any domain than experts, it is more or less obvious why the framework was such a success.
+The framework's focus was very likely easy of use to make it accessible for the lesser experienced developers, to get something quickly with the framework done. So learnability and ease of use was seemingly the primary quality attribute of the design. It even made some - no only in my opinion - sub-optimal technical decisions in favor of ease of use. Given that there, most of the time, are more inexperienced people in any domain than experts, it is more or less obvious why the framework was such a success.
 
-Laravel’s ecosystem includes both free and paid services that integrate seamlessly, making development smoother. However, this can lead to tighter coupling with the framework, which may limit flexibility in highly customized applications or long-lived projects that require flexibility.
+It's ecosystem includes both free and paid services that integrate seamlessly, making development smoother. However, this can lead to tighter coupling with the framework, which may limit flexibility in highly customized applications or long-lived projects that require flexibility.
 
 This might be good if you have something that works fine within the constraints that every framework has. However, if you need to do something outside the framework’s intended use, and your business logic is tightly coupled to it, the framework may become more of a limitation than a tool. The framework was made easy of use, and very likely to generate revenue for its creators rather than long-term flexibility.
 
-This does not mean you can’t build a clean, flexible, and extensible project with Laravel, but achieving this often requires deviating from its default structure. This will be true for *any* framework, just more or less for some. Also do not take this section as a rant to not use frameworks as well!
+This does not mean you can’t build a clean, flexible, and extensible project with this framework, but achieving this often requires deviating from its default structure. This will be true for *any* framework, just more or less for some. Also do not take this section as a rant to not use frameworks as well!
 
 ## Screaming Architecture
 
