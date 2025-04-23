@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'API Error Messages'
+title: 'Better Error Messages'
 categories: software-architecture
 tags:
   - software-architecture
@@ -15,7 +15,15 @@ Error Messages are simple, right? It's just a message, isn't it? Yes, but even a
 
 ## Error Messages nobody likes
 
-What do you think about an error message like this one?
+What do you think about an error message like this one? A little scary?
+
+![Windows 9x Blue Screen](/assets/images/illustrations/Windows_9X_BSOD.png)
+
+What would your non-tech savvy friends say about this one?
+
+![Windows 9x Blue Screen](/assets/images/illustrations/Forced-linux-kernel-panic-under-qemu.gif)
+
+How do you like this one?
 
 > An error occurred.
 
@@ -23,9 +31,9 @@ Or how about that?
 
 > 500 - Server Error
 
-A completely useless error message, right? I guess that you have unfortunately encountered error messages like that many times before. As an user affect by this we usually are, to put it mildly, disappointed about the lack of information. This should already motivate us to build better error messages than the ones that annoy us in our daily life.
+A completely useless error message, right? I guess that you have unfortunately encountered error messages like that many times before in your life. As an user affect by this we usually are, to put it mildly, disappointed about the lack of information. This should already motivate us to build better error messages than the ones that annoy us in our daily life.
 
-Error messages really should contain **all** required information to *understand what happened* and to *identify the cause* of the problem and the entities and actors involved in the given context.
+Error messages really should contain the required information to *understand what happened* and to *identify the cause* of the problem and the entities and actors involved in the given context.
 
 ## Who is addressed by the error messages?
 
@@ -36,22 +44,40 @@ But who is actually addressed by the error message? There are many different sta
 * Developers who use/integrate with your software via its APIs.
 * Client Systems that need to do something with them.
 
+Here is an exemplarity table that lists needs of different stakeholders. You must consider the needs of *your* stakeholders, so take this table as an *example*. You should figure out who *your* stakeholders are and what *their* needs and quality attributes are.
+
+| **Stakeholder**                | **Needs / Quality Attributes**                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------------------------|
+| **End Users**                 | - Clear and friendly message  <br> - Guidance on what to do next (actionability)  <br> - No sensitive info exposure |
+| **Internal Developers**       | - Debuggability (e.g., stack traces, affected component)  <br> - Contextual information (who, what, where, why)  <br> - Correlation ID for log tracing |
+| **External Developers (API)** | - Precise error codes  <br> - Human-readable error descriptions  <br> - Documentation linkage (via `type` URI)  <br> - Consistent structure (e.g. RFC 9457) |
+| **Client Systems**            | - Machine-readable fields (e.g., `status`, `code`, `type`)  <br> - Deterministic and predictable structure for error parsing |
+| **Security/Compliance Officers** | - No leakage of sensitive data  <br> - Regulatory compliance (e.g., GDPR)  <br> - Role-based visibility of data in errors |
+| **Product Owners / UX**       | - Improved user satisfaction  <br> - Brand perception via thoughtful messaging |
+| **Support/Helpdesk Teams**    | - Correlation IDs for issue tracking  <br> - Sufficient detail to triage without needing logs |
+
 ## Better Error Messages
 
 So what could a proper error message look like? Maybe something like this?
 
-> An error occurred in the ProcessActivation component; The process can’t be activated without giving the `modify` permission to the logged in user.
+> An error occurred in the `ProcessActivation` component; The process with ID `8876693b-ec67-458a-a07a-57ed595328db` can’t be activated without giving the `modify` permission to the currently logged in user Jon Doe. Please contact your manager to grant you access.
 
 Note that above it says “logged in” user, this can, in other circumstances, be very well another actor like an “Approver” or “Supervisor”. That's why it is important to mention the actual actor in the right context.
 
 A good error message should contain these points if possible:
 
-* Who?
-* What?
-* Where?
-* Why?
+* **Who?** (The current logged in user)
+* **What?** (can't be activated)
+* **Where?** (The `ProcessActivation` Component)
+* **Why?** (The permission is missing)
 
-A [Problem Details RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) Response example. The fields `type`, `status`, `title`, `detail`, and `"instance` are part of RFC 9457, the additional field are `extensions` and provide additional information beyond the fields specified by RF 9457.
+On top of that a way to resolve the issues is highly recommended. This doesn't have to be always a technical thing but can be very well to contact somebody to resolve the problem for you. In the example above it could be also a concrete person, like the name of the person owning the process that you tried to activate.
+
+Depending on the context you could do a lot more for a good user experience: How about allowing you to contact your manager directly by making "the manager" clickable? I guess you see what we are up to with  this, right?
+
+## API Error Messages
+
+Here is a a [Problem Details RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) Response example. The fields `type`, `status`, `title`, `detail`, and `"instance` are part of RFC 9457, the additional field are `extensions` and provide additional information beyond the fields specified by RF 9457.
 
 ```json
 {
