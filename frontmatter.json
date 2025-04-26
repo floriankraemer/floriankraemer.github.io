@@ -57,5 +57,18 @@
         }
       ]
     }
-  ]
+  ],
+  "frontMatter.framework.id": "jekyll",
+  "frontMatter.content.publicFolder": "assets",
+  "frontMatter.preview.host": "http://localhost:4000",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "posts",
+      "path": "[[workspace]]/_posts"
+    },
+    {
+      "path": "[[workspace]]/pages"
+    }
+  ],
+  "frontMatter.git.enabled": true
 }

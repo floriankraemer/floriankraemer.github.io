@@ -1,7 +1,14 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
+description: About Florian Krämer - Software Architect & Developers
+tags:
+  - services
+  - software development
+  - software-architecture
+  - consulting
+slug: ""
 ---
 
 ![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right"}
@@ -41,7 +48,7 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * Frameworks are just tools, I'm not dogmatic about them.
 * While I'm proficient in PHP, I love to work on c# and Java related projects as well.
 * Artificial intelligence 🤖, neural networks - super interesting!
-* Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin and others.
+* Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin, Dave Farley and others.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
 
 ### Reference Open Source Projects

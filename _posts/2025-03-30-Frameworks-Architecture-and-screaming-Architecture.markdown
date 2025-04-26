@@ -182,10 +182,8 @@ I may explore these approaches in more detail in future articles.
 
 Clean Architecture will slice your system into four layers and the higher layers will be allowed to only talk to lower layers:
 
-* Presentation
-* Application
-  * Domain
-  * Infrastructure
+
+![](/assets/diagrams/Ports-and-Adapters-Layers.svg){: .align-center}
 
 It is called ports and adapters because a “port” is anything that goes in or out of your applications core and that is your business logic. It is isolated in the domain layer. Using Inversion of Control (IoC), the domain defines repositories and other dependencies via interfaces, which are implemented by the infrastructure and used by the application layer. The presentation layer contains the adapters (e.g. HTTP or CLI) to your applications ports (Use Cases or "Services").
 
