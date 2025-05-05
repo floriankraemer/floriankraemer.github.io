@@ -86,13 +86,13 @@ If you haven't figured it out already, from left to right, this is the directory
 
 Now let's take a look at a few different pictures of buildings.
 
-![](/assets/images/illustrations/church.webp){: .align-center}
+![Church](/assets/images/illustrations/church.webp){: .align-center}
 
-![](/assets/images/illustrations/warehouse.webp){: .align-center}
+![Warehouse](/assets/images/illustrations/warehouse.webp){: .align-center}
 
-![](/assets/images/illustrations/university.webp){: .align-center}
+![University](/assets/images/illustrations/university.webp){: .align-center}
 
-![](/assets/images/illustrations/car-repair-workshop.webp){: .align-center}
+![Car Repair Workshop](/assets/images/illustrations/car-repair-workshop.webp){: .align-center}
 
 What can you see? I assume that you have very likely identified that the pictures show a church, a warehouse, some kind of educational facility and a car repair workshop.
 
@@ -100,7 +100,7 @@ Based on what criteria did you identify that? I guess you can tell that a church
 
 What are you seeing in the next picture?
 
-![](/assets/images/illustrations/building-blocks.webp){: .align-center}
+![Building Blocks](/assets/images/illustrations/building-blocks.webp){: .align-center}
 
 Probably nothing specific, because you're looking at just the building blocks of a building. Is it actually for a building? If yes, what type of building?
 
@@ -181,7 +181,6 @@ I may explore these approaches in more detail in future articles.
 ### Ports & Adapters + Clean Architecture
 
 Clean Architecture will slice your system into four layers and the higher layers will be allowed to only talk to lower layers:
-
 
 ![](/assets/diagrams/Ports-and-Adapters-Layers.svg){: .align-center}
 
