@@ -47,7 +47,50 @@ The phrase "not being driven by hypertext" in Roy Fielding's criticism refers to
 }
 ```
 
-So you are probably more likely to do "RESTful" by implementing HATEOAS than by arguing about if you are allowed to use verbs or no verbs at all in your URI.
+The core problem it addresses is client-server coupling. There are probably countless projects where a small change in a server's URI structure required a coordinated (and often painful) deployment of multiple client applications. A HATEOAS-driven approach directly solves this by decoupling the client from the server's namespace. This addresses the quality of evolvability.
+
+You are probably already more likely to do "RESTful" by simply implementing HATEOAS, than by arguing about if you are allowed to use verbs or no verbs at all in your API.
+
+## What is a "Resource"?
+
+Often people argue about what a resource in REST is. I've seen more or less commonly people expressing the opinion that a resource is a data structure coming from the server, unfortunately often even equal to a persistence entity.
+
+Let's check what Fielding says about it:
+
+> **The key abstraction of information in REST is a resource.** Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today's weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author's hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.
+
+> Semantics are a by-product of the act of assigning resource identifiers and populating those resources with representations. At no time whatsoever do the server or client software need to know or understand the meaning of a URI -- they merely act as a conduit through which the creator of a resource (a human naming authority) can associate representations with the semantics identified by the URI. In other words, there are no resources on the server; just mechanisms that supply answers across an abstract interface defined by resources. It may seem odd, but this is the essence of what makes the Web work across so many different implementations.
+
+Now let's take a look at [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)
+
+> This specification does not limit the scope of what might be a
+resource; rather, **the term "resource"** is used in a general sense
+for whatever might be **identified by a URI**. Familiar examples
+include **an electronic document, an image, a source of information
+with a consistent purpose** (e.g., "today's weather report for Los
+Angeles"), a service (e.g., an HTTP-to-SMS gateway), and a
+collection of other resources.  **A resource is not necessarily
+accessible via the Internet**; e.g., human beings, corporations, and
+bound books in a library can also be resources.  Likewise,
+abstract concepts can be resources, such as the operators and
+operands of a mathematical equation, the types of a relationship
+(e.g., "parent" or "employee"), or numeric values (e.g., zero,
+one, and infinity).
+
+The following examples of URIs are taken from the RFC as well:
+
+* ftp://ftp.is.co.za/rfc/rfc1808.txt
+* http://www.ietf.org/rfc/rfc2396.txt
+* ldap://[2001:db8::7]/c=GB?objectClass?one
+* mailto:John.Doe@example.com
+* news:comp.infosystems.www.servers.unix
+* tel:+1-816-555-1212
+* telnet://192.0.2.16:80/
+* urn:oasis:names:specification:docbook:dtd:xml:4.1.2
+
+### Conclusion about Resources
+
+A resource can be virtually anything that can be addressed by a URI. It can be a physical object, a concept, a document, a service, or even a virtual or abstract thing—as long as it can be uniquely identified and represented.
 
 ## What Fielding considers a RESTful API
 
@@ -79,11 +122,9 @@ This is my understanding of them, feel free to disagree and lets have a conversa
 
 ### 1. Don't Depend on One Protocol
 
-A REST API shouldn't be locked to one communication protocol (like HTTP). It should work as long as the protocol uses **URIs** to identify resources, not just **URLs**.
+A REST API uses Uniform Resource Identifiers (URIs) to name things. A URL (http://...) is just one specific type of URI that also includes a location. The key principle here is that a resource's fundamental identity should be separate from its access mechanism.
 
 A URI (Uniform Resource Identifier) is a broad concept that refers to any string used to identify a resource, while a URL (Uniform Resource Locator) is a specific type of URI that not only identifies a resource but also provides a means to locate it by describing its primary access mechanism (such as its network location).
-
-Imagine you design your API to only work over HTTP. If later someone wants to use it over HTTPS or a future protocol, it breaks.
 
 Your API should work with any URI and not rely on HTTP-specific mechanisms.
 
@@ -101,33 +142,40 @@ Your API should define how to understand and use the data it returns — through
 
 Put your energy into designing the format of the data and the links inside it, not into documenting what URLs to hit.
 
-Instead of just documenting `POST /users/123/activate` in for example a OpenAPI specification, you return a link in the  JSON:
+Instead of documenting that you must POST to `/users/123/activate`, your API should return a user representation in a hypermedia-aware format (like `application/hal+json` or a custom type like `application/vnd.myapp.user+json`).
 
 ```json
-{ "activate": { "href": "/users/123/activate", "method": "POST" } }
+{
+  "name": "John Doe",
+  "status": "inactive",
+  "_links": {
+    "self": { "href": "/users/123" },
+    "activate": { "href": "/users/123/activate", "method": "POST" }
+  }
+}
 ```
+
+The client code doesn't know about the `/users/123/activate path.` It only knows that the media type defines an "activate" link relation, and it uses the href and method provided in the response to perform the action.
 
 ### 4. Don't Hardcode URI Structures
 
-Clients shouldn't assume or hardcode paths like `/users/123/posts`. Instead, they should discover URIs through links provided by the server. Clients should learn about URIs dynamically, not hardcode them.
+This rule is the direct consequence of Rule #3. Clients shouldn't assume or hardcode paths like `/users/123/posts`. Instead, they should discover URIs through links provided by the server. Clients should learn about URIs dynamically.
 
 A client shouldn’t assume that a user’s posts are at /users/123/posts. It should read a link like this from the resource:
 
-```json
-{ "posts": { "href": "/users/123/posts" } }
-```
-
 ### 5. Avoid Resource “Types”
 
-The client shouldn’t care what kind of object a resource represents internally (like User, Admin, Moderator). It should care only about the media type (like application/json) and the links/actions (HATEOAS) it sees.
+The server's internal classification of a resource (e.g., User vs. Admin) must be entirely irrelevant and invisible to the client.
 
-Don't expose internal object types or roles. Just send a well-structured response with useful links. Don’t require the client to know that a resource is of type AdminUser. Just give them a consistent application/json response with relevant links and data.
+The client shouldn’t care what kind of entity a resource represents internally (like User, Admin, Moderator). It should care only about the media type (like `application/json`) and the links/actions it sees.
+
+Don't expose internal object types or roles. Just send a well-structured response with useful links. Don’t require the client to know that a resource is of type Admin. Just give them a consistent `application/json` response with relevant links and data.
 
 By "standardized relation names" he refers to the [registered link relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml) by the [IANA](https://www.iana.org).
 
 ### 6. Start with a Bookmark and Follow the Links
 
-The client should only need one starting point (e.g., a base URL) and a knowledge of standard media types. Everything else — what to do, where to go — should come from the server responses.
+The client should only need one starting point (e.g., a base URL, a bookmark) and a knowledge of standard media types. Everything else — what to do, where to go — should come from the server responses.
 
 Clients should follow links like browsing a website — starting from the home page and clicking through, not hardcoding paths.
 
@@ -142,7 +190,7 @@ Start with https://api.example.com/ and follow the _links in each response:
 }
 ```
 
-### Closing thoughts about the Rules
+## Conclusion
 
 Fielding’s rules emphasize that a truly RESTful API should embrace hypermedia (HATEOAS) as the central mechanism for interaction, not just use HTTP as a transport. REST is protocol-independent at its core; HTTP is simply a convenient way of using it. Clients should discover and navigate resources dynamically through links and standardized relations embedded in representations — not rely on hardcoded URI structures, types, or external documentation.
 
@@ -150,65 +198,8 @@ This makes REST systems loosely coupled, evolvable, and aligned with how the web
 
 ---
 
-When it comes to RESTful APIs there are in my opinion a lot of common but wrong assumptions.
-
-* REST is CRUD (often it is, but not always)
-* A resource is an entity (often mapped to a DB entity).
-* RESTful API must not use verbs.
-
-```text
-POST /playlist/1/play
-POST /playlist/1/pause
-POST /playlist/1/stop
-```
-
-When it comes to REST it makes sense to actually read [the dissertation](https://ics.uci.edu/~fielding/pubs/dissertation) of Roy Thomas Fielding.
-
-https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-
-> **The key abstraction of information in REST is a resource.** Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today's weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author's hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.
->
-> REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components.
-
-https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm
-
-> Semantics are a by-product of the act of assigning resource identifiers and populating those resources with representations. At no time whatsoever do the server or client software need to know or understand the meaning of a URI -- they merely act as a conduit through which the creator of a resource (a human naming authority) can associate representations with the semantics identified by the URI. In other words, there are no resources on the server; just mechanisms that supply answers across an abstract interface defined by resources. It may seem odd, but this is the essence of what makes the Web work across so many different implementations.
-
-What is a resource? Let's take a look at [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)
-
-```text
-This specification does not limit the scope of what might be a
-resource; rather, the term "resource" is used in a general sense
-for whatever might be identified by a URI.  Familiar examples
-include an electronic document, an image, a source of information
-with a consistent purpose (e.g., "today's weather report for Los
-Angeles"), a service (e.g., an HTTP-to-SMS gateway), and a
-collection of other resources.  A resource is not necessarily
-accessible via the Internet; e.g., human beings, corporations, and
-bound books in a library can also be resources.  Likewise,
-abstract concepts can be resources, such as the operators and
-operands of a mathematical equation, the types of a relationship
-(e.g., "parent" or "employee"), or numeric values (e.g., zero,
-one, and infinity).
-```
-
-The following examples of URIs are taken from the RFC as well:
-
-* ftp://ftp.is.co.za/rfc/rfc1808.txt
-* http://www.ietf.org/rfc/rfc2396.txt
-* ldap://[2001:db8::7]/c=GB?objectClass?one
-* mailto:John.Doe@example.com
-* news:comp.infosystems.www.servers.unix
-* tel:+1-816-555-1212
-* telnet://192.0.2.16:80/
-* urn:oasis:names:specification:docbook:dtd:xml:4.1.2
-
-As you can clearly see, an URI is not an URL.
-
-## Conclusion
-
-**Be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs.
-
-Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or no.
+**Be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs. Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or not.
 
 Who is the consumer of your API? How easy will it be for it to learn and use the API? Will it be intuitive to use? What are possible constraints? How do you version it? Deprecation and sun-setting strategies? How are changes to the API effectively communicated to consumers? Those things are much more valuable than the actual format of your resource identifier.
+
+By using HATEOAS and referencing schema definitions (such as XSD or JSON Schema) from within your resource representations, you can enable clients to understand the structure of the data and navigate the API dynamically. This can support generic or self-adapting clients. If that aligns with your goals (e.g., client decoupling, evolvability, dynamic interaction), then it’s a valid and powerful design choice.
