@@ -24,12 +24,11 @@ Roy Fielding has explicitly criticized the oversimplification of REST in CRUD-st
 
 This underscores his view that without hypermedia controls, an API does not fulfill the REST architectural style Hypermedia controls are elements embedded in a resource representation that guide clients on what actions they can take next.
 
-Common misconceptions in the context of what people consider REST are for example
+Common misconceptions in the context of what people consider REST are for example:
 
 * REST is CRUD (often it is, but not always)
-* A resource is an entity (often mapped to a DB entity).
+* A resource is an entity (often meaning a persistence entity).
 * RESTful API must not use verbs.
-* ...
 
 But those are actually *design decision* made for the API at hand, chosen by their creators and have nothing to do with REST.
 
@@ -190,15 +189,22 @@ Start with https://api.example.com/ and follow the _links in each response:
 }
 ```
 
+## Why aren't most APIs truly RESTful?
+
+The widespread adoption of a simpler, RPC-like style over HTTP can probably attributed to practical trade-offs in tooling and developer experience: The ecosystem around specifications like OpenAPI grew rapidly, offering immediate, benefits that proved irresistible to development teams. These tools provided powerful features like automatic client/server code generation, interactive documentation, and request validation out-of-the-box. For a team under pressure to deliver, the clear, static contract provided by an OpenAPI definition was and still is probably often seen as "good enough," making the long-term architectural benefits of HATEOAS, like evolvability, seem abstract and less urgent.
+
+Furthermore, the initial cognitive overhead of building a truly hypermedia-driven client was perceived as a significant barrier. It felt easier for a developer to read documentation and hardcode a URI template like `/users/{id}/orders` than to write a client that could dynamically parse a `_links` section and discover the "orders" URI at runtime.
+
+In many common scenarios, such as a front-end single-page application being developed by the same team as the back-end, the client and server are already tightly coupled. In this context, the primary problem that HATEOAS solves—decoupling the client from the server's URI structure—doesn't present as an immediate pain point, making the simpler, documentation-driven approach the path of least resistance.
+
 ## Conclusion
 
-Fielding’s rules emphasize that a truly RESTful API should embrace hypermedia (HATEOAS) as the central mechanism for interaction, not just use HTTP as a transport. REST is protocol-independent at its core; HTTP is simply a convenient way of using it. Clients should discover and navigate resources dynamically through links and standardized relations embedded in representations — not rely on hardcoded URI structures, types, or external documentation.
+Fielding’s rules emphasize that a truly RESTful API should embrace hypermedia (HATEOAS) as the central mechanism for interaction, not just use HTTP as a *transport*. REST is protocol-independent at its core; HTTP is simply a convenient way of using it. Clients should discover and navigate resources dynamically through links and standardized relations embedded in representations — not rely on hardcoded URI structures, types, or external documentation.
 
-This makes REST systems loosely coupled, evolvable, and aligned with how the web itself operates: through representation, discovery, and transitions. REST isn’t about exposing your internal object model over HTTP — it’s about building distributed systems that behave like the web.
+This makes REST systems loosely coupled, evolvable, and aligned with how the web itself operates: through 
+*representation, discovery, and transitions*. **REST isn’t about exposing your internal object model over HTTP — it’s about building distributed systems that behave like the web**.
 
----
-
-**Be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs. Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or not.
+**Therefore, simply be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs. Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or not. Follow Postels Law if it makes sense for your case: “Be conservative in what you do, be liberal in what you accept from others.”.
 
 Who is the consumer of your API? How easy will it be for it to learn and use the API? Will it be intuitive to use? What are possible constraints? How do you version it? Deprecation and sun-setting strategies? How are changes to the API effectively communicated to consumers? Those things are much more valuable than the actual format of your resource identifier.
 
