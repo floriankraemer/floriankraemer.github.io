@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Most RESTful APIs aren't RESTful
+title: Most APIs aren't really RESTful
 categories: software-architecture
 tags: software-architecture
 draft: true
@@ -8,7 +8,7 @@ published: false
 comments: true
 ---
 
-When talking about REST, it makes sense to actually read [the dissertation](https://ics.uci.edu/~fielding/pubs/dissertation) of Roy Thomas Fielding. The [original paper](https://ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf) that describes RESTful web, "Architectural Styles and the Design of Network-based Software Architectures" by Roy T. Fielding (2000), introduces the Representational State Transfer (REST) architectural style as a framework for designing scalable, performant, and maintainable networked systems, particularly web services.
+When talking about REST, it is worth reading [the dissertation](https://ics.uci.edu/~fielding/pubs/dissertation) of Roy Thomas Fielding. The [original paper](https://ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf) that describes RESTful web, "Architectural Styles and the Design of Network-based Software Architectures" Roy T. Fielding (2000), introduces the Representational State Transfer (REST) architectural style as a framework for designing scalable, performant, and maintainable networked systems, particularly web services.
 
 The paper aims to analyze architectural styles for network-based systems, identifying their strengths and weaknesses. It defines REST as a specific architectural style optimized for the modern web, focusing on scalability, simplicity, and adaptability.
 
@@ -48,7 +48,7 @@ The phrase "not being driven by hypertext" in Roy Fielding's criticism refers to
 
 The core problem it addresses is client-server coupling. There are probably countless projects where a small change in a server's URI structure required a coordinated (and often painful) deployment of multiple client applications. A HATEOAS-driven approach directly solves this by decoupling the client from the server's namespace. This addresses the quality of evolvability.
 
-You are probably already more likely to do "RESTful" by simply implementing HATEOAS, than by arguing about if you are allowed to use verbs or no verbs at all in your API.
+Simply implementing HATEOAS will bring you closer to RESTful principles than debating whether verbs are allowed in your API.
 
 ## What is a "Resource"?
 
@@ -189,6 +189,10 @@ Start with https://api.example.com/ and follow the _links in each response:
 }
 ```
 
+---
+
+In practice, very few APIs adhere to these principles. The next section examines why.
+
 ## Why aren't most APIs truly RESTful?
 
 The widespread adoption of a simpler, RPC-like style over HTTP can probably attributed to practical trade-offs in tooling and developer experience: The ecosystem around specifications like OpenAPI grew rapidly, offering immediate, benefits that proved irresistible to development teams. These tools provided powerful features like automatic client/server code generation, interactive documentation, and request validation out-of-the-box. For a team under pressure to deliver, the clear, static contract provided by an OpenAPI definition was and still is probably often seen as "good enough," making the long-term architectural benefits of HATEOAS, like evolvability, seem abstract and less urgent.
@@ -204,7 +208,7 @@ Fielding’s rules emphasize that a truly RESTful API should embrace hypermedia 
 This makes REST systems loosely coupled, evolvable, and aligned with how the web itself operates: through 
 *representation, discovery, and transitions*. **REST isn’t about exposing your internal object model over HTTP — it’s about building distributed systems that behave like the web**.
 
-**Therefore, simply be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs. Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or not. Follow Postels Law if it makes sense for your case: “Be conservative in what you do, be liberal in what you accept from others.”.
+**Therefore, simply be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs. Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or not. Follow [Postels Law](https://en.wikipedia.org/wiki/Robustness_principle) if it makes sense for your case: “Be conservative in what you do, be liberal in what you accept from others.”.
 
 Who is the consumer of your API? How easy will it be for it to learn and use the API? Will it be intuitive to use? What are possible constraints? How do you version it? Deprecation and sun-setting strategies? How are changes to the API effectively communicated to consumers? Those things are much more valuable than the actual format of your resource identifier.
 
