@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Most APIs aren't really RESTful
+title: Most RESTful APIs aren't really RESTful
 categories: software-architecture
 tags: software-architecture, api, restful
 date: 2025-07-07T18:10:34.000Z
