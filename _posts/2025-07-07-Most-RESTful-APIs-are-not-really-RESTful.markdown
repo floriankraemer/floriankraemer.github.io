@@ -2,9 +2,10 @@
 layout: post
 title: Most APIs aren't really RESTful
 categories: software-architecture
-tags: software-architecture
-draft: true
-published: false
+tags: software-architecture, api, restful
+date: 2025-07-07T20:10:34.000Z
+draft: false
+published: true
 comments: true
 ---
 
@@ -205,11 +206,10 @@ In many common scenarios, such as a front-end single-page application being deve
 
 Fielding’s rules emphasize that a truly RESTful API should embrace hypermedia (HATEOAS) as the central mechanism for interaction, not just use HTTP as a *transport*. REST is protocol-independent at its core; HTTP is simply a convenient way of using it. Clients should discover and navigate resources dynamically through links and standardized relations embedded in representations — not rely on hardcoded URI structures, types, or external documentation.
 
-This makes REST systems loosely coupled, evolvable, and aligned with how the web itself operates: through 
-*representation, discovery, and transitions*. **REST isn’t about exposing your internal object model over HTTP — it’s about building distributed systems that behave like the web**.
+This makes REST systems loosely coupled, evolvable, and aligned with how the web itself operates: through *representation, discovery, and transitions*. **REST isn’t about exposing your internal object model over HTTP — it’s about building distributed systems that behave like the web**.
 
 **Therefore, simply be pragmatic.** I personally like to avoid the term "RESTful" for the reasons given in the article and instead say "HTTP" based APIs. Build whatever makes sense for **your** project and the consumers of your API. Ignore the dogmatists who preach what RESTful APIs might be and what not. An API should be easy to learn and hard to misuse in the first place. If it fulfills that criteria it doesn't matter if it is RESTful or not. Follow [Postels Law](https://en.wikipedia.org/wiki/Robustness_principle) if it makes sense for your case: “Be conservative in what you do, be liberal in what you accept from others.”.
 
 Who is the consumer of your API? How easy will it be for it to learn and use the API? Will it be intuitive to use? What are possible constraints? How do you version it? Deprecation and sun-setting strategies? How are changes to the API effectively communicated to consumers? Those things are much more valuable than the actual format of your resource identifier.
 
-By using HATEOAS and referencing schema definitions (such as XSD or JSON Schema) from within your resource representations, you can enable clients to understand the structure of the data and navigate the API dynamically. This can support generic or self-adapting clients. If that aligns with your goals (e.g., client decoupling, evolvability, dynamic interaction), then it’s a valid and powerful design choice.
+By using HATEOAS and referencing schema definitions (such as XSD or JSON Schema) from within your resource representations, you can enable clients to understand the structure of the data and navigate the API dynamically. This can support generic or self-adapting clients. If that aligns with your goals (e.g., client decoupling, evolvability, dynamic interaction), then it’s a valid and powerful design choice. If you are building a public API for external developers you don't control, invest in HATEOAS. If you are building a backend for a single frontend controlled by your own team, a simpler RPC-style API may be the more practical choice.
