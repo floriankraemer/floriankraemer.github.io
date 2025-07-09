@@ -3,7 +3,7 @@ layout: post
 title: iSAQB CPSA-F Certification Earned
 categories: software-architecture
 tags: software-architecture, api, restful
-date: 2025-08-08T19:31:14.000Z
+date: 2025-07-08T19:31:14.000Z
 draft: false
 published: true
 comments: true
