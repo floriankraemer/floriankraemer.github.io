@@ -9,7 +9,7 @@ published: true
 comments: true
 ---
 
-I’m happy to share that I’ve earned the Certified Professional for Software Architecture – Foundation Level (CPSA-F) from the [iSAQB](https://www.isaqb.org/).
+I’m happy to share that I’ve earned the Certified Professional for Software Architecture – Foundation Level (CPSA-F) from the [iSAQB](https://www.isaqb.org/). The iSAQB (International Software Architecture Qualification Board) is an independent organization that defines and maintains certification programs for software architects.
 
 The certification confirms and formalizes what I’ve been applying in practice for years: making sound architectural decisions, balancing technical and business needs, and building maintainable systems. It’s always good to see experience backed by recognized standards.
 
