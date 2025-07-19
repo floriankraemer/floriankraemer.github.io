@@ -16,3 +16,14 @@
     text-align: right;
     display: block;
 }
+
+/* Mermaid Diagram Styles */
+.mermaid {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
