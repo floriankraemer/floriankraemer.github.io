@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2025-07-21T08:45:53.136Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="G04Jz6RoqEhWcqA1mjIe" version="24.4.8" type="device">
+<mxfile host="Electron" modified="2025-07-22T21:04:29.479Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="PrkOls7M4rU1n7qFr8VD" version="24.4.8" type="device">
   <diagram name="Page-1" id="D1_wl4uo9qu-VZ6suMuQ">
-    <mxGraphModel dx="2440" dy="-801" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1728" dy="-1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -133,40 +133,40 @@
           <mxGeometry x="940" y="3220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="YvmfC7UfU6zEBnSFnw1T-125" value="Stability" parent="0" />
-        <mxCell id="eekvqRZFioCIxLSmAg_j-9" value="1 / 1 + 1 = 0.5" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-9" value="1 / (1 + 1) = 0.5" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="1600" y="3400" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-10" value="2 / 2 + 1 =&amp;nbsp;0,66" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-10" value="2 / (2 + 1) =&amp;nbsp;0,66" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="1130" y="3340" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-11" value="0 / 0 + 2 = 0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-11" value="0 / (0 + 2) = 0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="2240" y="3090" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-12" value="0 / 0 + 1 = 0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-12" value="0 / (0 + 1) = 0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="2990" y="3140" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-13" value="3 / 3 + 1 =&amp;nbsp;0,75" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-13" value="3 / (3 + 1) =&amp;nbsp;0,75" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="3000" y="3340" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-14" value="2 / 2 + 1 =&amp;nbsp;0,66" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-14" value="2 / (2 + 1) =&amp;nbsp;0,66" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="2080" y="3385" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-15" value="2 / 2 + 1 =&amp;nbsp;0,66" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-15" value="2 / (2 + 1) =&amp;nbsp;0,66" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="2400" y="3385" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-16" value="2 / 2 + 0 = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-16" value="2 / (2 + 0) = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="2240" y="3510" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-17" value="1 / 1 + 0 = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-17" value="1 / (1 + 0) = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="1600" y="3510" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-18" value="1 / 1 + 0 = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-18" value="1 / (1 + 0) = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="2880" y="3510" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eekvqRZFioCIxLSmAg_j-19" value="0 / 0 + 3 = 0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-19" value="0 / (0 + 3) = 0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="1600" y="3090" width="200" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FckfLefsYxEibFGllz2v-1" value="1 / 1 + 0 = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
+        <mxCell id="FckfLefsYxEibFGllz2v-1" value="1 / (1 + 0) = 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="YvmfC7UfU6zEBnSFnw1T-125" vertex="1">
           <mxGeometry x="1000" y="3510" width="200" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eekvqRZFioCIxLSmAg_j-1" value="Fire" parent="0" />
@@ -190,7 +190,7 @@
           <mxGeometry x="2680" y="3600" width="480" height="200" as="geometry" />
         </mxCell>
         <mxCell id="eekvqRZFioCIxLSmAg_j-20" value="Stability Calculation" parent="0" />
-        <mxCell id="eekvqRZFioCIxLSmAg_j-21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Stability Calculation&lt;/h1&gt;&lt;p&gt;The formula to calculate the &lt;strong data-end=&quot;48&quot; data-start=&quot;29&quot;&gt;Instability (I)&lt;/strong&gt; of a class or module comes from &lt;strong data-end=&quot;103&quot; data-start=&quot;81&quot;&gt;Robert C. Martin&#39;s&lt;/strong&gt; software metrics (also known as &lt;strong data-end=&quot;155&quot; data-start=&quot;136&quot;&gt;package metrics&lt;/strong&gt;), particularly from his work on &lt;strong data-end=&quot;227&quot; data-start=&quot;188&quot;&gt;Stable Dependencies Principle (SDP)&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;I = E / A + E&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/p&gt;&lt;ul data-end=&quot;595&quot; data-start=&quot;290&quot;&gt;&lt;li data-end=&quot;331&quot; data-start=&quot;290&quot;&gt;&lt;p data-end=&quot;331&quot; data-start=&quot;292&quot;&gt;&lt;strong data-end=&quot;297&quot; data-start=&quot;292&quot;&gt;I&lt;/strong&gt;: Instability (ranges from 0 to 1)&lt;/p&gt;&lt;/li&gt;&lt;li data-end=&quot;463&quot; data-start=&quot;332&quot;&gt;&lt;p data-end=&quot;463&quot; data-start=&quot;334&quot;&gt;&lt;strong data-end=&quot;339&quot; data-start=&quot;334&quot;&gt;A&lt;/strong&gt;: Afferent Couplings — number of classes outside the module that depend on classes inside the module (incoming dependencies)&lt;/p&gt;&lt;/li&gt;&lt;li data-end=&quot;595&quot; data-start=&quot;464&quot;&gt;&lt;p data-end=&quot;595&quot; data-start=&quot;466&quot;&gt;&lt;strong data-end=&quot;471&quot; data-start=&quot;466&quot;&gt;E&lt;/strong&gt;: Efferent Couplings — number of classes inside the module that depend on classes outside the module (outgoing dependencies)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3 data-end=&quot;624&quot; data-start=&quot;602&quot;&gt;Interpretation:&lt;/h3&gt;&lt;ul data-end=&quot;790&quot; data-start=&quot;625&quot;&gt;&lt;li data-end=&quot;707&quot; data-start=&quot;625&quot;&gt;&lt;p data-end=&quot;707&quot; data-start=&quot;627&quot;&gt;&lt;strong data-end=&quot;636&quot; data-start=&quot;627&quot;&gt;I = 0&lt;/strong&gt; → &lt;strong data-end=&quot;660&quot; data-start=&quot;639&quot;&gt;Completely stable&lt;/strong&gt; (many depend on it, but it depends on nothing)&lt;/p&gt;&lt;/li&gt;&lt;li data-end=&quot;790&quot; data-start=&quot;708&quot;&gt;&lt;p data-end=&quot;790&quot; data-start=&quot;710&quot;&gt;&lt;strong data-end=&quot;719&quot; data-start=&quot;710&quot;&gt;I = 1&lt;/strong&gt; → &lt;strong data-end=&quot;745&quot; data-start=&quot;722&quot;&gt;Completely unstable&lt;/strong&gt; (depends on many, but nothing depends on it)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="eekvqRZFioCIxLSmAg_j-20" vertex="1">
+        <mxCell id="eekvqRZFioCIxLSmAg_j-21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Stability Calculation&lt;/h1&gt;&lt;p&gt;The formula to calculate the &lt;strong data-end=&quot;48&quot; data-start=&quot;29&quot;&gt;Instability (I)&lt;/strong&gt; of a class or module comes from &lt;strong data-end=&quot;103&quot; data-start=&quot;81&quot;&gt;Robert C. Martin&#39;s&lt;/strong&gt; software metrics (also known as &lt;strong data-end=&quot;155&quot; data-start=&quot;136&quot;&gt;package metrics&lt;/strong&gt;), particularly from his work on &lt;strong data-end=&quot;227&quot; data-start=&quot;188&quot;&gt;Stable Dependencies Principle (SDP)&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;I = E / (A + E)&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/p&gt;&lt;ul data-end=&quot;595&quot; data-start=&quot;290&quot;&gt;&lt;li data-end=&quot;331&quot; data-start=&quot;290&quot;&gt;&lt;p data-end=&quot;331&quot; data-start=&quot;292&quot;&gt;&lt;strong data-end=&quot;297&quot; data-start=&quot;292&quot;&gt;I&lt;/strong&gt;: Instability (ranges from 0 to 1)&lt;/p&gt;&lt;/li&gt;&lt;li data-end=&quot;463&quot; data-start=&quot;332&quot;&gt;&lt;p data-end=&quot;463&quot; data-start=&quot;334&quot;&gt;&lt;strong data-end=&quot;339&quot; data-start=&quot;334&quot;&gt;A&lt;/strong&gt;: Afferent Couplings — number of classes outside the module that depend on classes inside the module (incoming dependencies)&lt;/p&gt;&lt;/li&gt;&lt;li data-end=&quot;595&quot; data-start=&quot;464&quot;&gt;&lt;p data-end=&quot;595&quot; data-start=&quot;466&quot;&gt;&lt;strong data-end=&quot;471&quot; data-start=&quot;466&quot;&gt;E&lt;/strong&gt;: Efferent Couplings — number of classes inside the module that depend on classes outside the module (outgoing dependencies)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3 data-end=&quot;624&quot; data-start=&quot;602&quot;&gt;Interpretation:&lt;/h3&gt;&lt;ul data-end=&quot;790&quot; data-start=&quot;625&quot;&gt;&lt;li data-end=&quot;707&quot; data-start=&quot;625&quot;&gt;&lt;p data-end=&quot;707&quot; data-start=&quot;627&quot;&gt;&lt;strong data-end=&quot;636&quot; data-start=&quot;627&quot;&gt;I = 0&lt;/strong&gt; → &lt;strong data-end=&quot;660&quot; data-start=&quot;639&quot;&gt;Completely stable&lt;/strong&gt; (many depend on it, but it depends on nothing)&lt;/p&gt;&lt;/li&gt;&lt;li data-end=&quot;790&quot; data-start=&quot;708&quot;&gt;&lt;p data-end=&quot;790&quot; data-start=&quot;710&quot;&gt;&lt;strong data-end=&quot;719&quot; data-start=&quot;710&quot;&gt;I = 1&lt;/strong&gt; → &lt;strong data-end=&quot;745&quot; data-start=&quot;722&quot;&gt;Completely unstable&lt;/strong&gt; (depends on many, but nothing depends on it)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="eekvqRZFioCIxLSmAg_j-20" vertex="1">
           <mxGeometry x="400" y="3000" width="420" height="405" as="geometry" />
         </mxCell>
         <mxCell id="FckfLefsYxEibFGllz2v-2" value="Frames" parent="0" />
