@@ -11,9 +11,9 @@ comments: true
 
 I’m happy to share that I’ve earned the Certified Professional for Software Architecture – Foundation Level (CPSA-F) from the [iSAQB](https://www.isaqb.org/). The iSAQB (International Software Architecture Qualification Board) is an independent organization that defines and maintains certification programs for software architects.
 
-The certification confirms and formalizes what I’ve been applying in practice for years: making sound architectural decisions, balancing technical and business needs, and building maintainable systems. It’s always good to see experience backed by recognized standards.
+The certification confirms and formalizes what I’ve been applying in practice for years: making sound architectural decisions, balancing technical and business needs, and building maintainable systems. It’s always good to have experience backed by recognized standards.
 
-I’m now setting my sights on the Advanced Level to further deepen my skills and explore specialized topics within software architecture.
+I’m now setting my sights on the Advanced Level to further deepen my skills and explore specialized topics within software architecture. One of the first courses I'll take to become eligible for the advanced certification exam is my favorite topic: Domain Driven Design.
 
 ![CPSA-F Certificate Image](/assets/images/isaqb-cpsa-f-certificate.png)
 
