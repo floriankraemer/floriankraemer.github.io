@@ -22,7 +22,7 @@ To get an idea about the stability of our connections between the modules we can
 
 The formula to calculate the **Instability** (I) of a class or module comes from **Robert C. Martin's software metrics** (also known as package metrics), particularly from his work on **Stable Dependencies Principle (SDP)**.
 
-> **I = E / A + E**
+> **I = E / (A + E)**
 
 * **I**: Instability (ranges from 0 to 1)
 * **A**: Afferent Couplings — number of classes outside the module that depend on classes inside the module (incoming dependencies)
@@ -33,13 +33,19 @@ Interpretation:
 * I = 0 → Completely stable (many depend on it, but it depends on nothing)
 * I = 1 → Completely unstable (depends on many, but nothing depends on it)
 
+### Limits & Caveats of this Calculation
+
+As usual, keep in mind that this metric is just one indicator, but in my opinion a good one that is easy to measure. You need to keep also the logical coupling in mind and not only the technical coupling via dependencies.
+
+When you add logic, checks for "types", to the recommendation module, you'll add knowledge and complexity to it as well. Once your module has to deal with 20 additional items, you'll have basically 20 checks or the need to implement the strategy pattern to deal with all of the different types, increasing the internal complexity of the Recommendations module. It will become more instable in this case and also logically coupled to other domains.
+
 ## Example Scenario
 
-We have a "recommendation" module, that is a low-level, or kind of infrastructure like module as it provides a very abstract implementation of recommendations. It should therefore have no knowledge about other functionality.
+We have a "Recommendations" module, that is a low-level, or kind of infrastructure like module as it provides a very abstract implementation of recommendations. It should therefore have no knowledge about other functionality. No knowledge (or code) about other entities should leak into it.
 
-Now we want to connect different things to it that are recommendable and get recommendations for them.
+The goal here is to display personalized recommendations on the landing page for different entities. For the reason of keeping this simple, the entities are limited to "Events" and "Horses", but you could imagine additional entities here as well, e.g. "Videos", "Riders", "Auctions", to increase the number of dependencies.
 
-But there is a caveat: The architecture is, for the time being, a modular monolith. But keep in mind that we are able to break it into multiple deployment units or services and are able to extract modules from it into new, smaller services, that could be deployed independently. If this is a desired design goal, then you'll have to consider that when designing your modules.
+But there is a caveat: The architecture is, for the time being, a modular monolith. But keep in mind that we are able to break it into multiple deployment units or services and are able to extract modules from it into new, smaller services, that could be deployed independently. If this is a desired design goal, then you'll have to consider that when designing your modules, because not every solution will allow you to make easily and performant network calls.
 
 ## Directly Coupling Modules
 

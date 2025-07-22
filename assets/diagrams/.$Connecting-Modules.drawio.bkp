@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2025-07-21T08:45:53.136Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="G04Jz6RoqEhWcqA1mjIe" version="24.4.8" type="device">
+<mxfile host="Electron" modified="2025-07-21T08:41:40.759Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="Spg3u-b-NmFnAFD2FlMG" version="24.4.8" type="device">
   <diagram name="Page-1" id="D1_wl4uo9qu-VZ6suMuQ">
     <mxGraphModel dx="2440" dy="-801" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -205,7 +205,7 @@
         <mxCell id="FckfLefsYxEibFGllz2v-5" value="Direct Coupling" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;strokeWidth=2;width=160;height=40;fontStyle=1" parent="FckfLefsYxEibFGllz2v-2" vertex="1">
           <mxGeometry x="880" y="3140" width="480" height="420" as="geometry" />
         </mxCell>
-        <mxCell id="FckfLefsYxEibFGllz2v-6" value="Plugins / Extension Points" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;strokeWidth=2;width=180;height=40;fontStyle=1" parent="FckfLefsYxEibFGllz2v-2" vertex="1">
+        <mxCell id="FckfLefsYxEibFGllz2v-6" value="No Connector, Plugins" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;strokeWidth=2;width=160;height=40;fontStyle=1" parent="FckfLefsYxEibFGllz2v-2" vertex="1">
           <mxGeometry x="1400" y="3060" width="600" height="500" as="geometry" />
         </mxCell>
         <mxCell id="FckfLefsYxEibFGllz2v-7" value="One Connector&lt;br&gt;per Type" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;strokeWidth=2;width=160;height=40;fontStyle=1" parent="FckfLefsYxEibFGllz2v-2" vertex="1">
