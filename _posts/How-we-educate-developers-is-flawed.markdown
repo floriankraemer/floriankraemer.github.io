@@ -26,7 +26,7 @@ Here are the points I think that are not taught at all or deep enough:
 
 ## Coupling & Cohesion
 
-At least for me, coupling and cohesion are the fundamental problems of software development. Everything else is just a tool or methodology to address those two.
+At least for me, coupling and cohesion are the fundamental problems of software development.
 
 Cohesion refers to how closely related the responsibilities and internal elements of a module are. A highly cohesive module has a clear, focused purpose, with all its parts working together to perform a single task. This makes the module easier to understand, maintain, and reuse. For example, a UserService that exclusively handles user-related operations demonstrates high cohesion by keeping related logic together.
 
