@@ -20,7 +20,7 @@ In this context, instability means that a module depending heavily on other comp
 
 To get an idea about the stability of our connections between the modules we can calculate the stability. But how can we calculate the stability of a dependency?
 
-The formula to calculate the **Instability** (I) of a class or module comes from **Robert C. Martin's software metrics** (also known as package metrics), particularly from his work on **Stable Dependencies Principle (SDP)**.
+The formula to calculate the **Instability** (I) of a class or module comes from **Robert C. Martin's software metrics** (also known as package metrics), particularly from his work on **Stable Dependencies Principle (SDP)**. This calculation was originally thought to be used on class level but can very well be applied to anything that has dependencies.
 
 > **I = E / (A + E)**
 
@@ -33,11 +33,19 @@ Interpretation:
 * I = 0 → Completely stable (many depend on it, but it depends on nothing)
 * I = 1 → Completely unstable (depends on many, but nothing depends on it)
 
+### Tools for Stability Calculations
+
+To calculate afferent and efferent couplings, you can use static analysis tools like JDepend (for Java), SonarQube, [NDepend](https://www.ndepend.com/) (for .NET) or [PHP Depend](https://pdepend.org/) for PHP. These tools analyze your codebase to generate dependency graphs and calculate metrics like Instability (I). For custom setups, you can write scripts to parse import statements or dependency configurations (e.g., in Maven, Gradle, or npm) to quantify couplings. Visualizing these metrics in a dependency graph can help identify overly unstable modules.
+
 ### Limits & Caveats of this Calculation
 
 As usual, keep in mind that this metric is just one indicator, but in my opinion a good one that is easy to measure. You need to keep also the logical coupling in mind and not only the technical coupling via dependencies.
 
 When you add logic, checks for "types", to the recommendation module, you'll add knowledge and complexity to it as well. Once your module has to deal with 20 additional items, you'll have basically 20 checks or the need to implement the strategy pattern to deal with all of the different types, increasing the internal complexity of the Recommendations module. It will become more instable in this case and also logically coupled to other domains.
+
+## Logical Coupling
+
+Logical coupling occurs when a module embeds knowledge about other domains, such as type-specific checks in the Recommendations module. To detect it, conduct code reviews focusing on domain boundaries or use tools to analyze co-changed files in version control (e.g., Git). To mitigate logical coupling, consider Domain-Driven Design (DDD) practices like defining clear Bounded Contexts or using Domain Events. For example, instead of the Recommendations module checking for "Event" or "Horse" types, it could subscribe to events like EventCreated or HorseRegistered, keeping it agnostic to entity specifics.
 
 ## Example Scenario
 
@@ -45,7 +53,7 @@ We have a "Recommendations" module, that is a low-level, or kind of infrastructu
 
 The goal here is to display personalized recommendations on the landing page for different entities. For the reason of keeping this simple, the entities are limited to "Events" and "Horses", but you could imagine additional entities here as well, e.g. "Videos", "Riders", "Auctions", to increase the number of dependencies.
 
-But there is a caveat: The architecture is, for the time being, a modular monolith. But keep in mind that we are able to break it into multiple deployment units or services and are able to extract modules from it into new, smaller services, that could be deployed independently. If this is a desired design goal, then you'll have to consider that when designing your modules, because not every solution will allow you to make easily and performant network calls.
+But there is a caveat: The architecture is, for the time being, a modular monolith. But keep in mind that we are able to break it into multiple deployment units or (micro)services and are able to extract modules from it into new, smaller services, that could be deployed independently. If this is a desired design goal, then you'll have to consider that when designing your modules, because not every solution will allow you to make easily and performant network calls.
 
 ## Directly Coupling Modules
 
@@ -82,6 +90,80 @@ Cons
 
 * Recommendations can't be extracted into a separate deployment unit / service without taking all the dependent modules with it! That means you can't extract it and build a "microservice" from it because it is very likely a shared DB required and other things because the plugins might have further dependencies.
 
+### Code Example
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+
+// Interface for Recommendation Plugins
+interface RecommendationPlugin {
+    EnrichedRecommendation enrichRecommendation(Recommendation data);
+}
+
+// Core Recommendation class
+class Recommendation {
+    // Placeholder for recommendation data
+    private String id;
+
+    public Recommendation(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+}
+
+// Enriched Recommendation class
+class EnrichedRecommendation {
+    private Recommendation baseRecommendation;
+    private Object additionalData;
+
+    public EnrichedRecommendation(Recommendation baseRecommendation, Object additionalData) {
+        this.baseRecommendation = baseRecommendation;
+        this.additionalData = additionalData;
+    }
+}
+
+// Recommendations Module
+class RecommendationsModule {
+    private List<RecommendationPlugin> plugins;
+
+    public RecommendationsModule(List<RecommendationPlugin> plugins) {
+        this.plugins = plugins;
+    }
+
+    public List<EnrichedRecommendation> generateRecommendations() {
+        List<Recommendation> recommendations = fetchBaseRecommendations();
+        List<EnrichedRecommendation> enriched = new ArrayList<>();
+        for (RecommendationPlugin plugin : plugins) {
+            for (Recommendation rec : recommendations) {
+                enriched.add(plugin.enrichRecommendation(rec));
+            }
+        }
+        return enriched;
+    }
+
+    private List<Recommendation> fetchBaseRecommendations() {
+        // Core logic for generating recommendations
+        List<Recommendation> recommendations = new ArrayList<>();
+        recommendations.add(new Recommendation("rec1"));
+        recommendations.add(new Recommendation("rec2"));
+        return recommendations;
+    }
+}
+
+// Example Plugin for Events
+class EventRecommendationPlugin implements RecommendationPlugin {
+    @Override
+    public EnrichedRecommendation enrichRecommendation(Recommendation data) {
+        // Fetch event-specific data and enrich recommendation
+        return new EnrichedRecommendation(data, new Object() /* Event-specific data */);
+    }
+}
+```
+
 ## One Connector Module per Type
 
 This solution will place one module per recommendable entity in between the recommendations and component using them. This decouples the actual recommendations from having knowledge about any of the types.
@@ -112,6 +194,15 @@ Cons
 
 * The expander module becomes a "god" module, that needs to know ALL other types. Which also prevents us from separating.
 
+## Comparison
+
+| Pattern                     | Stability (I) | Monolith Suitability | Microservices Suitability | Complexity | Key Trade-off                        |
+| --------------------------- | ------------- | -------------------- | ------------------------- | ---------- | ------------------------------------ |
+| Direct Coupling             | High (~1)     | Poor                 | Poor                      | Low        | Fragile, hard to extract             |
+| Plugin/Extension per Module | Low (~0)      | High                 | Moderate                  | Medium     | Extensible but tied to monolith      |
+| One Connector per Type      | Low (~0)      | Moderate             | High                      | High       | Scalable but complex for mixed types |
+| One Connector Module        | Moderate      | Moderate             | Poor                      | Medium     | Creates a "god" module               |
+
 ## Conclusions
 
 The Anti-Patterns: Direct Coupling and the single One Connector Module should generally be avoided. Direct Coupling makes the core module fragile and impossible to extract. The single Connector merely moves the problem, creating a new "god module" that becomes a bottleneck for development and deployment, defeating the purpose of modularity.
@@ -125,3 +216,4 @@ Choose the Plugin/Extension pattern for a modular monolith where you need extens
 Choose the One Connector Module per Type pattern if future extraction into microservices is a primary design goal. Each connector acts as a clear seam and potential Anti-Corruption Layer for a future service boundary. This pattern makes the eventual migration significantly easier by pre-organizing the dependencies for independent deployment, even if it adds more modules initially.
 
 By calculating and considering module stability, we can make conscious design choices that prevent architectural decay. We build systems that are not only functional today but are also prepared for the inevitable changes of tomorrow.
+
