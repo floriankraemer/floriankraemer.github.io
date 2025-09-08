@@ -14,7 +14,3 @@ Germany
 Responsible for the content according ot §55 Abs. 2 RStV:
 
 Florian Krämer
-
-### Contact
-
-**Email:** contact@floriankraemer.net
