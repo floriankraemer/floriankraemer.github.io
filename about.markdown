@@ -9,11 +9,11 @@ tags:
   - software-architecture
   - consulting
 slug: ""
+custom_css: about.css
 ---
 
-![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right"}
+![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right; border-radius: 50%; margin-left: 20px;"}
 
-### Who I am
 
 Hey, I’m Florian Krämer
 
