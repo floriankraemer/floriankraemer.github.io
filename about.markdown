@@ -17,7 +17,8 @@ custom_css: about.css
 
 Hey, I’m Florian Krämer
 
-a software engineer and software architect. I've started programming in ~2000 and specialized in building web applications, primarily with PHP or whatever I can get my hands on, recently exploring Java and Spring, but loving anything that is object oriented.
+a software engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en)
+ software architect. I've started programming in ~2000 and specialized in building web applications, primarily with PHP or whatever I can get my hands on, recently exploring Java and Spring, but loving anything that is object oriented.
 
 Email me at [fk@kreative-design.net](mailto:fk@kreative-design.net).
 
