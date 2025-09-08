@@ -2,7 +2,7 @@
 layout: home
 ---
 
-<h1 class="hero-title">Hey, I'm Florian Krämer</h1>
+<!--<h1 class="hero-title">Hey, I'm Florian Krämer</h1>-->
 
 <div class="hero-opportunity">
   <div class="opportunity-box">
@@ -17,7 +17,7 @@ layout: home
 
 <style>
 .hero-opportunity {
-  margin: 30px 0;
+  margin: 0px 0 30px 0;
 }
 
 .hero-opportunity .opportunity-box {
