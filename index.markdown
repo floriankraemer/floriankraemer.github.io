@@ -1,12 +1,13 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
 
-# Hey, I’m Florian Krämer
-
-I’ve been a web developer for 22 years. I like software architecture and programming!
-
-Check [the about page](/about) to learn more about me or enjoy one of my articles.
+<div class="hero-section">
+  <h1 class="hero-title">Hey, I'm Florian Krämer</h1>
+  <p class="hero-subtitle">Software Architect & Developer with 22+ years of experience</p>
+  <p class="hero-description">
+    I specialize in building scalable web applications, designing robust software architectures, 
+    and sharing knowledge about modern development practices. Passionate about clean code, 
+    system design, and helping teams deliver better software.
+  </p>
+</div>
