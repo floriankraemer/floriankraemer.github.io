@@ -9,7 +9,7 @@ tags:
     - agile
     - scrum
 draft: false
-published: true 
+published: true
 comments: true
 date: 2025-09-08T08:41:14.000Z
 ---
@@ -20,7 +20,7 @@ There is a lot of talk about agile but unfortunately, most of the time organizat
 ![](/assets/images/illustrations/agile-header.png)
 {: refdef}
 
-## What Does Agile Mean (Literally)?
+## What Does Agile Mean
 
 According to the [Cambridge dictionary](https://dictionary.cambridge.org/dictionary/english/agile) it is defined in the context of business as this:
 
