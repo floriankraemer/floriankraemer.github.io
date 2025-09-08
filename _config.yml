@@ -46,7 +46,6 @@ sass:
 header_pages:
   - articles.markdown
   - curated-resources.markdown
-  - diagram-templates.markdown
   - consulting.markdown
   - about.markdown
   - imprint.markdown
