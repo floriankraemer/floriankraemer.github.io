@@ -20,16 +20,7 @@ This is a collection of useful resources that taught me somethign or that I find
 
 ## Books
 
-### Architecture
-
-* [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.amazon.de/-/en/Evans-Eric-ebook/dp/B00794TAUG) by Eric Evans.
-* [Implementing Domain-Driven Design](https://www.amazon.de/dp/B00BCLEBN8) by Vernon Vaughn.
-* [Domain-Driven Design Distilled](https://www.amazon.de/-/en/Vaughn-Vernon/dp/0134434420) - Read this before the former two, but it won't replace them!
-* [Patterns of Enterprise Application Architecture](https://www.amazon.de/dp/B008OHVDFM) by Martin Fowler.
-* [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.de/-/en/Robert-Martin/dp/0132350882) by Robert Martin
-* [Mastering Non-Functional Requirements: Templates and tactics for analysis, architecture and assessment](https://www.amazon.de/-/en/Sameer-Paradkar/dp/178829923X) by Sameer Paradkar.
-* [Design Patterns. Elements of Reusable Object-Oriented Software](https://www.amazon.de/-/en/Erich-Gamma/dp/0201633612) by Erich Gamma, Richard Helm, Ralph E. Johnson, John Vlissides.
-* [Team Topologies](https://www.amazon.de/-/en/Team-Topologies-Organizing-Business-Technology/dp/1942788819) by Matthew Skelton & Manuel Pais.
+{% include books-grid.html %}
 
 ### UX
 
