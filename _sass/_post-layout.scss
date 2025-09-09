@@ -1,3 +1,41 @@
+// Background Image Styles
+body {
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background-image: url('/assets/images/background.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+// Ensure content doesn't overlap with background on smaller screens
+@media (max-width: 768px) {
+  body::before {
+    width: 200px;
+    height: 200px;
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 480px) {
+  body::before {
+    width: 150px;
+    height: 150px;
+    opacity: 0.15;
+  }
+}
+
 // Post Layout Styles
 .post-meta {
   margin-bottom: 20px;
