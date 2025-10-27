@@ -113,10 +113,6 @@ Several original signatories of the Agile Manifesto have become vocal critics of
 
 > "Our challenge at the moment isn't making agile a thing that people want to do, it's dealing with what I call faux-agile: agile that's just the name, but none of the practices and values in place." - [Source](https://martinfowler.com/articles/agile-aus-2018.html)
 
-And further he notes
-
-> "Our challenge at the moment isn't making agile a thing that people want to do, it's dealing with what I call faux-agile: agile that's just the name, but none of the practices and values in place."  - [Source](https://martinfowler.com/articles/agile-aus-2018.html)
-
 **Dave Thomas**, co-author of "The Pragmatic Programmer" and another manifesto signatory, delivered a famous 2015 talk titled "Agile is Dead," where he argued for retiring the word "agile":
 
 > "The word 'agile' has been subverted to the point where it is effectively meaningless, and what passes for an agile community seems to be largely an arena for consultants and vendors to hawk services and products." - [Source](https://www.benlinders.com/2021/agile-manifesto-what-agile-has-brought-us/)
