@@ -22,10 +22,6 @@ This is a collection of useful resources that taught me somethign or that I find
 
 {% include books-grid.html %}
 
-### UX
-
-* [Rocket Surgery Made Easy: The Do-It-Yourself Guide to Finding and Fixing Usability Problems](https://www.amazon.de/-/en/Steve-Krug/dp/0321657292) by Steve Krug.
-* [Humane Interface, The: New Directions for Designing Interactive Systems](https://www.oreilly.com/library/view/humane-interface-the/0201379376/) by Jef Raskin.
 
 ### Leadership
 
