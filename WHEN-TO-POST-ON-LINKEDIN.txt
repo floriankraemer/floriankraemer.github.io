@@ -1,0 +1,22 @@
+# 📅 Weekly Posting Schedule (CET) for Tech / Architecture Articles
+
+## Main Slots
+- **Tuesday 10:30 AM** – Primary slot  
+  - Midweek, peak professional engagement.  
+  - Good for long-form posts, detailed architecture diagrams, or deep-dive articles.  
+
+- **Thursday 10:30 AM** – Secondary slot  
+  - Reinforces visibility later in the week.  
+  - Use for shorter insights, commentary on trends, or follow-ups to Tuesday’s post.  
+
+## 🔁 Optional Add-On
+- **Wednesday 12:30 PM** – Bonus slot  
+  - Lunchtime engagement; good for polls, quick thoughts, or discussion starters.  
+
+---
+
+## 📌 Tips
+- Stick to **1–2 posts/week** to avoid fatigue.  
+- Use **visuals (diagrams, simple charts, architecture sketches)** → they significantly boost engagement.  
+- End posts with a **question** (e.g., *“How would you handle X in your architecture?”*) → drives comments.  
+- Repost or summarize long-form blog articles with a **short LinkedIn version + link**.  

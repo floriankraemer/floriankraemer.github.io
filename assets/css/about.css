@@ -1,0 +1,8 @@
+/* About page custom styles */
+h3 {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, #3498db, transparent) 1;
+  padding-bottom: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
