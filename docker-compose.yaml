@@ -1,0 +1,20 @@
+services:
+  jekyll:
+    build: .
+    container_name: jekyll_blog
+    restart: unless-stopped
+    volumes:
+      - .:/site
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    environment:
+      - JEKYLL_ENV=development
+      - LANG=C.UTF-8
+    command: serve --livereload --incremental --host 0.0.0.0
+    networks:
+      - jekyll_network
+
+networks:
+  jekyll_network:
+    driver: bridge

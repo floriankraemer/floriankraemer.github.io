@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+    <!-- Mermaid Diagram Support -->
+    <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof mermaid === 'undefined') {
+          console.error('Mermaid library not loaded!');
+          return;
+        }
+        
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'default',
+          flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true
+          },
+          sequence: {
+            useMaxWidth: true
+          },
+          gantt: {
+            useMaxWidth: true
+          }
+        });
+        
+        // Find all code blocks that start with mermaid syntax
+        var allCodeBlocks = document.querySelectorAll('pre code');
+        
+        allCodeBlocks.forEach(function(block) {
+          var code = block.textContent || block.innerText;
+          var trimmedCode = code.trim();
+          
+          // Check if this looks like a mermaid diagram
+          if (isMermaidCode(trimmedCode)) {
+            processMermaidBlock(block);
+          }
+        });
+        
+        function isMermaidCode(code) {
+          var mermaidKeywords = [
+            'graph', 'sequenceDiagram', 'classDiagram', 'gantt', 
+            'stateDiagram', 'erDiagram', 'journey', 'gitgraph',
+            'pie', 'quadrantChart', 'requirement', 'mindmap', 'timeline'
+          ];
+          
+          return mermaidKeywords.some(function(keyword) {
+            return code.startsWith(keyword);
+          });
+        }
+        
+        function processMermaidBlock(block) {
+          var code = block.textContent || block.innerText;
+          
+          // Create mermaid diagram container
+          var diagramDiv = document.createElement('div');
+          diagramDiv.className = 'mermaid';
+          diagramDiv.textContent = code;
+          
+          // Insert the diagram after the code block
+          var preElement = block.parentNode;
+          preElement.parentNode.insertBefore(diagramDiv, preElement.nextSibling);
+          
+          // Hide the original code block
+          preElement.style.display = 'none';
+        }
+        
+        // Initialize mermaid after processing all blocks
+        mermaid.init();
+      });
+    </script>
+
+  </body>
+
+</html> 

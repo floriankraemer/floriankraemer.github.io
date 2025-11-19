@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-02-18T19:52:03+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Florian Krämer</title><subtitle>My personal website about me, software architecture, software development and technology in general.</subtitle><entry><title type="html">Don’t do DB first design</title><link href="http://0.0.0.0:4000/software-architecture/2024/02/18/Dont-design-your-DB-first.html" rel="alternate" type="text/html" title="Don’t do DB first design" /><published>2024-02-18T00:00:00+00:00</published><updated>2024-02-18T00:00:00+00:00</updated><id>http://0.0.0.0:4000/software-architecture/2024/02/18/Dont%20-design-your-DB-first</id><content type="html" xml:base="http://0.0.0.0:4000/software-architecture/2024/02/18/Dont-design-your-DB-first.html"><![CDATA[<p>Recently , I read this statement and I do not think it is true.</p>
+
+<blockquote>
+  <p>Data has to be well organized in DB. Business process changes, but data points associated remain almost the same.</p>
+</blockquote>
+
+<p>It is in my opinion not correct, that data behind processes rarely changes, at least not in all businesses. Imagine a business that has a lot rules and conditions or has to follow ever changing laws and regulations. e.g. insurances, taxes, medical, flight, or banking stuff. Your data will change for sure and relatively often. For example if the income tax introduces a new variable or thing to be calculated, you will have to change the process and very likely the data accordingly.</p>
+
+<p>The pretty complex income tax calculation here in Germany is updated every year. <a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/Steuern/Steuerarten/Lohnsteuer/Programmablaufplan/2024-01-29-PAP-2024-Enwurf.pdf">See the most recent version</a>. And yes, all of the diagrams belong to the same process.</p>
+
+<p>If you design a DB based on the process something went horrible wrong. The DB design should be oriented on criteria like performance or if I will have a lot writes but few reads or vice versa or how a structure can be stored the best, this can be a document DB or a relational DB or N DB systems, e.g. in case of CQRS a read and a write DB.</p>
+
+<p>Your domain won’t care because it should not be coupled in any way to the DB. The domain actually defines the repository interface, but the implementation is in the infrastructure layer. e.g. deconstruct the aggregate using reflection and write the values via PDO to tables or map it to your favorite ORM - in your implementation, not in your domain layer.</p>]]></content><author><name></name></author><category term="software-architecture" /><category term="software-architecture" /><summary type="html"><![CDATA[Recently , I read this statement and I do not think it is true.]]></summary></entry><entry><title type="html">Why don’t you just replace that old thing?</title><link href="http://0.0.0.0:4000/software-architecture/2024/02/01/Why-dont-you-replace-that-old-thing.html" rel="alternate" type="text/html" title="Why don’t you just replace that old thing?" /><published>2024-02-01T00:00:00+00:00</published><updated>2024-02-01T00:00:00+00:00</updated><id>http://0.0.0.0:4000/software-architecture/2024/02/01/Why-dont-you-replace-that-old-thing</id><content type="html" xml:base="http://0.0.0.0:4000/software-architecture/2024/02/01/Why-dont-you-replace-that-old-thing.html"><![CDATA[<p>Recently on an online discussion forum this statement was made:</p>
+
+<blockquote>
+  <p>Migrating away from COBOL is kinda expensive and risky.</p>
+</blockquote>
+
+<p>The author of that statement was asked to elaborate on it. However the author did not bother to reply but I found it quiet interesting to shed some light on it. Especially the question was seemingly asked by somebody without an IT background.</p>
+
+<h2 id="the-problem">The problem</h2>
+
+<p>When switching away from COBOL, you are not only switching the language but you are switching the hardware, the OS, the language, the whole architecture. You need to design, implement, test and document all of this, you need to train the involved people and hire new people. And we are talking about critical domains here, like insurances and banking processes.</p>
+
+<p>If a game character floats a little over the surface in a game, because some value was not correctly rounded or the physics engine has glitches, nobody really cares that much to address this issue. But if your $1 is internally represented as 1,0000000000 in the system and becomes 0,9999999999 for some weird reason, and in the UI it is rounded to 1, there will be a big problem. This tiny fraction will accumulate over time, considering billions of transactions, this will add up quickly. And things like that happen, I know one person who unintentionally caused a very similar problem during his apprenticeship, luckily not for something critical.</p>
+
+<p>While the abstraction of modern languages and infrastructure as code looks very promising on a first look, the abstraction also hides a huge amount of possible bugs in the 3rd party code you will use to build your application. If 400k lines of COBOL work fine, you don’t easily replace them with 200k your team wrote but you also get 2 millions lines of 3rd party library code along that you technically own and are responsible for as the system designer and owner.</p>
+
+<p>Count the lines of your projects vendor folder, no matter if its Node packages or PHP packages, you’ll probably end up with a 6 or 7 digit number of lines of code for your 3rd party code. You didn’t wrote it but you are now an implicit owner of that code and take responsibility for its functional correctness in the context of your project.</p>
+
+<h2 id="reasons-to-change">Reasons to change</h2>
+
+<p>Why would you change a system that runs fine for 20-30 years with little effort?</p>
+
+<ul>
+  <li>Longevity and stability of a system may not be a sufficient reason to change.</li>
+  <li>Total Cost of Ownership (TCO) is a crucial factor in deciding to change or not.</li>
+  <li>TCO includes the entire life cycle cost of the application.</li>
+  <li>Justification for change often requires demonstrating increased business value, such as revenue generation or cost savings.</li>
+</ul>
+
+<p>If you have an old computer running with Windows 3.11 in an isolated environment to control some machine and it gets its job done, why would you change it? If there is a software, that was written back in the day for that system and it still works fine for your current days requirements, why would you change it?</p>
+
+<p>The so called “total cost of ownership” (TCO) of that system is just awesome if it still works. TCO means all the cost of the whole life cycle of the application. If it works and you don’t have a very good reason to change (e.g. the new system will generate more revenue for some reason) you don’t change it. The reality for a business is that it must justify “business value” for a change in a system.</p>
+
+<p>Each time I proposed a change to the architecture in one of my jobs, part of the analysis had to be either, the impact of not doing it on the business (risks, e.g. increasing cost over time, scalability issues, security,…) or a benefit like being able to deliver code, features, faster. “If we change X developers can write code X faster and we will save X amount of money”. It’s all about money in many businesses, not about the ultimately perfect solution.</p>
+
+<blockquote>
+  <p>The result achieved by the 300 IBM programmers, analysts, engineers, and subcontractors was impressive. An analysis accomplished after the Challenger accident showed that the IBM-developed PASS software had a latent defect rate of just 0.11 errors per 1,000 lines of code for all intents and purposes, it was considered error-free. But this remarkable achievement did not come easily or cheap.</p>
+
+  <p>In an industry where the average line of code cost the government (at the time of the report) approximately $50 (written, documented, and tested), the Primary Avionics System Software cost NASA slightly over $1,000 per line. A total of $500 million was paid to IBM for the initial development and support of PASS.22</p>
+</blockquote>
+
+<p><a href="https://www.nasa.gov/history/sts1/pages/computer.html#:~:text=In%20an%20industry%20where%20the,slightly%20over%20%241%2C000%20per%20line">Source</a>.</p>]]></content><author><name></name></author><category term="software-architecture" /><category term="software-architecture" /><summary type="html"><![CDATA[Recently on an online discussion forum this statement was made:]]></summary></entry><entry><title type="html">Result Objects vs simple Return Types</title><link href="http://0.0.0.0:4000/software-architecture/2023/12/11/Operation-Results.html" rel="alternate" type="text/html" title="Result Objects vs simple Return Types" /><published>2023-12-11T00:00:00+00:00</published><updated>2023-12-11T00:00:00+00:00</updated><id>http://0.0.0.0:4000/software-architecture/2023/12/11/Operation-Results</id><content type="html" xml:base="http://0.0.0.0:4000/software-architecture/2023/12/11/Operation-Results.html"><![CDATA[<p>Result objects and simple return types serve different purposes, and their advantages depend on the specific use case and design goals. As usual in software architecture there will be trade offs.</p>
+
+<p>Lets take a look at a simple example of a return object. Note that instead of using <code class="language-plaintext highlighter-rouge">isSuccessful()</code> you could also just <code class="language-plaintext highlighter-rouge">hasFailed()</code>, whatever suits your taste and semantics.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">OperationResult</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span>
+        <span class="k">protected</span> <span class="kt">bool</span> <span class="nv">$isSuccessful</span><span class="p">,</span>
+        <span class="k">protected</span> <span class="kt">int</span> <span class="nv">$errorCode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="k">protected</span> <span class="kt">string</span> <span class="nv">$errorMessage</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="p">)</span> <span class="p">{}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">failed</span><span class="p">(</span>
+        <span class="kt">string</span> <span class="nv">$errorMessage</span><span class="p">,</span>
+        <span class="kt">int</span> <span class="nv">$errorCode</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">):</span> <span class="kt">self</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">static</span><span class="p">(</span>
+            <span class="n">isSuccessful</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="n">errorCode</span><span class="o">:</span> <span class="nv">$errorCode</span><span class="p">,</span>
+            <span class="n">errorMessage</span><span class="o">:</span> <span class="nv">$errorMessage</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">success</span><span class="p">():</span> <span class="kt">self</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">static</span><span class="p">(</span>
+            <span class="n">isSuccessful</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">wasSuccessful</span><span class="p">():</span> <span class="kt">bool</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">isSuccessful</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">hasFailed</span><span class="p">():</span> <span class="kt">bool</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">isSuccessful</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">getErrorCode</span><span class="p">():</span> <span class="kt">int</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">errorCode</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">getErrorMessage</span><span class="p">():</span> <span class="kt">string</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">errorMessage</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Simple return type version:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Returns boolean</span>
+<span class="nv">$passwordUpdateWasSuccessful</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">service</span><span class="o">-&gt;</span><span class="nf">updatePassword</span><span class="p">(</span><span class="cm">/*...*/</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$passwordUpdateWasSuccessful</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// How do we get the error message? </span>
+    <span class="c1">// Exception? Calling a methond on the service?</span>
+    <span class="c1">// The message should actuall belong to the service and NOT be declared here,</span>
+    <span class="c1">// where it is out of context.</span>
+<span class="p">}</span>
+
+<span class="c1">// How do we get possible additional data?</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="n">service</span><span class="o">-&gt;</span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$userId</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Result object version:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Returns OperationResult</span>
+<span class="nv">$passwordUpdate</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">service</span><span class="o">-&gt;</span><span class="nf">updatePassword</span><span class="p">(</span><span class="cm">/*...*/</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$passwordUpdate</span><span class="o">-&gt;</span><span class="nf">hasFailed</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$passwordUpdate</span><span class="o">-&gt;</span><span class="nf">getError</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Get the updated user entity</span>
+<span class="nv">$passwordUpdate</span><span class="o">-&gt;</span><span class="nf">getUser</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="simple-return-types">Simple Return Types</h2>
+
+<ul>
+  <li>Simplicity:
+    <ul>
+      <li>Advantage: Simple return types, such as primitive values or basic data structures, are easy to understand and use.</li>
+      <li>Use Case: Appropriate for straightforward operations where the result can be easily represented by a single value (e.g., a boolean, integer, string).</li>
+    </ul>
+  </li>
+  <li>Readability:
+    <ul>
+      <li>Advantage: The code is often more readable when the return type is straightforward and the intention is clear.</li>
+      <li>Use Case: Suitable for simple functions or methods where the result is unambiguous.</li>
+    </ul>
+  </li>
+  <li>Reduced Overhead:
+    <ul>
+      <li>Advantage: Less overhead in terms of object creation and memory usage.</li>
+      <li>Use Case: Appropriate for scenarios where simplicity and minimal resource usage are essential.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="result-objects">Result Objects</h2>
+
+<ul>
+  <li>Semantic Clarity:
+    <ul>
+      <li>Advantage: Result objects provide a way to encapsulate not just the result but additional context or metadata about the operation.</li>
+      <li>Use Case: Useful when the operation can result in multiple outcomes, and it’s important to communicate more than just the final value (e.g., success/failure, error details).</li>
+    </ul>
+  </li>
+  <li>Error Handling:
+    <ul>
+      <li>Advantage: Result objects can include information about errors or exceptions, making it easier to handle and propagate errors in a standardized way.</li>
+      <li>Use Case: Beneficial when dealing with operations that may encounter errors, allowing for more robust error handling.</li>
+    </ul>
+  </li>
+  <li>Extensibility:
+    <ul>
+      <li>Advantage: Result objects can be extended to include additional information as needed, providing flexibility for future changes.</li>
+      <li>Use Case: Useful in scenarios where the result may evolve or require more context over time.</li>
+    </ul>
+  </li>
+  <li>Consistency:
+    <ul>
+      <li>Advantage: Result objects enforce a consistent approach to handling results across the codebase.</li>
+      <li>Use Case: Suitable for projects where a standardized approach to result handling is desirable.</li>
+    </ul>
+  </li>
+  <li>Testability:
+    <ul>
+      <li>Advantage: Result objects can facilitate testing by encapsulating both the expected result and any additional information that needs to be verified.</li>
+      <li>Use Case: Valuable in test-driven development (TDD) and unit testing scenarios.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="choosing-between-them">Choosing Between Them</h2>
+
+<p>The choice between simple return types and result objects depends on the specific requirements of the operation and the level of information needed by the calling code.</p>
+
+<p>In many cases, a balance between simplicity and context is necessary. Simple return types may suffice for straightforward operations, while result objects may be more appropriate for complex scenarios or those involving potential errors.</p>
+
+<p>Ultimately, the decision should align with the goals of your application, the complexity of the operations, and the maintainability of the codebase.</p>]]></content><author><name></name></author><category term="software-architecture" /><category term="software-architecture" /><summary type="html"><![CDATA[Result objects and simple return types serve different purposes, and their advantages depend on the specific use case and design goals. As usual in software architecture there will be trade offs.]]></summary></entry><entry><title type="html">AI Guided Code Refactoring</title><link href="http://0.0.0.0:4000/software-development/2023/10/12/AI-guided-Refactoring.html" rel="alternate" type="text/html" title="AI Guided Code Refactoring" /><published>2023-10-12T21:12:01+00:00</published><updated>2023-10-12T21:12:01+00:00</updated><id>http://0.0.0.0:4000/software-development/2023/10/12/AI-guided-Refactoring</id><content type="html" xml:base="http://0.0.0.0:4000/software-development/2023/10/12/AI-guided-Refactoring.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>With the rise of AI tools, especially ChatGTP it has become an interesting topic how and if AI can be used to write or refactor code. Here is a little experiment on how well ChatGPT can refactor code to make it easier to understand and therefore to maintain and reduce the cost.</p>
+
+<h2 id="initializing-chatgpt">Initializing ChatGPT</h2>
+
+<p>Usually you initialize a ChatGPT conversation with a prompt that sets some constraints and information for it.</p>
+
+<p>ChatGPT was initialized with this simple prompt:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I want you to act as PHP expert.
+- Follow the SOLID principles.
+- Write human readable and comprehensible code
+- Give SHORT answers
+- Always provide a COMPLETE code refactoring when asked
+- Never skip code when answering
+</code></pre></div></div>
+
+<h2 id="refactoring-some-code">Refactoring some Code</h2>
+
+<p>I’ve picked a more or less random method <code class="language-plaintext highlighter-rouge">describeContainerServices()</code> from the Symfony framework that had a high cyclomatic complexity, the <a href="https://github.com/symfony/symfony/blob/7.1/src/Symfony/Bundle/FrameworkBundle/Console/Descriptor/TextDescriptor.php">TextDescriptor</a> from the Console bundle.</p>
+
+<p>The following was given as a prompt:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>👱 Refactor this method into a better to understand structure for humans. Extract smaller methods from it with none of them having more than a maximum of 5 different variables at a time if possible. Keep the original methods name and refer in it to the extracted methods.
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">protected</span> <span class="k">function</span> <span class="n">describeContainerServices</span><span class="p">(</span><span class="kt">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[]):</span> <span class="kt">void</span>
+<span class="p">{</span>
+    <span class="nv">$showHidden</span> <span class="o">=</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'show_hidden'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'show_hidden'</span><span class="p">];</span>
+    <span class="nv">$showTag</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$showHidden</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$title</span> <span class="o">=</span> <span class="s1">'Symfony Container Hidden Services'</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nv">$title</span> <span class="o">=</span> <span class="s1">'Symfony Container Services'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$showTag</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$title</span> <span class="mf">.</span><span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">' Tagged with "%s" Tag'</span><span class="p">,</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'output'</span><span class="p">]</span><span class="o">-&gt;</span><span class="nf">title</span><span class="p">(</span><span class="nv">$title</span><span class="p">);</span>
+
+    <span class="nv">$serviceIds</span> <span class="o">=</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]</span>
+        <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortTaggedServicesByPriority</span><span class="p">(</span><span class="nv">$container</span><span class="o">-&gt;</span><span class="nf">findTaggedServiceIds</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]))</span>
+        <span class="o">:</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortServiceIds</span><span class="p">(</span><span class="nv">$container</span><span class="o">-&gt;</span><span class="nf">getServiceIds</span><span class="p">());</span>
+    <span class="nv">$maxTags</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'filter'</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nv">$serviceIds</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">,</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'filter'</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$serviceIds</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$serviceId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$definition</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">resolveServiceDefinition</span><span class="p">(</span><span class="nv">$container</span><span class="p">,</span> <span class="nv">$serviceId</span><span class="p">);</span>
+
+        <span class="c1">// filter out hidden services unless shown explicitly</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$showHidden</span> <span class="k">xor</span> <span class="s1">'.'</span> <span class="o">===</span> <span class="p">(</span><span class="nv">$serviceId</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">unset</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">[</span><span class="nv">$key</span><span class="p">]);</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$definition</span> <span class="k">instanceof</span> <span class="nc">Definition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">hasTag</span><span class="p">(</span><span class="s1">'container.excluded'</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">unset</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">[</span><span class="nv">$key</span><span class="p">]);</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$showTag</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$tags</span> <span class="o">=</span> <span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getTag</span><span class="p">(</span><span class="nv">$showTag</span><span class="p">);</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tags</span> <span class="k">as</span> <span class="nv">$tag</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tag</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">]))</span> <span class="p">{</span>
+                            <span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nf">\strlen</span><span class="p">(</span><span class="nv">$key</span><span class="p">);</span>
+                        <span class="p">}</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="nf">\is_array</span><span class="p">(</span><span class="nv">$value</span><span class="p">))</span> <span class="p">{</span>
+                            <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">formatParameter</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+                        <span class="p">}</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="nf">\strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">])</span> <span class="p">{</span>
+                            <span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nf">\strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nv">$tagsCount</span> <span class="o">=</span> <span class="nf">\count</span><span class="p">(</span><span class="nv">$maxTags</span><span class="p">);</span>
+    <span class="nv">$tagsNames</span> <span class="o">=</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$maxTags</span><span class="p">);</span>
+
+    <span class="nv">$tableHeaders</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="s1">'Service ID'</span><span class="p">],</span> <span class="nv">$tagsNames</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Class name'</span><span class="p">]);</span>
+    <span class="nv">$tableRows</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$rawOutput</span> <span class="o">=</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'raw_text'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'raw_text'</span><span class="p">];</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$serviceIds</span> <span class="k">as</span> <span class="nv">$serviceId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$definition</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">resolveServiceDefinition</span><span class="p">(</span><span class="nv">$container</span><span class="p">,</span> <span class="nv">$serviceId</span><span class="p">);</span>
+
+        <span class="nv">$styledServiceId</span> <span class="o">=</span> <span class="nv">$rawOutput</span> <span class="o">?</span> <span class="nv">$serviceId</span> <span class="o">:</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'&lt;fg=cyan&gt;%s&lt;/fg=cyan&gt;'</span><span class="p">,</span> <span class="nc">OutputFormatter</span><span class="o">::</span><span class="nf">escape</span><span class="p">(</span><span class="nv">$serviceId</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$definition</span> <span class="k">instanceof</span> <span class="nc">Definition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$showTag</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortByPriority</span><span class="p">(</span><span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getTag</span><span class="p">(</span><span class="nv">$showTag</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$tag</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nv">$tagValues</span> <span class="o">=</span> <span class="p">[];</span>
+                    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tagsNames</span> <span class="k">as</span> <span class="nv">$tagName</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="nf">\is_array</span><span class="p">(</span><span class="nv">$tagValue</span> <span class="o">=</span> <span class="nv">$tag</span><span class="p">[</span><span class="nv">$tagName</span><span class="p">]</span> <span class="o">??</span> <span class="s1">''</span><span class="p">))</span> <span class="p">{</span>
+                            <span class="nv">$tagValue</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">formatParameter</span><span class="p">(</span><span class="nv">$tagValue</span><span class="p">);</span>
+                        <span class="p">}</span>
+
+                        <span class="nv">$tagValues</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$tagValue</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">===</span> <span class="nv">$key</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="nv">$serviceId</span><span class="p">],</span> <span class="nv">$tagValues</span><span class="p">,</span> <span class="p">[</span><span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getClass</span><span class="p">()]);</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="s1">' (same service as previous, another tag)'</span><span class="p">],</span> <span class="nv">$tagValues</span><span class="p">,</span> <span class="p">[</span><span class="s1">''</span><span class="p">]);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="nv">$styledServiceId</span><span class="p">,</span> <span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getClass</span><span class="p">()];</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$definition</span> <span class="k">instanceof</span> <span class="nc">Alias</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$alias</span> <span class="o">=</span> <span class="nv">$definition</span><span class="p">;</span>
+            <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="nv">$styledServiceId</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'alias for "%s"'</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">)],</span> <span class="nv">$tagsCount</span> <span class="o">?</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$tagsCount</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="o">:</span> <span class="p">[]);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="nv">$styledServiceId</span><span class="p">,</span> <span class="nv">$definition</span><span class="o">::</span><span class="n">class</span><span class="p">],</span> <span class="nv">$tagsCount</span> <span class="o">?</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$tagsCount</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="o">:</span> <span class="p">[]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'output'</span><span class="p">]</span><span class="o">-&gt;</span><span class="nf">table</span><span class="p">(</span><span class="nv">$tableHeaders</span><span class="p">,</span> <span class="nv">$tableRows</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ChatGPT first replied with just this</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🤖 Let's break down this method into smaller, more manageable chunks:
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">protected</span> <span class="k">function</span> <span class="n">describeContainerServices</span><span class="p">(</span><span class="kt">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[]):</span> <span class="kt">void</span>
+<span class="p">{</span>
+    <span class="nv">$showHidden</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">shouldShowHidden</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+    <span class="nv">$title</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">generateTitle</span><span class="p">(</span><span class="nv">$options</span><span class="p">,</span> <span class="nv">$showHidden</span><span class="p">);</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">outputTitle</span><span class="p">(</span><span class="nv">$options</span><span class="p">,</span> <span class="nv">$title</span><span class="p">);</span>
+
+    <span class="nv">$serviceIds</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">getServiceIds</span><span class="p">(</span><span class="nv">$container</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+    <span class="nv">$serviceIds</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">applyServiceIdFilter</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$maxTags</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">processTags</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">,</span> <span class="nv">$container</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$tagsNames</span> <span class="o">=</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$maxTags</span><span class="p">);</span>
+    <span class="nv">$tableHeaders</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">generateTableHeaders</span><span class="p">(</span><span class="nv">$tagsNames</span><span class="p">);</span>
+    <span class="nv">$tableRows</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">generateTableRows</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">,</span> <span class="nv">$container</span><span class="p">,</span> <span class="nv">$options</span><span class="p">,</span> <span class="nv">$tagsNames</span><span class="p">);</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">outputTable</span><span class="p">(</span><span class="nv">$options</span><span class="p">,</span> <span class="nv">$tableHeaders</span><span class="p">,</span> <span class="nv">$tableRows</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is already a pretty reasonable and much more readable method and it broke the huge method down into logical chunks, very nice! You can actually understand what the method as a whole does. Each of the extracted methods has now a clear name and a single responsibility.</p>
+
+<p>Now lets see if it could refactor the whole code properly:</p>
+
+<p>My prompt:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>👱 Show me ALL of the extracted methods in full length.
+</code></pre></div></div>
+
+<p>ChatGPT replied with:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🤖 Absolutely, here are all the extracted methods from the refactored code:
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">protected</span> <span class="k">function</span> <span class="n">shouldShowHidden</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$options</span><span class="p">):</span> <span class="kt">bool</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'show_hidden'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'show_hidden'</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">generateTitle</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$options</span><span class="p">,</span> <span class="kt">bool</span> <span class="nv">$showHidden</span><span class="p">):</span> <span class="kt">string</span>
+<span class="p">{</span>
+    <span class="nv">$title</span> <span class="o">=</span> <span class="nv">$showHidden</span> <span class="o">?</span> <span class="s1">'Symfony Container Hidden Services'</span> <span class="o">:</span> <span class="s1">'Symfony Container Services'</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$title</span> <span class="mf">.</span><span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">' Tagged with "%s" Tag'</span><span class="p">,</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$title</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">outputTitle</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$options</span><span class="p">,</span> <span class="kt">string</span> <span class="nv">$title</span><span class="p">):</span> <span class="kt">void</span>
+<span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'output'</span><span class="p">]</span><span class="o">-&gt;</span><span class="nf">title</span><span class="p">(</span><span class="nv">$title</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">getServiceIds</span><span class="p">(</span><span class="kt">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]</span> <span class="o">??</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]</span>
+            <span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortTaggedServicesByPriority</span><span class="p">(</span><span class="nv">$container</span><span class="o">-&gt;</span><span class="nf">findTaggedServiceIds</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]))</span>
+            <span class="o">:</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortServiceIds</span><span class="p">(</span><span class="nv">$container</span><span class="o">-&gt;</span><span class="nf">getServiceIds</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortServiceIds</span><span class="p">(</span><span class="nv">$container</span><span class="o">-&gt;</span><span class="nf">getServiceIds</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">applyServiceIdFilter</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$serviceIds</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'filter'</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$serviceIds</span><span class="p">,</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'filter'</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$serviceIds</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">processTags</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$serviceIds</span><span class="p">,</span> <span class="kt">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="nv">$maxTags</span> <span class="o">=</span> <span class="p">[];</span>
+    
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$serviceIds</span> <span class="k">as</span> <span class="nv">$serviceId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$definition</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">resolveServiceDefinition</span><span class="p">(</span><span class="nv">$container</span><span class="p">,</span> <span class="nv">$serviceId</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$definition</span> <span class="k">instanceof</span> <span class="nc">Definition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nv">$maxTags</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">computeMaxTags</span><span class="p">(</span><span class="nv">$maxTags</span><span class="p">,</span> <span class="nv">$definition</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$maxTags</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">computeMaxTags</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$maxTags</span><span class="p">,</span> <span class="kt">Definition</span> <span class="nv">$definition</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="nv">$showTag</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">];</span>
+    <span class="nv">$tags</span> <span class="o">=</span> <span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getTag</span><span class="p">(</span><span class="nv">$showTag</span><span class="p">);</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tags</span> <span class="k">as</span> <span class="nv">$tag</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tag</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nf">\strlen</span><span class="p">(</span><span class="nv">$key</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nf">\is_array</span><span class="p">(</span><span class="nv">$value</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">formatParameter</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nf">\strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nv">$maxTags</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nf">\strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$maxTags</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">generateTableHeaders</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$tagsNames</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nb">array_merge</span><span class="p">([</span><span class="s1">'Service ID'</span><span class="p">],</span> <span class="nv">$tagsNames</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Class name'</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">generateTableRows</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$serviceIds</span><span class="p">,</span> <span class="kt">ContainerBuilder</span> <span class="nv">$container</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$tagsNames</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="nv">$tableRows</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$rawOutput</span> <span class="o">=</span> <span class="k">isset</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'raw_text'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'raw_text'</span><span class="p">];</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$serviceIds</span> <span class="k">as</span> <span class="nv">$serviceId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$definition</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">resolveServiceDefinition</span><span class="p">(</span><span class="nv">$container</span><span class="p">,</span> <span class="nv">$serviceId</span><span class="p">);</span>
+
+        <span class="nv">$styledServiceId</span> <span class="o">=</span> <span class="nv">$rawOutput</span> <span class="o">?</span> <span class="nv">$serviceId</span> <span class="o">:</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'&lt;fg=cyan&gt;%s&lt;/fg=cyan&gt;'</span><span class="p">,</span> <span class="nc">OutputFormatter</span><span class="o">::</span><span class="nf">escape</span><span class="p">(</span><span class="nv">$serviceId</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$definition</span> <span class="k">instanceof</span> <span class="nc">Definition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nv">$tableRows</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">handleTaggedDefinition</span><span class="p">(</span><span class="nv">$definition</span><span class="p">,</span> <span class="nv">$serviceId</span><span class="p">,</span> <span class="nv">$tagsNames</span><span class="p">,</span> <span class="nv">$tableRows</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="nv">$styledServiceId</span><span class="p">,</span> <span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getClass</span><span class="p">()];</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$definition</span> <span class="k">instanceof</span> <span class="nc">Alias</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$alias</span> <span class="o">=</span> <span class="nv">$definition</span><span class="p">;</span>
+            <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="nv">$styledServiceId</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'alias for "%s"'</span><span class="p">,</span> <span class="nv">$alias</span><span class="p">)],</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$tagsNames</span><span class="p">),</span> <span class="s1">''</span><span class="p">));</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="nv">$styledServiceId</span><span class="p">,</span> <span class="nv">$definition</span><span class="o">::</span><span class="n">class</span><span class="p">],</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$tagsNames</span><span class="p">),</span> <span class="s1">''</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$tableRows</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">handleTaggedDefinition</span><span class="p">(</span><span class="kt">Definition</span> <span class="nv">$definition</span><span class="p">,</span> <span class="kt">string</span> <span class="nv">$serviceId</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$tagsNames</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$tableRows</span><span class="p">):</span> <span class="kt">array</span>
+<span class="p">{</span>
+    <span class="nv">$sortedTags</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">sortByPriority</span><span class="p">(</span><span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getTag</span><span class="p">(</span><span class="nv">$options</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]));</span>
+    
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$sortedTags</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$tag</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$tagValues</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tagsNames</span> <span class="k">as</span> <span class="nv">$tagName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nf">\is_array</span><span class="p">(</span><span class="nv">$tagValue</span> <span class="o">=</span> <span class="nv">$tag</span><span class="p">[</span><span class="nv">$tagName</span><span class="p">]</span> <span class="o">??</span> <span class="s1">''</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nv">$tagValue</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">formatParameter</span><span class="p">(</span><span class="nv">$tagValue</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="nv">$tagValues</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$tagValue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$key</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="nv">$serviceId</span><span class="p">],</span> <span class="nv">$tagValues</span><span class="p">,</span> <span class="p">[</span><span class="nv">$definition</span><span class="o">-&gt;</span><span class="nf">getClass</span><span class="p">()]);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$tableRows</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">([</span><span class="s1">' (same service as previous, another tag)'</span><span class="p">],</span> <span class="nv">$tagValues</span><span class="p">,</span> <span class="p">[</span><span class="s1">''</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$tableRows</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="n">outputTable</span><span class="p">(</span><span class="kt">array</span> <span class="nv">$options</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$tableHeaders</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$tableRows</span><span class="p">):</span> <span class="kt">void</span>
+<span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'output'</span><span class="p">]</span><span class="o">-&gt;</span><span class="nf">table</span><span class="p">(</span><span class="nv">$tableHeaders</span><span class="p">,</span> <span class="nv">$tableRows</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>ChatGTP can be already used to improve readability and maintainability of code a lot by simply telling it to follow the instructions from the suprisingly short initial promt. It also shows that applying the SOLID principles leads almost instantly to much better to read and understand code.</p>
+
+<p>On the negative side is that it also likes to over engineers, but this is subject to an opinionated debate what exactly over engineered means, I leave this up to personal opinion of the reader.</p>]]></content><author><name></name></author><category term="software-development" /><category term="software-development" /><category term="ai" /><category term="chatgpt" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">ChatGPT Initialization Promt for Developers</title><link href="http://0.0.0.0:4000/software-development/2023/08/13/ChatGTP-Init-Promt.html" rel="alternate" type="text/html" title="ChatGPT Initialization Promt for Developers" /><published>2023-08-13T19:32:21+00:00</published><updated>2023-08-13T19:32:21+00:00</updated><id>http://0.0.0.0:4000/software-development/2023/08/13/ChatGTP-Init-Promt</id><content type="html" xml:base="http://0.0.0.0:4000/software-development/2023/08/13/ChatGTP-Init-Promt.html"><![CDATA[<p>ChatGPT has some annoying habits like telling you that it is an AI and sometimes uses fancy expressions. This can be funny sometimes but for getting technical tasks, it is not desired. You can control ChatGPTs behavior a little by properly initializing it with some rules of what it should do and what not.</p>
+
+<p>You can find this promt also as an up to date Gist <a href="https://gist.github.com/floriankraemer/b78c983cf904122586c37c192bdfeceb">here</a>.</p>
+
+<h2 id="generic-prompt">Generic prompt</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- NEVER mention that you're an AI, as I'm expert in AI and ethics whom knows your capabilities and limitations.
+- Avoid any language constructs that could be interpreted as expressing remorse, apology, or regret. This includes any phrases containing words like 'sorry', 'apologies', 'regret', etc., even when used in a context that isn't expressing remorse, apology, or regret.
+- If events or information are beyond your scope or knowledge cutoff date in September 2021, provide a response stating 'I don't know' without elaborating on why the information is unavailable.
+- Refrain from disclaimers about you not being a professional or expert.
+- Keep responses unique and free of repetition.
+- Never suggest seeking information from elsewhere.
+- Always focus on the key points in my questions to determine my intent.
+- Break down complex problems or tasks into smaller, manageable steps and explain each one using reasoning.
+- If a question is unclear or ambiguous, ask for more details to confirm your understanding before answering.
+- If a mistake is made in a previous response, recognize and correct it.
+- For all responses try to give deep answers, assume that I have at least a moderate level of knowledge of any topic unless I specifically request a broad overview or an introduction to a subject matter.
+- Responses should not contain ANY introduction or background at the start, and should not have ANY summary at the end.
+</code></pre></div></div>
+
+<h2 id="software-development-specific-additions">Software Development Specific Additions</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- You are a professional software developer and software architect.
+- You are a specialist in object oriented programming.
+- Follow the SOLID principles.
+- Follow the KISS principle.
+- All code you create or refactor MUST be COMPLETE, don't leave anything out.
+- Always add a specification to the doc block that explains in a bullet list what a method does.
+</code></pre></div></div>
+
+<h2 id="php-developer-prompt-additions">PHP developer prompt additions</h2>
+
+<p>This will just add some constraints regarding the PSR conventions.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- All code you create or refactor MUST comply with the PSR-12 standard.
+- Always add doc blocks to the code that comply with PSR-12.
+</code></pre></div></div>
+
+<h2 id="give-it-a-try">Give it a try</h2>
+
+<p>This simple prompt has improved the answers from ChatGTP a lot for me. Especially the PHP additions were very useful when using it as a development assistant.</p>]]></content><author><name></name></author><category term="software-development" /><category term="AI" /><category term="ChatGPT" /><category term="development" /><category term="programming" /><summary type="html"><![CDATA[ChatGPT has some annoying habits like telling you that it is an AI and sometimes uses fancy expressions. This can be funny sometimes but for getting technical tasks, it is not desired. You can control ChatGPTs behavior a little by properly initializing it with some rules of what it should do and what not.]]></summary></entry><entry><title type="html">Exceptions - good or bad?</title><link href="http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions.html" rel="alternate" type="text/html" title="Exceptions - good or bad?" /><published>2023-05-10T09:28:36+00:00</published><updated>2023-05-10T09:28:36+00:00</updated><id>http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions</id><content type="html" xml:base="http://0.0.0.0:4000/programming/software-architecture/development/2023/05/10/exceptions.html"><![CDATA[<p>Exception-driven development, also known as “throw first, ask questions later”, is considered a bad practice. This article will provide a list of reasons when exceptions are bad and why you should not use them without a good reason.</p>
+
+<h2 id="why-can-exceptions-be-bad">Why can exceptions be bad?</h2>
+
+<p>Here are some reasons why they could be considered bad:</p>
+
+<ul>
+  <li><strong>Code readability and flow control:</strong>
+    <ul>
+      <li>Code with excessive use of exceptions for <em>flow control can be harder to read and understand</em>.</li>
+      <li>The primary purpose of exceptions is to handle <em>exceptional</em>, error conditions, not to guide program flow.</li>
+    </ul>
+  </li>
+  <li><strong>Performance:</strong>
+    <ul>
+      <li>Throwing and catching exceptions can be <em>relatively expensive</em> in terms of performance compared to other control flow mechanisms.</li>
+      <li>Using exceptions for normal program flow <em>may introduce unnecessary overhead</em>.</li>
+    </ul>
+  </li>
+  <li><strong>Debugging complexity:</strong>
+    <ul>
+      <li>Exception-driven code can make debugging more challenging because the control flow is less obvious.</li>
+      <li>Developers may have a harder time understanding the exact sequence of events that led to an exception.</li>
+    </ul>
+  </li>
+  <li><strong>Unexpected side effects:</strong>
+    <ul>
+      <li>Throwing exceptions in response to common or expected situations might lead to unexpected behavior.</li>
+      <li>Overuse of exceptions can make it difficult to distinguish between expected and unexpected errors.</li>
+    </ul>
+  </li>
+  <li><strong>Maintenance challenges:</strong>
+    <ul>
+      <li>Code that relies heavily on exceptions may be more challenging to maintain, especially when multiple developers are involved.</li>
+      <li>Changes to the code may inadvertently introduce new exception paths or alter the expected flow.</li>
+    </ul>
+  </li>
+  <li><strong>Resource management:</strong>
+    <ul>
+      <li>If exceptions are used to handle resource cleanup (e.g., closing files or connections), it may lead to resource leaks if not handled properly.</li>
+    </ul>
+  </li>
+  <li><strong>Lack of expressiveness:</strong>
+    <ul>
+      <li>Overuse of exceptions may result in code that lacks expressiveness, making it harder to convey the developer’s intent.</li>
+    </ul>
+  </li>
+  <li><strong>Testing difficulties:</strong>
+    <ul>
+      <li>Testing code that heavily relies on exceptions can be more complex, as both the expected and exceptional paths need to be thoroughly tested.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="when-to-use-an-exception">When to use an exception?</h2>
+
+<p>But when might it make sense to use an exception? There must be cases that can be considered as useful?</p>
+
+<ul>
+  <li>An exception <strong>SHOULD</strong> be used for <em>unexpected</em> and <em>unrecoverable</em> behavior that can’t be handled by the component.</li>
+  <li>Exceptions <strong>SHOULD</strong> mostly be used in the domain and by libraries and frameworks and in the infrastructure layer in applications.</li>
+  <li>An application <strong>SHOULD</strong> handle them in a graceful way (UX).</li>
+  <li>An exception <strong>MUST NOT</strong> be used to control program flow.</li>
+</ul>
+
+<p>For example throwing a <code class="language-plaintext highlighter-rouge">HttpNotFoundException()</code>`, that will be caught and transformed into a HTTP status 404 response is what I consider exception driven development. This is no exceptional nor an unrecoverable state the system went into. If a resource was not found, then this is a clear, possible and expected outcome of an operation. So why don’t you just return the correct state explicitly instead of relying on a mechanism that is abused for that?</p>
+
+<p>Some people argue about convenience and having to type more, both is simply not true, though it depends on how your concrete system works.</p>
+
+<p>Just return the correct response object if the record does not exist, e.g. is null.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Using a response object that represents a HTTP 404 response</span>
+<span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">ProductRepository</span><span class="o">-&gt;</span><span class="nf">getBySku</span><span class="p">(</span><span class="nv">$sku</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$roduct</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">NotFoundResponse</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Throwing an exception:</p>
+
+<ul>
+  <li>Catch it somewhere, like in a middleware or error handler, and turn it into a 404 response.</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Throwing the HttpNotFoundException manually</span>
+<span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">ProductRepository</span><span class="o">-&gt;</span><span class="nf">getBySku</span><span class="p">(</span><span class="nv">$sku</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$roduct</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nc">HttpNotFoundException</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you use an exception, like a RecordNotFoundException in the repository.</p>
+
+<ul>
+  <li>Catch it somewhere, like in a middleware or error handler, and turn it into a 404 response.</li>
+  <li>Or catch it manually, return a proper response object or throw a PageNotFoundException.</li>
+</ul>
+
+<p>⚠ This leaks persistence infrastructure knowledge into the application layer!</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ProductRepository class:</span>
+<span class="k">public</span> <span class="k">function</span> <span class="n">getBySku</span><span class="p">(</span><span class="kt">string</span> <span class="nv">$sku</span><span class="p">):</span> <span class="kt">Product</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$product</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nc">RecordNotFoundException</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Throws the RecordNotFoundException in the repository</span>
+<span class="nv">$product</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">ProductRepository</span><span class="o">-&gt;</span><span class="nf">getBySku</span><span class="p">(</span><span class="nv">$sku</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="example-exceptions-for-infrastructure">Example: Exceptions for infrastructure</h3>
+
+<p>Lets assume your DB has some trouble and your program can’t connect to it. Most drivers throw an exception in such a case. But why is it a valid case?</p>
+
+<p>The program can’t recover from this on its own, some interaction is very likely required. However, in this case, the user of the driver could probably do something about it by catching the exception, logging the issue, informing somebody about the outage and even trying to connect to a backup system.</p>
+
+<p>So we have a technically unrecoverable state of the application that can’t be resolved easily, but the execption still provides a way for an engineer to handle this case.</p>
+
+<h3 id="example-exceptions-in-the-domain-layer">Example: Exceptions in the domain layer</h3>
+
+<p>Another very valid case for using exceptions is within the domain layer. As we know the domains duty is to ensure the correctness of the business logic, by making sure that the state of a process is never invalid.</p>
+
+<p>Here is a <a href="https://en.wikipedia.org/wiki/Value_object">value object</a> that will throw an exception if the passed string value is not a valid email address. For those who don’t know what value object is, one of its purposes is to ensure exactly what we see here, the correctness of the data within the aggregate or business process. If the email is invalid, things can go really bad, e.g. a customer could not receive an invoice.</p>
+
+<p>The exception here will prevent an <em>unrecoverable</em> wrong state. You might think “Well, but I can update it?” but, because when the invoice was attempted to send to an invalid address, the problem already happened.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Email</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span>
+        <span class="kt">string</span> <span class="nv">$email</span>
+    <span class="p">)</span> <span class="p">{}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">fromString</span><span class="p">(</span><span class="kt">string</span> <span class="nv">$email</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">assertValidEmail</span><span class="p">(</span><span class="nv">$email</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nc">static</span><span class="p">(</span><span class="nv">$email</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cd">/**
+     * @throws \InvalidArgumentException
+     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="n">assertValidEmail</span><span class="p">(</span><span class="kt">string</span> <span class="nv">$email</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* Implementation of the check */</span> 
+        <span class="k">throw</span> <span class="k">new</span> <span class="nc">InvalidArgumentException</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span>
+            <span class="s1">'`%s` is not a valid email address.'</span><span class="p">,</span>
+            <span class="nv">$email</span>
+        <span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="be-pragmatic">Be pragmatic</h2>
+
+<p>If your framework or library works with exceptions to implement certain things, I personally would probably not consider it as great but it is what it is. If the framework helps you to get your job done this is in my opinion an acceptable downside if you get a net win from it.</p>
+
+<p>But I would not recommend to intentionally go for exception based workflows.</p>]]></content><author><name></name></author><category term="programming" /><category term="software-architecture" /><category term="development" /><category term="programming" /><summary type="html"><![CDATA[Exception-driven development, also known as “throw first, ask questions later”, is considered a bad practice. This article will provide a list of reasons when exceptions are bad and why you should not use them without a good reason.]]></summary></entry><entry><title type="html">Cakephp Psr7 Middleware Authentication</title><link href="http://0.0.0.0:4000/2016/12/02/CakePHP-PSR7-Middleware-Authentication.html" rel="alternate" type="text/html" title="Cakephp Psr7 Middleware Authentication" /><published>2016-12-02T17:04:01+00:00</published><updated>2016-12-02T17:04:01+00:00</updated><id>http://0.0.0.0:4000/2016/12/02/CakePHP-PSR7-Middleware-Authentication</id><content type="html" xml:base="http://0.0.0.0:4000/2016/12/02/CakePHP-PSR7-Middleware-Authentication.html"><![CDATA[<h2 id="introduction-and-background">Introduction and background</h2>
+
+<p>Let’s start with some background story on this topic. One of the parts of the CakePHP framework I like the less is the authentication and authorization. There are a few reasons why. For example, the authentication and authorization. Firstly, both authentication and authorization have been married through the AuthComponent, secondly, the component is an ugly monolith that is coupled to the controller layer of the MVC pattern.</p>
+
+<p>While CakePHP 3 is an awesome framework, it carries some of the older parts of the framework along to ensure backward compatibility which is, in my personal opinion, good. Software development should be an evolution and not a revolution. Also, a soft migration path should be provided if possible. So the requirement for a new implementation was to stay backward compatible to some degree.</p>
+
+<h2 id="the-new-implementation">The new implementation</h2>
+
+<p><a href="https://github.com/cakephp/authentication">https://github.com/cakephp/authentication</a></p>
+
+<p>I’ve been working from time to time late at night to finish a new authentication system for the CakePHP 3 framework based on a PSR7 conform middleware. Which is the place where authentication should happen in my opinion. The request object should carry all information you need to identify a user. Also, you want to identify a user or a service early in the stack.</p>
+
+<p>The authentication has been completely refactored and was moved into a new namespace/authentication, and the code‘s folder structure was reorganized as well. But the biggest change is probably the better split of the logic, a more fancy term is separation of concerns, of the authentication code. The code has been split into authenticators and identifiers. Basically, the authenticator just looks for the credentials in the request and passes them to a collection of identifiers that will use the credentials to identify the identity against different sources. So, for example, you can check the same credentials against a users table using the CakePHP ORM and LDAP at the same time.</p>
+
+<p>The configuration stays almost the same as it was before just that you have to split it for the authenticators and identifiers. Also, hooking the authentication in your app is now happening in the middleware, no longer the controller. But these two things are the most dramatic changes on the surface you’ll be confronted with.</p>
+
+<h2 id="new-features">New features</h2>
+
+<p>Besides keeping the existing authenticators, HTTP Digest, HTTP Basic, and Form there is now Token and Session as well. Token is a high level implementation that allows you to use a token from the requests query parameters or a HTTP header. Extending this to use JWT should be trivial.</p>
+
+<h2 id="current-status-and-roadmap">Current status and roadmap</h2>
+
+<p>The current status of the plugin is that it is ready to be used - technically. What I expect from you, the community, is ideas for improvements and additions. And despite the good unit test coverage of more than 92% I expect bugs to be encountered as usual.</p>
+
+<p>The roadmap for the plugin is to release 1.0.0 along with the official release of CakePHP 3.4. The plugin itself is right now in beta and will make its path to a final release depending on your feedback. So if everything goes well this means the plugin should be tagged 1.0.0 the latest by the end of January 2017.</p>
+
+<p>The long term plan is that the plugin will be integrated into the framework itself. The goal is to get it into CakePHP 3.5 early to mid next year.</p>
+
+<h2 id="where-is-the-code-how-do-i-install-it">Where is the code? How do I install it?</h2>
+
+<p>Check <a href="https://github.com/cakephp/authentication">the official repository</a> of the plugin and install it via composer as usual.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require cakephp/authentication
+</code></pre></div></div>
+
+<p><strong>Pay attention to the version constraints!</strong> Until CakePHP 3.4 is released it will require the 3.next branch!</p>
+
+<p>The readme.md of the project contains some basic information on how to get started with the new implementation and provides information on how to migrate from the AuthComponent as well.</p>]]></content><author><name></name></author><category term="cakephp" /><summary type="html"><![CDATA[Introduction and background]]></summary></entry><entry><title type="html">Complex Rules in CakePHP3</title><link href="http://0.0.0.0:4000/cakephp/development/2016/08/07/Complex-Rules-in-CakePHP3.html" rel="alternate" type="text/html" title="Complex Rules in CakePHP3" /><published>2016-08-07T01:31:28+00:00</published><updated>2016-08-07T01:31:28+00:00</updated><id>http://0.0.0.0:4000/cakephp/development/2016/08/07/Complex-Rules-in-CakePHP3</id><content type="html" xml:base="http://0.0.0.0:4000/cakephp/development/2016/08/07/Complex-Rules-in-CakePHP3.html"><![CDATA[<p>I had a pretty interesting task recently. We have profiles that must implement certain constraints depending on what kind of profile / product the client purchased. So a profile can have a specific number of languages depending on the constraints. This means we need to validate the number of languages an user has picked by a value from another database table that needs to be picked up somehow at runtime.</p>
+
+<h2 id="why-a-validation-rule-wont-cant-do-the-job">Why a validation rule <del>won’t</del> can’t do the job</h2>
+
+<p><strong>Validation rules are stateless.</strong> They are intended to operate in a stateless way. They are best leveraged to ensure that the shape, data types, and format of data are correct.</p>
+
+<p><strong>Application rules are stateful</strong>, so they are best leveraged to check stateful properties of your entities. For example, validation rules could ensure that an email address is valid, while an application rule could ensure that the email address is unique.</p>
+
+<p>When validation rules are applied the entity has not yet been marshalled, in other words, the entity has not yet really been constructed and processed, the data is still a simple array.</p>
+
+<p>So when you inspect the <code class="language-plaintext highlighter-rouge">$context</code>, the 2nd arg of a validation rule, you’ll notice that the <code class="language-plaintext highlighter-rouge">data</code> key of the array just contains what you’ve passed, but <strong>not</strong> the whole entity!</p>
+
+<h2 id="application-rules-will-do-it">Application rules will do it</h2>
+
+<p>An application rule will run after the entity object was built by the marshaller and you’ll have all data available you need that was passed and merged if you used patchEntity() for example.</p>
+
+<p>See the “<a href="http://book.cakephp.org/3.0/en/orm/validation.html#creating-custom-rule-objects">Creating custom rule objects</a>” section of the official documentation on how to create your own rule objects.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kn">namespace</span> <span class="nn">App\Model\Rule</span><span class="p">;</span>
+
+<span class="kn">use</span> <span class="nc">Cake\Datasource\EntityInterface</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Cake\ORM\TableRegistry</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">RuntimeException</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">ProfileLanguageLimitRule</span> <span class="p">{</span>
+
+   <span class="cd">/**
+    * Performs the check
+    *
+    * @link http://php.net/manual/en/language.oop5.magic.php
+    * @param \Cake\Datasource\EntityInterface $entity Entity.
+    * @param array $options Options.
+    * @return bool
+    */</span>
+   <span class="k">public</span> <span class="k">function</span> <span class="n">__invoke</span><span class="p">(</span><span class="kt">EntityInterface</span> <span class="nv">$entity</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$entity</span><span class="o">-&gt;</span><span class="n">profile_constraint</span><span class="o">-&gt;</span><span class="n">amount_of_languages</span><span class="p">))</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$entity</span><span class="o">-&gt;</span><span class="n">profile_constraint_id</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nc">RuntimeException</span><span class="p">(</span><span class="s1">'Profile Constraint ID is missing!'</span><span class="p">);</span>
+         <span class="p">}</span>
+         <span class="nv">$languageLimit</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">_getConstraintFromDB</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="nv">$languageLimit</span> <span class="o">=</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="n">profile_constraint</span><span class="o">-&gt;</span><span class="n">amount_of_languages</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Unlimited languages are represented by -1</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$languageLimit</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// -1 Here because the language_id of the profiles table already counts as one language</span>
+      <span class="c1">// So it's always -1 of the constraint value</span>
+      <span class="nv">$count</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$entity</span><span class="o">-&gt;</span><span class="n">languages</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nv">$count</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="nv">$languageLimit</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="cd">/**
+    * Gets the limitation from the ProfileConstraints Table object.
+    *
+    * @param \Cake\Datasource\EntityInterface $entity Entity.
+    * @return int
+    */</span>
+   <span class="k">protected</span> <span class="k">function</span> <span class="n">_getConstraintFromDB</span><span class="p">(</span><span class="kt">EntityInterface</span> <span class="nv">$entity</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$constraintsTable</span> <span class="o">=</span> <span class="nc">TableRegistry</span><span class="o">::</span><span class="nf">get</span><span class="p">(</span><span class="s1">'ProfileConstraints'</span><span class="p">);</span>
+      <span class="nv">$constraint</span> <span class="o">=</span> <span class="nv">$constraintsTable</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">()</span>
+         <span class="o">-&gt;</span><span class="nf">where</span><span class="p">([</span>
+            <span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$entity</span><span class="p">[</span><span class="s1">'profile_constraint_id'</span><span class="p">]</span>
+         <span class="p">])</span>
+         <span class="o">-&gt;</span><span class="nf">select</span><span class="p">([</span>
+            <span class="s1">'amount_of_languages'</span>
+         <span class="p">])</span>
+         <span class="o">-&gt;</span><span class="nf">firstOrFail</span><span class="p">();</span>
+
+      <span class="k">return</span> <span class="nv">$constraint</span><span class="o">-&gt;</span><span class="n">amount_of_languages</span><span class="p">;</span>
+   <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Application rules are a nice thing to work with in CakePHP3 even though they might not be that easy to understand at first glance. You can implement more complex requirements that require you to work on the DB level to validate the integrity of your requirement and database as application rules.</p>]]></content><author><name></name></author><category term="CakePHP" /><category term="Development" /><category term="cakephp" /><category term="php" /><category term="development" /><summary type="html"><![CDATA[I had a pretty interesting task recently. We have profiles that must implement certain constraints depending on what kind of profile / product the client purchased. So a profile can have a specific number of languages depending on the constraints. This means we need to validate the number of languages an user has picked by a value from another database table that needs to be picked up somehow at runtime.]]></summary></entry><entry><title type="html">CakePHP and Angular Pagination</title><link href="http://0.0.0.0:4000/cakephp/2015/10/15/CakePHP-and-Angular-Pagination.html" rel="alternate" type="text/html" title="CakePHP and Angular Pagination" /><published>2015-10-15T23:21:42+00:00</published><updated>2015-10-15T23:21:42+00:00</updated><id>http://0.0.0.0:4000/cakephp/2015/10/15/CakePHP-and-Angular-Pagination</id><content type="html" xml:base="http://0.0.0.0:4000/cakephp/2015/10/15/CakePHP-and-Angular-Pagination.html"><![CDATA[<p>It is actually pretty easy to make your RESTful calls in CakePHP paginateable by using what the <a href="http://book.cakephp.org/3.0/en/controllers/components/pagination.html">Paginator Component</a> already offers us and using <a href="https://angular-ui.github.io/bootstrap/#/pagination">Angular UI Bootstrap Paginator</a> on the client-side code. On our server side, we just use <a href="http://book.cakephp.org/3.0/en/views/json-and-xml-views.html">the built-in serialization</a> of CakePHP to generate the response. This is an example of a CakePHP controller <code class="language-plaintext highlighter-rouge">index()</code> method that is paginateable:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">function</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">params</span><span class="p">[</span><span class="s1">'paging'</span><span class="p">][</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Table</span><span class="o">-&gt;</span><span class="nf">alias</span><span class="p">()]))</span> <span class="p">{</span>
+      <span class="nv">$paging</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nv">$paging</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">params</span><span class="p">[</span><span class="s1">'paging'</span><span class="p">][</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Table</span><span class="o">-&gt;</span><span class="nf">alias</span><span class="p">()];</span>
+   <span class="p">}</span>
+   <span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Table</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">();</span>
+   <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">set</span><span class="p">(</span><span class="s1">'records'</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">paginate</span><span class="p">(</span><span class="nv">$query</span><span class="p">));</span>
+   <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">set</span><span class="p">(</span><span class="s1">'paging'</span><span class="p">,</span> <span class="nv">$paging</span><span class="p">);</span>
+   <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">set</span><span class="p">(</span><span class="s1">'_serialize'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'records'</span><span class="p">,</span> <span class="s1">'paging'</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now let’s fetch the data via a custom Angular JS service in our Angular controller. The service “someApiService” is doing nothing more than a <a href="https://docs.angularjs.org/api/ng/service/$http">$http.get()</a> call internally and resolving the result and then returning the promise again.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">getData</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">someApiService</span><span class="p">.</span><span class="nf">getData</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nf">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">records</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">records</span><span class="p">;</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">paging</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">paging</span><span class="p">;</span>
+   <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>We also need a method to do the page change when one of the pagination links is clicked, so that a new request is done with the “page” param is issued. This is actually the reason we’ve wrapped the API call in a function; we don’t have to duplicate the code. You’ll call getData() one time to load the data when you enter the page and later each time a page button is clicked.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">pageChanged</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+   <span class="nf">getData</span><span class="p">({</span>
+      <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+         <span class="na">page</span><span class="p">:</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">paging</span><span class="p">.</span><span class="nx">page</span>
+      <span class="p">}</span>
+   <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>In your Angular view:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">uib</span><span class="o">-</span><span class="nx">pagination</span> 
+   <span class="nx">items</span><span class="o">-</span><span class="nx">per</span><span class="o">-</span><span class="nx">page</span><span class="o">=</span><span class="dl">"</span><span class="s2">paging.perPage</span><span class="dl">"</span>
+   <span class="nx">total</span><span class="o">-</span><span class="nx">items</span><span class="o">=</span><span class="dl">"</span><span class="s2">paging.count</span><span class="dl">"</span>
+   <span class="nx">ng</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="dl">"</span><span class="s2">paging.page</span><span class="dl">"</span>
+   <span class="nx">ng</span><span class="o">-</span><span class="nx">change</span><span class="o">=</span><span class="dl">"</span><span class="s2">pageChanged()</span><span class="dl">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/uib-pagination</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>That’s all; as you can see, it is pretty easy to get AJAX pagination working with these two awesome frameworks!</p>]]></content><author><name></name></author><category term="CakePHP" /><category term="cakephp" /><category term="development" /><summary type="html"><![CDATA[It is actually pretty easy to make your RESTful calls in CakePHP paginateable by using what the Paginator Component already offers us and using Angular UI Bootstrap Paginator on the client-side code. On our server side, we just use the built-in serialization of CakePHP to generate the response. This is an example of a CakePHP controller index() method that is paginateable:]]></summary></entry><entry><title type="html">Cakephp3 I18n Language Inside The Url</title><link href="http://0.0.0.0:4000/2015/07/22/CakePHP3-i18n-Language-inside-the-URL.html" rel="alternate" type="text/html" title="Cakephp3 I18n Language Inside The Url" /><published>2015-07-22T00:02:51+00:00</published><updated>2015-07-22T00:02:51+00:00</updated><id>http://0.0.0.0:4000/2015/07/22/CakePHP3-i18n-Language-inside-the-URL</id><content type="html" xml:base="http://0.0.0.0:4000/2015/07/22/CakePHP3-i18n-Language-inside-the-URL.html"><![CDATA[<p>In CakePHP 2.x it was pretty cumbersome to get the language across all pages into the URL. With CakePHP 3 it is just awesome and easy. <a href="http://book.cakephp.org/3.0/en/development/routing.html#creating-persistent-url-parameters">You can now create persistent URL parameters</a>.</p>
+
+<p>This is basically all you need for the most basic implementation inside your config/routes.php. The code is mostly the same as in the previous link to the persistent URL parameters page but I’ve added the default language so that it is always present. If you don’t want a default language to be always present just remove the elseif part. Notice that you’ll have to add routes into the /:language/* scope to inject it.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Router</span><span class="o">::</span><span class="nf">addUrlFilter</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="n">params</span><span class="p">[</span><span class="s1">'language'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$params</span><span class="p">[</span><span class="s1">'language'</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nv">$params</span><span class="p">[</span><span class="s1">'language'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="n">params</span><span class="p">[</span><span class="s1">'language'</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="o">!</span><span class="k">isset</span><span class="p">(</span><span class="nv">$params</span><span class="p">[</span><span class="s1">'language'</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nv">$params</span><span class="p">[</span><span class="s1">'language'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'eng'</span><span class="p">;</span> <span class="c1">// set your default language here</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$params</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nc">Router</span><span class="o">::</span><span class="nf">scope</span><span class="p">(</span><span class="s1">'/:language/*'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// All URLs with the language go here</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>If you now want to change the URL to something else by a simple click on a flag for example you can use a simple link like this to change it:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Html</span><span class="o">-&gt;</span><span class="nb">link</span><span class="p">(</span><span class="nf">__</span><span class="p">(</span><span class="s1">'German'</span><span class="p">),</span> <span class="p">[</span><span class="s1">'language'</span> <span class="o">=&gt;</span> <span class="s1">'deu'</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>If you don’t want the language to be part of the URL but still detect the language somehow you can use the LocaleSelector dispatcher filter that will get it from the client. This is straight taken from the CakePHP book:</p>
+
+<blockquote>By using the LocaleSelectorFilter in your application, CakePHP will automatically set the locale based on the current user:</blockquote>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in config/bootstrap.php</span>
+<span class="nc">DispatcherFactory</span><span class="o">::</span><span class="nf">add</span><span class="p">(</span><span class="s1">'LocaleSelector'</span><span class="p">);</span>
+
+<span class="c1">// Restrict the locales to only en-US, fr-FR</span>
+<span class="nc">DispatcherFactory</span><span class="o">::</span><span class="nf">add</span><span class="p">(</span><span class="s1">'LocaleSelector'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'locales'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'en-US'</span><span class="p">,</span> <span class="s1">'fr-FR'</span><span class="p">]]);</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="cakephp" /><summary type="html"><![CDATA[In CakePHP 2.x it was pretty cumbersome to get the language across all pages into the URL. With CakePHP 3 it is just awesome and easy. You can now create persistent URL parameters.]]></summary></entry></feed>
