@@ -130,6 +130,8 @@ I've created a complete, runnable implementation that demonstrates all the conce
 
 ### Class Diagram
 
+Click the diagram to enlarge it, press ESC to close it.
+
 ```mermaid
 classDiagram
     class Order {

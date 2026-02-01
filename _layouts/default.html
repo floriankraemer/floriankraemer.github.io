@@ -130,23 +130,12 @@
           modal.setAttribute('aria-label', 'Mermaid diagram fullscreen view');
           
           // Set inline styles to ensure proper positioning
-          modal.style.position = 'fixed';
-          modal.style.top = '0';
-          modal.style.left = '0';
-          modal.style.width = '100%';
-          modal.style.height = '100%';
-          modal.style.zIndex = '10000';
-          modal.style.display = 'flex';
-          modal.style.alignItems = 'center';
-          modal.style.justifyContent = 'center';
-          modal.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
-          modal.style.margin = '0';
-          modal.style.padding = '20px';
-          modal.style.boxSizing = 'border-box';
+          modal.style.cssText = 'position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;z-index:10000!important;background-color:#ffffff!important;margin:0!important;padding:0!important;overflow:hidden!important;';
           
           // Create modal content
           var modalContent = document.createElement('div');
           modalContent.className = 'mermaid-modal-content';
+          modalContent.style.cssText = 'position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;background-color:#ffffff!important;padding:60px 20px 20px 20px!important;overflow:auto!important;box-sizing:border-box!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:center!important;';
           
           // Create new diagram container for modal
           var diagramDiv = document.createElement('div');
@@ -156,9 +145,12 @@
           // Create close button
           var closeButton = document.createElement('button');
           closeButton.className = 'mermaid-modal-close';
-          closeButton.innerHTML = '&times;';
+          closeButton.innerHTML = 'Close (ESC)';
           closeButton.setAttribute('aria-label', 'Close fullscreen view');
           closeButton.setAttribute('title', 'Close (ESC)');
+          
+          // Apply inline styles to ensure positioning
+          closeButton.style.cssText = 'position:fixed!important;top:20px!important;left:50%!important;transform:translateX(-50%)!important;z-index:10001!important;';
           
           modalContent.appendChild(closeButton);
           modalContent.appendChild(diagramDiv);
@@ -172,7 +164,7 @@
           document.body.style.overflow = 'hidden'; // Prevent background scrolling
           document.body.style.position = 'fixed';
           document.body.style.top = '-' + scrollY + 'px';
-          document.body.style.width = '100%';
+          document.body.style.width = '90%';
           
           // Render the mermaid diagram in the modal
           // Use a small delay to ensure DOM is ready, then render
@@ -183,6 +175,7 @@
                 mermaid.run({
                   nodes: [diagramDiv]
                 }).then(function() {
+                  scaleSvgToFit(diagramDiv);
                   closeButton.focus();
                 }).catch(function(err) {
                   console.error('Error rendering mermaid:', err);
@@ -191,6 +184,7 @@
               } else {
                 // Fallback for older versions
                 mermaid.init(undefined, [diagramDiv], function() {
+                  scaleSvgToFit(diagramDiv);
                   closeButton.focus();
                 });
               }
@@ -199,6 +193,60 @@
               closeButton.focus();
             }
           }, 10);
+          
+          function scaleSvgToFit(container) {
+            var svg = container.querySelector('svg');
+            if (!svg) return;
+            
+            // Get the original SVG dimensions from various sources
+            var svgRect = svg.getBoundingClientRect();
+            var svgWidth = svgRect.width;
+            var svgHeight = svgRect.height;
+            
+            // Try viewBox if bounding rect is too small
+            if (svg.viewBox && svg.viewBox.baseVal) {
+              var vb = svg.viewBox.baseVal;
+              if (vb.width > svgWidth) svgWidth = vb.width;
+              if (vb.height > svgHeight) svgHeight = vb.height;
+            }
+            
+            // Fallback to attributes
+            if (!svgWidth || svgWidth < 100) {
+              svgWidth = parseFloat(svg.getAttribute('width')) || 400;
+            }
+            if (!svgHeight || svgHeight < 100) {
+              svgHeight = parseFloat(svg.getAttribute('height')) || 300;
+            }
+            
+            // Available space (viewport minus padding for close button)
+            var availableWidth = window.innerWidth - 80;
+            var availableHeight = window.innerHeight - 120;
+            
+            // Calculate scale to fit while maintaining aspect ratio
+            var scaleX = availableWidth / svgWidth;
+            var scaleY = availableHeight / svgHeight;
+            var scale = Math.min(scaleX, scaleY);
+            
+            // Ensure reasonable scaling
+            scale = Math.max(scale, 1);   // Minimum 1x (no downscaling)
+            scale = Math.min(scale, 2.5); // Maximum 2.5x scale
+            
+            console.log('SVG scaling:', {
+              originalWidth: svgWidth,
+              originalHeight: svgHeight,
+              availableWidth: availableWidth,
+              availableHeight: availableHeight,
+              scale: scale
+            });
+            
+            // Apply the scale using transform
+            svg.style.transform = 'scale(' + scale + ')';
+            svg.style.transformOrigin = 'center center';
+            
+            // Also set explicit dimensions on the container to prevent layout issues
+            container.style.width = (svgWidth * scale) + 'px';
+            container.style.height = (svgHeight * scale) + 'px';
+          }
           
           // Close handlers
           function closeModal() {
@@ -229,8 +277,9 @@
           });
           
           modal.addEventListener('click', function(e) {
-            // Close if clicking the overlay (not the content)
-            if (e.target === modal) {
+            // Close if clicking anywhere except on the diagram or close button
+            if (e.target === modal || e.target === modalContent || 
+                (e.target !== closeButton && !modalContent.querySelector('.mermaid-fullscreen').contains(e.target))) {
               closeModal();
             }
           });
