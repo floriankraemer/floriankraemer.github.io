@@ -93,17 +93,13 @@ Cons
 ### Code Example
 
 ```java
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-// Interface for Recommendation Plugins
-interface RecommendationPlugin {
-    EnrichedRecommendation enrichRecommendation(Recommendation data);
-}
-
-// Core Recommendation class
+// 1. Core Data Model
 class Recommendation {
-    // Placeholder for recommendation data
     private String id;
 
     public Recommendation(String id) {
@@ -115,18 +111,37 @@ class Recommendation {
     }
 }
 
-// Enriched Recommendation class
+// 2. Enriched Result Container
+// This class holds the base data and a map for plugins to attach their specific details.
 class EnrichedRecommendation {
     private Recommendation baseRecommendation;
-    private Object additionalData;
+    private Map<String, Object> extensions = new HashMap<>();
 
-    public EnrichedRecommendation(Recommendation baseRecommendation, Object additionalData) {
+    public EnrichedRecommendation(Recommendation baseRecommendation) {
         this.baseRecommendation = baseRecommendation;
-        this.additionalData = additionalData;
+    }
+
+    // Allows plugins to add data safely using unique keys
+    public void addExtension(String key, Object data) {
+        this.extensions.put(key, data);
+    }
+
+    public Recommendation getBase() {
+        return baseRecommendation;
+    }
+
+    public Map<String, Object> getExtensions() {
+        return extensions;
     }
 }
 
-// Recommendations Module
+// 3. Plugin Interface
+interface RecommendationPlugin {
+    // The plugin modifies the enrichment object in-place
+    void enrich(EnrichedRecommendation context);
+}
+
+// 4. The Orchestrator Module
 class RecommendationsModule {
     private List<RecommendationPlugin> plugins;
 
@@ -135,18 +150,26 @@ class RecommendationsModule {
     }
 
     public List<EnrichedRecommendation> generateRecommendations() {
-        List<Recommendation> recommendations = fetchBaseRecommendations();
-        List<EnrichedRecommendation> enriched = new ArrayList<>();
-        for (RecommendationPlugin plugin : plugins) {
-            for (Recommendation rec : recommendations) {
-                enriched.add(plugin.enrichRecommendation(rec));
+        List<Recommendation> rawRecommendations = fetchBaseRecommendations();
+        List<EnrichedRecommendation> finalResults = new ArrayList<>();
+
+        // Process each recommendation
+        for (Recommendation raw : rawRecommendations) {
+            // Create the wrapper/context
+            EnrichedRecommendation enriched = new EnrichedRecommendation(raw);
+
+            // Pass the SINGLE wrapper through ALL plugins (Pipeline pattern)
+            for (RecommendationPlugin plugin : plugins) {
+                plugin.enrich(enriched);
             }
+
+            finalResults.add(enriched);
         }
-        return enriched;
+        return finalResults;
     }
 
     private List<Recommendation> fetchBaseRecommendations() {
-        // Core logic for generating recommendations
+        // Core logic for generating base recommendations
         List<Recommendation> recommendations = new ArrayList<>();
         recommendations.add(new Recommendation("rec1"));
         recommendations.add(new Recommendation("rec2"));
@@ -154,12 +177,14 @@ class RecommendationsModule {
     }
 }
 
-// Example Plugin for Events
+// 5. Example Implementation: Events Plugin
 class EventRecommendationPlugin implements RecommendationPlugin {
     @Override
-    public EnrichedRecommendation enrichRecommendation(Recommendation data) {
-        // Fetch event-specific data and enrich recommendation
-        return new EnrichedRecommendation(data, new Object() /* Event-specific data */);
+    public void enrich(EnrichedRecommendation context) {
+        // Simulate checking if this recommendation relates to an Event
+        // and attaching specific data to the map
+        String eventDetails = "EventDetails for " + context.getBase().getId();
+        context.addExtension("event_data", eventDetails);
     }
 }
 ```
@@ -216,4 +241,3 @@ Choose the Plugin/Extension pattern for a modular monolith where you need extens
 Choose the One Connector Module per Type pattern if future extraction into microservices is a primary design goal. Each connector acts as a clear seam and potential Anti-Corruption Layer for a future service boundary. This pattern makes the eventual migration significantly easier by pre-organizing the dependencies for independent deployment, even if it adds more modules initially.
 
 By calculating and considering module stability, we can make conscious design choices that prevent architectural decay. We build systems that are not only functional today but are also prepared for the inevitable changes of tomorrow.
-

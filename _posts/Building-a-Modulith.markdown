@@ -29,27 +29,25 @@ Vladik Khononov defines coupling as the amount of knowledge one component must h
 
 Recommended Talks about this topic:
 
-Design Accelerator: Good Coupling, Bad Coupling, Coupling FTW
-Balancing Coupling in Software Design (Vlad Khononov)
+* Design Accelerator: Good Coupling, Bad Coupling, Coupling FTW
+* Balancing Coupling in Software Design (Vlad Khononov)
 
 ## Modular Monolith vs Microservices
 
 The question that always comes up is when to chose Microservices over a modular Monolith.
 
-
-
 | Quality Attribute         | Modular Monolith                                 | Microservices                                      |
-|---------------------------|---------------------------------------------------|----------------------------------------------------|
+|---------------------------|--------------------------------------------------|----------------------------------------------------|
 | **Modularity**            | High (via internal modules)                      | Very High (via service boundaries)                 |
 | **Scalability**           | Limited to vertical scaling                      | High horizontal scalability                        |
 | **Deployability**         | Single unit deployment                           | Independent deployments per service                |
 | **Performance**           | High (in-process communication)                  | Lower (network overhead between services)          |
 | **Fault Isolation**       | Lower (a bug may crash the whole app)            | Higher (isolated service failures)                 |
-| **Operational Complexity**| Low (one app to monitor/deploy)                 | High (distributed system, orchestration needed)    |
+| **Operational Complexity**| Low (one app to monitor/deploy)                  | High (distributed system, orchestration needed)    |
 | **Data Consistency**      | Easier (single DB, transactional boundaries)     | Harder (eventual consistency, distributed txns)    |
 | **Development Speed**     | Fast in early stages, slower as app grows        | Faster for large teams with strong boundaries      |
 | **Technology Diversity**  | Low (typically single tech stack)                | High (each service can use different tech)         |
-| **Testing Complexity**    | Simpler (integration is easier)                 | More complex (integration across services)         |
+| **Testing Complexity**    | Simpler (integration is easier)                  | More complex (integration across services)         |
 | **Team Autonomy**         | Limited (tight coupling via shared codebase)     | High (independent teams own services)              |
 | **Maintainability**       | Good if modularized well                         | High per service, harder system-wide               |
 | **Security**              | Simpler (internal calls, shared boundary)        | Complex (network-level, inter-service auth needed) |

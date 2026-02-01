@@ -22,14 +22,14 @@ The term *microservice* first surfaced in 2011 to describe the fine-grained, bus
 
 Early talks and the 2014 Fowler–Lewis article framed a microservice as:
 
-> “In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.”
+> “In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.” [Source](https://martinfowler.com/articles/microservices.html)
 
 Key notions in 2011 to 2014:
 
-* **Fine-grained SOA:** Adrian Cockcroft called Netflix’s approach “fine-grained SOA” before the new name stuck.
-* **Unix philosophy:** Rodgers and Lewis stressed “smart endpoints, dumb pipes” and doing one thing well.
-* **REST over SOAP:** Rejecting Enterprise Service Bus in favour of simple HTTP JSON APIs.
-* **Team size heuristic:** Services should fit in a “two-pizza team”.
+* **Fine-grained SOA:** Adrian Cockcroft called Netflix’s approach “fine-grained SOA” before the new name stuck. [Source](https://a16z.com/podcast/a16z-podcast-all-about-microservices/)
+* **Unix philosophy:** Rodgers and Lewis stressed “smart endpoints, dumb pipes” and doing one thing well. [Source](https://martinfowler.com/articles/microservices.html)
+* **REST over SOAP:** Rejecting Enterprise Service Bus in favour of simple HTTP JSON APIs. [Source](https://nordicapis.com/what-does-smart-endpoints-and-dumb-pipes-mean/)
+* **Team size heuristic:** Services should fit in a “two-pizza team”. [Source](https://echometerapp.com/en/amazon-work-culture-two-pizza-team-rule/)
 
 ## How has the concept evolved?
 
