@@ -67,21 +67,177 @@
         function processMermaidBlock(block) {
           var code = block.textContent || block.innerText;
           
+          // Create wrapper container for clickable functionality
+          var wrapperDiv = document.createElement('div');
+          wrapperDiv.className = 'mermaid-wrapper';
+          
+          // Store original code as data attribute for later use
+          wrapperDiv.setAttribute('data-mermaid-code', code);
+          
           // Create mermaid diagram container
           var diagramDiv = document.createElement('div');
           diagramDiv.className = 'mermaid';
           diagramDiv.textContent = code;
           
-          // Insert the diagram after the code block
+          // Add click handler to wrapper
+          wrapperDiv.appendChild(diagramDiv);
+          
+          // Insert the wrapper after the code block
           var preElement = block.parentNode;
-          preElement.parentNode.insertBefore(diagramDiv, preElement.nextSibling);
+          preElement.parentNode.insertBefore(wrapperDiv, preElement.nextSibling);
           
           // Hide the original code block
           preElement.style.display = 'none';
         }
         
         // Initialize mermaid after processing all blocks
-        mermaid.init();
+        var mermaidElements = document.querySelectorAll('.mermaid');
+        if (mermaidElements.length > 0) {
+          mermaid.init(undefined, mermaidElements);
+          
+          // Wait for mermaid to render, then setup click handlers
+          // Use a small delay to ensure SVG is rendered
+          setTimeout(function() {
+            setupMermaidClickHandlers();
+          }, 100);
+        }
+        
+        function setupMermaidClickHandlers() {
+          var wrappers = document.querySelectorAll('.mermaid-wrapper');
+          
+          wrappers.forEach(function(wrapper) {
+            var diagram = wrapper.querySelector('.mermaid');
+            if (!diagram) return;
+            
+            // Make wrapper clickable
+            wrapper.style.cursor = 'pointer';
+            wrapper.title = 'Click to view fullscreen';
+            
+            wrapper.addEventListener('click', function(e) {
+              // Allow clicking anywhere on the diagram to open fullscreen
+              var mermaidCode = wrapper.getAttribute('data-mermaid-code');
+              openMermaidFullscreen(mermaidCode);
+            });
+          });
+        }
+        
+        function openMermaidFullscreen(mermaidCode) {
+          // Create modal overlay
+          var modal = document.createElement('div');
+          modal.className = 'mermaid-modal';
+          modal.setAttribute('role', 'dialog');
+          modal.setAttribute('aria-modal', 'true');
+          modal.setAttribute('aria-label', 'Mermaid diagram fullscreen view');
+          
+          // Set inline styles to ensure proper positioning
+          modal.style.position = 'fixed';
+          modal.style.top = '0';
+          modal.style.left = '0';
+          modal.style.width = '100%';
+          modal.style.height = '100%';
+          modal.style.zIndex = '10000';
+          modal.style.display = 'flex';
+          modal.style.alignItems = 'center';
+          modal.style.justifyContent = 'center';
+          modal.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
+          modal.style.margin = '0';
+          modal.style.padding = '20px';
+          modal.style.boxSizing = 'border-box';
+          
+          // Create modal content
+          var modalContent = document.createElement('div');
+          modalContent.className = 'mermaid-modal-content';
+          
+          // Create new diagram container for modal
+          var diagramDiv = document.createElement('div');
+          diagramDiv.className = 'mermaid mermaid-fullscreen';
+          diagramDiv.textContent = mermaidCode;
+          
+          // Create close button
+          var closeButton = document.createElement('button');
+          closeButton.className = 'mermaid-modal-close';
+          closeButton.innerHTML = '&times;';
+          closeButton.setAttribute('aria-label', 'Close fullscreen view');
+          closeButton.setAttribute('title', 'Close (ESC)');
+          
+          modalContent.appendChild(closeButton);
+          modalContent.appendChild(diagramDiv);
+          modal.appendChild(modalContent);
+          
+          // Prevent any scroll jumps - save current scroll position
+          var scrollY = window.scrollY;
+          
+          // Add to body (at the end to ensure it's on top)
+          document.body.appendChild(modal);
+          document.body.style.overflow = 'hidden'; // Prevent background scrolling
+          document.body.style.position = 'fixed';
+          document.body.style.top = '-' + scrollY + 'px';
+          document.body.style.width = '100%';
+          
+          // Render the mermaid diagram in the modal
+          // Use a small delay to ensure DOM is ready, then render
+          setTimeout(function() {
+            try {
+              // Try using mermaid.run if available (v10+)
+              if (typeof mermaid.run === 'function') {
+                mermaid.run({
+                  nodes: [diagramDiv]
+                }).then(function() {
+                  closeButton.focus();
+                }).catch(function(err) {
+                  console.error('Error rendering mermaid:', err);
+                  closeButton.focus();
+                });
+              } else {
+                // Fallback for older versions
+                mermaid.init(undefined, [diagramDiv], function() {
+                  closeButton.focus();
+                });
+              }
+            } catch (err) {
+              console.error('Error rendering mermaid diagram:', err);
+              closeButton.focus();
+            }
+          }, 10);
+          
+          // Close handlers
+          function closeModal() {
+            if (modal && modal.parentNode) {
+              document.body.removeChild(modal);
+            }
+            // Restore scrolling and scroll position
+            var scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = '';
+            if (scrollY) {
+              window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+            document.removeEventListener('keydown', handleEsc);
+          }
+          
+          function handleEsc(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+              closeModal();
+            }
+          }
+          
+          closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeModal();
+          });
+          
+          modal.addEventListener('click', function(e) {
+            // Close if clicking the overlay (not the content)
+            if (e.target === modal) {
+              closeModal();
+            }
+          });
+          
+          // Close on ESC key
+          document.addEventListener('keydown', handleEsc);
+        }
       });
     </script>
 
