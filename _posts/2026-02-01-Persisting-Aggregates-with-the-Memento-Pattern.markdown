@@ -56,13 +56,16 @@ You would directly couple your domain model to the persistence layer. Using the 
 
 ```php
 // persist order
+$memento = $order->createMemento();
+$data = $memento->toArray();
+
 $stmt = $this->pdo->prepare(
-    'REPLACE INTO orders (id, customer, status) VALUES (:id, :customer, :status)'
+    'INSERT OR REPLACE INTO orders (id, customer, status) VALUES (:id, :customer, :status)'
 );
 $stmt->execute([
-    ':id' => $order->createMemento()->id,
-    ':customer' => $order->createMemento()->customer,
-    ':status' => $order->createMemento()->status,
+    ':id' => $data['id'],
+    ':customer' => $data['customer'],
+    ':status' => $data['status'],
 ]);
 ```
 
@@ -70,25 +73,30 @@ $stmt->execute([
 
 ```php
 // persist order
+$memento = $order->createMemento();
+$data = $memento->toArray();
+
 $this->connection->executeStatement(
-    'REPLACE INTO orders (id, customer, status) VALUES (:id, :customer, :status)',
+    'INSERT OR REPLACE INTO orders (id, customer, status) VALUES (:id, :customer, :status)',
     [
-        'id' => $order->createMemento()->id,
-        'customer' => $order->createMemento()->customer,
-        'status' => $order->createMemento()->status,
+        'id' => $data['id'],
+        'customer' => $data['customer'],
+        'status' => $data['status'],
     ]
 );
-
 ```
 
 ### Doctrine ORM Repository
 
 ```php
 // persist order
+$memento = $order->createMemento();
+$data = $memento->toArray();
+
 $entity = new OrderEntity(
-    $order->createMemento()->id,
-    $order->createMemento()->customer,
-    $order->createMemento()->status
+    $data['id'],
+    $data['customer'],
+    $data['status']
 );
 
 $this->entityManager->persist($entity);
@@ -105,60 +113,86 @@ $this->entityManager->flush(); // writes to DB
 
 ## Example: Order Aggregate
 
-**You can find the whole, working example [on Github](https://github.com/floriankraemer/php-memento-example).** For the sake of keeping this blog article relativly short, I'll just include the repository implementation here.
+For the sake of keeping this blog article relatively short, I'll include only the most relevant excerpts here.
+
+### Complete Working Example
+
+I've created a complete, runnable implementation that demonstrates all the concepts discussed in this article. The repository includes:
+
+- The full Order aggregate with value objects (`OrderId`, `Customer`, `OrderStatus`)
+- The `OrderMemento` class with JSON serialization
+- A PDO-based repository implementation with transactions
+- SQLite database schema
+- Unit and integration tests
+- Docker setup for easy local development
+
+**Check out the repository: [github.com/floriankraemer/php-memento-example](https://github.com/floriankraemer/php-memento-example)**
 
 ### Class Diagram
 
 ```mermaid
 classDiagram
     class Order {
-        -id: string
-        -customer: string
-        -status: string
+        -orderId: OrderId
+        -customer: Customer
+        -status: OrderStatus
         -items: OrderItem[]
-        -metadata: OrderMetadata?
-        +create(id: string, customer: string): Order
+        -shippingAddress: ShippingAddress?
+        +create(orderId: OrderId, customer: Customer): Order
         +addItem(product: string, quantity: int, price: int): void
-        +setMetadata(shippingAddress: string): void
+        +setShippingAddress(street: string, city: string, state: string, postalCode: string, country: string): void
         +createMemento(): OrderMemento
         +createFromMemento(memento: OrderMemento): Order
     }
 
     class OrderItem {
-        +product: string
-        +quantity: int
-        +price: int
-        +__construct(product: string, quantity: int, price: int)
-        +jsonSerialize(): mixed
+        -product: string
+        -quantity: int
+        -price: int
+        +fromArray(data: array): OrderItem
+        +toArray(): array
+        +jsonSerialize(): array
     }
 
-    class OrderMetadata {
-        +shippingAddress: string
-        +__construct(shippingAddress: string)
-        +jsonSerialize(): mixed
+    class ShippingAddress {
+        -street: string
+        -city: string
+        -state: string
+        -postalCode: string
+        -country: string
+        +fromArray(data: array): ShippingAddress
+        +toArray(): array
+        +jsonSerialize(): array
     }
 
     class OrderMemento {
-        +id: string
-        +customer: string
-        +status: string
-        +items: OrderItem[]
-        +metadata: OrderMetadata?
-        +__construct(id: string, customer: string, status: string, items: array, metadata: OrderMetadata?)
-        +jsonSerialize(): mixed
+        -id: string
+        -customer: string
+        -status: string
+        -items: OrderItem[]
+        -shippingAddress: ShippingAddress?
+        +fromArray(data: array): OrderMemento
+        +toArray(): array
+        +jsonSerialize(): array
         +fromJson(json: string): OrderMemento
+    }
+
+    class OrderRepositoryInterface {
+        <<interface>>
+        +persist(order: Order): void
+        +restore(id: string, version: int?): Order?
     }
 
     class OrderRepository {
         -pdo: PDO
-        +__construct(pdo: PDO)
         +persist(order: Order): void
-        +restore(id: string, version: int): Order?
+        +restore(id: string, version: int?): Order?
     }
 
     Order "1" *-- "0..*" OrderItem : contains
-    Order "1" *-- "0..1" OrderMetadata : has
+    Order "1" *-- "0..1" ShippingAddress : has
     Order ..> OrderMemento : creates / restores from
+    OrderRepository ..|> OrderRepositoryInterface : implements
     OrderRepository ..> OrderMemento : uses for persistence
     OrderRepository ..> Order : persists / restores
 ```
@@ -169,82 +203,172 @@ classDiagram
 CREATE TABLE orders (
     id VARCHAR(36) PRIMARY KEY,
     customer VARCHAR(255) NOT NULL,
-    status VARCHAR(50) NOT NULL
+    status VARCHAR(50) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE order_items (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     order_id VARCHAR(36) NOT NULL,
     product VARCHAR(255) NOT NULL,
-    quantity INT NOT NULL,
-    price INT NOT NULL,
+    quantity INTEGER NOT NULL,
+    price INTEGER NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(id),
-    UNIQUE KEY unique_order_product (order_id, product)
+    UNIQUE(order_id, product)
 );
 
-CREATE TABLE order_metadata (
+CREATE TABLE order_shipping_address (
     order_id VARCHAR(36) PRIMARY KEY,
-    shipping_address VARCHAR(255) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    postal_code VARCHAR(50) NOT NULL,
+    country VARCHAR(100) NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(id)
 );
 
 CREATE TABLE order_mementos (
     id VARCHAR(36) NOT NULL,
-    version INT NOT NULL AUTO_INCREMENT,
-    snapshot JSON NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    version INTEGER NOT NULL,
+    snapshot TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id, version)
 );
 ```
 
-The repository implementation, this is simple, straight forward, easy to understand SQL and PHP code.
+### The Memento
+
+The `OrderMemento` is a readonly class that captures the complete state of an Order at a specific point in time. It implements `JsonSerializable` for easy persistence:
 
 ```php
-<?php
+final readonly class OrderMemento implements \JsonSerializable
+{
+    /** @param OrderItem[] $items */
+    public function __construct(
+        private readonly string $id,
+        private readonly string $customer,
+        private readonly string $status,
+        private readonly array $items,
+        private readonly ?ShippingAddress $shippingAddress,
+    ) {}
 
-declare(strict_types=1);
+    public static function fromArray(array $data): self
+    {
+        $items = array_map(
+            static fn (array $itemData): OrderItem => OrderItem::fromArray($itemData),
+            $data['items']
+        );
 
-namespace MementoExample\Infrastructure;
+        $shippingAddress = isset($data['shippingAddress'])
+            ? ShippingAddress::fromArray($data['shippingAddress'])
+            : null;
 
-use MementoExample\Domain\Order;
-use MementoExample\Domain\OrderMemento;
+        return new self($data['id'], $data['customer'], $data['status'], $items, $shippingAddress);
+    }
 
-/**
- * Repository for persisting and retrieving Order aggregates.
- *
- * This class handles all database operations for orders using plain PDO.
- * It manages the persistence of orders, their items, metadata, and mementos
- * within database transactions to ensure data consistency.
- */
-final class OrderRepository
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'customer' => $this->customer,
+            'status' => $this->status,
+            'items' => array_map(static fn (OrderItem $item): array => $item->toArray(), $this->items),
+            'shippingAddress' => $this->shippingAddress?->toArray(),
+        ];
+    }
+
+    public function jsonSerialize(): array
+    {
+        return $this->toArray();
+    }
+
+    public static function fromJson(string $json): self
+    {
+        return self::fromArray(json_decode($json, true, 512, JSON_THROW_ON_ERROR));
+    }
+}
+```
+
+### The Order Aggregate
+
+The `Order` aggregate uses value objects for type safety and encapsulates its state. It provides `createMemento()` and `createFromMemento()` methods:
+
+```php
+final class Order
+{
+    /** @var OrderItem[] */
+    private array $items = [];
+    private ?ShippingAddress $shippingAddress = null;
+    private OrderId $orderId;
+    private Customer $customer;
+    private OrderStatus $status;
+
+    private function __construct() {}
+
+    public static function create(OrderId $orderId, Customer $customer): self
+    {
+        $order = new self();
+        $order->orderId = $orderId;
+        $order->customer = $customer;
+        $order->status = OrderStatus::new();
+
+        return $order;
+    }
+
+    public function createMemento(): OrderMemento
+    {
+        return new OrderMemento(
+            $this->orderId->value(),
+            $this->customer->value(),
+            $this->status->value(),
+            $this->items,
+            $this->shippingAddress
+        );
+    }
+
+    public static function createFromMemento(OrderMemento $memento): self
+    {
+        $data = $memento->toArray();
+        $order = new self();
+        $order->orderId = new OrderId($data['id']);
+        $order->customer = new Customer($data['customer']);
+        $order->status = new OrderStatus($data['status']);
+        $order->items = array_map(
+            static fn (array $itemData): OrderItem => OrderItem::fromArray($itemData),
+            $data['items']
+        );
+        $order->shippingAddress = isset($data['shippingAddress'])
+            ? ShippingAddress::fromArray($data['shippingAddress'])
+            : null;
+
+        return $order;
+    }
+
+    // ... other methods like addItem(), setShippingAddress()
+}
+```
+
+### The Repository Implementation
+
+The repository implementation is simple, straightforward, and easy to understand SQL and PHP code. It uses transactions to ensure data consistency:
+
+```php
+final class OrderRepository implements OrderRepositoryInterface
 {
     public function __construct(
         private readonly \PDO $pdo,
     ) {}
 
-    /**
-     * Persists an Order aggregate to the database using efficient UPSERT operations.
-     *
-     * Orchestrates the persistence of an order aggregate within a database transaction:
-     * - Persists main order data, items, metadata, and creates a memento snapshot
-     * - Uses atomic transactions to ensure data consistency
-     * - Rolls back all changes if any operation fails
-     *
-     * @param Order $order The order aggregate to persist
-     * @throws \Throwable If any database operation fails (transaction is rolled back)
-     */
     public function persist(Order $order): void
     {
         $memento = $order->createMemento();
-
-        // * Ensure transaction is not started inside try-catch to avoid
-        //   rollback issues on non-started transactions
         $this->pdo->beginTransaction();
 
         try {
             $this->persistOrder($memento);
             $this->persistOrderItems($memento);
-            $this->persistOrderMetadata($memento);
+            $this->persistOrderShippingAddress($memento);
             $this->storeMemento($memento);
 
             $this->pdo->commit();
@@ -254,126 +378,59 @@ final class OrderRepository
         }
     }
 
-    /**
-     * Restores an Order from a memento snapshot by version.
-     *
-     * @param string $id Order ID to restore
-     * @param int $version Version number of the memento to restore from
-     * @return Order|null The restored order, or null if not found
-     * @throws \PDOException If database query fails
-     */
-    public function restore(string $id, int $version): ?Order
+    public function restore(string $id, ?int $version = null): ?Order
     {
-        $stmt = $this->pdo->prepare(
-            'SELECT snapshot FROM order_mementos WHERE id = :id AND version = :version'
-        );
-        $stmt->execute([':id' => $id, ':version' => $version]);
-        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $snapshot = $this->fetchMementoSnapshot($id, $version);
 
-        if (!$row) {
+        if (null === $snapshot) {
             return null;
         }
 
-        $memento = OrderMemento::fromJson($row['snapshot']);
-
-        return Order::createFromMemento($memento);
+        return Order::createFromMemento(OrderMemento::fromJson($snapshot));
     }
 
-    /**
-     * Persists the main order data.
-     */
     private function persistOrder(OrderMemento $memento): void
     {
+        $data = $memento->toArray();
         $stmt = $this->pdo->prepare(
-            'INSERT OR REPLACE INTO orders (id, customer, status, updated_at) VALUES (:id, :customer, :status, CURRENT_TIMESTAMP)'
+            'INSERT OR REPLACE INTO orders (id, customer, status, updated_at) 
+             VALUES (:id, :customer, :status, CURRENT_TIMESTAMP)'
         );
 
         $stmt->execute([
-            ':id' => $memento->id,
-            ':customer' => $memento->customer,
-            ':status' => $memento->status,
+            ':id' => $data['id'],
+            ':customer' => $data['customer'],
+            ':status' => $data['status'],
         ]);
     }
 
-    /**
-     * Persists order items using INSERT OR REPLACE for UPSERT functionality.
-     */
     private function persistOrderItems(OrderMemento $memento): void
     {
-        foreach ($memento->items as $item) {
+        $data = $memento->toArray();
+        foreach ($data['items'] as $itemData) {
             $stmt = $this->pdo->prepare(
-                'INSERT OR REPLACE INTO order_items (order_id, product, quantity, price) VALUES (:order_id, :product, :quantity, :price)'
+                'INSERT OR REPLACE INTO order_items (order_id, product, quantity, price) 
+                 VALUES (:order_id, :product, :quantity, :price)'
             );
 
             $stmt->execute([
-                ':order_id' => $memento->id,
-                ':product' => $item->product,
-                ':quantity' => $item->quantity,
-                ':price' => $item->price,
+                ':order_id' => $data['id'],
+                ':product' => $itemData['product'],
+                ':quantity' => $itemData['quantity'],
+                ':price' => $itemData['price'],
             ]);
         }
 
-        // * Remove items that are no longer in the order
         $this->removeOrphanedOrderItems($memento);
     }
 
-    /**
-     * Removes order items that are no longer part of the order.
-     */
-    private function removeOrphanedOrderItems(OrderMemento $memento): void
-    {
-        $currentProducts = array_map(
-            static fn($item) => $item->product,
-            $memento->items
-        );
-
-        if (empty($currentProducts)) {
-            // * If no items remain, delete all items for this order
-            $stmt = $this->pdo->prepare('DELETE FROM order_items WHERE order_id = ?');
-            $stmt->execute([$memento->id]);
-            return;
-        }
-
-        // * Build placeholders for the IN clause
-        $placeholders = str_repeat('?,', count($currentProducts) - 1) . '?';
-        $stmt = $this->pdo->prepare(
-            "DELETE FROM order_items WHERE order_id = ? AND product NOT IN ($placeholders)"
-        );
-
-        $stmt->execute([$memento->id, ...$currentProducts]);
-    }
-
-    /**
-     * Persists order metadata, or removes it if not present.
-     */
-    private function persistOrderMetadata(OrderMemento $memento): void
-    {
-        if ($memento->metadata !== null) {
-            $stmt = $this->pdo->prepare(
-                'INSERT OR REPLACE INTO order_metadata (order_id, shipping_address) VALUES (:order_id, :shipping_address)'
-            );
-
-            $stmt->execute([
-                ':order_id' => $memento->id,
-                ':shipping_address' => $memento->metadata->shippingAddress,
-            ]);
-
-            return;
-        }
-
-        // * Remove metadata if it no longer exists
-        $stmt = $this->pdo->prepare('DELETE FROM order_metadata WHERE order_id = :id');
-        $stmt->execute([':id' => $memento->id]);
-    }
-
-    /**
-     * Stores a memento snapshot of the order.
-     */
     private function storeMemento(OrderMemento $memento): void
     {
-        // * Get the next version number for this order
-        $stmt = $this->pdo->prepare('SELECT COALESCE(MAX(version), 0) + 1 AS next_version FROM order_mementos WHERE id = :id');
-        $stmt->execute([':id' => $memento->id]);
+        $data = $memento->toArray();
+        $stmt = $this->pdo->prepare(
+            'SELECT COALESCE(MAX(version), 0) + 1 AS next_version FROM order_mementos WHERE id = :id'
+        );
+        $stmt->execute([':id' => $data['id']]);
         $nextVersion = (int) $stmt->fetchColumn();
 
         $stmt = $this->pdo->prepare(
@@ -381,11 +438,13 @@ final class OrderRepository
         );
 
         $stmt->execute([
-            ':id' => $memento->id,
+            ':id' => $data['id'],
             ':version' => $nextVersion,
             ':snapshot' => json_encode($memento, JSON_THROW_ON_ERROR),
         ]);
     }
+
+    // ... additional helper methods for shipping address and orphaned items cleanup
 }
 ```
 
@@ -398,8 +457,9 @@ To prevent conflicts in concurrent updates (e.g., two users modifying the same o
 private int $version;
 
 // In persist():
+$data = $memento->toArray();
 $stmt = $this->pdo->prepare('SELECT version FROM orders WHERE id = :id FOR UPDATE');
-$stmt->execute([':id' => $memento->id]);
+$stmt->execute([':id' => $data['id']]);
 $currentVersion = (int) $stmt->fetchColumn();
 
 if ($currentVersion !== $memento->version()) {
