@@ -14,7 +14,7 @@ tags:
 draft: false
 published: true
 comments: true
-date: 2026-01-12T13:35:10.000Z
+date: 2026-02-01T11:41:11.000Z
 ---
 
 This article will show how to use the Memento Pattern to persist aggregates just using plain old PDO.
