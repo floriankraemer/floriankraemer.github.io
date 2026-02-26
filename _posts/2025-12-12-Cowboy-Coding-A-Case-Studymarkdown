@@ -9,7 +9,7 @@ tags:
 draft: true
 published: false
 comments: true
-date: 2025-11-30
+date: 2025-09-30
 ---
 
 Have you heard of "Cowboy Coding" before? It is a term used to describe a very unstructured development process. The reasons for the lack of structure can be variable but at the end it is an intentional or unintentional lack of proper processes and leadership.
@@ -69,15 +69,15 @@ On the Wikipedia page, four points are listed that describe advantages of this a
 
 ### Why I do not think they are valid
 
-In one sentence: Mostly because the advantages being described rarely manifest in reality.
+Mostly because the advantages being described are rarely manifest in reality.
 
-The first one only applies if you have _intrinsically highly motivated autodidacts, that are beyond junior level and capable of self-organization_, communication and alignment in their team and with other teams. Nothing of this is currently present in the organization of this case study. Three of five teams in this case study lack the skills and leadership to be able to act in that way.
+The first one only applies if you have _intrinsically highly motivated autodidacts that are beyond junior level and capable of self-organization_, communication and alignment in their team and with other teams. Nothing of this is currently present in the organization of this case study.
 
-The second is simply a gate to total chaos, an invitation to ignore everything. The third as well, if it goes beyond the proof of concepts and prototyping or really trivial things. This might be an approach for short-term, small “throw-away” pieces of code, but not for a sustainable, maintainable product of larger scale. It will lead to a big ball of mud architecture.
+The second is simply a gate to total chaos, an invitation to ignore everything. The third as well, if it goes beyond the proof of concepts and prototyping or really trivial things. This might be an approach for short-term, small “throw-away” pieces of code, but not for a sustainable, maintainable product.
 
-As mentioned already by prototyping, it can in fact make sense to have such a free roaming development team, if its **only** purpose is to create quick and dirty proof of concepts and prototypes. The results should then be either thrown away and properly rebuilt or, if economically feasible, refactored to match a high quality. This is basically how SpaceX iterates its Starship design. Build, test, throw away, reiterate.
+As mentioned already by prototyping, it can in fact make sense to have such a free roaming development team if its only purpose is to create quick and dirty proof of concepts and prototypes. The results should then be either thrown away and properly rebuilt or, if economically feasible, refactored to match a high quality.
 
-As for the fourth, it doesn’t specify where the boundary lies or whether that's really the intended purpose to have people working on features in their free time. There are also legal, mostly copyright, and work-time law (depending on the country) questions regarding number four. I personally find it ethically questionable to rely on or use people who even show this level of commitment. I think it is unhealthy for the developers in the long term and the company capitalizes on them in an unethical manner. I don't know what kind of person wrote that last point. If your developers need to work in their free time your organization screwed very like up big time the planning, probably strategic and tactical. This point sounds like a justification for exploiting highly committed employees and should be completely dismissed as a valid organizational advantage.
+As for the fourth, it doesn’t specify where the boundary lies or whether that's really the intended purpose to have people working on features in their free time. There are also legal, mostly copyright, and work-time questions regarding number four.
 
 ## Findings within the Organization
 
@@ -94,32 +94,31 @@ Because the organization did not record any metrics, it is hard to provide quant
 ### 2. Alignment Between Product & Technology
 
 - Significant disconnect between technical implementation and product management.
-- Absence of a Product Owner (or equivalent role)
-- Absence of a maintained backlog.
+- Absence of a Product Owner (or equivalent role) and a maintained backlog.
 - Minimal to no recording of technical debt or improvement initiatives in ticketing systems, preventing prioritization and planning.
 - Lack of structured refactoring efforts, increasing the risk of long-term quality degradation.
 
 ### 3. Motivation & Skills Development
 
 - Teams show limited intrinsic motivation or initiative to improve processes and skills.
-- No observable self-driven improvements in the past ~8 months; improvements occur only when enforced by C-level management stakeholders.
-- Lack of a culture of continuous learning or up-skilling.
+- No observable self-driven improvements in the past ~8 months; improvements occur only when enforced by C-level.
+- Lack of a culture of continuous learning or upskilling.
 
 ### 4. Leadership Model & Authority
 
-- The current laissez-faire approach is ineffective without skilled, motivated individuals, especially leaders who drive the development and teams.
+- The current laissez-faire approach is ineffective without skilled, motivated individuals.
 - Absence of metrics (e.g., DORA) to quantify performance.
 - C-level intervention is often required for essential processes to occur.
-- No clear authority for directives between developers and C-level; issues escalate very often directly to C-level, which pushes those stakeholders towards micro-management.
+- No clear authority for directives between developers and C-level; issues escalate directly to C-level.
 
 ### 5. Team Composition & Skill Levels
 
 - Skewed distribution toward junior developers; insufficient senior developers to mentor and lead by example.
 - Overall skill levels are below expectations:
-  - Weak object-oriented design skills.
-  - Poor or absent testing practices.
-  - Limited planning and communication skills.
-  - Insufficient systems thinking.
+  - Weak object-oriented design skills
+  - Poor or absent testing practices
+  - Limited planning and communication skills
+  - Insufficient systems thinking
 
 ### 6. Responsibilities & Ownership
 
@@ -128,21 +127,21 @@ Because the organization did not record any metrics, it is hard to provide quant
 ### 7. Communication Issues
 
 - Communication breakdowns across all levels, including C-level:
-  - Slow or absent responses, sometimes spanning days.
-  - Ignored messages.
-  - Poor calendar usage, complicating scheduling.
-  - Knowledge and communication silos: Critical discussions happening in private channels, reducing transparency and information sharing.
+  - Slow or absent responses, sometimes spanning days
+  - Ignored messages
+  - Poor calendar usage, complicating scheduling
+  - Critical discussions happening in private channels, reducing transparency and information sharing
 
 ### 8. Cultural & Motivational Environment
 
-- The environment allows low-motivation individuals to persist without improvement, likely due to resistance to change.
+- Environment allows low-motivation individuals to persist without improvement, likely due to resistance to change.
 - Structural issues frustrate higher-performing individuals, negatively impacting their motivation.
 - Multiple team members report dissatisfaction with leadership, direction, and various points already listed.
 
 ### 9. Misuse of AI
 
 - Some individuals use AI tools without fully understanding the underlying problems or context, leading to over-reliance on inaccurate results.
-- Effective AI use requires clear problem definition and contextual understanding, which is currently lacking, and of course the ability to understand and review what the AI did.
+- Effective AI use requires clear problem definition and contextual understanding, which is currently lacking.
 
 ## Assessment
 
@@ -160,13 +159,13 @@ As one of my mentors a few years back said, "It is your job to provide the manag
 
 To be able to understand the proposed changes it is of course required to understand the situation and context.
 
-We are talking here about 3-5 development teams, depending on how they are currently composed and a big ball of mud architecture, which is something that should not be surprising, if you read the assessment. Because of that quality of the delivered product is often impacted and the development speed is often slow.
+We are talking here about 3-5 development teams, depending on how they are currently composed and a big ball of mud architecture, which is something that should not be surprising if you read the assessment. Because of that quality of the delivered product is often impacted and the development speed is often slow.
 
 One of the primary investors is ready to provide additional funding to improve the development speed, because his opinion is that the development is too slow and therefore too expensive. Given the risk of losing a potential big investor the different options being discussed later on had to be delivered very quickly.
 
 ### 1# Change the Culture and up-skill the Developers
 
-The goal here is to keep most of the people in place and make changes to the organizations structure and culture while at the same time up-skilling existing staff, to not have to replace anyone.
+The goal here is to keep most of the people in place and make changes to the organizations structure and culture while at the same time upskilling existing staff, to not have to replace anyone.
 
 | Priority | Proposed Action | Expected Effect on the Business |
 | :---- | :---- | :---- |
@@ -187,19 +186,18 @@ On the other hand, some people of different skill levels are already not happy. 
 
 ### #2 Build a new Development Team, refactor the existing System
 
+Hire very skilled developers, 5-6
+Proven TDD & SOLID skills are a hard requirement
+A good tech lead
+A good product owner
+Start to measure things, e.g. DORA to figure out how we perform
 This team will work exclusively on migrating existing functionality and creating new functionality in the already planned new architecture.
-
-- Hire very skilled developers, 5-6
-- Proven TDD & SOLID skills are a hard requirement
-- A good tech lead
-- A good product owner
-- Start to measure things, e.g. DORA to figure out how we perform
-
-Hiring those people will require time, this is probably hard to do within less than 3-6 months to get the whole team together and form a functioning team. *First results should probably not be expected in less than 6 - 10 months.*
+Hiring those people will require time, this is probably hard to do within less than 3-6 months to get the whole team together.
+First results should probably not be expected in less than 6 - 10 months.
 
 This is basically the plan we currently have but with a highly skilled team that will do the work on the new implementation that we plan to do with the modular monolith architecture.
 
-The unknown and hard part here is to decide which parts will be implemented when in the new system. Given the entanglement of the existing code base, down to the DB layer, makes it extremely difficult to estimate anything. For each migration step to the new architecture they will have to implement an “anti-corruption layer” between the new and old system, to keep the new architecture clean but to connect to the old components.
+The unknown and hard part here is to decide which parts will be implemented when in the new system. Given the entanglement of the existing code base down to the DB layer makes it extremely difficult to estimate anything. For each migration step to the new architecture we will have to implement an “anti-corruption layer” between the new and old system, to keep the new architecture clean but to connect to the old components.
 
 A so-called “big bang release” is highly unlikely to be a good option. This would require it to basically build everything from scratch, which is not easy to predict at all. This can be something in between 12 and 24 months.
 
@@ -207,31 +205,32 @@ A so-called “big bang release” is highly unlikely to be a good option. This 
 
 This option was actually proposed by the investor and triggered the whole evaluation.
 
-- Hire very skilled developers, 5-6
-- Proven TDD & SOLID skills are a hard requirement
-- A good tech lead
-- A good product owner
-- Start to measure things, e.g. DORA to figure out how we perform
-
-Let the existing teams continue to work as it is and put the product in maintenance mode and create a complete new iteration of the product from the ground up in parallel.
-
-It will have to connect with at least two legacy systems. When the new product becomes available, fade out the old version. It then needs to be evaluated if and who of the old team is still needed.
+Hire very skilled developers, 5-6
+Proven TDD & SOLID skills are a hard requirement
+A good tech lead
+A good product owner
+Start to measure things, e.g. DORA to figure out how we perform
+Let the existing CMH team continue to work as it is and put the product in maintenance mode.
+Create a complete new iteration of the product from the ground up
+It will have to connect with EQ-Data
+It will have to connect with the Cockpit
+The Cockpit application will require changes as well.
+When the new product becomes available, fade out the old version
+It then needs to be evaluated if and who of the old team is still needed.
 
 This will have a severe impact on the morale and lives of a lot of the impacted staff as soon as the new product iteration is ready.
 
 ### Caveats
 
-- Hiring new qualified developers will take time.
-- To form a well functioning team, even with skilled individuals will take time.
-- Whatever options are chosen, there will be a startup phase, in which processes and people will have to align and start working together as intended.
-- None of the solutions will have a “kickstart” like effect that might be expected by the investor and C-level stakeholders.
-- If and how quickly any of them becomes a reality is also highly dependent on how much the management is willing to change the existing culture and leadership style.
+* Hiring new qualified developers will take time.
+* To form a well functioning team, even with skilled individuals will take time.
+* Whatever options are chosen, there will be a startup phase, in which processes and people will have to align and start working together as intended.
+* None of the solutions will have a “kickstart” like effect that might be expected by the investor.
+* If and how quickly any of them becomes a reality is also highly dependent on how much the management is willing to change the existing culture and leadership style.
 
 ## Conclusion
 
-Unfortunately, nothing concrete has been decided yet, the path the organization is going to choose is up to it but I'm very interested in the results. I *might* write another article about that in a few month, no promise.
-
-Once you are in such a situation as this organization, it will be very hard to get out of it without a lot effort. The inconvenient truth is, that there is no quick and easy way out of the situation. It also demonstrates that you will certainly not win anything by the fallacy of thinking that not testing, a lack of design and architecture, will speed anything up mid to long-term.
+Unfortunately, nothing concrete has been decided yet, the path the organization is going to choose is up to it but I'm very interested in the results. I might write another article about then in a few month.
 
 Regarding Cowboy Coding as a methodology of development, my personal opinion is that the only valid use case for a Cowboy Coding approach is rapid prototyping and iteration. I really see no other use case than that for a valid application of Cowboy Coding.
 

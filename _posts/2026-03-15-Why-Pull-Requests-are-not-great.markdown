@@ -4,7 +4,7 @@ categories: software-architecture
 tags:
     - Software-Development
     - Code-Review
-title: What are Pull Requests and they aren't great?
+title: What are Pull Requests and why they are not great
 published: false
 ---
 
@@ -67,7 +67,7 @@ This might seem counter intuitive because it seems like you spend 2x the effort 
 
 It is hard to find a lot data on this, but my assumption is, that pair programming is more time and therefore cost efficient for the company than code reviews. A code review blocks the delivery of the task until it has been reviewed and in the worst case made multiple rounds of reviews until it is accepted.
 
-The downside of pair programming is that you'll need to pair a more experienced person with a less experienced person, if the less experienced person is the driver, to ensure a good outcome. So having two juniors reviewing each other will not yield the desired results. On the other hand, less experienced people will get basically training when collaborating with more senior developers.
+The downside of pair programming is that **you'll need to pair a more experienced person with a less experienced person**, if the less experienced person is the driver, to ensure a good outcome. So having two juniors reviewing each other will not yield the desired results. On the other hand, less experienced people will get basically training when collaborating with more senior developers.
 
 There is the paper ["The Case for Collaborative Programming"](https://www.researchgate.net/publication/27295641_The_Case_for_Collaborative_Programming) by John T. Nosek, that confirms what I have written in the paragraphs before. Read it if you're interested in a deeper analysis. The paper shows that there is in increase in productivity but also raises questions:
 
@@ -84,6 +84,8 @@ Trunk based development means that you push/pull multiple times a day to your ma
 * Validate changes after each **small** change
 
 [Feature flags](https://martinfowler.com/articles/feature-toggles.html) are not prescribed but you also want them when you do trunk based development, so that a half done feature implementation is not active in the production code base.
+
+> "Trunk based development isn't dangerous - big batches are!" - Dave Farely
 
 I highly recommend you to watch this video by Dave Farely.
 
@@ -102,7 +104,7 @@ Show - Apply Show when seeking feedback on changes such as new approaches, patte
 Ask - Choose Ask for changes needing input, like uncertain approaches, code improvements, experiments, or when pausing work, such as ending the day. The process requires branching, opening a pull request for discussion and feedback before merging, utilizing modern code review tools for conversations, possibly team discussions. Benefits involve gathering collective insights to refine work, avoiding suboptimal solutions from premature commits, and supporting collaborative problem-solving, particularly for juniors or novel tasks.
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Change Needed] --> B{Type of Change?}
 
     B -->|Straightforward: Simple features, bug fixes, docs| C[Ship]
@@ -110,30 +112,34 @@ flowchart TD
     B -->|Uncertain/Collaborative: Novel approaches, experiments| E[Ask]
 
     subgraph Ship Flow
-    C --> F[Commit directly to mainline]
-    F --> G[Run CI tests automatically]
-    G --> H[Deploy immediately]
-    H --> I[Feedback optional, post-deploy]
+        direction LR
+        C --> F[Commit to mainline]
+        F --> G[Run CI tests]
+        G --> H[Deploy]
+        H --> I[Optional feedback]
     end
 
     subgraph Show Flow
-    D --> J[Create branch & commit]
-    J --> K[Open PR for notifications/checks]
-    K --> L[Merge immediately]
-    L --> M[Deploy changes]
-    M --> N[Post-merge feedback/discussions]
+        direction LR
+        D --> J[Create branch]
+        J --> K[Open PR]
+        K --> L[Merge immediately]
+        L --> M[Deploy]
+        M --> N[Post-merge feedback]
     end
 
     subgraph Ask Flow
-    E --> O[Create branch & commit]
-    O --> P[Open PR]
-    P --> Q[Gather pre-merge feedback/reviews]
-    Q --> R[Address changes if needed]
-    R --> S[Merge after approval]
-    S --> T[Deploy]
+        direction LR
+        E --> O[Create branch]
+        O --> P[Open PR]
+        P --> Q[Pre-merge feedback]
+        Q --> R[Address changes]
+        R --> S[Merge after approval]
+        S --> T[Deploy]
     end
 
     style C fill:#90EE90,stroke:#333
     style D fill:#ADD8E6,stroke:#333
     style E fill:#FFD700,stroke:#333
+
 ```
