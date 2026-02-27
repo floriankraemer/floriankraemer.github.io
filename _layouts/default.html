@@ -74,12 +74,16 @@
           // Store original code as data attribute for later use
           wrapperDiv.setAttribute('data-mermaid-code', code);
           
+          // Create "Click to enlarge" caption above the diagram
+          var captionP = document.createElement('p');
+          captionP.className = 'mermaid-caption';
+          captionP.textContent = 'Click to enlarge';
+          wrapperDiv.appendChild(captionP);
+          
           // Create mermaid diagram container
           var diagramDiv = document.createElement('div');
           diagramDiv.className = 'mermaid';
           diagramDiv.textContent = code;
-          
-          // Add click handler to wrapper
           wrapperDiv.appendChild(diagramDiv);
           
           // Insert the wrapper after the code block

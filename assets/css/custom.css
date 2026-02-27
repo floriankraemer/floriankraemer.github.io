@@ -3,6 +3,10 @@ body {
   position: relative;
 }
 
+.wrapper {
+  max-width: 900px;
+}
+
 body::before {
   content: '';
   position: fixed;

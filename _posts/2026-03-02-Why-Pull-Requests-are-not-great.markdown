@@ -4,11 +4,11 @@ categories: software-architecture
 tags:
     - Software-Development
     - Code-Review
-title: What are Pull Requests and Why Aren't They Great?
+title: Pull Requests are not the best thing you can do
 draft: false
 published: true
 comments: true
-date: 2026-02-01T11:41:11.000Z
+date: 2026-02-27T11:41:11.000Z
 ---
 
 I like to say that software engineering is about being able to reason about the design of the code. Therefore a code review is a discussion about the design of the program between two developers or software engineers.
@@ -17,7 +17,7 @@ If anyone is still doing reviews for code style and conventions I think somethin
 
 So the code review should focus on a discussion about the design of the program. Does it align with architectural goals? Does it align with your quality attributes, [Service Level Objectives](https://en.wikipedia.org/wiki/Service-level_objective) and other metrics? Is it maintainable, understandable and extendible if needed?
 
-A review should also look for security issues and bugs, however, this can be considered part of the design and *should* be covered by unit tests. If you know that something needs to comply with certain security requirements, the tests should ensure that. So you'll review if the tests are sufficient for this task.
+A review should also look for security issues and bugs, however, this can be considered part of the design and *should* be covered by unit tests. If you know that something needs to comply with certain security requirements, the tests should ensure that. So you'll review if the tests are sufficient for these requirements.
 
 Unfortunately, there are still people who review for code style conventions and similar things that can be fully automated easily. The other issue is that you need at least a few skilled engineers to do a proper (design) review.
 
@@ -231,16 +231,7 @@ sequenceDiagram
     end
 ```
 
-## Comparision
-
-| Method | Speed | Risk Profile | Best For... | Pre-requisites |
-|--------|-------|--------------|-------------|----------------|
-| Traditional PR | Slow | High Safety | Open source or low-trust environments. | None (the "default"). |
-| Pair Programming | Fast | High Safety | Complex features & knowledge transfer. | Culture of collaboration. |
-| Trunk Based Dev | Fastest | Higher | High-maturity teams with high test coverage. | Good CI/CD & Feature Flags. |
-| Ship Show Ask | Balanced | Moderate | Agile teams wanting to optimize for flow. | Automated linting & CI. |
-
-## Transition Path: From "Async Hell" to High Flow
+## Transition Path to High Flow
 
 Moving away from blocking PRs isn't a "flip the switch" moment, it’s a maturity curve. If you try to jump straight to Trunk Based Development without the right safety nets, you’re probably going to have a bad time. Here is a recommended path:
 
@@ -251,3 +242,18 @@ The "Power Hour" Pairing: You don't have to pair 8 hours a day. Start by pairing
 Adopt "Ship Show Ask" for Small Wins: Give your seniors the "license to Ship" on low-risk changes (documentation, CSS tweaks, simple bug fixes). This immediately reduces the queue depth of your PR backlog.
 
 Invest in "Red-to-Green" Speed: You cannot do TBD if your CI pipeline takes 45 minutes to run. Aim for a <10 minute feedback loop. Speed is the prerequisite for safety.
+
+### Comparision Table
+
+| Method | Speed | Risk Profile | Best For... | Pre-requisites |
+|--------|-------|--------------|-------------|----------------|
+| Traditional PR | Slow | High Safety | Open source or low-trust environments. | None (the "default"). |
+| Pair Programming | Fast | High Safety | Complex features & knowledge transfer. | Culture of collaboration. |
+| Trunk Based Dev | Fastest | Higher | High-maturity teams with high test coverage. | Good CI/CD & Feature Flags. |
+| Ship Show Ask | Balanced | Moderate | Agile teams wanting to optimize for flow. | Automated linting & CI. |
+
+## Designing for Flow
+
+Pull Requests are not inherently "bad," but they have become a default industry dogma that often prioritizes administrative safety over engineering flow. The goal of any high-performing team shouldn't be to "do more PRs," but to maximize the time spent reasoning about design and minimize the time spent waiting in a queue.
+
+Whether you adopt the real-time feedback of Pair Programming, the extreme automation of Trunk Based Development, or the nuanced flexibility of Ship Show Ask, the objective is the same: move the "discussion" earlier in the process. By automating the trivial and trusting your engineers with the critical, you stop treating code reviews as a gate and start treating them as a catalyst for better software. Start small, automate relentlessly, and remember: your repository should be a high-flow engine, not a parking lot.

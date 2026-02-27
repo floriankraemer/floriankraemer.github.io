@@ -46,7 +46,18 @@
 
 .mermaid {
     text-align: center;
-    margin: 0;
+    margin: 0 -150px;
+    width: calc(100% + 300px);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 800px) {
+    .mermaid {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
 }
 
 .mermaid svg {
@@ -109,31 +120,31 @@
     top: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    background: #007acc !important;
-    border: 2px solid #005a9e !important;
-    font-size: 48px !important;
+    background: #005a9e !important;
+    border: 3px solid #003d6b !important;
+    font-size: 20px !important;
     color: #ffffff !important;
     cursor: pointer !important;
     line-height: 1 !important;
-    padding: 24px 48px !important;
+    padding: 16px 32px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     transition: all 0.2s ease !important;
     z-index: 10001 !important;
     font-family: inherit !important;
     font-weight: bold !important;
-    min-width: 120px !important;
-    min-height: 90px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
 }
 
 .mermaid-modal-close:hover,
 .mermaid-modal-close:focus {
     color: #ffffff !important;
-    background-color: #005a9e !important;
-    border-color: #003d6b !important;
+    background-color: #003d6b !important;
+    border-color: #002244 !important;
     transform: translateX(-50%) scale(1.05) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
 }
 
 .mermaid-fullscreen {
