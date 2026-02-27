@@ -14,7 +14,7 @@ In the ever-evolving world of software development, few topics spark as much deb
 
 The creator makes a compelling case: prioritizing elegant patterns like repository layers and dependency injection over infrastructure, observability, and scalability can doom even the "cleanest" codebase. It's a cautionary tale I've seen play out in various forms over my 20+ years in the industry. But here's the thing – dismissing clean code entirely misses the point. It's not about clean versus garbage; it's about making conscious decisions aligned with your project's stage, business goals, and architectural needs.
 
-## Key Insights on Clean Code Trade-Offs:
+## Key Insights on Clean Code Trade-Offs
 
 - Clean code shines in maintenance-heavy scenarios: For long-lived applications, readable, testable code reduces costly bugs and onboarding time, often outweighing minor performance hits. However, it can introduce overhead if applied blindly, like unnecessary abstractions that harm performance in high-load situations.
 - Performance isn't always the enemy of cleanliness: In most web apps, I/O operations (e.g., database queries) are the real bottlenecks, not extra method calls. Premature optimization for speed can lead to unmaintainable messes, especially when hardware is cheap compared to developer hours.
@@ -51,7 +51,7 @@ One common knock against clean code is its alleged performance drag. Extra abstr
 The real bottlenecks in web applications? Input/output operations – database queries, file reads, network calls. Clean code doesn't exacerbate these; in fact, modular designs make it easier to optimize hot paths, like batching queries or adding caching. Prioritize clean code first, then profile for optimizations. Clean code reduces maintenance costs and complexity, making it the default choice unless proven otherwise.
 
 | Aspect | Clean Code Impact | Performance Consideration | Example Bottleneck |
-|--------|-------------------|---------------------------|-------------------|
+| -------- | ------------------- | --------------------------- | ------------------- |
 | Maintainability | High: Easier debugging, testing | Low overhead in most cases | N/A |
 | Abstractions | Adds layers (e.g., repositories) | Can cause N+1 queries if misused | Database I/O |
 | Optimization | Facilitates targeted fixes | Premature focus harms readability | Network latency |
@@ -68,7 +68,7 @@ Architecture isn't just hype – it's your enabler. In a modulith or microservic
 High-quality code belongs where change is frequent or business-critical. Align this with your organization's evolutionary state – from chaotic startup to mature enterprise.
 
 | Business Stage | Priority | Code Strategy | Risks if Ignored |
-|---------------|----------|---------------|------------------|
+| --------------- | ---------- | --------------- | ------------------ |
 | Startup/POC | Speed to market | Minimal viable code | N/A (short-term) |
 | Scale-Up | Flexibility | Refactor for modularity | Technical debt buildup |
 | Mature | Stability | High test coverage, clean core | Inability to innovate |

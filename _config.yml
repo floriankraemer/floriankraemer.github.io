@@ -30,6 +30,7 @@ github_username:  floriankraemer
 linkedin_username: fkrämer
 mastodon_username: floriankraemer
 disqus:
+    enable: false
     shortname: https://https-florian-kraemer-net.disqus.com
 show_excerpts: true
 
