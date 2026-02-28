@@ -120,8 +120,8 @@
     top: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    background: #005a9e !important;
-    border: 3px solid #003d6b !important;
+    background: #1c314d !important;
+    border: 3px solid #0f1e2e !important;
     font-size: 20px !important;
     color: #ffffff !important;
     cursor: pointer !important;
@@ -141,8 +141,8 @@
 .mermaid-modal-close:hover,
 .mermaid-modal-close:focus {
     color: #ffffff !important;
-    background-color: #003d6b !important;
-    border-color: #002244 !important;
+    background-color: #0f1e2e !important;
+    border-color: #07111a !important;
     transform: translateX(-50%) scale(1.05) !important;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
 }
@@ -181,7 +181,7 @@
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.85em;
-    color: #007bff;
+    color: #1c314d;
     font-weight: 500;
 }
 
@@ -274,7 +274,7 @@
 }
 
 .post-card .post-link:hover {
-    color: #007acc;
+    color: #1c314d;
 }
 
 .post-excerpt {
@@ -317,7 +317,7 @@
 .hero-section {
     text-align: center;
     padding: 60px 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #1c314d 0%, #2a4a6b 100%);
     margin: -30px -30px 60px -30px;
     padding: 80px 30px;
 }
@@ -364,29 +364,29 @@
 }
 
 .btn-primary {
-    background-color: #007acc;
+    background-color: #1c314d;
     color: white;
-    border-color: #007acc;
+    border-color: #1c314d;
 }
 
 .btn-primary:hover {
-    background-color: #005a9e;
-    border-color: #005a9e;
+    background-color: #0f1e2e;
+    border-color: #0f1e2e;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
+    box-shadow: 0 4px 12px rgba(28, 49, 77, 0.3);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: #007acc;
-    border-color: #007acc;
+    color: #1c314d;
+    border-color: #1c314d;
 }
 
 .btn-secondary:hover {
-    background-color: #007acc;
+    background-color: #1c314d;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+    box-shadow: 0 4px 12px rgba(28, 49, 77, 0.2);
 }
 
 .featured-content {
@@ -460,7 +460,7 @@
 
 .view-all-link {
     display: inline-block;
-    color: #007acc;
+    color: #1c314d;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
@@ -468,7 +468,7 @@
 }
 
 .view-all-link:hover {
-    color: #005a9e;
+    color: #0f1e2e;
     transform: translateX(4px);
 }
 
