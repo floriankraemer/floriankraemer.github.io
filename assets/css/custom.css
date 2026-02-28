@@ -1,12 +1,14 @@
-/* Background Image Styles */
+/* Background Styles */
 body {
   position: relative;
+  background-color: #fdfdfd;
 }
 
 .wrapper {
   max-width: 900px;
 }
 
+/* Background Image Styles */
 body::before {
   content: '';
   position: fixed;
@@ -35,6 +37,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.post-link {
+  color: #1c314d;
+}
+
 /* Sticky Header */
 .site-header {
   position: sticky;
@@ -56,6 +62,42 @@ a:hover {
 
 .site-header .page-link:hover {
   color: #e0e0e0;
+}
+
+/* Footer Styles */
+.site-footer {
+  background-color: #1c314d;
+  color: white;
+  border-top: 1px solid #0f1e2e;
+}
+
+.site-footer a {
+  color: white;
+}
+
+.site-footer a:hover {
+  color: #e0e0e0;
+}
+
+/* Burger Menu - Mobile */
+@media screen and (max-width: 600px) {
+  .site-nav {
+    background-color: #1c314d;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+
+  .site-nav .menu-icon > svg {
+    fill: white;
+  }
+
+  .site-nav .page-link {
+    color: white;
+  }
+
+  .site-nav .page-link:hover {
+    color: #e0e0e0;
+  }
 }
 
 /* Adjust opacity for different screen sizes */

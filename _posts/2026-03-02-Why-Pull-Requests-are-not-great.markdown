@@ -8,7 +8,7 @@ title: Pull Requests are not the best thing you can do
 draft: false
 published: true
 comments: true
-date: 2026-03-02T18:41:11.000Z
+date: 2026-02-02T18:41:11.000Z
 ---
 
 I like to say that software engineering is about being able to reason about the design of the code. Therefore a code review is a discussion about the design of the program between two developers or software engineers.
@@ -20,6 +20,10 @@ So the code review should focus on a discussion about the design of the program.
 A review should also look for security issues and bugs, however, this can be considered part of the design and *should* be covered by unit tests. If you know that something needs to comply with certain security requirements, the tests should ensure that. So you'll review if the tests are sufficient for these requirements.
 
 Unfortunately, there are still people who review for code style conventions and similar things that can be fully automated easily. The other issue is that you need at least a few skilled engineers to do a proper (design) review.
+
+{:refdef: style="text-align: center;"}
+![](/assets/images/illustrations/pull-requests2.jpg)
+{: refdef}
 
 ## The Problem with Pull Requests: Async Blocking
 
