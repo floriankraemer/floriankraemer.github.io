@@ -8,7 +8,7 @@ title: Pull Requests are not the best thing you can do
 draft: false
 published: true
 comments: true
-date: 2026-02-02T18:41:11.000Z
+date: 2026-03-02T18:41:11.000Z
 ---
 
 I like to say that software engineering is about being able to reason about the design of the code. Therefore a code review is a discussion about the design of the program between two developers or software engineers.
