@@ -1,0 +1,172 @@
+/* GitHub Dark syntax highlighting - override Minima's light theme with higher specificity */
+.highlighter-rouge .highlight table {
+  border: none !important;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+}
+.highlighter-rouge .highlight > div,
+.highlighter-rouge .highlight > pre {
+  border: none !important;
+}
+.highlighter-rouge .highlight table td {
+  padding: 0px 8px !important;
+  border: none !important;
+  vertical-align: top;
+}
+.highlighter-rouge .highlight table pre {
+  margin: 0;
+  padding: 0;
+}
+.highlighter-rouge .highlight,
+.highlighter-rouge .highlight pre,
+.highlighter-rouge .highlight code,
+.highlighter-rouge .highlight .w {
+  color: #e6edf3 !important;
+  background-color: #1c222b !important;
+  border: none !important;
+}
+.highlighter-rouge .highlight pre {
+  padding: 0px 0 !important;
+  margin: 0;
+  overflow-x: auto;
+}
+.highlighter-rouge .highlight .err {
+  color: #f85149 !important;
+  background-color: #19202b !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .c,
+.highlighter-rouge .highlight .ch,
+.highlighter-rouge .highlight .cd,
+.highlighter-rouge .highlight .cm,
+.highlighter-rouge .highlight .cpf,
+.highlighter-rouge .highlight .c1,
+.highlighter-rouge .highlight .cs {
+  color: #8b949e !important;
+  font-style: italic;
+}
+.highlighter-rouge .highlight .cp {
+  color: #8b949e !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .nt {
+  color: #7ee787 !important;
+}
+.highlighter-rouge .highlight .o,
+.highlighter-rouge .highlight .ow {
+  color: #e6edf3 !important;
+}
+.highlighter-rouge .highlight .p,
+.highlighter-rouge .highlight .pi {
+  color: #e6edf3 !important;
+}
+.highlighter-rouge .highlight .gi {
+  color: #7ee787 !important;
+  background-color: #0d1117 !important;
+}
+.highlighter-rouge .highlight .gd {
+  color: #f85149 !important;
+  background-color: #0d1117 !important;
+}
+.highlighter-rouge .highlight .gh {
+  color: #8b949e !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .k,
+.highlighter-rouge .highlight .kn,
+.highlighter-rouge .highlight .kp,
+.highlighter-rouge .highlight .kr,
+.highlighter-rouge .highlight .kv {
+  color: #ff7b72 !important;
+}
+.highlighter-rouge .highlight .kc {
+  color: #79c0ff !important;
+}
+.highlighter-rouge .highlight .kt {
+  color: #d2a8ff !important;
+}
+.highlighter-rouge .highlight .kd {
+  color: #ff7b72 !important;
+}
+.highlighter-rouge .highlight .s,
+.highlighter-rouge .highlight .sb,
+.highlighter-rouge .highlight .sc,
+.highlighter-rouge .highlight .dl,
+.highlighter-rouge .highlight .sd,
+.highlighter-rouge .highlight .s2,
+.highlighter-rouge .highlight .sh,
+.highlighter-rouge .highlight .sx,
+.highlighter-rouge .highlight .s1 {
+  color: #a5d6ff !important;
+}
+.highlighter-rouge .highlight .sa {
+  color: #ff7b72 !important;
+}
+.highlighter-rouge .highlight .sr {
+  color: #7ee787 !important;
+}
+.highlighter-rouge .highlight .si {
+  color: #a5d6ff !important;
+}
+.highlighter-rouge .highlight .se {
+  color: #d29922 !important;
+}
+.highlighter-rouge .highlight .nn {
+  color: #d2a8ff !important;
+}
+.highlighter-rouge .highlight .nc {
+  color: #d2a8ff !important;
+}
+.highlighter-rouge .highlight .no {
+  color: #79c0ff !important;
+}
+.highlighter-rouge .highlight .na {
+  color: #79c0ff !important;
+}
+.highlighter-rouge .highlight .m,
+.highlighter-rouge .highlight .mb,
+.highlighter-rouge .highlight .mf,
+.highlighter-rouge .highlight .mh,
+.highlighter-rouge .highlight .mi,
+.highlighter-rouge .highlight .il,
+.highlighter-rouge .highlight .mo,
+.highlighter-rouge .highlight .mx {
+  color: #79c0ff !important;
+}
+.highlighter-rouge .highlight .ss {
+  color: #a5d6ff !important;
+}
+
+/* Line numbers gutter - GitHub dark background, muted text, dotted border */
+.highlighter-rouge .highlight .rouge-gutter,
+.highlighter-rouge .highlight td.gutter,
+.highlighter-rouge .highlight td.linenos {
+  background-color: #161b22 !important;
+  color: #8b949e !important;
+  border: none !important;
+  border-right: 1px dotted #30363d !important;
+  padding-right: 8px !important;
+  padding-left: 0 !important;
+  width: 1%;
+  min-width: 2ch;
+  text-align: right;
+  user-select: none;
+  padding: 0px 8px !important;
+}
+
+/* SQL/data types - Rouge uses .nb for identifiers, .n for names */
+.highlighter-rouge .highlight .n,
+.highlighter-rouge .highlight .nb,
+.highlighter-rouge .highlight .ni,
+.highlighter-rouge .highlight .nl,
+.highlighter-rouge .highlight .nn,
+.highlighter-rouge .highlight .no,
+.highlighter-rouge .highlight .nv,
+.highlighter-rouge .highlight .vc,
+.highlighter-rouge .highlight .vg,
+.highlighter-rouge .highlight .vi,
+.highlighter-rouge .highlight .vm,
+.highlighter-rouge .highlight .bp {
+  color: #e6edf3 !important;
+}
