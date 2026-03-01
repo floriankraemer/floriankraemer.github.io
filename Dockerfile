@@ -1,5 +1,5 @@
 # Use Ruby as a parent image (more appropriate for Jekyll)
-FROM ruby:3.2-slim
+FROM ruby:4-slim
 
 # Update the package index and install necessary packages
 RUN apt-get update && apt-get install -y \
@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory to /site
 WORKDIR /site
 
-# Copy Gemfile and Gemfile.lock to the container
-COPY Gemfile Gemfile.lock ./
+# Copy Gemfile and Gemfile.lock to the container (if Gemfile.lock exists)
+COPY Gemfile* ./
 
 # Install Jekyll and dependencies
 RUN gem install bundler && \

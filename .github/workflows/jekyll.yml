@@ -20,9 +20,9 @@ on:
       - master
       - gh-pages
 
-# Use Ruby 3.2 in all jobs
+# Use Ruby 4 in all jobs
 env:
-  RUBY_VERSION: 3.2
+  RUBY_VERSION: 4
 
 jobs:
   build:
