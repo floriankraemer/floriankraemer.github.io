@@ -2,8 +2,9 @@
 layout: post
 categories: software-architecture
 tags:
-    - Software-Development
-    - Code-Review
+    - software-development
+    - code-review
+    - delivery
 title: Pull Requests are not the best thing you can do
 draft: false
 published: true
@@ -17,7 +18,7 @@ If anyone is still doing reviews for code style and conventions I think somethin
 
 So the code review should focus on a discussion about the design of the program. Does it align with architectural goals? Does it align with your quality attributes, [Service Level Objectives](https://en.wikipedia.org/wiki/Service-level_objective) and other metrics? Is it maintainable, understandable and extendible if needed?
 
-A review should also look for security issues and bugs, however, this can be considered part of the design and *should* be covered by unit tests. If you know that something needs to comply with certain security requirements, the tests should ensure that. So you'll review if the tests are sufficient for these requirements.
+A review should also look for security issues and bugs, however, this can be considered part of the design and *should* be covered by tests. If you know that something needs to comply with certain security requirements, the tests should ensure that. So you'll review if the tests are sufficient for these requirements.
 
 Unfortunately, there are still people who review for code style conventions and similar things that can be fully automated easily. The other issue is that you need at least a few skilled engineers to do a proper (design) review.
 

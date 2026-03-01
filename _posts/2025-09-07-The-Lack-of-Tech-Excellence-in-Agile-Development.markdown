@@ -202,7 +202,7 @@ Cargo-cult agile is the practice of adopting the rituals, ceremonies, and termin
 
 Lower-skilled teams shouldn’t have full freedom at first. They need scaffolding until they develop enough capability to truly benefit from autonomy. **Autonomy is earned by demonstrating competence.**
 
-Here’s a simple, staged example model you can use - think of it like a maturity ladder for agile teams, balancing autonomy with competence. Take it as an example, it is by no means thought to be generalized. Figure out where you, as an organization are and what steps you think you need to evolve.
+Here’s a simple, staged example model you can use - think of it like a maturity ladder for agile teams, balancing autonomy with competence. Take it as an example, it is by no means thought to be generalized. Figure out where you, as an organization, are and what steps you think you need to evolve.
 
 |                         | **Level 1 – Guided** | **Level 2 – Supported** | **Level 3 – Emerging** | **Level 4 – Self-Organizing** |
 |-------------------------|----------------------|--------------------------|-------------------------|-------------------------------|
@@ -213,7 +213,7 @@ Here’s a simple, staged example model you can use - think of it like a maturit
 
 ## Enabling Agility
 
-There are, in my *opinion*, two primary prerequisites that enable agility:
+There are, in my opinion, two primary prerequisites that enable agility:
 
 1. Working in small increments
 2. Feedback cycles
@@ -266,7 +266,7 @@ They raise awareness and enable you to be agile if they are used and if they are
 * Sprint reviews – stakeholder feedback every 1–4 weeks.
 * Retrospectives – team process feedback every 1–4 weeks.
 
-Your dailies should **not** be a reporting type of meeting where you describe **what you did**, but instead report **what blocks you** from getting your task done and who could help. A good meeting, if nobody is blocked, should not take more than the greetings and figuring out that nobody is blocked.
+Your dailies should **not** be a reporting type of meeting where you describe **what you did**, but instead report what blocks you from getting your task done and who could help. A good meeting, if nobody is blocked, should not take more than the greetings and figuring out that nobody is blocked.
 
 Regarding retrospectives, they are only useful if the artifacts produced by them lead to concrete actions. The job of the retrospective is to figure out what didn't go so well and how it could be improved. Unfortunately I've seen it more often that nothing further happened after a retro. You've hopefully got the feedback, now take action and improve based on it! Remember that "agile" means "to do" things?
 
@@ -285,7 +285,7 @@ I would like to put some emphasis on that developers should either watch recordi
 ![Build Measure Learn Diagram](/assets/images/build-measure-learn-diagram.png)
 {: refdef}
 
-Mapped to the Build-Measure-Learn loop by [Eric Ries](https://en.wikipedia.org/wiki/Eric_Ries), the author of "[The Lean Startup](https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898)", the feedback cycles becomes arranged this way.
+Mapped to the Build-Measure-Learn loop by [Eric Ries](https://en.wikipedia.org/wiki/Eric_Ries), the author of "[The Lean Startup](https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898)", the feedback cycles become arranged this way.
 
 1. **Build → Code Quality Feedback**
    * Helps detect errors early while building software.
@@ -309,7 +309,7 @@ Mapped to the Build-Measure-Learn loop by [Eric Ries](https://en.wikipedia.org/w
    * Sprint reviews (1–4 weeks, stakeholder value feedback)
    * Retrospectives (1–4 weeks, process feedback)
 
-If you are not familiar with the concept of Build-Measure-Learn, the idea is to build something small you can learn from, to gain insight and then to refine your product based on that. Eric Ries perspective is a product centric perspective, focused on learning about what to build next. The production of software is expensive, you want to make sure to build only what you need to make your next business decision on what to build. Again, you can see that this is also about breaking things down into small pieces and iterate over them.
+If you are not familiar with the concept of Build-Measure-Learn, the idea is to build something small you can learn from, to gain insight and then to refine your product based on that. Eric Ries' perspective is a product centric perspective, focused on learning about what to build next. The production of software is expensive, you want to make sure to build only what you need to make your next business decision on what to build. Again, you can see that this is also about breaking things down into small pieces and iterate over them.
 
 > "It is not necessarily the smallest product imaginable...it is simply the fastest way to get through the Build-Measure-Learn feedback loop with the minimum amount of effort." - "The Lean Startup" by Eric Ries
 

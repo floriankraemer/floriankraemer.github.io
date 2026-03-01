@@ -14,7 +14,7 @@ date: 2025-04-30
 
 This article provides insight into different ways of coupling and decoupling modules in a modular system. Depending on your context, a module can be either an isolated component within a monolithic system or a distributed component that communicates over a network. This distinction already impacts the options available for designing your modules.
 
-In this context, instability means that a module depending heavily on other components is more likely to be affected by changes in those components. This increases the probability of defects propagating into the dependent module, making it more fragile and harder to maintain.
+In this context, Instability means that a module depending heavily on other components is more likely to be affected by changes in those components. This increases the probability of defects propagating into the dependent module, making it more fragile and harder to maintain.
 
 ## Stability Calculation
 
@@ -41,7 +41,7 @@ To calculate afferent and efferent couplings, you can use static analysis tools 
 
 As usual, keep in mind that this metric is just one indicator, but in my opinion a good one that is easy to measure. You need to keep also the logical coupling in mind and not only the technical coupling via dependencies.
 
-When you add logic, checks for "types", to the recommendation module, you'll add knowledge and complexity to it as well. Once your module has to deal with 20 additional items, you'll have basically 20 checks or the need to implement the strategy pattern to deal with all of the different types, increasing the internal complexity of the Recommendations module. It will become more instable in this case and also logically coupled to other domains.
+When you add logic, checks for "types", to the recommendation module, you'll add knowledge and complexity to it as well. Once your module has to deal with 20 additional items, you'll have basically 20 checks or the need to implement the strategy pattern to deal with all of the different types, increasing the internal complexity of the Recommendations module. It will become more unstable in this case and also logically coupled to other domains.
 
 ## Logical Coupling
 
@@ -57,7 +57,7 @@ But there is a caveat: The architecture is, for the time being, a modular monoli
 
 ## Directly Coupling Modules
 
-The recommendations module will make direct calls to any other module that it needs to do something, e.g. enriching the recommendations with data from another module / context. This will of course lead to a avery tight coupling on a technical and conceptual level.
+The recommendations module will make direct calls to any other module that it needs to do something, e.g. enriching the recommendations with data from another module / context. This will of course lead to a very tight coupling on a technical and conceptual level.
 
 ![Direct Coupling Diagram](/assets/diagrams/modules-direct-coupling.svg)
 
@@ -71,7 +71,7 @@ Cons
 * Recommendations becomes a very unstable module the more module dependencies you add.
 * Recommendations becomes aware of a lot different concepts.
 * Direct coupling.
-* Can't be easily split into different applications / code bases because of the tight  and direct coupling.
+* Can't be easily split into different applications / codebases because of the tight and direct coupling.
 
 ## Plugin / Extension per Module
 
@@ -88,7 +88,7 @@ Pros
 
 Cons
 
-* Recommendations can't be extracted into a separate deployment unit / service without taking all the dependent modules with it! That means you can't extract it and build a "microservice" from it because it is very likely a shared DB required and other things because the plugins might have further dependencies.
+* Recommendations can't be extracted into a separate deployment unit / service without taking all the dependent modules with it! That means you can't extract it and build a "microservice" from it because it is very likely a shared DB requires and other things because the plugins might have further dependencies.
 
 ### Code Example
 
@@ -230,7 +230,7 @@ Cons
 
 ## Conclusions
 
-The Anti-Patterns: Direct Coupling and the single One Connector Module should generally be avoided. Direct Coupling makes the core module fragile and impossible to extract. The single Connector merely moves the problem, creating a new "god module" that becomes a bottleneck for development and deployment, defeating the purpose of modularity.
+The Anti-patterns: Direct Coupling and the single One Connector Module should generally be avoided. Direct Coupling makes the core module fragile and impossible to extract. The single Connector merely moves the problem, creating a new "god module" that becomes a bottleneck for development and deployment, defeating the purpose of modularity.
 
 The Viable Solutions: The most effective patterns presented were the Plugin/Extension per Module and the One Connector Module per Type. Both successfully apply the Dependency Inversion Principle, ensuring the Recommendations module remains stable (I ≈ 0) and unaware of the specific entities it serves.
 

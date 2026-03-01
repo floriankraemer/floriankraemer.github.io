@@ -34,7 +34,7 @@ I think one of our biggest problems these days is that we throw a giant library 
 
 While I had only one project in the past ~22 years that migrated from one DB dialect to another, I've seen more issues with switching between persistence libraries and by that I mean even going from one major version to another major version of the same library. It won't happen often but at least in my personal experience (I'm not saying this is absolute!) a long-lived project is more likely to run into migration issues with the library than into the need to switch DB systems.
 
-If you know why you use DDD aggregates and use them correctly, there might be but there shouldn't necessarily be a match with your DB structure. I would *never* design a system with database structures first in mind these days unless it is very, very data centric. Also, to store and read your aggregates, you will very likely not need very complex and DB specific functions. You could even store them in a specific table and use triggers to modify other tables based on an insert or update to it.
+If you know why you use DDD aggregates and use them correctly, there might be, but there shouldn't necessarily be a match with your DB structure. I would *never* design a system with database structures first in mind these days unless it is very, very data centric. Also, to store and read your aggregates, you will very likely not need very complex and DB specific functions. You could even store them in a specific table and use triggers to modify other tables based on an insert or update to it.
 
 Let's compare the code and see if we can save anything regarding complexity, technical or cognitive.
 
@@ -42,15 +42,15 @@ Let's compare the code and see if we can save anything regarding complexity, tec
 
 * An array is not typed.
 * An array might have missing keys.
-* You'll need PHPStans array shape in the doc-block to make it more accessible and checkable.
+* You'll need PHPStan array shape in the doc-block to make it more accessible and checkable.
 
-Using a simple plain old PHP object like the Memento gives you strong types out of the box and defines the shape automatically by using an object. Instead of writing PHPStans array shape annotation, you can also simply write a proper object. I see no reason how the array would be more beneficial in this case.
+Using a simple plain old PHP object like the Memento gives you strong types out of the box and defines the shape automatically by using an object. Instead of writing PHPStan array shape annotation, you can also simply write a proper object. I see no reason why the array would be more beneficial in this case.
 
 Some people might argue about the memory and disk space the class might take. I don't think this is a concern here unless you do something with extreme performance concerns or in a very limited environment like working on an embedded system with very limited memory and processing power.
 
 ## Why not using a persistence entity directly?
 
-You would directly couple your domain model to the persistence layer. Using the memento, that is part of your domain model layer, will basically inverse that dependency. Your infrastructure / persistence layer will now have to know about the domain, which is perfectly fine.
+You would directly couple your domain model to the persistence layer. Using the memento, that is part of your domain model layer, will basically invert that dependency. Your infrastructure / persistence layer will now have to know about the domain, which is perfectly fine.
 
 ### PDO Repository
 
@@ -241,7 +241,7 @@ CREATE TABLE order_mementos (
 
 ### The Memento
 
-The `OrderMemento` is a readonly class that captures the complete state of an Order at a specific point in time. It implements `JsonSerializable` for easy persistence:
+The `OrderMemento` is a read-only class that captures the complete state of an Order at a specific point in time. It implements `JsonSerializable` for easy persistence:
 
 ```php
 final readonly class OrderMemento implements \JsonSerializable
@@ -473,7 +473,7 @@ if ($currentVersion !== $memento->version()) {
 
 ## Alternative Persistence Strategies
 
-There are of course as usual multiple ways to persist aggregates.
+There are of course, as usual, multiple ways to persist aggregates.
 
 * Simply implement a `toArray()` and `fromArray()` method on the aggregate.
 * Use ORM attributes directly on the aggregate.
@@ -505,4 +505,4 @@ The Gang of Four book itself acknowledges this in consequence #4: "It may be dif
 
 ## Final Words
 
-I hope this article motivates some of you to try to go back and embrace simplicity where it makes sense. You remember YAGNI and KISS? This article is exactly about that. Do you *really* need an ORM?
+I hope this article motivates some of you to try to go back and embrace simplicity where it makes sense. You remember YAGNI and KISS? This article is exactly about that. Do you really need an ORM?

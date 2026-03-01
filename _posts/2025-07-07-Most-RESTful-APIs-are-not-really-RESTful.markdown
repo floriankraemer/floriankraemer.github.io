@@ -11,7 +11,7 @@ comments: true
 
 When talking about REST, it is worth reading [the dissertation](https://ics.uci.edu/~fielding/pubs/dissertation) of Roy Thomas Fielding. The [original paper](https://ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf) that describes RESTful web, "Architectural Styles and the Design of Network-based Software Architectures" Roy T. Fielding (2000), introduces the Representational State Transfer (REST) architectural style as a framework for designing scalable, performant, and maintainable networked systems, particularly web services.
 
-The paper aims to analyze architectural styles for network-based systems, identifying their strengths and weaknesses. It defines REST as a specific architectural style optimized for the modern web, focusing on scalability, simplicity, and adaptability.
+The dissertation aims to analyze architectural styles for network-based systems, identifying their strengths and weaknesses. It defines REST as a specific architectural style optimized for the modern web, focusing on scalability, simplicity, and adaptability.
 
 Fielding demonstrates how REST principles shape the success of the web, advocating for its adoption in designing distributed systems with universal, stateless interfaces and clear resource-based interactions.
 
@@ -196,7 +196,7 @@ In practice, very few APIs adhere to these principles. The next section examines
 
 ## Why aren't most APIs truly RESTful?
 
-The widespread adoption of a simpler, RPC-like style over HTTP can probably attributed to practical trade-offs in tooling and developer experience: The ecosystem around specifications like OpenAPI grew rapidly, offering immediate, benefits that proved irresistible to development teams. These tools provided powerful features like automatic client/server code generation, interactive documentation, and request validation out-of-the-box. For a team under pressure to deliver, the clear, static contract provided by an OpenAPI definition was and still is probably often seen as "good enough," making the long-term architectural benefits of HATEOAS, like evolvability, seem abstract and less urgent.
+The widespread adoption of a simpler, RPC-like style over HTTP can probably be attributed to practical trade-offs in tooling and developer experience: The ecosystem around specifications like OpenAPI grew rapidly, offering immediate, benefits that proved irresistible to development teams. These tools provided powerful features like automatic client/server code generation, interactive documentation, and request validation out-of-the-box. For a team under pressure to deliver, the clear, static contract provided by an OpenAPI definition was and still is probably often seen as "good enough," making the long-term architectural benefits of HATEOAS, like evolvability, seem abstract and less urgent.
 
 Furthermore, the initial cognitive overhead of building a truly hypermedia-driven client was perceived as a significant barrier. It felt easier for a developer to read documentation and hardcode a URI template like `/users/{id}/orders` than to write a client that could dynamically parse a `_links` section and discover the "orders" URI at runtime.
 

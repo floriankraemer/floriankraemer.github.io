@@ -12,7 +12,7 @@ comments: true
 date: 2025-11-30
 ---
 
-Have you heard of "Cowboy Coding" before? It is a term used to describe a very unstructured development process. The reasons for the lack of structure can be variable but at the end it is an intentional or unintentional lack of proper processes and leadership.
+Have you heard of "Cowboy Coding" before? It is a term used to describe a very unstructured development process. The reasons for the lack of structure can be variable, but at the end it is an intentional or unintentional lack of proper processes and leadership.
 
 We will first explore what Cowboy Coding is and then continue with the findings within the organization of this case study and different ways how to address them. If you already know what Cowboy Coding is, you can skip the first part of the article.
 
@@ -32,7 +32,7 @@ According to Wikipedia it is...
 
 > ...software development where programmers have autonomy over the development process. This includes control of the project's schedule, languages, algorithms, tools, frameworks and coding style. Typically, little to no coordination exists with other developers or stakeholders.
 
-I agree mostly with the definition from Wikipedia, but I would like to put some emphasis on the reason behind the autonomy. Are they doing that intentionally or not? Do they actually really have control over the process? Maybe there is also just a lack of leadership and they just free-roam because of a lack of direction? On the other hand, Cowboy Coding can be useful for prototyping and research and development. If the prove of the idea matters and not the delivered quality, it can be a good option.
+I agree mostly with the definition from Wikipedia, but I would like to put some emphasis on the reason behind the autonomy. Are they doing that intentionally or not? Do they actually really have control over the process? Maybe there is also just a lack of leadership and they just free-roam because of a lack of direction? On the other hand, Cowboy Coding can be useful for prototyping and research and development. If the proof of the idea matters and not the delivered quality, it can be a good option.
 
 ## Problems of Cowboy Coding
 
@@ -71,13 +71,13 @@ On the Wikipedia page, four points are listed that describe advantages of this a
 
 In one sentence: Mostly because the advantages being described rarely manifest in reality.
 
-The first one only applies if you have _intrinsically highly motivated autodidacts, that are beyond junior level and capable of self-organization_, communication and alignment in their team and with other teams. Nothing of this is currently present in the organization of this case study. Three of five teams in this case study lack the skills and leadership to be able to act in that way.
+The first one only applies if you have _intrinsically highly motivated autodidacts, that are beyond junior level and capable of self-organization_, communication and alignment in their team and with other teams. Nothing of this is currently present in the organization of this case study. Three out of five teams in this case study lack the skills and leadership to be able to act in that way.
 
 The second is simply a gate to total chaos, an invitation to ignore everything. The third as well, if it goes beyond the proof of concepts and prototyping or really trivial things. This might be an approach for short-term, small “throw-away” pieces of code, but not for a sustainable, maintainable product of larger scale. It will lead to a big ball of mud architecture.
 
 As mentioned already by prototyping, it can in fact make sense to have such a free roaming development team, if its **only** purpose is to create quick and dirty proof of concepts and prototypes. The results should then be either thrown away and properly rebuilt or, if economically feasible, refactored to match a high quality. This is basically how SpaceX iterates its Starship design. Build, test, throw away, reiterate.
 
-As for the fourth, it doesn’t specify where the boundary lies or whether that's really the intended purpose to have people working on features in their free time. There are also legal, mostly copyright, and work-time law (depending on the country) questions regarding number four. I personally find it ethically questionable to rely on or use people who even show this level of commitment. I think it is unhealthy for the developers in the long term and the company capitalizes on them in an unethical manner. I don't know what kind of person wrote that last point. If your developers need to work in their free time your organization screwed very like up big time the planning, probably strategic and tactical. This point sounds like a justification for exploiting highly committed employees and should be completely dismissed as a valid organizational advantage.
+As for the fourth, it doesn’t specify where the boundary lies or whether that's really the intended purpose to have people working on features in their free time. There are also legal, mostly copyright, and work-time law (depending on the country) questions regarding number four. I personally find it ethically questionable to rely on or use people who even show this level of commitment. I think it is unhealthy for the developers in the long term and the company capitalizes on them in an unethical manner. I don't know what kind of person wrote that last point. If your developers need to work in their free time, your organization has screwed up big time in the planning, probably strategic and tactical. This point sounds like a justification for exploiting highly committed employees and should be completely dismissed as a valid organizational advantage.
 
 ## Findings within the Organization
 
@@ -172,24 +172,24 @@ The goal here is to keep most of the people in place and make changes to the org
 | :---- | :---- | :---- |
 | ASAP, within days | In general push for more accountability and responsibility with consequences. Hold people accountable. | Better quality, more attention to details. This might impact the happiness of some people which should not be an argument here for business reasons. |
 | ASAP, within days | Introduce a clear definition with responsibilities for each role. Introducing a RACI-matric to clarify and organize roles. Clarify the ownership of components in the system, document it. | Clarifying roles and responsibilities will stop discussions about who needs to do what and put emphasis on responsibilities and accountability. |
-| Within 3 Month | The number of developers and speed and output doesn’t match: Get rid of the lowest performers as soon as possible. The average skill level is way too low, hire experienced senior developers to get a more equally distributed skill level from junior to expert. Right now there are way too many juniors by skill, not by the time being a developer. If the speed and quality is acceptable for the management, remove the low performers as well and replace them by cheaper offshore resources that will deliver the same level of quality for less money. | Reduced cost, increased development speed and quality, or if the offshore option is chosen at least reduced cost. |
+| Within 3 Month | The number of developers and speed and output doesn’t match: Get rid of the lowest performers as soon as possible. The average skill level is way too low, hire experienced senior developers to get a more equally distributed skill level from junior to expert. Right now there are way too many juniors by skill level, not by the time they've been developers. If the speed and quality are acceptable for the management, remove the low performers as well and replace them by cheaper offshore resources that will deliver the same level of quality for less money. | Reduced cost, increased development speed and quality, or if the offshore option is chosen at least reduced cost. |
 |  | Introduce the SPACE framework to measure developer happiness. |  |
-| Within 3 weeks. | Introduce the DORA metrics to be able to actually: Compare the organization's performance to other teams from the thousands of samples provided by the DORA report to get a realistic comparison. Observe the impact of changes made to the development process. | The business should be able to objectively tell if measures it took had a positive or negative impact. |
+| Within 3 weeks: | Introduce the DORA metrics to be able to actually: Compare the organization's performance to other teams from the thousands of samples provided by the DORA report to get a realistic comparison. Observe the impact of changes made to the development process. | The business should be able to objectively tell if measures it took had a positive or negative impact. |
 | Within 3 Month | Hire experienced technical leads or train motivated people to be able to fulfill that role. Hiring should be preferred because training a person will probably take much longer. | Better quality delivered and ongoing knowledge transfer and growth of skills within the teams. |
 | Within 6 weeks ASAP | Push **mandatory** training on the development staff for these: Testing Coupling & Cohesion OOP and SOLID Communicate that the expectation is that people will apply what they’ve learned and a change in quality and mindset is expected and will be monitored. | Higher quality, faster development speed mid- to long term. |
 | Within 1 Month, ASAP | Get a person (existing or hired) to fulfill the tasks of what commonly is called a "Product Owner”. | Better planning and prioritization will contribute to a more streamlined development process and should increase the speed of delivering business value, while also controlling the unregulated growth of tech debt. |
 | ASAP, within days | Give the Enablement Team the authority to push changes on the development teams that must be followed. | Quicker decisions. |
 | ASAP | Get a change management consultant that helps steer the organization through the transformational process. |  |
 
-Some people might leave the company on their own because of the cultural shift, but those are the people who the company should better get rid off anyway, because these are the “Cowboy Coders” by trade. Some people might have to be laid off, if they won’t follow the direction given by the management and push towards education and quality enhancements.
+Some people might leave the company on their own because of the cultural shift, but those are the people who the company should better get rid of anyway, because these are the “Cowboy Coders” by trade. Some people might have to be laid off, if they won’t follow the direction given by the management and push toward education and quality enhancements.
 
-On the other hand, some people of different skill levels are already not happy. The effect on sticking to the status quo will be that the organization will lose the higher skilled people. Therefore the organization is in any case already at risk of losing people. Depending on the choice the business makes it will either lose skilled or unskilled workers mid- to long term.
+On the other hand, some people of different skill levels are already not happy. The effect on sticking to the status quo will be that the organization will lose the higher skilled people. Therefore the organization is in any case already at risk of losing people. Depending on the choice the business makes it will either lose skilled or unskilled workers mid- to long-term.
 
 ### #2 Build a new Development Team, refactor the existing System
 
 This team will work exclusively on migrating existing functionality and creating new functionality in the already planned new architecture.
 
-- Hire very skilled developers, 5-6
+- Hire 5-6 very skilled developers
 - Proven TDD & SOLID skills are a hard requirement
 - A good tech lead
 - A good product owner
@@ -207,13 +207,13 @@ A so-called “big bang release” is highly unlikely to be a good option. This 
 
 This option was actually proposed by the investor and triggered the whole evaluation.
 
-- Hire very skilled developers, 5-6
+- Hire 5-6 very skilled developers
 - Proven TDD & SOLID skills are a hard requirement
 - A good tech lead
 - A good product owner
 - Start to measure things, e.g. DORA to figure out how we perform
 
-Let the existing teams continue to work as it is and put the product in maintenance mode and create a complete new iteration of the product from the ground up in parallel.
+Let the existing teams continue to work as it is and put the product in maintenance mode and create a completely new iteration of the product from the ground up in parallel.
 
 It will have to connect with at least two legacy systems. When the new product becomes available, fade out the old version. It then needs to be evaluated if and who of the old team is still needed.
 
@@ -229,7 +229,7 @@ This will have a severe impact on the morale and lives of a lot of the impacted 
 
 ## Conclusion
 
-Unfortunately, nothing concrete has been decided yet, the path the organization is going to choose is up to it but I'm very interested in the results. I *might* write another article about that in a few month, no promise.
+Unfortunately, nothing concrete has been decided yet, the path the organization is going to choose is up to it but I'm very interested in the results. I *might* write another article about that in a few months, no promise.
 
 Once you are in such a situation as this organization, it will be very hard to get out of it without a lot effort. The inconvenient truth is, that there is no quick and easy way out of the situation. It also demonstrates that you will certainly not win anything by the fallacy of thinking that not testing, a lack of design and architecture, will speed anything up mid to long-term.
 

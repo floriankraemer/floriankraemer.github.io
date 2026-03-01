@@ -10,7 +10,7 @@ comments: true
 date: 2025-10-20
 ---
 
-Why would you build a (modular) monolith instead of a microservice? Often people jump on a hype train or go for “résumé-driven development” — because everyone needs microservices on their CV, right?
+Why would you build a (modular) monolith instead of a microservice? Often people jump on a hype train or go for “resume-driven development” — because everyone needs microservices on their CV, right?
 
 To make a good choice between a modular monolith and a microservice, we need to understand the problem they solve. And that problem is not primarily a technical one. To see where microservices come from, let’s take a look at their history.
 
@@ -94,7 +94,7 @@ Achieving a modular monolith requires enforcing clear boundaries between interna
 
 Enforcing this separation through compiler checks or architectural constraint tools (like ArchUnit in Java or custom linters) prevents the code from devolving into a tightly coupled "big ball of mud," ensuring that each module can be developed and potentially extracted independently later on.
 
-Though the same is true for Microservices, just that your boundaries become your network calls, your deployment units. It is easier to enforce the boundaries, because now they are physical boundaries, for different teams but you will still suffer terrible from badly sliced boundaries if you don't get them right.
+Though the same is true for Microservices, just that your boundaries become your network calls, your deployment units. It is easier to enforce the boundaries, because now they are physical boundaries, for different teams but you will still suffer terribly from badly sliced boundaries if you don't get them right.
 
 ## Conclusion
 
