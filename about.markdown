@@ -2,7 +2,8 @@
 layout: page
 title: About Me
 permalink: /about/
-description: About Florian Krämer - Software Architect & Developer
+description: Florian Krämer – certified software architect & developer with 22+ years of experience. DDD, clean architecture, legacy refactoring, PHP, C#, and Java.
+keywords: Florian Krämer, software architect, software developer, DDD, domain-driven design, PHP, C#, clean architecture, legacy refactoring
 tags:
   - services
   - software development
@@ -17,43 +18,42 @@ custom_css: about.css
 
 Hey, I’m Florian Krämer
 
-a software engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en)
- software architect. I started programming in ~2000 and specialized in building web applications, in the past primarily with PHP or whatever I can get my hands on, transistioning to C#, but loving anything that is object oriented.
+a software engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP, or whatever I can get my hands on. I'm transitioning to C# and love anything object-oriented.
 
 Email me at [753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me](mailto:753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me).
 
 Let's connect and explore how my skills and knowledge can contribute to the success of your projects.
 
-### Achievements
+## Achievements
 
 * I've been part of the CakePHP [core team](https://cakephp.org/team).
   * Extracted and refactored the authentication & authorization into extensions.
   * Maintained several CakePHP plugins.
-  * Reviewed and advised a lot of CakePHP based projects as part of the [Cake Development Corporation](https://www.cakedc.com/).
-* I've done a large-scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling for one of the most popular building architecture websites.
+  * Reviewed and advised many CakePHP-based projects as part of the [Cake Development Corporation](https://www.cakedc.com/).
+* I completed a large-scale refactoring of a legacy system built by an offshore company with zero test coverage and severe coupling for one of the most popular building architecture websites.
 * I've successfully introduced a CI/CD process in a company.
 * Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for the [Spryker](https://spryker.com/) Commerce OS.
-* Implemented a security incident workflow and process in a department in collaboration with the security team.
-* Introduced performance and quality metrics in collaboration with the QA team.
-* Architected a modular monolith system ("Modulith") based on Clean Architecture principles to enable microservices later on from the ground up for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), a global horse sport streaming portal.
+* Implemented a security incident workflow and process in a department in collaboration with a security team.
+* Introduced performance and quality metrics in collaboration with a QA team.
+* Architected a modular monolith system ("Modulith") based on Clean Architecture and Event-Driven Architecture principles to enable microservices later on, from the ground up, for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), one of the world's largest horse sport streaming portals.
 
-### How I am
+## How I am
 
 * I'm intrinsically motivated, I love my profession, architecture and technology.
 * Understanding new businesses and domains is something I like, I'm curious by nature.
 * I like to learn new things.
 * I'm a clean code & architecture advocate.
-* DDD - Domain Driven Design. Communication and processes that ultimately manifest in great code is what I like and believe in without being dogmatic.
+* [DDD](/ddd/) – Domain-Driven Design. Communication and processes that ultimately manifest in great code are what I like and believe in, without being dogmatic.
 * Being an architect is more than technology – teams, people and social interactions are part of the process.
 * I like to refactor legacy systems if I get the opportunity to do so.
 * SOLID, YAGNI - Concepts that create good code.
 * Frameworks are just tools, I'm not dogmatic about them.
-* While I'm proficient in PHP, I love to work on c# and Java-related projects as well.
+* While I'm proficient in PHP, I love to work on C# and Java-related projects as well.
 * Artificial intelligence 🤖, neural networks - super interesting!
 * Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin, Dave Farley and others.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
 
-### Reference Open Source Projects
+## Reference Open Source Projects
 
 * [An event sourcing library for PHP](https://github.com/Phauthentic/event-sourcing)
 * Cognitive Code Analysis
@@ -64,7 +64,7 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * A framework agnostic [authentication](https://github.com/Phauthentic/authentication) and [authorization](https://github.com/Phauthentic/authorization) library.
 * [Optional (from Java) for PHP](https://github.com/Phauthentic/php-optional) - [see my article](https://florian-kraemer.net/software-architecture/2024/09/04/The-Optional-Object-Borrowed-from-Java.html) about it.
 
-And [many more repositories](https://github.com/orgs/Phauthentic/repositories?q=sort%3Astars) of my Github Organization Phauthentic.
+And [many more repositories](https://github.com/orgs/Phauthentic/repositories?q=sort%3Astars) from my GitHub organization Phauthentic.
 
 <!--
 

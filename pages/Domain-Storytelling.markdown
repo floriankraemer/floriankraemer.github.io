@@ -25,10 +25,10 @@ The core idea is to focus on "stories" as concrete examples of business scenario
 
 **The visual language is intentionally simple** to keep the focus on discussion rather than drawing skills. It avoids symbols for conditions, loops, or branches—instead, **tell separate stories for variations**. Key elements include:
 
-- Actors: Represented by stick figures or icons (e.g., a person for a user, a computer for a system). Label them with roles like "Cashier" or "Customer."
-- Work Objects: Icons for items involved, such as a document (paper sheet), data (database symbol), or physical objects (e.g., a ticket). Use custom pictograms that fit your domain—compile a set as you go.
-- Activities: Arrows connecting actors and objects, labeled with verbs in the domain's language (e.g., "suggests seats"). Number arrows sequentially to show the story's flow.
-- Annotations: Optional notes for details like assumptions or comments (e.g., "in English language").
+- **Actors:** Represented by stick figures or icons (e.g., a person for a user, a computer for a system). Label them with roles like "Cashier" or "Customer."
+- **Work Objects:** Icons for items involved, such as a document (paper sheet), data (database symbol), or physical objects (e.g., a ticket). Use custom pictograms that fit your domain—compile a set as you go.
+- **Activities:** Arrows connecting actors and objects, labeled with verbs in the domain's language (e.g., "suggests seats"). Number arrows sequentially to show the story's flow.
+- **Annotations:** Optional notes for details like assumptions or comments (e.g., "in English language").
 
 Tools for drawing: Start with a whiteboard, sticky notes, or paper for in-person sessions. For digital, use tools like Miro, Lucidchart, or specialized ones like the Domain Story Modeler. Hand-drawn styles keep it approachable.
 
@@ -36,24 +36,24 @@ Tools for drawing: Start with a whiteboard, sticky notes, or paper for in-person
 
 Here's a practical guide to conduct a Domain Storytelling session effectively. Aim for 1-2 hour workshops with 4-8 participants. Repeat sessions to refine and expand stories.
 
-1. Prepare the Session:
+1. **Prepare the Session:**
    - Identify participants: Include domain experts (who know the business) and facilitators/moderators (e.g., developers or analysts to guide and draw).
    - Define scope: Choose a specific scenario or process (e.g., "How a customer buys a movie ticket"). Start broad for overviews or narrow for details.
    - Set up materials: Whiteboard, markers, sticky notes (for actors/objects), or digital tools. Prepare a legend of basic pictograms.
    - Establish ground rules: Use the domain's language; focus on concrete examples; no judgments during storytelling.
-2. Tell the Story:
+2. **Tell the Story:**
    - Have the domain expert narrate a concrete example step-by-step, like "The customer approaches the cashier and asks for tickets."
    - As they speak, the facilitator draws: Place an actor, connect with an arrow labeled with the activity, add work objects, and number the step.
    - Keep it sequential: Describe what happens in chronological order, from start to end. Avoid "if-then" branches—note them for separate stories.
-3. Visualize and Refine:
+3. **Visualize and Refine:**
    - Retell the story: The facilitator reads back the drawn story aloud to confirm accuracy. The expert corrects or adds details (e.g., "Add that we check for subscriptions here").
    - Iterate: Rearrange icons, add annotations, or erase as needed. Evolve the diagram collaboratively until everyone agrees.
    - Capture variations: After the "happy path" (ideal scenario), tell "what-if" stories (e.g., "What if the customer has a subscription?") as separate diagrams.
-4. Explore and Expand:
+4. **Explore and Expand:**
    - Ask probing questions: "What happens next?" "Who else is involved?" "What tools do they use?"
    - Switch granularity: Start with a coarse-grained "big picture" story, then drill into fine-grained sub-stories.
    - Document: Take photos or export digital versions. Note key terms for a ubiquitous language glossary.
-5. Analyze and Apply:
+5. **Analyze and Apply:**
    - Identify insights: Look for boundaries (e.g., where processes hand off), pain points, or opportunities for improvement.
    - Transition to design: Use stories to inform DDD elements like aggregates, events, or user stories for development.
    - Follow up: Share with the team, solicit feedback, and iterate in future sessions.
