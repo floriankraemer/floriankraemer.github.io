@@ -64,6 +64,39 @@ a:hover {
   color: #e0e0e0;
 }
 
+/* DDD Nav Dropdown */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown .nav-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background-color: #1c314d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-dropdown .nav-dropdown-content .page-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.nav-dropdown .nav-dropdown-content .page-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Footer Styles */
 .site-footer {
   background-color: #1c314d;
@@ -97,6 +130,22 @@ a:hover {
 
   .site-nav .page-link:hover {
     color: #e0e0e0;
+  }
+
+  /* DDD dropdown on mobile: show sub-items when nav is expanded */
+  .nav-dropdown .nav-dropdown-content {
+    position: static;
+    box-shadow: none;
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .site-nav input:not(:checked) ~ .trigger .nav-dropdown .nav-dropdown-content {
+    display: none;
+  }
+
+  .site-nav input:checked ~ .trigger .nav-dropdown .nav-dropdown-content {
+    display: flex;
   }
 }
 

@@ -4,7 +4,7 @@ title: Event Storming
 permalink: /ddd/event-storming
 ---
 
-## What is Event Storming
+## What is Event Storming?
 
 Event Storming is a versatile and dynamic technique that leverages domain events to explore, understand, and model complex business processes. Originating from the principles of Domain-Driven Design, it serves as a powerful tool for fostering collaboration, discovering domain intricacies, and aligning the software system with business objectives. By engaging stakeholders in a visual and interactive workshop, Event Storming enables the creation of a shared understanding of the domain and drives the development of effective, business-aligned software solutions.
 
@@ -32,6 +32,8 @@ The followin elements represent literally, by color, the differen elements of Ev
 - **Views** (Green): Views (or Queries) represent the read models or projections that display information to users, showing the current state of the system.
 - **Hotspots** (Red): Hotspots identify risks, bottlenecks, or areas of uncertainty that require special attention or further investigation.
 - **Processes or Systems** (Pink): Processes or external systems represent automated workflows or third-party services that interact with the domain.
+
+![Stamping Code Illustration](/assets/diagrams/DDD-Event-Storming-Stickies.svg){:style="display:block; margin-left:auto; margin-right:auto"}
 
 ## The whole Event Storming Process
 

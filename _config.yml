@@ -52,6 +52,7 @@ kramdown:
 
 header_pages:
   - articles.markdown
+  - pages/DDD.markdown
   - curated-resources.markdown
   - consulting.markdown
   - about.markdown
