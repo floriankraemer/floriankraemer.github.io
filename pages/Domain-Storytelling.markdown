@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Domain Storytelling
-permalink: /ddd/domain-storytelling
+permalink: /ddd/domain-storytelling/
 ---
 
 ## What is Domain Storytelling?

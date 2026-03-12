@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Event Storming
-permalink: /ddd/event-storming
+permalink: /ddd/event-storming/
 ---
 
 ## What is Event Storming?
