@@ -29,13 +29,13 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * I've been part of the CakePHP [core team](https://cakephp.org/team).
   * Extracted and refactored the authentication & authorization into extensions.
   * Maintained several CakePHP plugins.
-  * Reviewed and adviced a lot CakePHP based projects as part of the [Cake Development Corporation](https://www.cakedc.com/).
-* I've done a large scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling for one of the most popular building architecture websites.
+  * Reviewed and advised a lot of CakePHP based projects as part of the [Cake Development Corporation](https://www.cakedc.com/).
+* I've done a large-scale refactoring of a legacy system done by an offshore company with zero test coverage and severe coupling for one of the most popular building architecture websites.
 * I've successfully introduced a CI/CD process in a company.
 * Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for the [Spryker](https://spryker.com/) Commerce OS.
 * Implemented a security incident workflow and process in a department in collaboration with the security team.
 * Introduced performance and quality metrics in collaboration with the QA team.
-* Architected a modular system (Modulith) based on clean architecture principles to enable microservices later on from the ground up for a global horse sport streaming portal.
+* Architected a modular monolith system ("Modulith") based on Clean Architecture principles to enable microservices later on from the ground up for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), a global horse sport streaming portal.
 
 ### How I am
 
@@ -44,11 +44,11 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * I like to learn new things.
 * I'm a clean code & architecture advocate.
 * DDD - Domain Driven Design. Communication and processes that ultimately manifest in great code is what I like and believe in without being dogmatic.
-* Being an architect is more than technology - teams, people and social interactions are part of the process.
+* Being an architect is more than technology – teams, people and social interactions are part of the process.
 * I like to refactor legacy systems if I get the opportunity to do so.
 * SOLID, YAGNI - Concepts that create good code.
 * Frameworks are just tools, I'm not dogmatic about them.
-* While I'm proficient in PHP, I love to work on c# and Java related projects as well.
+* While I'm proficient in PHP, I love to work on c# and Java-related projects as well.
 * Artificial intelligence 🤖, neural networks - super interesting!
 * Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin, Dave Farley and others.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
@@ -74,7 +74,7 @@ I have experience with backend and frontend development, more on the backend sid
 
 One of my strengths is the analysis of business processes and to plan the software architecture accordingly. Understanding business is, in my opinion, the key to a successful product architecture. For that reason, I practice **domain driven design** * pragmatic, not dogmatic * and I think it is the best methodology to capture a holistic understanding of the business domain and to translate it into efficient software. I’m also interested in microservices, **event-driven systems** and **distributed systems**, not just on a professional level but also in private.
 
-My decisions are based on data, if the data can be collected and evaluated. I’m aware that data is not everything and pragmatism is often required to make the best architectural decision, because architecture is often the challenge of finding the best compromise of different factors.
+My decisions are based on data if the data can be collected and evaluated. I’m aware that data is not everything and pragmatism is often required to make the best architectural decision, because architecture is often the challenge of finding the best compromise of different factors.
 
 Seminars with **Ross Tuck, Matthias Noback** and the work of **Eric Evans** shaped my view on architecture and programming. They influenced me and my thinking a lot in a very positive way.
 
@@ -82,5 +82,5 @@ But I don’t see only technology as part of my work and the processing, but als
 
 During my career, I also planned and introduced a CI/CD process, I implemented a security incident handling process within a department in cooperation with the security team to ensure that our processing complied with SOC2 and ISO 27001. To measure performance metrics of the product, I selected a tool and created a process that, as a part of the release process, verifies the quality of performance of the product. Together with the product owners, I’ve created service level objectives for this initiative.
 
-I’m pro-active and try to see problems before they escape and plan accordingly. I  like to communicate with the stakeholders in a project.
+I’m proactive and try to see problems before they escape and plan accordingly. I like to communicate with the stakeholders in a project.
 -->
