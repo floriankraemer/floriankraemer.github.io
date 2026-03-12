@@ -2,11 +2,13 @@
 layout: page
 title: Resources
 permalink: /resources/
+description: Curated tools, frameworks, books, and references for software architecture, DDD, Event Storming, microservices, and domain-driven design.
+keywords: software architecture, DDD, domain-driven design, Event Storming, microservices, PHP, Java, architecture tools, refactoring
 ---
 
-This is a collection of useful resources that taught me somethign or that I find very useful and good. Also, kind of a noteblock for myself.
+A curated selection of tools, frameworks, books, and references for **software architecture**, **domain-driven design (DDD)**, **Event Storming**, and **microservices**. These resources have proven valuable across architecture and DDD engagements.
 
-## Architecture
+## Architecture related online Resources
 
 * [draw.io](https://www.drawio.com/) - Open Source Diagram Tool.
 * [Archi](https://www.archimatetool.com/) - The Open Source modelling toolkit for creating ArchiMate models and sketches
@@ -37,7 +39,7 @@ This is a collection of useful resources that taught me somethign or that I find
 * [Connascence.io](https://connascence.io/strength.html) - Connascence is a software quality metric & a taxonomy for different types of coupling.
 * [Impactmapping.org](https://www.impactmapping.org/) - Impact maps show assumptions and a connection between business goals, impacts on users and stakeholders, and team deliverables.
 * [Wardley Mapping](https://learnwardleymapping.com/)
-* [Event Storming](https://www.eventstorming.com/) - Offical Event Storming Website by Alberto Brandolini.
+* [Event Storming](https://www.eventstorming.com/) - Official Event Storming Website by Alberto Brandolini.
 
 ### Conference Websites
 
@@ -50,19 +52,14 @@ This is a collection of useful resources that taught me somethign or that I find
 * [InfoQ](https://www.infoq.com/)
 * [Dzone](https://dzone.com/)
 
-## DDD Companies
+## Laws
 
-* [https://maibornwolff.de/](https://maibornwolff.de/)
-* [https://innoq.com/](https://innoq.com/)
-
-## Misc
-
-* [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
-* [Conways Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
-* [Goodharts Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) - Its basically saying that a metric becomes bad one if one just aims for fulfilling the numbers without respect to quality.
+* [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
+* [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) - It's basically saying that a metric becomes bad if one just aims for fulfilling the numbers without respect to quality.
 * [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - The Law of Demeter states that an object should only interact with its immediate neighbors—its own fields, method parameters, and objects it creates—and avoid calling methods on objects returned by those neighbors, minimizing dependencies and promoting loose coupling.
+* [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
 
-## Youtube
+## Youtube Channels
 
 ### Conference Talks
 
@@ -77,7 +74,7 @@ This is a collection of useful resources that taught me somethign or that I find
 
 * [Eberhard Wolf](https://www.youtube.com/@EberhardWolff) Software Architecture Topics by Eberhard Wolf (in German)
 * [Code Opinion - Software Architecture](https://www.youtube.com/@CodeOpinion) Architecture and c#, by [Derek Comartin](https://codeopinion.com/)
-* [Continious Delivery](https://www.youtube.com/@ContinuousDelivery) CI/CD focused, by [Dave Farley](https://www.davefarley.net/)
+* [Continuous Delivery](https://www.youtube.com/@ContinuousDelivery) CI/CD focused, by [Dave Farley](https://www.davefarley.net/)
 * [MilanJovanovicTech](https://www.youtube.com/@MilanJovanovicTech) Architecture basics & c#, by Milan Jovanovic.
 
 ### Other
@@ -108,15 +105,15 @@ This is a collection of useful resources that taught me somethign or that I find
 * Vaughn Vernon [@VaughnVernon](https://twitter.com/VaughnVernon)
 * Virtual Domain Driven Design [@virtualDDD](https://x.com/virtualDDD)
 
-## PHP
+## PHP related
 
 ### PHP Libraries
 
-* [Prooph Event Store](https://github.com/prooph/event-store) - Prooph Event Story Library
+* [Prooph Event Store](https://github.com/prooph/event-store) - Prooph Event Store Library
 * [Nyholm PSR7 Server](https://github.com/Nyholm/psr7-server) - PSR7 Server Library
 * [Ramsey UUID](https://github.com/ramsey/uuid) - UUID Library
 * [Beberlei Assert](https://github.com/beberlei/assert) - Assertion Library
-* [Webmozar Assert](https://github.com/webmozarts/assert) - Assertion Library
+* [Webmozarts Assert](https://github.com/webmozarts/assert) - Assertion Library
 * [JSON API](https://github.com/json-api-php/json-api)
 * [Automapper](https://github.com/janephp/automapper) - PHP version of the c# Automapper library, an object mapper.
 * [AutoShell](https://github.com/pmjones/AutoShell) - A shell without further dependencies. I/O not included (use something like CLImate).
@@ -132,12 +129,12 @@ This is a collection of useful resources that taught me somethign or that I find
 * Testing
   * [phpunit](https://github.com/sebastianbergmann/phpunit) - Unit testing
 * Debugging
-  * [kint](https://github.com/kint-php/kint) - Debuggin Utility with zero dependenices
+  * [kint](https://github.com/kint-php/kint) - Debugging Utility with zero dependencies
 * Architecture:
   * [phpstan](https://github.com/phpstan/phpstan) - Static Analyzer
   * [composer-dependency-analyser](https://github.com/shipmonk-rnd/composer-dependency-analyser) - Detects unused, shadow and misplaced composer dependencies.
   * [phpcs / phpcbf](https://github.com/squizlabs/PHP_CodeSniffer) - Code Sniffer and Auto-Fixer
-  * [PHPArkitect](https://github.com/phparkitect/arkitect) - Hou to keep your PHP codebase coherent and solid, by permitting to add some architectural constraint check to your workflow.
+  * [PHPArkitect](https://github.com/phparkitect/arkitect) - How to keep your PHP codebase coherent and solid, by permitting to add some architectural constraint check to your workflow.
   * [phpat](https://github.com/carlosas/phpat) - PHP Architecture Tester
 
 ### Alternative PHP Servers
@@ -150,10 +147,10 @@ This is a collection of useful resources that taught me somethign or that I find
 The framework listed here are explicitly not the well known big ones.
 
 * [Spiral](https://spiral.dev/) - Elegant high-performance framework + Roadrunner.
-* [Hyperf](https://github.com/hyperf/hyperf) - Co-routine based framwork (requires Swoole) that also features AOP (optionally).
-* [Goaop](https://github.com/goaop/framework) - An aspect-Oriented Framework for PHP that doesn't require any PECL-extentions.
+* [Hyperf](https://github.com/hyperf/hyperf) - Co-routine based framework (requires Swoole) that also features AOP (optionally).
+* [Goaop](https://github.com/goaop/framework) - An aspect-oriented framework for PHP that doesn't require any PECL extensions.
 
-## Java
+## Java related
 
 ### Frameworks
 
@@ -163,17 +160,17 @@ The framework listed here are explicitly not the well known big ones.
 ### Websites
 
 * [Spring Academy](https://spring.academy) - A very good learning resource, free and paid content.
-* [Baldung](https://www.baeldung.com/) - Free and paid learning resources.
+* [Baeldung](https://www.baeldung.com/) - Free and paid learning resources.
 
 ### Tools
 
 * [SDK Man](https://sdkman.io/) - The Software Development Kit Manager (Linux or WSL2 only, requires Bash).
-* [pgAdmin](https://www.pgadmin.org/) - Posgres Admin Tool.
+* [pgAdmin](https://www.pgadmin.org/) - PostgreSQL Admin Tool.
 
 ## Windows Tools
 
 * [Scoop](https://scoop.sh/) - Command line package manager.
-* [Chocolaty](https://chocolatey.org/) - Package manager.
+* [Chocolatey](https://chocolatey.org/) - Package manager.
 * [Windows Terminal](https://github.com/microsoft/terminal) - Windows Terminal.
 * [Procmon](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon) - Advanced Process Monitor.
 

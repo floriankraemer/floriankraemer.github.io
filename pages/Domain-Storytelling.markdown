@@ -10,6 +10,9 @@ Domain Storytelling is a collaborative modeling technique used primarily in doma
 
 The core idea is to focus on "stories" as concrete examples of business scenarios, told from an actor's perspective. These stories highlight actors (people or systems), activities (actions they perform), and work objects (items like documents, data, or tools they interact with). It's agile and visual, making it accessible to non-technical participants, and it's often used to identify bounded contexts, establish a ubiquitous language (shared terminology across the team), and bridge gaps between business and technical sides. It's particularly effective for exploring "as-is" (current) processes and envisioning "to-be" (future) improvements, and it pairs well with other DDD practices like Event Storming.
 
+![Stamping Code Illustration](/assets/diagrams/alphorn-1-standardcase-coarse-pure-asis_2026-03-12.egn.svg){:style="display:block; margin-left:auto; margin-right:auto"}
+
+
 ## Benefits of Domain Storytelling
 
 - Fosters Collaboration: Brings together diverse stakeholders (e.g., developers, product owners, business analysts) to learn from each other and uncover hidden assumptions or misunderstandings.

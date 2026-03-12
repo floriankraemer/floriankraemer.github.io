@@ -32,6 +32,29 @@ a {
   transition: color 0.3s ease;
 }
 
+/* Link icon before links in page and post bodies */
+.page-content a[href]::before {
+  content: "→ ";
+}
+
+.page-content a[href] {
+  text-decoration: underline;
+}
+
+/* Exclude navigation/chrome elements where icon doesn't fit */
+.page-content .post-list .post-link::before,
+.page-content .post-card .post-link::before,
+.page-content .pagination a::before,
+.page-content .btn::before,
+.page-content .hero-actions a::before,
+.page-content .books-list a::before {
+  content: none;
+}
+
+.page-content .books-list a[href] {
+  text-decoration: none;
+}
+
 a:hover {
   color: #0f1e2e;
   text-decoration: underline;
