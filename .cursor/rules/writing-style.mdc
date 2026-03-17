@@ -1,0 +1,22 @@
+---
+description: Grammar, spelling, and Chicago-style headings without changing the author's voice
+alwaysApply: true
+---
+
+# Writing and Editing
+
+## Grammar and Spelling
+
+- Correct grammar and spelling errors.
+- Do **not** change the author's style, phrasing, or wording unless it is grammatically wrong or misspelled.
+- Preserve tone, sentence structure, and word choice. Fix only what is incorrect.
+
+## Headings: Chicago Style
+
+Use Chicago headline-style capitalization for headings and titles:
+
+- **Capitalize:** First and last words; the word after a colon; major words (nouns, pronouns, verbs, adjectives, adverbs); the word "that."
+- **Lowercase:** Articles (*a*, *an*, *the*), conjunctions (*and*, *but*, *or*), and prepositions (e.g., *in*, *on*, *to*, *for*, *with*), unless they are the first or last word.
+- **Hyphenated compounds:** Lowercase the part after the hyphen unless it would never stand alone (e.g., "Non-English-Speaking" stays capped).
+
+Example: *How to Split a Monolith Without Breaking the Build*
