@@ -21,7 +21,7 @@ I had never really heard about them, nor had anyone taught me the principles bef
 
 The outcome of the meeting we had with Ross was, at least for me personally as the main driver of the whole project, not so great. I don't remember the exact wording but it was something along the lines of "Its OK, but I've seen better.". This was a little shocking for me and I've asked for a few reasons and how to improve it. One of the things named were the SOLID principles.
 
-I had to let the whole thing sack for around two weeks until I've digested the whole scope of suggestions and improvements. Not because of the quantity or the critic but to really understand what I was told. I think it still took me quiet some time to get used to the principles, because I was spending most of the time trying to understand them on my own.
+I had to let the whole thing sack for around two weeks until I've digested the whole scope of suggestions and improvements. Not because of the quantity or the critic but to really understand what I was told. I think it still took me quite some time to get used to the principles, because I was spending most of the time trying to understand them on my own.
 
 However, after I've understood what I was told, my code became **a lot** better. Not only because of the principles but they were very useful. One year later I've sent Ross a message to thank him for his feedback. Sure, he got paid for it, but I really appreciated the value it had for me personally.
 

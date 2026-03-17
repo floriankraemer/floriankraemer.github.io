@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Persisting Aggregates with the Memento Pattern and embracing Simplicity'
+title: 'Persisting Aggregates with the Memento Pattern and Embracing Simplicity'
 categories: software-architecture
 tags: 
     - aggregate-pattern
@@ -38,7 +38,7 @@ If you know why you use DDD aggregates and use them correctly, there might be, b
 
 Let's compare the code and see if we can save anything regarding complexity, technical or cognitive.
 
-## Why not just an Array?
+## Why Not Just an Array?
 
 * An array is not typed.
 * An array might have missing keys.
@@ -48,7 +48,7 @@ Using a simple plain old PHP object like the Memento gives you strong types out 
 
 Some people might argue about the memory and disk space the class might take. I don't think this is a concern here unless you do something with extreme performance concerns or in a very limited environment like working on an embedded system with very limited memory and processing power.
 
-## Why not using a persistence entity directly?
+## Why Not Use a Persistence Entity Directly?
 
 You would directly couple your domain model to the persistence layer. Using the memento, that is part of your domain model layer, will basically invert that dependency. Your infrastructure / persistence layer will now have to know about the domain, which is perfectly fine.
 

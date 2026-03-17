@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Useful HTTP headers you might now know'
+title: 'Useful HTTP Headers You Might Not Know'
 categories: software-architecture
 tags:
   - software-architecture
@@ -15,7 +15,7 @@ I was about to add this to my article about better error messages, but then real
 
 ### Useful HTTP Headers
 
-There are quiet a few HTTP headers that are useful when dealing with certain scenarios.
+There are quite a few HTTP headers that are useful when dealing with certain scenarios.
 
 #### Rate Limiting Headers
 
@@ -41,7 +41,7 @@ Retry-After: 3600
 
 #### Deprecation
 
-Signals that an API endpoint or feature is deprecated and may be removed in the future. It warns clients of deprecated endpoints when returning errors like 410 Gone or 400 Bad Request for outdated requests. Is is often paired with a Sunset header to indicate when the endpoint will be removed.
+Signals that an API endpoint or feature is deprecated and may be removed in the future. It warns clients of deprecated endpoints when returning errors like 410 Gone or 400 Bad Request for outdated requests. It is often paired with a Sunset header to indicate when the endpoint will be removed.
 
 ```text
 HTTP/1.1 410 Gone

@@ -101,7 +101,7 @@ Here is a more complicated one:
 
 How do you figure out if people are motivated? What environment do they really need? Did you ask them or did you just assume? Again, the methodology is up to you. But let's take something in advance: Just throwing Scrum or SAFe on this won't make you agile.
 
-## Agile is Dead, long live Agile
+## Agile Is Dead, Long Live Agile
 
 Several original signatories of the Agile Manifesto have become vocal critics of how "Agile" has evolved in the software industry, expressing deep concerns about its transformation from a set of values and principles into a commercialized industry that contradicts the original intentions of the movement.
 

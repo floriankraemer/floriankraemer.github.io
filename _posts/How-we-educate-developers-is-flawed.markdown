@@ -1,6 +1,6 @@
 ---
 layout: post
-title: THow we educate developers is flawed
+title: How We Educate Developers Is Flawed
 date: 2025-07-20 16:32:21 +0000
 categories: software-development
 tags:
@@ -18,13 +18,13 @@ I totally agree with that and I would hire someone with that understanding and k
 
 As usual, there's the caveat 'it depends'. Sometimes you have very specialized technology or require somebody with a very deep understanding of a framework because you highly modified or extended it. It might make sense to hire somebody with that level of experience. But realistically, the majority of your workforce is probably an average programmer.
 
-## What is a coder, a programmer or an engineer?
+## What Is a Coder, a Programmer, or an Engineer?
 
 There is also the derogative term "Code Monkey", which I don't like - but to be honest - have used it in the past, because everyone knows what problem is addressed by it: Someone who you need to give structured information, who won't be able to deliver satisfying results from a professional perspective without being provided a specification or class diagrams. And if you don't guide them, you'll end up very often with spaghetti code, a big ball of mud, and your maintenance costs will make you pay for what you didn't pay skilled developers for.
 
 I've been there, seen it, and rebuilt it. You want a concrete example? We had a customer and reviewed the project for which he paid around $120,000 if I remember correctly. Make your guess how many hours that are by using the cheapest offshore hourly rate for a PHP developer you can imagine from around 15 years ago. That project was for multiple reasons a complete disaster, and it was economically not feasible to refactor it anymore. We've rebuilt the whole thing within a few weeks and charged the customer a lot more. At the end, he had a product that was built faster, more reliable, had more features and was actually working without causing him and his customers annoyances.
 
-There are quiet a few topics which I think need to be addressed when educating someone to be a good, professional software developer. Just being able to write code is not enough. Almost everyone in the industrial nations can write, but not everyone will be able to write poems or proper articles and essays. It is the same with code. Just because someone can write code doesn't make him or her a developer.
+There are quite a few topics which I think need to be addressed when educating someone to be a good, professional software developer. Just being able to write code is not enough. Almost everyone in the industrial nations can write, but not everyone will be able to write poems or proper articles and essays. It is the same with code. Just because someone can write code doesn't make him or her a developer.
 
 Here are the points I think that are not taught at all or deep enough:
 
@@ -88,13 +88,13 @@ Keep in mind that when things go wrong people might get back to you and blame yo
 
 *To be very clear, right from the beginning: I'm not blaming anyone for anything on this article!* The goal of the article is to hopefully trigger a discussion that leads to some actions and results.
 
-## Has the software industry an education problem?
+## Does the Software Industry Have an Education Problem?
 
 Why do we encounter recurrently whole teams that have never heard of certain concepts that aren't often even overly complex when explained properly?
 
 Why do universities favour often very abstract things over real-world, everyday programming techniques and problems that would improve the ability to write high quality code on their own? Why do we have graduates who have never heard about the SOLID principles? Especially when there are studies [1][2] in computer science that prove them to be valuable.
 
-## Has the software industry a problem?
+## Does the Software Industry Have a Problem?
 
 We have to consider that the software industry, or to be more specific, software engineering is a very young discipline compared to classic mechanical engineering and (building) architecture. Therefore we don't have the decades and centuries of experience other professions already gained. On the other hand, software is today as ubiquitous as cars, mobile phones and other goods of our daily live, which are meanwhile almost all running software.
 
@@ -141,7 +141,7 @@ By the way, it would probably be fun to have a programming language that actuall
 
 It should be in the very interest of every entity, that has the goal to earn money with products involving software, to deliver quickly and to deliver high quality. Therefore any business should be interested in proper development processes, use of principles, design patterns and testing procedures.
 
-## The Risk of AI for low-skilled Coders
+## The Risk of AI for Low-Skilled Coders
 
 AI becomes increasingly good at writing code when instructed correctly. My personal experience so far is actually that AI can write code a lot better structured than many developers I've seen when it comes to the SOLID principles and clean code. You can even make it to practice TDD, which at least I haven't seen in many companies so far. I actually use it sometimes to review my own work, and it often finds things I can improve a little.
 
@@ -149,13 +149,13 @@ I think and hope that this will still require some time to get there. Because th
 
 Today I can express what I want in a structured way to an AI. I can give it examples, I can give it a specification, and most of the time the results are good.
 
-## What would be a good Curriculum?
+## What Would Be a Good Curriculum?
 
 I would not even start with writing code or do it the best in parallel with theoretical approaches. My curriculum will probably start with coupling and cohesion on a very abstract level. Then I would inject the SOLID principles into the schedule. Followed by design patterns and principles.
 
 The very foundation of TDD isn't that hard: Red, green, refractor. It is something that can be added from the very beginning as part of the programming exercises.
 
-## How do you motivate people to intrinsically get used to those concepts?
+## How Do You Motivate People to Intrinsically Get Used to Those Concepts?
 
 [1]: [Effect of SOLID Design Principles on Quality of
  Software: An Empirical Assessment](https://www.ijser.org/researchpaper/Effect-of-SOLID-Design-Principles-on-Quality-of-Software-An-Empirical-Assessment.pdf), Harmeet Singh, Syed Imtiyaz Hassan

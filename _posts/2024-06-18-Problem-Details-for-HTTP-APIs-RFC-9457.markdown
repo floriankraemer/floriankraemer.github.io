@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Problem Details for HTTP APIs: RFC 9475'
+title: 'Problem Details for HTTP APIs: RFC 9457'
 categories: software-architecture
 tags:
   - API

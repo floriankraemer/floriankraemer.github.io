@@ -11,7 +11,7 @@ Sometimes people are very eager and quick to say "Just replace X!" but don't con
 
 > Migrating away from COBOL is kinda expensive and risky.
 
-The author of that statement was asked to elaborate on it. However the author did not bother to reply but I found it quiet interesting to shed some light on it. Especially because the question was seemingly asked by somebody without an IT background.
+The author of that statement was asked to elaborate on it. However the author did not bother to reply but I found it quite interesting to shed some light on it. Especially because the question was seemingly asked by somebody without an IT background.
 
 ## The problem
 

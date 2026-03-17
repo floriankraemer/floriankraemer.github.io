@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Documentation - You think its boring?"
+title: "Documentation: You Think It's Boring?"
 categories: software-architecture
 tags: software-architecture, documentation
 draft: false
 comments: true
 ---
 
-Is this article will try to give you an overview of the different types of documentations For whom they are useful and should be written for and provide you some tips and tricks what you could do to write better documentation.
+This article will try to give you an overview of the different types of documentation, who they are useful for, and who they should be written for. It also provides you some tips and tricks on what you could do to write better documentation.
 
 Let's start with one of the biggest false claims I've seen: Self documenting code. After that we'll look at different types of documentation and stakeholders and their needs.
 
@@ -75,7 +75,7 @@ Compliance documentation ensures that the software complies with industry regula
 
 One of such compliance examples is GDPR or SOC2. Both require you to be compliant with certain requirements and to document that your systems or processes comply. This can be important for legal reasons or simply to get a certification.
 
-## Different Stakeholders different Needs
+## Different Stakeholders, Different Needs
 
 Different stakeholders have different needs. The developers need to understand the code, the business needs to understand the
 requirements and the DevOps or cloud team needs to understand the infrastructure. End users of your software need to understand how to use it.  The documentation needs to be targeted at the right audience.
@@ -126,7 +126,7 @@ Documentation is not an easy topic, because there are certainly challenges to it
 
 Regarding structure my best advice would be to define a good structure that matches your needs and enforce it and stick to it. This will require a lot discipline, because there are no tools that can enforce it. The quality of the search in different tools varies a lot and the AI based search assistants were not really helpful at the time of writing this.
 
-## Improving documentation
+## Improving Documentation
 
 * Make it easy to report issues within the documentation - for everyone.
 * Make it easy to improve and contribute to the documentation - for everyone.

@@ -5,7 +5,7 @@ tags:
     - software-development
     - code-review
     - delivery
-title: Pull Requests are not the best thing you can do
+title: Pull Requests Are Not the Best Thing You Can Do
 draft: false
 published: true
 comments: true
@@ -248,7 +248,7 @@ Adopt "Ship Show Ask" for Small Wins: Give your seniors the "license to Ship" on
 
 Invest in "Red-to-Green" Speed: You cannot do TBD if your CI pipeline takes 45 minutes to run. Aim for a <10 minute feedback loop. Speed is the prerequisite for safety.
 
-### Comparision Table
+### Comparison Table
 
 | Method | Speed | Risk Profile | Best For... | Pre-requisites |
 |--------|-------|--------------|-------------|----------------|
