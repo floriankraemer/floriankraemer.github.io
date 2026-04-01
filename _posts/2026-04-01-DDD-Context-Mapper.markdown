@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'DDD Context Mapper: A sngle-page Tool for Context Maps'
+title: 'DDD Context Mapper: A single-page Tool for Context Maps'
 categories: software-architecture
 tags: 
     - software-architecture
