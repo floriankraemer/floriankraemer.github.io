@@ -12,7 +12,7 @@ tags:
 draft: false
 published: true
 comments: true
-date: 2026-04-01T22:15:31.000Z
+date: 2026-04-01T21:15:31.000Z
 ---
 
 I built a single-page context mapper diagram tool because I was not happy with any tool I am aware of for this purpose. I also wanted the format to be **JSON**, easily machine readable, so I can export data from other systems and use this tool to visualize it without a proprietary file format or a heavy toolchain in between.
