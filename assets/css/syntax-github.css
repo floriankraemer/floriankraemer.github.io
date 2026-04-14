@@ -1,0 +1,289 @@
+/* Rouge GitHub (light) palette — layout and gutter match syntax-dark.css; token colors from Rouge theme github.
+   Regenerate Rouge token CSS: ruby -rrouge -e 'print Rouge::Theme.find(%q{github}).render(scope: %q{.highlighter-rouge .highlight})' */
+.highlighter-rouge .highlight table {
+  border: none !important;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+}
+.highlighter-rouge .highlight > div,
+.highlighter-rouge .highlight > pre {
+  border: none !important;
+}
+.highlighter-rouge .highlight table td {
+  padding: 3px 10px !important;
+  border: none !important;
+  vertical-align: top;
+}
+.highlighter-rouge .highlight table pre {
+  margin: 0;
+  padding: 0;
+}
+.highlighter-rouge .highlight {
+  color: #24292e !important;
+  background-color: #f8f8f8 !important;
+  border: 1px dashed #d0d7de !important;
+}
+.highlighter-rouge .highlight pre,
+.highlighter-rouge .highlight code {
+  color: #24292e !important;
+  background-color: #f8f8f8 !important;
+  border: none !important;
+}
+.highlighter-rouge .highlight .w {
+  color: #bbbbbb !important;
+  background-color: #f8f8f8 !important;
+}
+.highlighter-rouge .highlight pre {
+  padding: 0px 0 !important;
+  margin: 0;
+  overflow-x: auto;
+}
+.highlighter-rouge .highlight .err {
+  color: #a61717 !important;
+  background-color: #e3d2d2 !important;
+}
+.highlighter-rouge .highlight .cm {
+  color: #999988 !important;
+  font-style: italic;
+}
+.highlighter-rouge .highlight .cp {
+  color: #999999 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .c1 {
+  color: #999988 !important;
+  font-style: italic;
+}
+.highlighter-rouge .highlight .cs {
+  color: #999999 !important;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlighter-rouge .highlight .c,
+.highlighter-rouge .highlight .ch,
+.highlighter-rouge .highlight .cd,
+.highlighter-rouge .highlight .cpf {
+  color: #999988 !important;
+  font-style: italic;
+}
+.highlighter-rouge .highlight .gd {
+  color: #000000 !important;
+  background-color: #ffdddd !important;
+}
+.highlighter-rouge .highlight .ge {
+  color: #000000 !important;
+  font-style: italic;
+}
+.highlighter-rouge .highlight .gr {
+  color: #aa0000 !important;
+}
+.highlighter-rouge .highlight .gh {
+  color: #999999 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .gi {
+  color: #000000 !important;
+  background-color: #ddffdd !important;
+}
+.highlighter-rouge .highlight .go {
+  color: #888888 !important;
+}
+.highlighter-rouge .highlight .gp {
+  color: #555555 !important;
+}
+.highlighter-rouge .highlight .gs {
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .gu {
+  color: #aaaaaa !important;
+}
+.highlighter-rouge .highlight .gt {
+  color: #aa0000 !important;
+}
+.highlighter-rouge .highlight .kc {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .kd {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .kn {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .kp {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .kr {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .kt {
+  color: #445588 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .k,
+.highlighter-rouge .highlight .kv {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .mf {
+  color: #009999 !important;
+}
+.highlighter-rouge .highlight .mh {
+  color: #009999 !important;
+}
+.highlighter-rouge .highlight .il {
+  color: #009999 !important;
+}
+.highlighter-rouge .highlight .mi {
+  color: #009999 !important;
+}
+.highlighter-rouge .highlight .mo {
+  color: #009999 !important;
+}
+.highlighter-rouge .highlight .m,
+.highlighter-rouge .highlight .mb,
+.highlighter-rouge .highlight .mx {
+  color: #009999 !important;
+}
+.highlighter-rouge .highlight .sa {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .sb {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .sc {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .sd {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .s2 {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .se {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .sh {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .si {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .sx {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .sr {
+  color: #009926 !important;
+}
+.highlighter-rouge .highlight .s1 {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .ss {
+  color: #990073 !important;
+}
+.highlighter-rouge .highlight .s,
+.highlighter-rouge .highlight .dl {
+  color: #d14 !important;
+}
+.highlighter-rouge .highlight .na {
+  color: #008080 !important;
+}
+.highlighter-rouge .highlight .bp {
+  color: #999999 !important;
+}
+.highlighter-rouge .highlight .nb {
+  color: #0086b3 !important;
+}
+.highlighter-rouge .highlight .nc {
+  color: #445588 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .no {
+  color: #008080 !important;
+}
+.highlighter-rouge .highlight .nd {
+  color: #3c5d5d !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .ni {
+  color: #800080 !important;
+}
+.highlighter-rouge .highlight .ne {
+  color: #990000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .nf,
+.highlighter-rouge .highlight .fm {
+  color: #990000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .nl {
+  color: #990000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .nn {
+  color: #555555 !important;
+}
+.highlighter-rouge .highlight .nt {
+  color: #000080 !important;
+}
+.highlighter-rouge .highlight .vc {
+  color: #008080 !important;
+}
+.highlighter-rouge .highlight .vg {
+  color: #008080 !important;
+}
+.highlighter-rouge .highlight .vi {
+  color: #008080 !important;
+}
+.highlighter-rouge .highlight .nv,
+.highlighter-rouge .highlight .vm {
+  color: #008080 !important;
+}
+.highlighter-rouge .highlight .o,
+.highlighter-rouge .highlight .ow {
+  color: #000000 !important;
+  font-weight: bold;
+}
+.highlighter-rouge .highlight .p,
+.highlighter-rouge .highlight .pi {
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+/* Line numbers gutter — same rules as syntax-dark.css, light palette */
+.highlighter-rouge .highlight .rouge-gutter,
+.highlighter-rouge .highlight td.gutter,
+.highlighter-rouge .highlight td.linenos {
+  background-color: #f0f0f0 !important;
+  color: #656d76 !important;
+  border: none !important;
+  border-right: 1px dotted #d0d7de !important;
+  width: 1%;
+  min-width: 2ch;
+  text-align: right;
+  user-select: none;
+  padding: 3px 10px !important;
+}
+
+/* Match lineno <pre> to gutter cell (.highlight pre was forcing #f8f8f8 on numbers) */
+.highlighter-rouge .highlight td.rouge-gutter pre.lineno,
+.highlighter-rouge .highlight td.gutter pre.lineno,
+.highlighter-rouge .highlight td.linenos pre.lineno {
+  background-color: #f0f0f0 !important;
+  color: #656d76 !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Plain names — Rouge .n (not listed in GitHub theme file) */
+.highlighter-rouge .highlight .n {
+  color: #24292e !important;
+}

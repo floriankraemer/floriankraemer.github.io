@@ -1,0 +1,35 @@
+## Tabbed code example (draft)
+
+The following uses [jekyll-tabs](https://github.com/Ovski4/jekyll-tabs) with the same tab label in two groups so they stay in sync when you click a label.
+
+{% tabs linked-demo %}
+
+{% tab linked-demo C# %}
+```csharp
+Console.WriteLine("Hello");
+```
+{% endtab %}
+
+{% tab linked-demo Kotlin %}
+```kotlin
+println("Hello")
+```
+{% endtab %}
+
+{% endtabs %}
+
+{% tabs linked-demo-2 %}
+
+{% tab linked-demo-2 C# %}
+```csharp
+var x = 1;
+```
+{% endtab %}
+
+{% tab linked-demo-2 Kotlin %}
+```kotlin
+val x = 1
+```
+{% endtab %}
+
+{% endtabs %}

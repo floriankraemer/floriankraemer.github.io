@@ -305,3 +305,157 @@ a:hover {
     font-size: 0.85rem;
   }
 }
+
+/* jekyll-tabs (https://github.com/Ovski4/jekyll-tabs)
+   Load custom.css after syntax-github (see head.html) so these beat theme defaults.
+   Tab markup lives under .post-content; use explicit selectors + !important on display
+   so Minima / UA cannot flatten panels to list-item. */
+.page-content ul.tab,
+.post-content ul.tab {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 0 -1.25rem;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.page-content ul.tab > *,
+.post-content ul.tab > * {
+  flex: none;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.page-content ul.tab > * > a,
+.post-content ul.tab > * > a {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  line-height: 1.25;
+}
+
+.page-content ul.tab > .active > a,
+.post-content ul.tab > .active > a {
+  color: #1c314d;
+  border-color: #1c314d;
+}
+
+.page-content ul.tab > li > a,
+.post-content ul.tab > li > a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page-content ul.tab > li > a::before,
+.post-content ul.tab > li > a::before {
+  content: none;
+}
+
+.page-content ul.tab-content,
+.post-content ul.tab-content {
+  padding: 0;
+  margin: 0 0 1.25rem;
+  list-style: none;
+}
+
+.page-content ul.tab-content > li:not(.active),
+.post-content ul.tab-content > li:not(.active) {
+  display: none !important;
+}
+
+.page-content ul.tab-content > li.active,
+.post-content ul.tab-content > li.active {
+  display: block !important;
+}
+
+.page-content ul.tab-content > li > figure.highlight,
+.page-content ul.tab-content > li > .highlight,
+.post-content ul.tab-content > li > figure.highlight,
+.post-content ul.tab-content > li > .highlight,
+.post-content ul.tab-content > li > .highlighter-rouge {
+  margin-top: 0.75rem;
+}
+
+/*
+ * jekyll-tabs copy: addCopyToClipboardButtons selects "ul.tab-content > li pre".
+ * With Rouge line numbers there are three <pre> nodes (outer highlight, lineno, code),
+ * so the script injects three buttons. Hide the two inside table cells; keep the one
+ * on .highlight (sibling of the outer pre).
+ * tabs.js uses top:0 — override so the control sits with the first line of code (no
+ * extra empty strip above the block inside the dashed border).
+ */
+.page-content ul.tab-content .rouge-table td .jekyll-tabs-copy-button,
+.post-content ul.tab-content .rouge-table td .jekyll-tabs-copy-button {
+  display: none !important;
+}
+
+.page-content ul.tab-content .jekyll-tabs-copy-button,
+.post-content ul.tab-content .jekyll-tabs-copy-button {
+  z-index: 3;
+  top: 0.5rem !important;
+  right: 0.45rem !important;
+  margin: 0 !important;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  background: #f6f8fa;
+  color: #24292e;
+}
+
+.page-content ul.tab-content .jekyll-tabs-copy-button:hover,
+.post-content ul.tab-content .jekyll-tabs-copy-button:hover {
+  background: #eaeef2;
+  border-color: #afb8c1;
+}
+
+#jekyll-tabs-copy-to-clipboard-message {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10002;
+  right: 50%;
+  bottom: 30px;
+}
+
+#jekyll-tabs-copy-to-clipboard-message.show {
+  visibility: visible;
+  animation: jekyll-tabs-fadein 0.5s, jekyll-tabs-fadeout 0.5s 2.5s;
+}
+
+@keyframes jekyll-tabs-fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes jekyll-tabs-fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

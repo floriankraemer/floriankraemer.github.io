@@ -15,10 +15,24 @@
 
     {%- include footer.html -%}
 
+    <script src="{{ "/assets/js/tabs.js" | relative_url }}"></script>
     <!-- Mermaid Diagram Support -->
     <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        if (typeof jekyllTabs !== 'undefined') {
+          jekyllTabs.init({
+            syncTabsWithSameLabels: true,
+            addCopyToClipboardButtons: true,
+            copyToClipboardSettings: {
+              buttonHTML: '<button type="button" class="jekyll-tabs-copy-button" aria-label="Copy code to clipboard">Copy</button>',
+              showToastMessageOnCopy: true,
+              toastMessage: 'Code copied to clipboard',
+              toastDuration: 3000
+            }
+          });
+        }
+
         if (typeof mermaid === 'undefined') {
           console.error('Mermaid library not loaded!');
           return;
