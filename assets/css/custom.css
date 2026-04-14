@@ -64,14 +64,27 @@ a:hover {
   color: #1c314d;
 }
 
-/* Sticky Header */
+/* Sticky Header (Minima default min-height ~56px; +20px bar height) */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #1c314d;
   color: white;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  min-height: calc(55.95px + 20px);
+  /* Original (flat only): background-color: #1c314d; */
+  background-color: #1c314d;
+  background-image: linear-gradient(
+    to top left,
+    #2a4a6f 0%,
+    #234060 28%,
+    #1c314d 58%,
+    #152536 100%
+  );
+  border-top: 0px;
+}
+.site-header .wrapper {
+    margin-top: 10px;
 }
 
 .site-header .site-title {
@@ -120,11 +133,19 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Footer Styles */
+/* Footer Styles — same gradient direction as .site-header */
 .site-footer {
-  background-color: #1c314d;
   color: white;
   border-top: 1px solid #0f1e2e;
+  /* Original (flat only): background-color: #1c314d; */
+  background-color: #1c314d;
+  background-image: linear-gradient(
+    to top left,
+    #2a4a6f 0%,
+    #234060 28%,
+    #1c314d 58%,
+    #152536 100%
+  );
 }
 
 .site-footer a {
