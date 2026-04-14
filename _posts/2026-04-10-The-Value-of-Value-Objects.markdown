@@ -6,12 +6,12 @@ tags:
     - software-architecture
     - oop
 draft: true
-published: true
+published: false
 comments: true
-date: 2026-04-10T21:15:31.000Z
+date: 2026-04-30T21:15:31.000Z
 ---
 
-I'm still surprised to see that so many people still do not understand or use value objects. I'm not sure about the reasons for that, but I'll give it a try to explain why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is also wrong. The lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
+I'm still surprised to see that so many people still do not understand or use value objects. I'm not sure about the reasons for that, but I'll give it a try at explaining why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is also wrong. The lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
 
 Value objects are super useful to enforce business rules and constraints. And no, this is not the same as validation, but this is a topic for another article. They also help to prevent bugs.
 
@@ -94,15 +94,15 @@ This is a [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_s
 
 If you take the intended contract to include “the returned value is a positive integer” (from the name, docs, or team convention), then Beta weakens that postcondition compared to what callers are allowed to assume when they use IExample. A program that is correct when it uses Alpha can become incorrect if you substitute Beta—classic LSP failure with respect to that **behavioral contract**.
 
-While strictly seen the **formal** contract of the type system is correct in the sense of the LSP, there is a **behavioral** break. The LSP is strictly seen "just" that subtypes must be usable anywhere the base type is expected without breaking a correct program—where “correct” is defined by the actual specification of the abstraction (often pre/postconditions, invariants), not only by what compiles.
+While strictly seen, the **formal** contract of the type system is correct in the sense of the LSP, but there is a **behavioral** break. The LSP is strictly seen "just" that subtypes must be usable anywhere the base type is expected without breaking a correct program—where “correct” is defined by the actual specification of the abstraction (often pre/postconditions, invariants), not only by what compiles.
 
 So how do we fix that?
 
-### Two Ways of fixing it
+### Two Ways of Fixing It
 
 1. Return a value object "PositiveNumber" as data type, that does the check internally and does not accept negative values. Bonus: This also communicates intent and also fulfills SRP. You can immediately tell by the name of the type what it does.
 
-2. Document `NegativeResultException` with `/// <exception cref="NegativeResultException">` on the interface or base class and **hope** (or enforce it via an architectural rule checker) everyone implements it or the static analyzer is capable of finding that it is not thrown. Therefore this is not recommended, because it is not explicitly enforced.
+2. Document `NegativeResultException` with `/// <exception cref="NegativeResultException">` on the interface or base class and **hope** (or enforce it via an architectural rule checker) everyone implements it or the static analyzer is capable of finding that it is not thrown. Therefore, this is not recommended, because it is not explicitly enforced.
 
 {% tabs vo-positive-from-int %}
 
@@ -336,7 +336,7 @@ public final class PositiveInteger {
 
 ## Another Example Case
 
-This actually happened for me and other people I know, it is a very real example. So let's take a look at this method. Looks right?
+This actually happened to me and other people I know; it is a very real example. So let's take a look at this method. Looks right?
 
 {% tabs vo-friendship-call %}
 
@@ -416,17 +416,17 @@ void requestFriendship(RequesterId requesterId, RequestedPersonId requestedPerso
 
 {% endtabs %}
 
-Also note that we changed the naming to follow the actual language of the domain, instead of using the term  `User`. Many developers love calling actors `User`, no matter what the context is.
+Also note that we changed the naming to follow the actual language of the domain, instead of using the term `User`. Many developers love calling actors `User`, no matter what the context is.
 
 ## One more Example to cure Primitive Obsession
 
 Primitive obsession occurs when you rely on basic data types (strings, integers, doubles) to represent complex domain concepts that have their own rules and logic. It’s problematic because primitives are "dumb"—a string doesn't know it’s supposed to be a valid email address, and an int doesn't know a "Price" can't be negative. This forces you to scatter validation logic throughout your codebase, increases the risk of passing arguments in the wrong order, and makes your code harder to read and maintain.
 
-The value objects will ensure that the invariant, the business rules associated with your value objects are always true, no matter where you use that value. If your rule would be to never have a negative price and you go with integers or floats (Don't do floats for money!), you'll have to have this check in a lot places, while it is logically to encapsulate that concept in the price object itself.
+The value objects will ensure that the invariant, the business rules associated with your value objects are always true, no matter where you use that value. If your rule would be to never have a negative price and you go with integers or floats (Don't do floats for money!), you'll have to have this check in a lot of places, while it is logical to encapsulate that concept in the price object itself.
 
 ### The "Obsessed" Example
 
-In this version, we use a simple string for an email. Notice how the User class has to take on the burden of validating what a "Email" actually is.
+In this version, we use a simple string for an email. Notice how the User class has to take on the burden of validating what an "Email" actually is.
 
 {% tabs vo-user-primitive %}
 
@@ -497,7 +497,7 @@ public class User {
 
 By creating a Value Object, we encapsulate the logic. Once an EmailAddress object exists, you can be certain it is valid, no matter where it is passed in your system.
 
-If a developer uses the object initializer (e.g.,`new EmailAddress { Value = "not-an-email" })`, they can bypass your constructor logic because Value is an init property, so we make it private.
+If a developer uses the object initializer (e.g., `new EmailAddress { Value = "not-an-email" })`, they can bypass your constructor logic because Value is an init property, so we make it private.
 
 {% tabs vo-email-refactor %}
 
@@ -734,7 +734,7 @@ public final class PositiveInteger {
 
 Code must reflect the semantic meaning of the things you are trying to model and it should be unambiguous.
 
-A sender and a receiver are certainly not the same thing semantically; they are completely different concepts. To avoid logical mistakes you should reflect and describe them explicitly in code as well instead of saying "Yea, they're all just integers".
+A sender and a receiver are certainly not the same thing semantically; they are completely different concepts. To avoid logical mistakes you should reflect and describe them explicitly in code as well instead of saying "Yeah, they're all just integers".
 
 To summarize it:
 
