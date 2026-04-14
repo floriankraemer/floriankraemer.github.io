@@ -11,7 +11,7 @@ comments: true
 date: 2026-04-10T21:15:31.000Z
 ---
 
-I'm still surprised to see that so many people still do not use value objects. I'm not sure about the reasons for that, but I'll give it a try to explain why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is also wrong. The lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
+I'm still surprised to see that so many people still do not understand or use value objects. I'm not sure about the reasons for that, but I'll give it a try to explain why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is also wrong. The lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
 
 Value objects are super useful to enforce business rules and constraints. And no, this is not the same as validation, but this is a topic for another article. They also help to prevent bugs.
 
@@ -35,7 +35,7 @@ class Beta : IExample {
 
 I hope that you have spotted the logical issue here: the method is luckily named “get**Positive**Integer” but `2 - 4` obviously will return `-2`. The type here is `int`, and therefore you'll get a negative number back, despite the fact that this is not what the method intends. In this case you are lucky that the naming of the method expresses its intent; unfortunately, this is often not the case and this information is hidden.
 
-This is a [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle) violation: The code will break the behavior, despite being valid code. Even the type check here does not prevent a change in behavior by returning a negative number in this case. 
+This is a [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle) violation: The code will break the behavior, despite being valid code. Even the type check here does not prevent a change in behavior by returning a negative number in this case.
 
 If you take the intended contract to include “the returned value is a positive integer” (from the name, docs, or team convention), then Beta weakens that postcondition compared to what callers are allowed to assume when they use IExample. A program that is correct when it uses Alpha can become incorrect if you substitute Beta—classic LSP failure with respect to that **behavioral contract**.
 
@@ -58,10 +58,10 @@ public sealed class PositiveInteger : IEquatable<PositiveInteger>
 
     public static PositiveInteger FromInt(int number)
     {
-        if (number < 0)
-        {
+        if (number < 0) {
             throw new ArgumentException(
-                $"The provided value {number} is not a positive number");
+                $"The provided value {number} is not a positive number"
+            );
         }
 
         return new PositiveInteger(number);
@@ -99,10 +99,10 @@ public readonly record struct PositiveInteger
 
     public static PositiveInteger FromInt(int value)
     {
-        if (value < 0)
-        {
+        if (value < 0) {
             throw new ArgumentException(
-                $"The provided value {value} is not a positive number", nameof(value));
+                $"The provided value {value} is not a positive number", nameof(value)
+            );
         }
 
         return new PositiveInteger(value);
@@ -121,7 +121,7 @@ Also, the struct has some advantages:
 
 ## Another Example Case
 
-So let's take a look at this method. Looks right?
+This actually happened for me and other people I know, it is a very real example. So let's take a look at this method. Looks right?
 
 ```csharp
 RequestFriendship(requestingUserId, requestedUserId);
@@ -136,9 +136,9 @@ void RequestFriendship(
 );
 ```
 
-It is super easy to make this mistake, and I've seen it happen more than once for other people, and I have also made such mistakes.
+It is super easy to make this mistake, and I've seen it happen more than once for other people, and I have also made such mistakes. Actually, it could be worse and the arguments could be named just `user1` and `user2`, making this even more easy to mistake.
 
-Again, a value object will prevent this and make it explicit. You can't make this mistake anymore:
+A value object will prevent this and make it explicit, the different types will prevent that. You can't make this mistake anymore:
 
 ```csharp
 void RequestFriendship(
@@ -147,13 +147,84 @@ void RequestFriendship(
 );
 ```
 
-Also note that we changed the naming to follow the actual language of the domain.
+Also note that we changed the naming to follow the actual language of the domain, instead of using the term  `User`. Many developers love calling actors `User`, no matter what the context is.
+
+## One more Example to cure Primitive Obsession
+
+Primitive obsession occurs when you rely on basic data types (strings, integers, doubles) to represent complex domain concepts that have their own rules and logic. It’s problematic because primitives are "dumb"—a string doesn't know it’s supposed to be a valid email address, and an int doesn't know a "Price" can't be negative. This forces you to scatter validation logic throughout your codebase, increases the risk of passing arguments in the wrong order, and makes your code harder to read and maintain.
+
+The value objects will ensure that the invariant, the business rules associated with your value objects are always true, no matter where you use that value. If your rule would be to never have a negative price and you go with integers or floats (Don't do floats for money!), you'll have to have this check in a lot places, while it is logically to encapsulate that concept in the price object itself.
+
+### The "Obsessed" Example
+
+In this version, we use a simple string for an email. Notice how the User class has to take on the burden of validating what a "Email" actually is.
+
+```csharp
+public class User
+{
+    public string Name { get; set; }
+    // Problem: This could be "not-an-email", " ", or null.
+    public string Email { get; set; } 
+
+    public void UpdateEmail(string newEmail)
+    {
+        if (string.IsNullOrWhiteSpace(newEmail) || !newEmail.Contains("@"))
+            throw new ArgumentException("Invalid email"
+        );
+
+        Email = newEmail;
+    }
+}
+```
+
+### The Refactored Example
+
+By creating a Value Object, we encapsulate the logic. Once an EmailAddress object exists, you can be certain it is valid, no matter where it is passed in your system.
+
+If a developers uses the object initializer (e.g.,`new EmailAddress { Value = "not-an-email" })`, they can bypass your constructor logic because Value is an init property, so we make it private.
+
+```csharp
+public record EmailAddress
+{
+    public string Value { get; private init; }
+
+    public EmailAddress(string value)
+    {
+        // Of course you should have a little more strict check here, depending on your requirements
+        if (string.IsNullOrWhiteSpace(value) || !value.Contains("@"))
+            throw new ArgumentException("Invalid email format.");
+            
+        Value = value;
+    }
+    
+    // Optional: implicit conversion for cleaner syntax
+    public static implicit operator string(EmailAddress email) => email.Value;
+}
+
+public class User
+{
+    public string Name { get; set; }
+    // The type itself guarantees validity
+    public EmailAddress Email { get; private set; }
+
+    public void UpdateEmail(EmailAddress newEmail)
+    {
+        Email = newEmail;
+    }
+}
+```
+
+Refactoring primitives into dedicated types fundamentally improves type safety by making it impossible to accidentally swap a username with an email address in a method signature—the compiler simply won't allow it. This shift also enables centralized logic, where any update to validation rules, such as a new regex pattern, is handled within the type's constructor rather than being duplicated across the UI and database layers.
+
+Beyond the technical guardrails, it dramatically enhances readability; an EmailAddress type communicates the code's domain intent immediately, providing far more context to future developers than a generic, "dumb" string ever could.
 
 ## Equality of Value Objects
 
 Crucially, **a Value Object is defined by its data rather than its identity**. In a standard class, two objects are typically only considered equal if they occupy the same spot in memory—this is Reference Equality. For a true Value Object, the expression 5 == 5 must always evaluate to true, regardless of whether they are different instances in the system.
 
 If you don't override the equality logic (or use a C# record), you’ve essentially just built a "Wrapper Object." Without this **structural equality**, you lose the ability to use these objects predictably in sets, dictionaries, or comparisons, which defeats the architectural purpose of treating them as distinct values.
+
+An important note here: **Validation checks if input is correct; Value Objects ensure that once data is in your system, it stays correct**. So the exceptions here are not thought to propagate back to some UI as an error message, but are a tool to show the developer that something went very wrong should you ever get to this exception.
 
 ```csharp
 public sealed class PositiveInteger : IEquatable<PositiveInteger>
@@ -164,10 +235,10 @@ public sealed class PositiveInteger : IEquatable<PositiveInteger>
 
     public static PositiveInteger FromInt(int number)
     {
-        if (number < 0)
-        {
+        if (number < 0) {
             throw new ArgumentException(
-                $"The provided value {number} is not a positive number");
+                $"The provided value {number} is not a positive number"
+            );
         }
 
         return new PositiveInteger(number);
@@ -199,3 +270,10 @@ public sealed class PositiveInteger : IEquatable<PositiveInteger>
 Code must reflect the semantic meaning of the things you are trying to model and it should be unambiguous.
 
 A sender and a receiver are certainly not the same thing semantically; they are completely different concepts. To avoid logical mistakes you should reflect and describe them explicitly in code as well instead of saying "Yea, they're all just integers".
+
+To summarize it:
+
+* A Value Object is defined by its data rather than its identity.
+* Validation checks if input is correct; Value Objects ensure that once data is in your system, it stays correct.
+* Value objects ideally encapsulate concepts from your domain model and enforce invariants.
+* Value objects can have more than one internal value, e.g. Money could be a composite of the amount and the currency.
