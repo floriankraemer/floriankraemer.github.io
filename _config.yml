@@ -33,6 +33,7 @@ disqus:
     enable: false
     shortname: https://https-florian-kraemer-net.disqus.com
 show_excerpts: true
+google_analytics: G-5SJ21CPDTV
 
 # Build settings
 theme: minima

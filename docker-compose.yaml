@@ -9,6 +9,7 @@ services:
       - "4000:4000"
       - "35729:35729"
     environment:
+      # GA4 loads only when JEKYLL_ENV=production (see _includes/head.html + google-analytics.html).
       - JEKYLL_ENV=development
       - LANG=C.UTF-8
     command: serve --livereload --incremental --host 0.0.0.0
