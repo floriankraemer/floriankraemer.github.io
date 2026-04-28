@@ -5,15 +5,18 @@ categories: software-architecture
 tags: 
     - software-architecture
     - oop
-draft: true
-published: false
+    - design-patterns
+    - ddd
+    - tactical-patterns
+draft: false
+published: true
 comments: true
-date: 2026-04-30T21:15:31.000Z
+date: 2026-04-28T09:11:44.000Z
 ---
 
-I'm still surprised to see that so many people still do not understand or use value objects. I'm not sure about the reasons for that, but I'll give it a try at explaining why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is also wrong. The lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
+I'm still surprised to see that so many people still do not use value objects. I'm not sure about the reasons for that, but I'll give it a try at explaining why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is wrong. Others might think it's not worth the additional lines of code. However, the lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
 
-Value objects are super useful to enforce business rules and constraints. And no, this is not the same as validation, but this is a topic for another article. They also help to prevent bugs.
+Value objects are super useful to enforce business rules and constraints. And no, this is not the same as validation, but this is a topic for another article. They actually can help to prevent bugs.
 
 ## Demonstrating the Value of Value Objects by Example
 
