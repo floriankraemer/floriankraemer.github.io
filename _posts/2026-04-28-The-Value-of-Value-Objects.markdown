@@ -11,7 +11,7 @@ tags:
 draft: false
 published: true
 comments: true
-date: 2026-04-28T09:11:44.000Z
+date: 2026-04-27T08:01:41.000Z
 ---
 
 I'm still surprised to see that so many people still do not use value objects. I'm not sure about the reasons for that, but I'll give it a try at explaining why they're beneficial. Some people also seem to think that value objects are only useful if you have a combination of two or more values, which is wrong. Others might think it's not worth the additional lines of code. However, the lack of use of value objects is even considered an architectural smell that is called "Primitive Obsession".
