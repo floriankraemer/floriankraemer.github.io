@@ -32,6 +32,13 @@ a {
   transition: color 0.3s ease;
 }
 
+.post-image-left {
+  width: 250px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
 /* Link icon before links in page and post bodies */
 .page-content a[href]::before {
   content: "→ ";
