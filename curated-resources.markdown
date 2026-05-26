@@ -57,6 +57,7 @@ A curated selection of tools, frameworks, books, and references for **software a
 * [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
 * [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) - It's basically saying that a metric becomes bad if one just aims for fulfilling the numbers without respect to quality.
 * [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - The Law of Demeter states that an object should only interact with its immediate neighbors—its own fields, method parameters, and objects it creates—and avoid calling methods on objects returned by those neighbors, minimizing dependencies and promoting loose coupling.
+* [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.
 * [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
 
 ## Youtube Channels
@@ -104,15 +105,3 @@ A curated selection of tools, frameworks, books, and references for **software a
 * Uncle Bob Martin [@unclebobmartin](https://twitter.com/unclebobmartin)
 * Vaughn Vernon [@VaughnVernon](https://twitter.com/VaughnVernon)
 * Virtual Domain Driven Design [@virtualDDD](https://x.com/virtualDDD)
-
-## Java related
-
-### Frameworks
-
-* [Spring Boot](https://spring.io/) - The Spring Boot Framework.
-* [OSGi](https://www.osgi.org/) - The Dynamic Module System for Java.
-
-### Websites
-
-* [Spring Academy](https://spring.academy) - A very good learning resource, free and paid content.
-* [Baeldung](https://www.baeldung.com/) - Free and paid learning resources.
