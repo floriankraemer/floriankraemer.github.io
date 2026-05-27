@@ -222,6 +222,17 @@ a:hover {
 }
 
 /* Books List Styles */
+.books-section-heading {
+  margin: 2.5rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.books-section-heading + .books-list {
+  margin-top: 1rem;
+}
+
 .books-list {
   list-style: none;
   padding: 0;
