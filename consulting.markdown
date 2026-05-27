@@ -53,6 +53,11 @@ keywords: software architecture consulting, DDD consulting, legacy modernization
     <h3>📈 Development Process Optimization</h3>
     <p>Introduce and refine development processes tailored to your team's needs, improving collaboration, productivity, and overall project delivery through structured workflows and best practices.</p>
   </div>
+
+  <div class="service-item">
+    <h3>🎓 Training</h3>
+    <p>Hands-on <strong>software design training</strong> for your team — from clean architecture and maintainable code to <a href="/ddd/">DDD</a>, modular design, and practical refactoring. Workshops tailored to your stack and maturity level, with exercises grounded in real-world systems.</p>
+  </div>
 </div>
 
 <div class="contact-section">
