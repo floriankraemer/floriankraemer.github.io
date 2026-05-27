@@ -24,12 +24,6 @@ A curated selection of tools, frameworks, books, and references for **software a
 
 {% include books-grid.html %}
 
-
-### Leadership
-
-* [The Five Dysfunctions of a Team](https://www.amazon.de/dp/0787960756) by Patrick Lencioni is a book about team building and team work.
-* [How to Lead Smart People: Leadership for Professionals](https://www.amazon.de/-/en/Mike-Mister-ebook/dp/B07CTRRPRJ)
-
 ## Websites
 
 * [The clean code blog by Robert C. Martin](https://blog.cleancoder.com/)
@@ -52,13 +46,14 @@ A curated selection of tools, frameworks, books, and references for **software a
 * [InfoQ](https://www.infoq.com/)
 * [Dzone](https://dzone.com/)
 
-## Laws
+## Laws & Principles
 
 * [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
 * [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) - It's basically saying that a metric becomes bad if one just aims for fulfilling the numbers without respect to quality.
 * [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - The Law of Demeter states that an object should only interact with its immediate neighbors—its own fields, method parameters, and objects it creates—and avoid calling methods on objects returned by those neighbors, minimizing dependencies and promoting loose coupling.
 * [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.
 * [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
+* [SOLID Principles](https://en.wikipedia.org/wiki/SOLID) - Five fundamental principles that help you to write better code.
 
 ## Youtube Channels
 
