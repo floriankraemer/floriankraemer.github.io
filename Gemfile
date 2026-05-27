@@ -14,6 +14,7 @@ gem "csv"
 gem "base64"
 gem "bigdecimal"
 gem "webrick"
+gem "addressable", ">= 2.9.0"
 gem "jekyll-theme-clean-blog"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
