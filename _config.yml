@@ -59,6 +59,7 @@ header_pages:
   - articles.markdown
   - pages/DDD.markdown
   - curated-resources.markdown
+  - open-source-projects.markdown
   - consulting.markdown
   - about.markdown
   - imprint.markdown

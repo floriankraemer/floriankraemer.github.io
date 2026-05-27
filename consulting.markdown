@@ -167,7 +167,7 @@ keywords: software architecture consulting, DDD consulting, legacy modernization
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .quote {
     padding: 1rem;
   }
