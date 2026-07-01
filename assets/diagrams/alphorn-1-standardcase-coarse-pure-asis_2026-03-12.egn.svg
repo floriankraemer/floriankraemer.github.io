@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- created with diagram-js / http://bpmn.io -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:white" width="665.5499877929688" height="835" viewBox="135 45 680.5499877929688 835" version="1.1"><defs><marker id="activity-black-black-avhddiz3qthqh4eegly469k0x" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="fill: black; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px; stroke: black;"/></marker></defs><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_0372" transform="matrix(1, 0, 0, 1, 155, 430)" style="display: block;" id="group1" ><g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path d="M3 5v14h17V5H3zm4 2v2H5V7h2zm-2 6v-2h2v2H5zm0 2h2v2H5v-2zm13 2H9v-2h9v2zm0-4H9v-2h9v2zm0-4H9V7h9v2z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="17.29166603088379" y="74.75">catalog</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_4368" transform="matrix(1, 0, 0, 1, 402, 260)" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15 18.5c-2.51 0-4.68-1.42-5.76-3.5H15v-2H8.58c-.05-.33-.08-.66-.08-1s.03-.67.08-1H15V9H9.24C10.32 6.92 12.5 5.5 15 5.5c1.61 0 3.09.59 4.23 1.57L21 5.3C19.41 3.87 17.3 3 15 3c-3.92 0-7.24 2.51-8.48 6H3v2h3.06c-.04.33-.06.66-.06 1s.02.67.06 1H3v2h3.52c1.24 3.49 4.56 6 8.48 6 2.31 0 4.41-.87 6-2.3l-1.78-1.77c-1.13.98-2.6 1.57-4.22 1.57z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="13.833333969116211" y="74.75">monthly </tspan><tspan x="7.458333969116211" y="88.75">installment</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_8011" transform="matrix(1, 0, 0, 1, 315, 322)" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="28.791666984558105" y="74.75">car</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_9161" transform="matrix(1, 0, 0, 1, 402, 380)" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="15.166666030883789" y="74.75">contract</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_4755" transform="matrix(1, 0, 0, 1, 502, 242)" style="display: block;" id="group4" >
+            <style>
+              #group4 {
+                  opacity: 0;
+                  animation: visibilityControl4 22s infinite;
+              }
+              @keyframes visibilityControl4 {
+                  26% { opacity: 0; }    /* Initially invisible */
+                  27% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="15.166666030883789" y="74.75">contract</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_5093" transform="matrix(1, 0, 0, 1, 402, 102)" style="display: block;" id="group1" ><g class="djs-visual"><svg fill=" black" viewBox="0 0 24 26" xmlns="http://www.w3.org/2000/svg" width="75" height="75"><path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="11.833333969116211" y="75">customer</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_1432" transform="matrix(1, 0, 0, 1, 232, 430)" style="display: block;" id="group2" >
+            <style>
+              #group2 {
+                  opacity: 0;
+                  animation: visibilityControl2 22s infinite;
+              }
+              @keyframes visibilityControl2 {
+                  8% { opacity: 0; }    /* Initially invisible */
+                  9% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" height="48.75" viewBox="0 0 24 26" width="48.75" xmlns="http://www.w3.org/2000/svg" x="12.5" y="12.5"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="24.983333587646484" y="74.75">offer</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_6629" transform="matrix(1, 0, 0, 1, 315, 502)" style="display: block;" id="group5" >
+            <style>
+              #group5 {
+                  opacity: 0;
+                  animation: visibilityControl5 22s infinite;
+              }
+              @keyframes visibilityControl5 {
+                  35% { opacity: 0; }    /* Initially invisible */
+                  36% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="15.166666030883789" y="74.75">contract</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_1695" transform="matrix(1, 0, 0, 1, 649, 800)" style="display: block;" id="group8" >
+            <style>
+              #group8 {
+                  opacity: 0;
+                  animation: visibilityControl8 22s infinite;
+              }
+              @keyframes visibilityControl8 {
+                  62% { opacity: 0; }    /* Initially invisible */
+                  63% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 28" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0zm0 0h24v24H0V0z"/><path d="M12 6c0-.55-.45-1-1-1H5.82l.66-3.18.02-.23c0-.31-.13-.59-.33-.8L5.38 0 .44 4.94C.17 5.21 0 5.59 0 6v6.5c0 .83.67 1.5 1.5 1.5h6.75c.62 0 1.15-.38 1.38-.91l2.26-5.29c.07-.17.11-.36.11-.55V6zm-2 1.13L7.92 12H2V6.21l1.93-1.93L3.36 7H10v.13zM22.5 10h-6.75c-.62 0-1.15.38-1.38.91l-2.26 5.29c-.07.17-.11.36-.11.55V18c0 .55.45 1 1 1h5.18l-.66 3.18-.02.24c0 .31.13.59.33.8l.79.78 4.94-4.94c.27-.27.44-.65.44-1.06v-6.5c0-.83-.67-1.5-1.5-1.5zm-.5 7.79l-1.93 1.93.57-2.72H14v-.13L16.08 12H22v5.79z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="3.541667938232422" y="74.75">voting result</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_3041" transform="matrix(1, 0, 0, 1, 595, 630)" style="display: block;" id="group6" >
+            <style>
+              #group6 {
+                  opacity: 0;
+                  animation: visibilityControl6 22s infinite;
+              }
+              @keyframes visibilityControl6 {
+                  44% { opacity: 0; }    /* Initially invisible */
+                  45% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="15.166666030883789" y="74.75">contract</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_8612" transform="matrix(1, 0, 0, 1, 485, 630)" style="display: block;" id="group6" >
+            <style>
+              #group6 {
+                  opacity: 0;
+                  animation: visibilityControl6 22s infinite;
+              }
+              @keyframes visibilityControl6 {
+                  44% { opacity: 0; }    /* Initially invisible */
+                  45% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 28" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="27.666666984558105" y="74.75">risk</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_0184" transform="matrix(1, 0, 0, 1, 475, 720)" style="display: block;" id="group7" >
+            <style>
+              #group7 {
+                  opacity: 0;
+                  animation: visibilityControl7 22s infinite;
+              }
+              @keyframes visibilityControl7 {
+                  53% { opacity: 0; }    /* Initially invisible */
+                  54% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="15.166666030883789" y="74.75">contract</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_5598" transform="matrix(1, 0, 0, 1, 155, 290)" style="display: block;" id="group1" ><g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="28.791666984558105" y="74.75">car</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_8830" transform="matrix(1, 0, 0, 1, 665, 50)" style="display: block;" id="group11" >
+            <style>
+              #group11 {
+                  opacity: 0;
+                  animation: visibilityControl11 22s infinite;
+              }
+              @keyframes visibilityControl11 {
+                  89% { opacity: 0; }    /* Initially invisible */
+                  90% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="28.791666984558105" y="74.75">car</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_0826" transform="matrix(1, 0, 0, 1, 175, 50)" style="display: block;" id="group10" >
+            <style>
+              #group10 {
+                  opacity: 0;
+                  animation: visibilityControl10 22s infinite;
+              }
+              @keyframes visibilityControl10 {
+                  80% { opacity: 0; }    /* Initially invisible */
+                  81% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15 18.5c-2.51 0-4.68-1.42-5.76-3.5H15v-2H8.58c-.05-.33-.08-.66-.08-1s.03-.67.08-1H15V9H9.24C10.32 6.92 12.5 5.5 15 5.5c1.61 0 3.09.59 4.23 1.57L21 5.3C19.41 3.87 17.3 3 15 3c-3.92 0-7.24 2.51-8.48 6H3v2h3.06c-.04.33-.06.66-.06 1s.02.67.06 1H3v2h3.52c1.24 3.49 4.56 6 8.48 6 2.31 0 4.41-.87 6-2.3l-1.78-1.77c-1.13.98-2.6 1.57-4.22 1.57z"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="13.833333969116211" y="74.75">monthly </tspan><tspan x="7.458333969116211" y="88.75">installment</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_7368" transform="matrix(1, 0, 0, 1, 245, 660)" style="display: block;" id="group5" >
+            <style>
+              #group5 {
+                  opacity: 0;
+                  animation: visibilityControl5 22s infinite;
+              }
+              @keyframes visibilityControl5 {
+                  35% { opacity: 0; }    /* Initially invisible */
+                  36% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" viewBox="0 0 24 26" xmlns="http://www.w3.org/2000/svg" width="75" height="75"><path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="1.3333320617675781" y="75">risk manager</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_3451" transform="matrix(1, 0, 0, 1, 649, 409)" style="display: block;" id="group2" >
+            <style>
+              #group2 {
+                  opacity: 0;
+                  animation: visibilityControl2 22s infinite;
+              }
+              @keyframes visibilityControl2 {
+                  8% { opacity: 0; }    /* Initially invisible */
+                  9% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" viewBox="0 0 24 26" xmlns="http://www.w3.org/2000/svg" width="75" height="75"><path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="3.791667938232422" y="75">salesperson</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="shape_1288" transform="matrix(1, 0, 0, 1, 595, 132)" style="display: block;" id="group9" >
+            <style>
+              #group9 {
+                  opacity: 0;
+                  animation: visibilityControl9 22s infinite;
+              }
+              @keyframes visibilityControl9 {
+                  71% { opacity: 0; }    /* Initially invisible */
+                  72% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><svg fill=" black" xmlns="http://www.w3.org/2000/svg" width="48.75" height="48.75" viewBox="0 0 24 26" x="12.5" y="12.5"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(0, 0, 0);" lineHeight="1.2" class="djs-label"><tspan x="28.791666984558105" y="74.75">car</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="75" height="75"/><rect x="-5" y="-5" rx="4" width="85" height="85" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_2887" style="display: block;" id="group1" ><g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M193,375L193,430"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="207" y="402.5">from</tspan></text></g><path d="M193,375L193,430" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="188" y="370" rx="4" width="10" height="65" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_0497" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M353,322L353,298L402,298"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="367" y="310">with</tspan></text></g><path d="M353,322L353,298L402,298" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="348" y="293" rx="4" width="59" height="34" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_3740" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M440,260L440,187"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="454" y="223.5">to</tspan></text></g><path d="M440,260L440,187" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="435" y="182" rx="4" width="10" height="83" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_0973" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M402,418L353,418L353,407"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="363.85" y="433">for</tspan></text></g><path d="M402,418L353,418L353,407" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="348" y="402" rx="4" width="59" height="21" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_2202" style="display: block;" id="group3" >
+            <style>
+              #group3 {
+                  opacity: 0;
+                  animation: visibilityControl3 22s infinite;
+              }
+              @keyframes visibilityControl3 {
+                  17% { opacity: 0; }    /* Initially invisible */
+                  18% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M649,446L560,421L486,421"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="501.7" y="436">offers</tspan></text><path d="
+      M 629 439.02666980929604
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="625" y="443.02666980929604">3</tspan></text></g><path d="M649,446L560,421L486,421" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="481" y="416" rx="4" width="173" height="35" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_5414" style="display: block;" id="group4" >
+            <style>
+              #group4 {
+                  opacity: 0;
+                  animation: visibilityControl4 22s infinite;
+              }
+              @keyframes visibilityControl4 {
+                  26% { opacity: 0; }    /* Initially invisible */
+                  27% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M458,184L480,220L540,220L540,242"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="491.25" y="235">signs</tspan></text><path d="
+      M 475.4608697860214 204
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="471.4608697860214" y="208">4</tspan></text></g><path d="M458,184L480,220L540,220L540,242" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="453" y="179" rx="4" width="92" height="68" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_9136" style="display: block;" id="group4" >
+            <style>
+              #group4 {
+                  opacity: 0;
+                  animation: visibilityControl4 22s infinite;
+              }
+              @keyframes visibilityControl4 {
+                  26% { opacity: 0; }    /* Initially invisible */
+                  27% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M540,327L540,350L649,415"/></g><path d="M540,327L540,350L649,415" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="535" y="322" rx="4" width="119" height="98" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_2912" style="display: block;" id="group9" >
+            <style>
+              #group9 {
+                  opacity: 0;
+                  animation: visibilityControl9 22s infinite;
+              }
+              @keyframes visibilityControl9 {
+                  71% { opacity: 0; }    /* Initially invisible */
+                  72% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M593,170L570,170L481,138"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="570.4" y="185">to</tspan></text></g><path d="M593,170L570,170L481,138" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="476" y="133" rx="4" width="122" height="42" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_4586" style="display: block;" id="group1" ><g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M402,157L280,240L193,240L193,288"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="212.65" y="255">chooses</tspan></text><path d="
+      M 382 171.01585879988997
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="378" y="175.01585879988997">1</tspan></text></g><path d="M402,157L280,240L193,240L193,288" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="188" y="152" rx="4" width="219" height="141" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_2850" style="display: block;" id="group10" >
+            <style>
+              #group10 {
+                  opacity: 0;
+                  animation: visibilityControl10 22s infinite;
+              }
+              @keyframes visibilityControl10 {
+                  80% { opacity: 0; }    /* Initially invisible */
+                  81% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M402,124L370,102L251,102"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="268.8" y="117">pays regularly</tspan></text><path d="
+      M 382 108.66287867214737
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="375" y="112.66287867214737">10</tspan></text></g><path d="M402,124L370,102L251,102" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="246" y="97" rx="4" width="161" height="32" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_1112" style="display: block;" id="group11" >
+            <style>
+              #group11 {
+                  opacity: 0;
+                  animation: visibilityControl11 22s infinite;
+              }
+              @keyframes visibilityControl11 {
+                  89% { opacity: 0; }    /* Initially invisible */
+                  90% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M465,123L580,88L665,88"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="598.65" y="103">returns</tspan></text><path d="
+      M 485 115.4766608603791
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="478" y="119.4766608603791">11</tspan></text></g><path d="M465,123L580,88L665,88" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="460" y="83" rx="4" width="210" height="45" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_0659" style="display: block;" id="group2" >
+            <style>
+              #group2 {
+                  opacity: 0;
+                  animation: visibilityControl2 22s infinite;
+              }
+              @keyframes visibilityControl2 {
+                  8% { opacity: 0; }    /* Initially invisible */
+                  9% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M403,187L330,280L270,280L270,430"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="273.6" y="295">asks for</tspan></text><path d="
+      M 386.0533299147619 207
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="382.0533299147619" y="211">2</tspan></text></g><path d="M403,187L330,280L270,280L270,430" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="265" y="182" rx="4" width="143" height="253" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_7548" style="display: block;" id="group2" >
+            <style>
+              #group2 {
+                  opacity: 0;
+                  animation: visibilityControl2 22s infinite;
+              }
+              @keyframes visibilityControl2 {
+                  8% { opacity: 0; }    /* Initially invisible */
+                  9% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M313,468L649,468"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="467.35" y="483">the</tspan></text></g><path d="M313,468L649,468" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="308" y="463" rx="4" width="346" height="10" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_1705" style="display: block;" id="group5" >
+            <style>
+              #group5 {
+                  opacity: 0;
+                  animation: visibilityControl5 22s infinite;
+              }
+              @keyframes visibilityControl5 {
+                  35% { opacity: 0; }    /* Initially invisible */
+                  36% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M649,492L590,540L396,540"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="464.05" y="555">passes on</tspan></text><path d="
+      M 629 508.73911086499186
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="625" y="512.7391108649919">5</tspan></text></g><path d="M649,492L590,540L396,540" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="391" y="487" rx="4" width="263" height="58" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_8855" style="display: block;" id="group5" >
+            <style>
+              #group5 {
+                  opacity: 0;
+                  animation: visibilityControl5 22s infinite;
+              }
+              @keyframes visibilityControl5 {
+                  35% { opacity: 0; }    /* Initially invisible */
+                  36% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M315,540L283,540L283,660"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="287.9" y="555">to</tspan></text></g><path d="M315,540L283,540L283,660" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="278" y="535" rx="4" width="42" height="130" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_5578" style="display: block;" id="group8" >
+            <style>
+              #group8 {
+                  opacity: 0;
+                  animation: visibilityControl8 22s infinite;
+              }
+              @keyframes visibilityControl8 {
+                  62% { opacity: 0; }    /* Initially invisible */
+                  63% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M283,745L413,838L649,838"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="491.85" y="853">informs about</tspan></text><path d="
+      M 303 756.8597824808185
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="299" y="760.8597824808185">8</tspan></text></g><path d="M283,745L413,838L649,838" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="278" y="740" rx="4" width="376" height="103" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_1701" style="display: block;" id="group8" >
+            <style>
+              #group8 {
+                  opacity: 0;
+                  animation: visibilityControl8 22s infinite;
+              }
+              @keyframes visibilityControl8 {
+                  62% { opacity: 0; }    /* Initially invisible */
+                  63% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M687,798L687,494"/></g><path d="M687,798L687,494" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="682" y="489" rx="4" width="10" height="314" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_0664" style="display: block;" id="group6" >
+            <style>
+              #group6 {
+                  opacity: 0;
+                  animation: visibilityControl6 22s infinite;
+              }
+              @keyframes visibilityControl6 {
+                  44% { opacity: 0; }    /* Initially invisible */
+                  45% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M566,668L593,668"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="565.85" y="683">for</tspan></text></g><path d="M566,668L593,668" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="561" y="663" rx="4" width="37" height="10" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_0584" style="display: block;" id="group6" >
+            <style>
+              #group6 {
+                  opacity: 0;
+                  animation: visibilityControl6 22s infinite;
+              }
+              @keyframes visibilityControl6 {
+                  44% { opacity: 0; }    /* Initially invisible */
+                  45% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M305,678L413,660L483,660"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="421.6" y="675">assesses</tspan></text><path d="
+      M 325 673.7945234630997
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="321" y="677.7945234630997">6</tspan></text></g><path d="M305,678L413,660L483,660" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="300" y="655" rx="4" width="188" height="28" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_6389" style="display: block;" id="group7" >
+            <style>
+              #group7 {
+                  opacity: 0;
+                  animation: visibilityControl7 22s infinite;
+              }
+              @keyframes visibilityControl7 {
+                  53% { opacity: 0; }    /* Initially invisible */
+                  54% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M322,710L413,768L475,768"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="425.25" y="783">votes</tspan></text><path d="
+      M 342 720.8373047436838
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="338" y="724.8373047436838">7</tspan></text></g><path d="M322,710L413,768L475,768" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="317" y="705" rx="4" width="163" height="68" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_2715" style="display: block;" id="group11" >
+            <style>
+              #group11 {
+                  opacity: 0;
+                  animation: visibilityControl11 22s infinite;
+              }
+              @keyframes visibilityControl11 {
+                  89% { opacity: 0; }    /* Initially invisible */
+                  90% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M703,135L703,408"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="717" y="271.5">after leasing period</tspan></text></g><path d="M703,135L703,408" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="698" y="130" rx="4" width="10" height="283" style="fill: none;" class="djs-outline"/></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="connection_1573" style="display: block;" id="group9" >
+            <style>
+              #group9 {
+                  opacity: 0;
+                  animation: visibilityControl9 22s infinite;
+              }
+              @keyframes visibilityControl9 {
+                  71% { opacity: 0; }    /* Initially invisible */
+                  72% { opacity: 1; }  /* Starts becoming visible */
+                  98% { opacity: 1; }   /* Stays visible */
+                  99% { opacity: 0; }   /* Starts disappearing */
+                  100% { opacity: 0; }  /* Fully invisible */
+              }
+            </style>  <g class="djs-visual"><path style="stroke: black; fill: none; stroke-width: 1.5px; stroke-linejoin: round; marker-end: url('#activity-black-black-avhddiz3qthqh4eegly469k0x');" d="M673,408L636,217"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" wordWrap="break-word" overflowWrap="break-word" hyphens="auto" class="djs-label"><tspan x="672.8909227974261" y="311.28184559485226">hands over</tspan></text><path d="
+      M 668.127382379409 388
+      m 11,0
+      a 11,11 0 1,0 -22,0
+      a 11,11 0 1,0 22,0
+      " style="fill: white; stroke: black;"/><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;" lineHeight="1.2" position="absolute" class="djs-labelNumber"><tspan x="664.127382379409" y="392">9</tspan></text></g><path d="M673,408L636,217" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"/><rect x="631" y="212" rx="4" width="47" height="201" style="fill: none;" class="djs-outline"/></g></g></svg>
+<!-- <DST>
+{
+  "domain": {
+    "name": "alphorn",
+    "actors": {
+      "Group": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"48\" viewBox=\"0 0 24 26\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V19h22v-2.75c0-2.17-4.33-3.25-6.5-3.25zm-4 4.5h-10v-1.25c0-.54 2.56-1.75 5-1.75s5 1.21 5 1.75v1.25zm9 0H14v-1.25c0-.46-.2-.86-.52-1.22.88-.3 1.96-.53 3.02-.53 2.44 0 5 1.21 5 1.75v1.25zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 5.5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z\"/></svg>",
+      "Person": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>",
+      "System": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20,18c1.1,0,2-0.9,2-2V6c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6v10c0,1.1,0.9,2,2,2H0v2h24v-2H20z M4,6h16v10H4V6z\"/></svg>"
+    },
+    "workObjects": {
+      "Car": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z\"/><circle cx=\"7.5\" cy=\"14.5\" r=\"1.5\"/><circle cx=\"16.5\" cy=\"14.5\" r=\"1.5\"/></svg>",
+      "Conversation": "<svg height=\"48\" viewBox=\"0 0 24 26\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z\"/></svg>",
+      "Document": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z\"/></svg>",
+      "Email": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" d=\"M0,0h24v24H0V0z\"/><path fill-opacity=\"0.9\" d=\"M12,1.95c-5.52,0-10,4.48-10,10s4.48,10,10,10h5v-2h-5c-4.34,0-8-3.66-8-8s3.66-8,8-8s8,3.66,8,8v1.43 c0,0.79-0.71,1.57-1.5,1.57S17,14.17,17,13.38v-1.43c0-2.76-2.24-5-5-5s-5,2.24-5,5s2.24,5,5,5c1.38,0,2.64-0.56,3.54-1.47 c0.65,0.89,1.77,1.47,2.96,1.47c1.97,0,3.5-1.6,3.5-3.57v-1.43C22,6.43,17.52,1.95,12,1.95z M12,14.95c-1.66,0-3-1.34-3-3 s1.34-3,3-3s3,1.34,3,3S13.66,14.95,12,14.95z\"/></svg>",
+      "Euro": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M15 18.5c-2.51 0-4.68-1.42-5.76-3.5H15v-2H8.58c-.05-.33-.08-.66-.08-1s.03-.67.08-1H15V9H9.24C10.32 6.92 12.5 5.5 15 5.5c1.61 0 3.09.59 4.23 1.57L21 5.3C19.41 3.87 17.3 3 15 3c-3.92 0-7.24 2.51-8.48 6H3v2h3.06c-.04.33-.06.66-.06 1s.02.67.06 1H3v2h3.52c1.24 3.49 4.56 6 8.48 6 2.31 0 4.41-.87 6-2.3l-1.78-1.77c-1.13.98-2.6 1.57-4.22 1.57z\"/></svg>",
+      "Info": "<svg height=\"48\" viewBox=\"0 0 24 26\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z\"/></svg>",
+      "Security": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 28\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z\"/></svg>",
+      "Thumb-up-down": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 28\"><path fill=\"none\" d=\"M0 0h24v24H0V0zm0 0h24v24H0V0z\"/><path d=\"M12 6c0-.55-.45-1-1-1H5.82l.66-3.18.02-.23c0-.31-.13-.59-.33-.8L5.38 0 .44 4.94C.17 5.21 0 5.59 0 6v6.5c0 .83.67 1.5 1.5 1.5h6.75c.62 0 1.15-.38 1.38-.91l2.26-5.29c.07-.17.11-.36.11-.55V6zm-2 1.13L7.92 12H2V6.21l1.93-1.93L3.36 7H10v.13zM22.5 10h-6.75c-.62 0-1.15.38-1.38.91l-2.26 5.29c-.07.17-.11.36-.11.55V18c0 .55.45 1 1 1h5.18l-.66 3.18-.02.24c0 .31.13.59.33.8l.79.78 4.94-4.94c.27-.27.44-.65.44-1.06v-6.5c0-.83-.67-1.5-1.5-1.5zm-.5 7.79l-1.93 1.93.57-2.72H14v-.13L16.08 12H22v5.79z\"/></svg>",
+      "Calendar": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\" /><path d=\"M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V9h14v10zm0-12H5V5h14v2zM7 11h5v5H7z\" /></svg>",
+      "View-List": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path opacity=\".87\" fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M3 5v14h17V5H3zm4 2v2H5V7h2zm-2 6v-2h2v2H5zm0 2h2v2H5v-2zm13 2H9v-2h9v2zm0-4H9v-2h9v2zm0-4H9V7h9v2z\"/></svg>"
+    }
+  },
+  "dst": [
+    {
+      "type": "domainStory:activity",
+      "name": "with",
+      "id": "connection_0497",
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 353,
+            "y": 322
+          },
+          "x": 353,
+          "y": 322
+        },
+        {
+          "x": 353,
+          "y": 298
+        },
+        {
+          "original": {
+            "x": 410,
+            "y": 298
+          },
+          "x": 402,
+          "y": 298
+        }
+      ],
+      "source": "shape_8011",
+      "target": "shape_4368"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "assesses",
+      "id": "connection_0584",
+      "number": 6,
+      "waypoints": [
+        {
+          "original": {
+            "x": 305,
+            "y": 678
+          },
+          "x": 305,
+          "y": 678
+        },
+        {
+          "x": 413,
+          "y": 660
+        },
+        {
+          "original": {
+            "x": 483,
+            "y": 660
+          },
+          "x": 483,
+          "y": 660
+        }
+      ],
+      "source": "shape_7368",
+      "target": "shape_8612",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "asks for",
+      "id": "connection_0659",
+      "pickedColor": "black",
+      "number": "2",
+      "waypoints": [
+        {
+          "original": {
+            "x": 440,
+            "y": 140
+          },
+          "x": 403,
+          "y": 187
+        },
+        {
+          "x": 330,
+          "y": 280
+        },
+        {
+          "x": 270,
+          "y": 280
+        },
+        {
+          "original": {
+            "x": 270,
+            "y": 468
+          },
+          "x": 270,
+          "y": 430
+        }
+      ],
+      "source": "shape_5093",
+      "target": "shape_1432",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "for",
+      "id": "connection_0664",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 566,
+            "y": 668
+          },
+          "x": 566,
+          "y": 668
+        },
+        {
+          "original": {
+            "x": 593,
+            "y": 668
+          },
+          "x": 593,
+          "y": 668
+        }
+      ],
+      "source": "shape_8612",
+      "target": "shape_3041",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "for",
+      "id": "connection_0973",
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 402,
+            "y": 418
+          },
+          "x": 402,
+          "y": 418
+        },
+        {
+          "x": 353,
+          "y": 418
+        },
+        {
+          "original": {
+            "x": 353,
+            "y": 400
+          },
+          "x": 353,
+          "y": 407
+        }
+      ],
+      "source": "shape_9161",
+      "target": "shape_8011"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "returns",
+      "id": "connection_1112",
+      "number": 11,
+      "waypoints": [
+        {
+          "original": {
+            "x": 465,
+            "y": 123
+          },
+          "x": 465,
+          "y": 123
+        },
+        {
+          "x": 580,
+          "y": 88
+        },
+        {
+          "original": {
+            "x": 665,
+            "y": 88
+          },
+          "x": 665,
+          "y": 88
+        }
+      ],
+      "source": "shape_5093",
+      "target": "shape_8830",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "hands over",
+      "id": "connection_1573",
+      "number": 9,
+      "waypoints": [
+        {
+          "original": {
+            "x": 673,
+            "y": 408
+          },
+          "x": 673,
+          "y": 408
+        },
+        {
+          "original": {
+            "x": 633,
+            "y": 200
+          },
+          "x": 636,
+          "y": 217
+        }
+      ],
+      "source": "shape_3451",
+      "target": "shape_1288",
+      "pickedColor": "black",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "",
+      "id": "connection_1701",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 687,
+            "y": 798
+          },
+          "x": 687,
+          "y": 798
+        },
+        {
+          "original": {
+            "x": 687,
+            "y": 494
+          },
+          "x": 687,
+          "y": 494
+        }
+      ],
+      "source": "shape_1695",
+      "target": "shape_3451",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "passes on",
+      "id": "connection_1705",
+      "number": "5",
+      "waypoints": [
+        {
+          "original": {
+            "x": 649,
+            "y": 492
+          },
+          "x": 649,
+          "y": 492
+        },
+        {
+          "x": 590,
+          "y": 540
+        },
+        {
+          "original": {
+            "x": 395,
+            "y": 540
+          },
+          "x": 396,
+          "y": 540
+        }
+      ],
+      "source": "shape_3451",
+      "target": "shape_6629",
+      "pickedColor": "black",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "offers",
+      "id": "connection_2202",
+      "number": 3,
+      "waypoints": [
+        {
+          "original": {
+            "x": 649,
+            "y": 446
+          },
+          "x": 649,
+          "y": 446
+        },
+        {
+          "x": 560,
+          "y": 421
+        },
+        {
+          "original": {
+            "x": 486,
+            "y": 421
+          },
+          "x": 486,
+          "y": 421
+        }
+      ],
+      "source": "shape_3451",
+      "target": "shape_9161",
+      "pickedColor": "black",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "after leasing period",
+      "id": "connection_2715",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 703,
+            "y": 135
+          },
+          "x": 703,
+          "y": 135
+        },
+        {
+          "original": {
+            "x": 703,
+            "y": 408
+          },
+          "x": 703,
+          "y": 408
+        }
+      ],
+      "source": "shape_8830",
+      "target": "shape_3451",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "pays regularly",
+      "id": "connection_2850",
+      "number": 10,
+      "waypoints": [
+        {
+          "original": {
+            "x": 410,
+            "y": 130
+          },
+          "x": 402,
+          "y": 124
+        },
+        {
+          "x": 370,
+          "y": 102
+        },
+        {
+          "original": {
+            "x": 251,
+            "y": 102
+          },
+          "x": 251,
+          "y": 102
+        }
+      ],
+      "source": "shape_5093",
+      "target": "shape_0826",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "from",
+      "id": "connection_2887",
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 193,
+            "y": 375
+          },
+          "x": 193,
+          "y": 375
+        },
+        {
+          "original": {
+            "x": 193,
+            "y": 430
+          },
+          "x": 193,
+          "y": 430
+        }
+      ],
+      "source": "shape_5598",
+      "target": "shape_0372"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "to",
+      "id": "connection_2912",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 593,
+            "y": 170
+          },
+          "x": 593,
+          "y": 170
+        },
+        {
+          "x": 570,
+          "y": 170
+        },
+        {
+          "original": {
+            "x": 480,
+            "y": 138
+          },
+          "x": 481,
+          "y": 138
+        }
+      ],
+      "source": "shape_1288",
+      "target": "shape_5093",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "to",
+      "id": "connection_3740",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 440,
+            "y": 268
+          },
+          "x": 440,
+          "y": 260
+        },
+        {
+          "original": {
+            "x": 440,
+            "y": 160
+          },
+          "x": 440,
+          "y": 187
+        }
+      ],
+      "source": "shape_4368",
+      "target": "shape_5093",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "chooses",
+      "id": "connection_4586",
+      "number": "1",
+      "waypoints": [
+        {
+          "original": {
+            "x": 402,
+            "y": 157
+          },
+          "x": 402,
+          "y": 157
+        },
+        {
+          "x": 280,
+          "y": 240
+        },
+        {
+          "x": 193,
+          "y": 240
+        },
+        {
+          "original": {
+            "x": 193,
+            "y": 288
+          },
+          "x": 193,
+          "y": 288
+        }
+      ],
+      "source": "shape_5093",
+      "target": "shape_5598",
+      "pickedColor": "black",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "signs",
+      "id": "connection_5414",
+      "number": 4,
+      "waypoints": [
+        {
+          "original": {
+            "x": 458,
+            "y": 174
+          },
+          "x": 458,
+          "y": 184
+        },
+        {
+          "x": 480,
+          "y": 220
+        },
+        {
+          "x": 540,
+          "y": 220
+        },
+        {
+          "original": {
+            "x": 540,
+            "y": 242
+          },
+          "x": 540,
+          "y": 242
+        }
+      ],
+      "source": "shape_5093",
+      "target": "shape_4755",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "informs about",
+      "id": "connection_5578",
+      "number": 8,
+      "waypoints": [
+        {
+          "original": {
+            "x": 283,
+            "y": 745
+          },
+          "x": 283,
+          "y": 745
+        },
+        {
+          "x": 413,
+          "y": 838
+        },
+        {
+          "original": {
+            "x": 649,
+            "y": 838
+          },
+          "x": 649,
+          "y": 838
+        }
+      ],
+      "source": "shape_7368",
+      "target": "shape_1695",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "votes",
+      "id": "connection_6389",
+      "number": 7,
+      "waypoints": [
+        {
+          "original": {
+            "x": 322,
+            "y": 710
+          },
+          "x": 322,
+          "y": 710
+        },
+        {
+          "x": 413,
+          "y": 768
+        },
+        {
+          "original": {
+            "x": 475,
+            "y": 768
+          },
+          "x": 475,
+          "y": 768
+        }
+      ],
+      "source": "shape_7368",
+      "target": "shape_0184",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "the",
+      "id": "connection_7548",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 270,
+            "y": 468
+          },
+          "x": 313,
+          "y": 468
+        },
+        {
+          "original": {
+            "x": 649,
+            "y": 468
+          },
+          "x": 649,
+          "y": 468
+        }
+      ],
+      "source": "shape_1432",
+      "target": "shape_3451",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "to",
+      "id": "connection_8855",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 320,
+            "y": 540
+          },
+          "x": 315,
+          "y": 540
+        },
+        {
+          "x": 283,
+          "y": 540
+        },
+        {
+          "original": {
+            "x": 283,
+            "y": 660
+          },
+          "x": 283,
+          "y": 660
+        }
+      ],
+      "source": "shape_6629",
+      "target": "shape_7368",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "",
+      "id": "connection_9136",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 540,
+            "y": 320
+          },
+          "x": 540,
+          "y": 327
+        },
+        {
+          "x": 540,
+          "y": 350
+        },
+        {
+          "original": {
+            "x": 649,
+            "y": 415
+          },
+          "x": 649,
+          "y": 415
+        }
+      ],
+      "source": "shape_4755",
+      "target": "shape_3451",
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "contract",
+      "id": "shape_0184",
+      "x": 475,
+      "y": 720,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectView-List",
+      "name": "catalog",
+      "id": "shape_0372",
+      "pickedColor": "black",
+      "x": 155,
+      "y": 430
+    },
+    {
+      "type": "domainStory:workObjectEuro",
+      "name": "monthly installment",
+      "id": "shape_0826",
+      "x": 175,
+      "y": 50,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectCar",
+      "name": "car",
+      "id": "shape_1288",
+      "x": 595,
+      "y": 132,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectConversation",
+      "name": "offer",
+      "id": "shape_1432",
+      "pickedColor": "black",
+      "x": 232,
+      "y": 430
+    },
+    {
+      "type": "domainStory:workObjectThumb-up-down",
+      "name": "voting result",
+      "id": "shape_1695",
+      "pickedColor": "black",
+      "x": 649,
+      "y": 800
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "contract",
+      "id": "shape_3041",
+      "x": 595,
+      "y": 630,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:actorPerson",
+      "name": "salesperson",
+      "id": "shape_3451",
+      "x": 649,
+      "y": 409,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectEuro",
+      "name": "monthly installment",
+      "id": "shape_4368",
+      "x": 402,
+      "y": 260,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "contract",
+      "id": "shape_4755",
+      "x": 502,
+      "y": 242,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:actorPerson",
+      "name": "customer",
+      "id": "shape_5093",
+      "x": 402,
+      "y": 102,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectCar",
+      "name": "car",
+      "id": "shape_5598",
+      "pickedColor": "black",
+      "x": 155,
+      "y": 290
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "contract",
+      "id": "shape_6629",
+      "x": 315,
+      "y": 502,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:actorPerson",
+      "name": "risk manager",
+      "id": "shape_7368",
+      "x": 245,
+      "y": 660,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectCar",
+      "name": "car",
+      "id": "shape_8011",
+      "pickedColor": "black",
+      "x": 315,
+      "y": 322
+    },
+    {
+      "type": "domainStory:workObjectSecurity",
+      "name": "risk",
+      "id": "shape_8612",
+      "x": 485,
+      "y": 630,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectCar",
+      "name": "car",
+      "id": "shape_8830",
+      "x": 665,
+      "y": 50,
+      "pickedColor": "black"
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "contract",
+      "id": "shape_9161",
+      "x": 402,
+      "y": 380,
+      "pickedColor": "black"
+    },
+    {
+      "info": "Assumptions: customer is private person; happy path"
+    },
+    {
+      "version": "3.1.0"
+    }
+  ]
+}
+ </DST> -->

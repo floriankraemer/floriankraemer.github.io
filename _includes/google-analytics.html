@@ -1,0 +1,20 @@
+{%- comment -%}
+  GA4 (gtag.js). Overrides Minima’s legacy analytics.js partial.
+  Loaded from head.html only when jekyll.environment == 'production' and site.google_analytics is set.
+
+  Verify locally: JEKYLL_ENV=production bundle exec jekyll build
+  then rg 'googletagmanager.com/gtag' _site --glob '*.html' | head
+  (docker-compose sets JEKYLL_ENV=development so GA stays off during normal local serve.)
+{%- endcomment -%}
+<script>
+if (!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  var g = document.createElement("script");
+  g.async = true;
+  g.src = "https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}";
+  document.head.appendChild(g);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "{{ site.google_analytics }}");
+}
+</script>

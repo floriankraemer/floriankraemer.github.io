@@ -1,0 +1,102 @@
+---
+layout: page
+title: Resources
+permalink: /resources/
+description: Curated tools, frameworks, books, and references for software architecture, DDD, Event Storming, microservices, and domain-driven design.
+keywords: software architecture, DDD, domain-driven design, Event Storming, microservices, PHP, Java, architecture tools, refactoring
+---
+
+A curated selection of tools, frameworks, books, and references for **software architecture**, **domain-driven design (DDD)**, **Event Storming**, and **microservices**. These resources have proven valuable across architecture and DDD engagements.
+
+## Architecture related online Resources
+
+* [draw.io](https://www.drawio.com/) - Open Source Diagram Tool.
+* [Archi](https://www.archimatetool.com/) - The Open Source modelling toolkit for creating ArchiMate models and sketches
+* [Arc42](https://arc42.org/) - All you ever need to construct, communicate and document your software architecture.
+* [iSAQB](https://www.isaqb.org/) - The International Software Architecture Qualification Board (iSAQB®) brings together professional software architecture experts from industry, consulting, training, academia, and other organizations.
+* [TOGAF](https://www.opengroup.org/togaf) - The Open Group Architecture Framework
+* [BPMN, DMN and Form Builder](https://bpmn.io/) - Web-based tooling for BPMN, DMN and Forms.
+* [Egon](https://github.com/WPS/egon.io) - A Domain Story Modeler.
+  * [Online Version](https://egon.io/app/)
+* [RESTful Objects Specification](https://www.restfulobjects.org/spec/1.0/section-a/chapter-01.html) - Restful Objects is a standard covering RESTful interfaces to domain object models. 
+
+## Books
+
+{% include books-grid.html %}
+
+## Websites
+
+* [The clean code blog by Robert C. Martin](https://blog.cleancoder.com/)
+* [Refactoring Guru](https://refactoring.guru/) - A nice list of patterns and refactoring techniques.
+* [Microservice Architecture - by Chris Richardson](https://microservices.io/) - Everything about Microservices & Distributed Systems
+* [Eventmodeling.org](https://eventmodeling.org/) - Event Modeling is a method of describing systems using an example of how information has changed within them over time.
+* [Connascence.io](https://connascence.io/strength.html) - Connascence is a software quality metric & a taxonomy for different types of coupling.
+* [Impactmapping.org](https://www.impactmapping.org/) - Impact maps show assumptions and a connection between business goals, impacts on users and stakeholders, and team deliverables.
+* [Wardley Mapping](https://learnwardleymapping.com/)
+* [Event Storming](https://www.eventstorming.com/) - Official Event Storming Website by Alberto Brandolini.
+
+### Conference Websites
+
+* [Explore DDD](https://exploreddd.com/)
+* [DDD Europe](https://dddeurope.com/)
+
+### News
+
+* [Reddits PHP Section](https://www.reddit.com/r/PHP/) - Reddits PHP section.
+* [InfoQ](https://www.infoq.com/)
+* [Dzone](https://dzone.com/)
+
+## Laws & Principles
+
+* [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) - Conway's law is an adage linking the communication structure of organizations to the systems they design.
+* [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law) - It's basically saying that a metric becomes bad if one just aims for fulfilling the numbers without respect to quality.
+* [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - The Law of Demeter states that an object should only interact with its immediate neighbors—its own fields, method parameters, and objects it creates—and avoid calling methods on objects returned by those neighbors, minimizing dependencies and promoting loose coupling.
+* [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) - Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.
+* [Lindy Effect](https://en.wikipedia.org/wiki/Lindy_effect) - The Lindy effect (also known as Lindy's Law[1]) is a theorized phenomenon by which the future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age.
+* [SOLID Principles](https://en.wikipedia.org/wiki/SOLID) - Five fundamental principles that help you to write better code.
+
+## Youtube Channels
+
+### Conference Talks
+
+* [KanDDDisnky Conference Talks](https://www.youtube.com/@KanDDDinsky)
+* [NDC Conference Talks](https://www.youtube.com/@ndc)
+* [DDD Europe Conference Talks](https://www.youtube.com/@ddd_eu)
+* [GOTO Conferences](https://www.youtube.com/@GOTO-)
+* [Explore DDD Conference](https://www.youtube.com/@ExploreDDD)
+* [Tech Excellence](https://www.youtube.com/@TechExcellence)
+
+### People
+
+* [Eberhard Wolf](https://www.youtube.com/@EberhardWolff) Software Architecture Topics by Eberhard Wolf (in German)
+* [Code Opinion - Software Architecture](https://www.youtube.com/@CodeOpinion) Architecture and c#, by [Derek Comartin](https://codeopinion.com/)
+* [Continuous Delivery](https://www.youtube.com/@ContinuousDelivery) CI/CD focused, by [Dave Farley](https://www.davefarley.net/)
+* [MilanJovanovicTech](https://www.youtube.com/@MilanJovanovicTech) Architecture basics & c#, by Milan Jovanovic.
+
+### Other
+
+* [Clean Coders](https://www.youtube.com/@Cleancoders)
+
+## People to follow on Twitter / X
+
+* Alberto Brandolini [@ziobrando](https://twitter.com/ziobrando)
+* Amichai Mantinband [@amantinband](https://twitter.com/amantinband)
+* Daniel Bryant [@danielbryantuk](https://twitter.com/danielbryantuk)
+* Dan Patrascu [@danpdc](https://twitter.com/danpdc)
+* Derek Comartin [@codeopinion](https://twitter.com/codeopinion)
+* Explore DDD Conference. [@exploreddd](https://twitter.com/exploreddd)
+* Eduardo da Silva [@emgsilva](https://twitter.com/emgsilva)
+* Eric Evans [@ericevans0](https://twitter.com/ericevans0)
+* EventModeling [@EventModeling](https://twitter.com/EventModeling)
+* Frank de Jonge [@frankdejonge](https://twitter.com/frankdejonge)
+* Greg Young [@gregyoung](https://twitter.com/gregyoung)
+* KanDDDinsky Conference [@KanDDDinsky](https://twitter.com/KanDDDinsky)
+* Kevlin Henney [@KevlinHenney](https://twitter.com/KevlinHenney)
+* Manuel Pais [@manupaisable](https://twitter.com/manupaisable)
+* Martin Fowler [@martinfowler](https://twitter.com/martinfowler)
+* Matthias Noback [@matthiasnoback](https://twitter.com/matthiasnoback)
+* Michael Plöd [@bitboss](https://twitter.com/bitboss)
+* Ross Tuck [@rosstuck](https://twitter.com/rosstuck)
+* Uncle Bob Martin [@unclebobmartin](https://twitter.com/unclebobmartin)
+* Vaughn Vernon [@VaughnVernon](https://twitter.com/VaughnVernon)
+* Virtual Domain Driven Design [@virtualDDD](https://x.com/virtualDDD)

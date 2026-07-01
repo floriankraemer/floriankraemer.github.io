@@ -1,0 +1,519 @@
+/* Background Styles */
+body {
+  position: relative;
+  background-color: #fdfdfd;
+}
+
+.wrapper {
+  max-width: 900px;
+}
+
+/* Background Image Styles */
+body::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/assets_task_01k4nx4059f12afnq5yatd1nvg_1757376841_img_1.webp');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: -1;
+  opacity: 0.2;
+  filter: grayscale(75%);
+  pointer-events: none;
+}
+
+a {
+  color: #1c314d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-image-left {
+  width: 250px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+/* Link icon before links in page and post bodies */
+.page-content a[href]::before {
+  content: "» ";
+}
+
+.page-content a[href] {
+  text-decoration: underline;
+}
+
+/* Exclude navigation/chrome elements where icon doesn't fit */
+.page-content .post-list .post-link::before,
+.page-content .post-card .post-link::before,
+.page-content .pagination a::before,
+.page-content .btn::before,
+.page-content .hero-actions a::before,
+.page-content .books-list a::before {
+  content: none;
+}
+
+.page-content .books-list a[href] {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0f1e2e;
+  text-decoration: underline;
+}
+
+.post-link {
+  color: #1c314d;
+}
+
+/* Sticky Header (Minima default min-height ~56px; +20px bar height) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  min-height: calc(55.95px + 20px);
+  /* Original (flat only): background-color: #1c314d; */
+  background-color: #1c314d;
+  background-image: linear-gradient(
+    to top left,
+    #2a4a6f 0%,
+    #234060 28%,
+    #1c314d 58%,
+    #152536 100%
+  );
+  border-top: 0px;
+}
+.site-header .wrapper {
+    margin-top: 10px;
+}
+
+.site-header .site-title {
+  color: white;
+  font-weight: 400;
+}
+
+.site-header .page-link {
+  color: white;
+}
+
+.site-header .page-link:hover {
+  color: #e0e0e0;
+}
+
+/* DDD Nav Dropdown */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown .nav-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background-color: #1c314d;
+  border: 1px solid #fff2f2;
+  border-radius: 5px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 8px 24px rgba(0, 0, 0, 0.28),
+    0 2px 8px rgba(0, 0, 0, 0.18);
+  padding: 0.5rem 0;
+  overflow: hidden;
+  z-index: 1001;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-dropdown .nav-dropdown-content .page-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.nav-dropdown .nav-dropdown-content .page-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Styles — same gradient direction as .site-header */
+.site-footer {
+  color: white;
+  border-top: 1px solid #0f1e2e;
+  /* Original (flat only): background-color: #1c314d; */
+  background-color: #1c314d;
+  background-image: linear-gradient(
+    to top left,
+    #2a4a6f 0%,
+    #234060 28%,
+    #1c314d 58%,
+    #152536 100%
+  );
+}
+
+.site-footer a {
+  color: white;
+}
+
+.site-footer a:hover {
+  color: #e0e0e0;
+}
+
+/* Burger Menu - Mobile */
+@media screen and (max-width: 600px) {
+  .site-nav {
+    background-color: #1c314d;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+
+  .site-nav .menu-icon > svg {
+    fill: white;
+  }
+
+  .site-nav .page-link {
+    color: white;
+  }
+
+  .site-nav .page-link:hover {
+    color: #e0e0e0;
+  }
+
+  /* DDD dropdown on mobile: show sub-items when nav is expanded */
+  .nav-dropdown .nav-dropdown-content {
+    position: static;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .site-nav input:not(:checked) ~ .trigger .nav-dropdown .nav-dropdown-content {
+    display: none;
+  }
+
+  .site-nav input:checked ~ .trigger .nav-dropdown .nav-dropdown-content {
+    display: flex;
+  }
+}
+
+/* Adjust opacity for different screen sizes */
+@media (max-width: 768px) {
+  body::before {
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 480px) {
+  body::before {
+    opacity: 0.1;
+  }
+}
+
+/* Books List Styles */
+.books-section-heading {
+  margin: 2.5rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.books-section-heading + .books-list {
+  margin-top: 1rem;
+}
+
+.books-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.book-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.book-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.book-item a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.book-info {
+  padding: 1rem;
+  background: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.book-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #333;
+}
+
+.book-info p {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.book-info small {
+  font-size: 0.9rem;
+  color: #888;
+  display: block;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.book-item img {
+  width: 120px;
+  height: auto;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .books-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .book-item img {
+    width: 100px;
+  }
+  
+  .book-info {
+    padding: 0.75rem;
+  }
+  
+  .book-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .book-info p {
+    font-size: 0.9rem;
+  }
+  
+  .book-info small {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-item img {
+    width: 80px;
+  }
+  
+  .book-info {
+    padding: 0.5rem;
+  }
+  
+  .book-info h3 {
+    font-size: 1rem;
+  }
+  
+  .book-info p {
+    font-size: 0.85rem;
+  }
+}
+
+/* jekyll-tabs (https://github.com/Ovski4/jekyll-tabs)
+   Load custom.css after syntax-github (see head.html) so these beat theme defaults.
+   Tab markup lives under .post-content; use explicit selectors + !important on display
+   so Minima / UA cannot flatten panels to list-item. */
+.page-content ul.tab,
+.post-content ul.tab {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 0 -1.25rem;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.page-content ul.tab > *,
+.post-content ul.tab > * {
+  flex: none;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.page-content ul.tab > * > a,
+.post-content ul.tab > * > a {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  line-height: 1.25;
+}
+
+.page-content ul.tab > .active > a,
+.post-content ul.tab > .active > a {
+  color: #1c314d;
+  border-color: #1c314d;
+}
+
+.page-content ul.tab > li > a,
+.post-content ul.tab > li > a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page-content ul.tab > li > a::before,
+.post-content ul.tab > li > a::before {
+  content: none;
+}
+
+.page-content ul.tab-content,
+.post-content ul.tab-content {
+  padding: 0;
+  margin: 0 0 1.25rem;
+  list-style: none;
+}
+
+.page-content ul.tab-content > li:not(.active),
+.post-content ul.tab-content > li:not(.active) {
+  display: none !important;
+}
+
+.page-content ul.tab-content > li.active,
+.post-content ul.tab-content > li.active {
+  display: block !important;
+}
+
+.page-content ul.tab-content > li > figure.highlight,
+.page-content ul.tab-content > li > .highlight,
+.post-content ul.tab-content > li > figure.highlight,
+.post-content ul.tab-content > li > .highlight,
+.post-content ul.tab-content > li > .highlighter-rouge {
+  margin-top: 0.75rem;
+}
+
+/*
+ * jekyll-tabs copy: addCopyToClipboardButtons selects "ul.tab-content > li pre".
+ * With Rouge line numbers there are three <pre> nodes (outer highlight, lineno, code),
+ * so the script injects three buttons. Hide the two inside table cells; keep the one
+ * on .highlight (sibling of the outer pre).
+ * tabs.js uses top:0 — override so the control sits with the first line of code (no
+ * extra empty strip above the block inside the dashed border).
+ */
+.page-content ul.tab-content .rouge-table td .jekyll-tabs-copy-button,
+.post-content ul.tab-content .rouge-table td .jekyll-tabs-copy-button {
+  display: none !important;
+}
+
+.page-content ul.tab-content .jekyll-tabs-copy-button,
+.post-content ul.tab-content .jekyll-tabs-copy-button {
+  z-index: 3;
+  top: 0.5rem !important;
+  right: 0.45rem !important;
+  margin: 0 !important;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  background: #f6f8fa;
+  color: #24292e;
+}
+
+.page-content ul.tab-content .jekyll-tabs-copy-button:hover,
+.post-content ul.tab-content .jekyll-tabs-copy-button:hover {
+  background: #eaeef2;
+  border-color: #afb8c1;
+}
+
+#jekyll-tabs-copy-to-clipboard-message {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10002;
+  right: 50%;
+  bottom: 30px;
+}
+
+#jekyll-tabs-copy-to-clipboard-message.show {
+  visibility: visible;
+  animation: jekyll-tabs-fadein 0.5s, jekyll-tabs-fadeout 0.5s 2.5s;
+}
+
+@keyframes jekyll-tabs-fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes jekyll-tabs-fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+blockquote {
+  margin-block: 1.25rem;
+  margin-inline: 0;
+  padding: 1.15rem 1.15rem 1.15rem 15px;
+  border: 4px solid #e8e8e8e5;
+}
+
+hr {
+  margin-bottom: 20px;
+}

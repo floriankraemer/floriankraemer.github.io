@@ -1,0 +1,21 @@
+services:
+  jekyll:
+    build: .
+    container_name: jekyll_blog
+    restart: unless-stopped
+    volumes:
+      - .:/site
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    environment:
+      # GA4 loads only when JEKYLL_ENV=production (see _includes/head.html + google-analytics.html).
+      - JEKYLL_ENV=development
+      - LANG=C.UTF-8
+    command: dev
+    networks:
+      - jekyll_network
+
+networks:
+  jekyll_network:
+    driver: bridge
