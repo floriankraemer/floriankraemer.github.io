@@ -333,10 +333,10 @@ async function initMermaid() {
 
   mermaid.initialize({
     startOnLoad: false,
-    // Mermaid 12 defaults to the ELK layout and the "neo" look. Keep the classic dagre layout;
-    // diagrams can still opt into ELK with `layout: elk` (bundled and loaded on demand).
-    layout: 'dagre',
-    look: 'classic',
+    // Mermaid 12 layout and look (ELK is bundled and loaded on demand). A diagram can still
+    // opt out in its front matter, e.g. `config: { layout: dagre, look: classic }`.
+    layout: 'elk',
+    look: 'neo',
     theme: 'base',
     themeVariables: {
       fontFamily: 'Barlow, Arial, Helvetica, sans-serif',
