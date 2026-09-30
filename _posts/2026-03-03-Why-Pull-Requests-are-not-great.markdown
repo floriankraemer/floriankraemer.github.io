@@ -130,7 +130,7 @@ There are very different experiences and opinions about when you can or should d
 
 I highly recommend you watch this video by Dave Farley.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CR3LP2n2dWw?si=N29inYfITyI7ZwmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{% include youtube.html id="CR3LP2n2dWw" title="Video by Dave Farley" %}
 
 ### Ship Show Ask
 

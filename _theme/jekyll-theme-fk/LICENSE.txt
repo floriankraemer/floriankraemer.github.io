@@ -25,3 +25,7 @@ Excluded from this license:
 - The fonts in assets/theme/fonts (Barlow, Barlow Condensed by Jeremy Tribby; IBM Plex Mono by IBM) are licensed under the SIL Open Font License 1.1.
 - assets/theme/images/social-icons.svg is taken from the minima theme (MIT, Copyright (c) 2016-present Parker Moore and the minima contributors).
 - assets/theme/js/tabs.js is the jekyll-tabs client script (MIT, Copyright (c) Ovski4).
+- assets/theme/lib/mermaid-11.17.2 (Mermaid, MIT, Copyright (c) 2014 - 2022 Knut Sveidqvist),
+  assets/theme/lib/mermaid-layout-elk-0.2.1 (@mermaid-js/layout-elk, MIT) and
+  assets/theme/lib/panzoom-4.6.2 (@panzoom/panzoom, MIT, Copyright Timmy Willison) are unmodified
+  third-party builds; their license texts are included in the respective folders.

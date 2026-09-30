@@ -1,6 +1,8 @@
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-import elkLayouts from 'https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.1/dist/mermaid-layout-elk.esm.min.mjs';
-import Panzoom from 'https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.6.2/dist/panzoom.es.js';
+// Mermaid, the ELK layout and Panzoom are self-hosted (no third-party requests) and only
+// loaded on pages that actually contain a diagram.
+var LIB = new URL('../lib/', import.meta.url);
+var mermaid;
+var Panzoom;
 
 var MAX_INITIAL_SCALE = 2.5;
 
@@ -306,27 +308,33 @@ function openMermaidFullscreen(mermaidCode) {
 }
 
 async function initMermaid() {
-  if (typeof jekyllTabs !== 'undefined') {
-    jekyllTabs.init({
-      syncTabsWithSameLabels: true,
-      addCopyToClipboardButtons: true,
-      copyToClipboardSettings: {
-        buttonHTML: '<button type="button" class="jekyll-tabs-copy-button" aria-label="Copy code to clipboard">Copy</button>',
-        showToastMessageOnCopy: true,
-        toastMessage: 'Code copied to clipboard',
-        toastDuration: 3000
-      }
-    });
-  }
+  var allCodeBlocks = document.querySelectorAll('pre code');
 
-  mermaid.registerLayoutLoaders(elkLayouts);
+  allCodeBlocks.forEach(function(block) {
+    var code = block.textContent || block.innerText;
+    var trimmedCode = code.trim();
 
-  var elkLoader = elkLayouts.find(function(layout) {
-    return layout.name === 'elk';
+    if (isMermaidCode(trimmedCode)) {
+      processMermaidBlock(block);
+    }
   });
-  if (elkLoader && typeof elkLoader.loader === 'function') {
-    await elkLoader.loader();
+
+  var mermaidElements = document.querySelectorAll('.mermaid');
+  if (mermaidElements.length === 0) {
+    return;
   }
+
+  var modules = await Promise.all([
+    import(new URL('mermaid-11.17.2/mermaid.esm.min.mjs', LIB).href),
+    import(new URL('mermaid-layout-elk-0.2.1/mermaid-layout-elk.esm.min.mjs', LIB).href),
+    import(new URL('panzoom-4.6.2/panzoom.es.js', LIB).href)
+  ]);
+  mermaid = modules[0].default;
+  var elkLayouts = modules[1].default;
+  Panzoom = modules[2].default;
+
+  // The ELK layout is registered lazily; mermaid loads it only for diagrams that use it.
+  mermaid.registerLayoutLoaders(elkLayouts);
 
   mermaid.initialize({
     startOnLoad: false,
@@ -356,27 +364,13 @@ async function initMermaid() {
     }
   });
 
-  var allCodeBlocks = document.querySelectorAll('pre code');
-
-  allCodeBlocks.forEach(function(block) {
-    var code = block.textContent || block.innerText;
-    var trimmedCode = code.trim();
-
-    if (isMermaidCode(trimmedCode)) {
-      processMermaidBlock(block);
-    }
-  });
-
-  var mermaidElements = document.querySelectorAll('.mermaid');
-  if (mermaidElements.length > 0) {
-    try {
-      // Mermaid measures label text while rendering; wait for the web fonts so boxes fit their labels.
-      await document.fonts.ready;
-      await mermaid.run({ nodes: mermaidElements });
-      setTimeout(setupMermaidClickHandlers, 100);
-    } catch (err) {
-      console.error('Error rendering mermaid:', err);
-    }
+  try {
+    // Mermaid measures label text while rendering; wait for the web fonts so boxes fit their labels.
+    await document.fonts.ready;
+    await mermaid.run({ nodes: mermaidElements });
+    setTimeout(setupMermaidClickHandlers, 100);
+  } catch (err) {
+    console.error('Error rendering mermaid:', err);
   }
 }
 

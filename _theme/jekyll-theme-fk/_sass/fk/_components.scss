@@ -201,7 +201,6 @@
   }
 
   .callout-title {
-    max-width: 26ch;
     margin: 0;
     color: var(--fk-white);
   }
@@ -663,4 +662,137 @@
   float: left;
   width: 250px;
   margin: 0 20px 20px 0;
+}
+
+// Analytics consent banner (see _includes/consent-banner.html, assets/theme/js/consent.js).
+// Accept and Decline are styled identically on purpose: both choices must be equally easy.
+.consent-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.consent-banner-inner {
+  @include fk-tab-bordered;
+  --tab-border: var(--fk-navy);
+  display: flex;
+  align-items: center;
+  gap: 24px 32px;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 24px;
+  pointer-events: auto;
+
+  @media (max-width: $fk-bp-mobile) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+}
+
+.consent-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+.consent-banner-actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
+
+  @media (max-width: $fk-bp-mobile) {
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+.consent-button {
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--fk-navy);
+  background: var(--fk-navy);
+  color: var(--fk-white);
+  font: 600 13px/1 var(--fk-text);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--fk-hover);
+    background: var(--fk-hover);
+  }
+}
+
+// Click-to-load YouTube embed (see _includes/youtube.html).
+.video-embed {
+  max-width: 640px;
+  margin: 32px 0;
+
+  figcaption {
+    margin-top: 8px;
+  }
+}
+
+.video-embed-play,
+.video-embed-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.video-embed-play {
+  @include fk-tab;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 24px;
+  background: var(--fk-navy);
+  color: var(--fk-white);
+  text-align: left;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--fk-hover);
+  }
+}
+
+.video-embed-icon {
+  margin-bottom: auto;
+  color: var(--fk-white);
+}
+
+.video-embed-title {
+  font: 700 26px/1.1 var(--fk-display);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+
+.video-embed-note {
+  max-width: 48ch;
+  color: var(--fk-mist);
+  font-size: 14px;
+  line-height: 1.45;
 }

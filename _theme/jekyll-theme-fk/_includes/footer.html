@@ -38,8 +38,8 @@
 
     <div class="footer-bottom">
       <span>&copy; {{ site.time | date: "%Y" }} <span class="p-name">{{ site.author.name | default: site.title | escape }}</span></span>
-      {%- if site.footer_pages %}
       <span class="footer-pages">
+        <a href="#consent-banner" data-consent-open hidden>Privacy settings</a>
         {%- for path in site.footer_pages -%}
           {%- assign footer_page = site.pages | where: "path", path | first -%}
           {%- if footer_page %}
@@ -47,7 +47,6 @@
           {%- endif -%}
         {%- endfor %}
       </span>
-      {%- endif %}
     </div>
   </div>
 </footer>
