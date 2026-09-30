@@ -21,7 +21,7 @@ Hey, I’m Florian Krämer
 
 a software engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP, or whatever I can get my hands on. I'm transitioning to C# and love anything object-oriented.
 
-Email me at [753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me](mailto:753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me).
+Email me at [{{ site.email }}](mailto:{{ site.email }}).
 
 Let's connect and explore how my skills and knowledge can contribute to the success of your projects.
 

@@ -62,6 +62,6 @@ keywords: software architecture consulting, DDD consulting, legacy modernization
 
 <div class="contact-section">
   <h2>📧 Get in touch</h2>
-  <p>If you'd like to discuss consulting or training for your team, send an email to <a href="mailto:753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me" class="email-link">753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me</a>.</p>
+  <p>If you'd like to discuss consulting or training for your team, send an email to <a href="mailto:{{ site.email }}" class="email-link">{{ site.email }}</a>.</p>
   <p>Whether you need a one-off architectural review or ongoing guidance, I'm happy to discuss your situation.</p>
 </div>

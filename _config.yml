@@ -20,14 +20,15 @@
 
 destination: _site
 title: "Florian Krämer"
-email: "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
+# Contact address used site-wide (footer, imprint, privacy policy, about, consulting). Change it only here.
+email: &email "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
 description: >- # this means to ignore newlines until "baseurl:"
   My personal website about me, software architecture, software development and technology in general.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://florian-kraemer.net" # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: "Florian Krämer"
-  email: "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
+  email: *email
 twitter_username: floriankraemer
 github_username:  floriankraemer
 linkedin_username: fkrämer
@@ -69,11 +70,13 @@ footer_pages:
 # Linked from the analytics consent banner.
 privacy_page: privacy.markdown
 
-# Highlight "Articles" in the main navigation while reading a post.
+# Posts use the post layout unless their front matter says otherwise,
+# and highlight "Articles" in the main navigation.
 defaults:
   - scope:
       type: posts
     values:
+      layout: post
       nav_parent: articles.markdown
 
 # Include posts without dates in the site.posts collection
