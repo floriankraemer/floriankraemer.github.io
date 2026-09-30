@@ -9,7 +9,7 @@
       </div>
 
       <div class="footer-col">
-        <div class="label">Contact</div>
+        <div class="fk-label">Contact</div>
         {%- if site.email %}
         <a class="u-email" href="mailto:{{ site.email }}">Email</a>
         {%- endif %}
@@ -17,7 +17,7 @@
       </div>
 
       <div class="footer-col">
-        <div class="label">Elsewhere</div>
+        <div class="fk-label">Elsewhere</div>
         {%- if site.github_username %}
         <a class="social-link" href="https://github.com/{{ site.github_username | cgi_escape | escape }}">
           <svg class="svg-icon" aria-hidden="true"><use href="{{ "/assets/theme/images/social-icons.svg#github" | relative_url }}"></use></svg><span>GitHub</span>

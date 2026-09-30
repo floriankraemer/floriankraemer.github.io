@@ -1,4 +1,4 @@
-// Mermaid, the ELK layout and Panzoom are self-hosted (no third-party requests) and only
+// Mermaid (incl. ELK) and Panzoom are self-hosted (no third-party requests) and only
 // loaded on pages that actually contain a diagram.
 var LIB = new URL('../lib/', import.meta.url);
 var mermaid;
@@ -325,19 +325,18 @@ async function initMermaid() {
   }
 
   var modules = await Promise.all([
-    import(new URL('mermaid-11.17.2/mermaid.esm.min.mjs', LIB).href),
-    import(new URL('mermaid-layout-elk-0.2.1/mermaid-layout-elk.esm.min.mjs', LIB).href),
+    import(new URL('mermaid-12.0.0/mermaid.esm.min.mjs', LIB).href),
     import(new URL('panzoom-4.6.2/panzoom.es.js', LIB).href)
   ]);
   mermaid = modules[0].default;
-  var elkLayouts = modules[1].default;
-  Panzoom = modules[2].default;
-
-  // The ELK layout is registered lazily; mermaid loads it only for diagrams that use it.
-  mermaid.registerLayoutLoaders(elkLayouts);
+  Panzoom = modules[1].default;
 
   mermaid.initialize({
     startOnLoad: false,
+    // Mermaid 12 defaults to the ELK layout and the "neo" look. Keep the classic dagre layout;
+    // diagrams can still opt into ELK with `layout: elk` (bundled and loaded on demand).
+    layout: 'dagre',
+    look: 'classic',
     theme: 'base',
     themeVariables: {
       fontFamily: 'Barlow, Arial, Helvetica, sans-serif',

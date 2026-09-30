@@ -1,8 +1,11 @@
 <div class="consent-banner" id="consent-banner" role="region" aria-label="Analytics consent" hidden>
   <div class="consent-banner-inner">
     <div class="consent-banner-text">
-      <div class="label">Analytics</div>
-      <p>May I use Google Analytics to see which articles are read? It sets cookies and sends usage data, including your IP address, to Google, possibly in the USA. It only runs if you agree, and you can change your choice at any time under “Privacy settings” at the bottom of every page.</p>
+      <div class="fk-label">Analytics</div>
+      <p>May I use Google Analytics to see which articles are read? It sets cookies and sends usage data, including your IP address, to Google, possibly in the USA. It only runs if you agree, and you can change your choice at any time under “Privacy settings” at the bottom of every page.
+        {%- assign privacy_page = site.pages | where: "path", site.privacy_page | first -%}
+        {%- if privacy_page %} Details: <a href="{{ privacy_page.url | relative_url }}">{{ privacy_page.title | escape }}</a>.{% endif -%}
+      </p>
     </div>
     <div class="consent-banner-actions">
       <button type="button" class="consent-button" data-consent="denied">Decline</button>

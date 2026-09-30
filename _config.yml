@@ -63,7 +63,11 @@ header_pages:
   - about.markdown
 
 footer_pages:
+  - privacy.markdown
   - imprint.markdown
+
+# Linked from the analytics consent banner.
+privacy_page: privacy.markdown
 
 # Highlight "Articles" in the main navigation while reading a post.
 defaults:

@@ -35,24 +35,24 @@
   }
 }
 
-.label {
+.fk-label {
   color: var(--fk-slate);
   font: 600 12px/1.2 var(--fk-text);
   letter-spacing: .14em;
   text-transform: uppercase;
 }
 
-.label-navy {
+.fk-label-navy {
   color: var(--fk-navy);
 }
 
-.bar {
+.fk-bar {
   width: 38px;
   height: 4px;
   background: var(--fk-navy);
 }
 
-.meta {
+.fk-meta {
   color: var(--fk-slate);
   font-family: var(--fk-mono);
   font-size: 13px;
@@ -196,7 +196,7 @@
   background: var(--fk-navy);
   color: var(--fk-white);
 
-  .bar {
+  .fk-bar {
     background: var(--fk-mist);
   }
 
@@ -239,7 +239,7 @@
     padding: 28px 0;
     border-top: 1px solid var(--fk-line);
 
-    > .meta {
+    > .fk-meta {
       padding-top: 5px;
     }
 
@@ -331,7 +331,7 @@
   align-items: baseline;
   gap: 8px 16px;
 
-  .meta {
+  .fk-meta {
     margin-left: auto;
   }
 }

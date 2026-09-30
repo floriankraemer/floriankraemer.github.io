@@ -6,10 +6,10 @@ layout: default
 
   <header class="post-header">
     {%- if post_category %}
-    <div class="label label-navy">{{ post_category | replace: "-", " " }}</div>
+    <div class="fk-label fk-label-navy">{{ post_category | replace: "-", " " }}</div>
     {%- endif %}
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <div class="meta post-meta">
+    <div class="fk-meta post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time>
       · {% include reading-time.html content=content %} min read
       · <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | default: site.author.name | escape }}</span></span>

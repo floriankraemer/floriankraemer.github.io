@@ -21,7 +21,7 @@ list_title: "Florian Krämer - Articles"
     <ul class="post-list">
       {%- for post in posts %}
       <li>
-        <div class="meta">
+        <div class="fk-meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time><br>
           {% include reading-time.html content=post.content %} min read
         </div>
@@ -40,7 +40,7 @@ list_title: "Florian Krämer - Articles"
       {%- if paginator.previous_page %}
       <a class="more-link" href="{{ paginator.previous_page_path | relative_url }}">← Newer</a>
       {%- endif %}
-      <span class="meta">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      <span class="fk-meta">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
       {%- if paginator.next_page %}
       <a class="more-link" href="{{ paginator.next_page_path | relative_url }}">Older →</a>
       {%- endif %}
