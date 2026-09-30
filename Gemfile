@@ -20,6 +20,11 @@ gem "addressable", ">= 2.9.0"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
+# Checks of the built site (links, images, scripts); see script/check.
+group :test do
+  gem "html-proofer", "~> 5.0"
+end
+
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag", "~> 2.6"

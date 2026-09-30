@@ -1,0 +1,62 @@
+name: CI
+
+# Runs on every pull request (any target branch) and on pushes to master.
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  site:
+    name: Build and check site
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
+        with:
+          ruby-version: 4
+          bundler-cache: true
+
+      - name: Set up Node.js (JavaScript syntax check)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Production build (fails on warnings), internal links/images/scripts (html-proofer),
+      # no third-party resources without consent, JavaScript syntax. Same as `make check`.
+      - name: Build and check
+        run: script/check
+
+      - name: Upload built site on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site/
+          retention-days: 7
+
+  docker:
+    name: Docker image builds
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # The local development setup (docker compose) must keep working, including the
+      # theme gemspec that bundler needs before the sources are mounted.
+      - name: Build image
+        run: docker build --tag jekyll-site-ci .

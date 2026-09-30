@@ -1,0 +1,40 @@
+name: External links
+
+# Links to other websites break for reasons outside this repository, so they are checked
+# on a schedule instead of blocking pull requests. A failed run lists the broken links.
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  external-links:
+    name: Check external links
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
+        with:
+          ruby-version: 4
+          bundler-cache: true
+
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+
+      # Sites that block automated requests or require a login are ignored.
+      - name: Check external links
+        run: >-
+          bundle exec htmlproofer _site
+          --checks Links,Images
+          --ignore-files "/\/docs\//"
+          --ignore-status-codes "403,429,999"
+          --ignore-urls "/linkedin\.com/,/x\.com/,/twitter\.com/,/amazon\.de/"
