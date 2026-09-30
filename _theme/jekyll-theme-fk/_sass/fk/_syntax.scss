@@ -1,44 +1,78 @@
-/* Rouge GitHub (light) palette — layout and gutter match syntax-dark.css; token colors from Rouge theme github.
-   Regenerate Rouge token CSS: ruby -rrouge -e 'print Rouge::Theme.find(%q{github}).render(scope: %q{.highlighter-rouge .highlight})' */
+// Code blocks (Rouge). Token colours: Rouge "github" theme, ported from the former syntax-github.css.
+
+.highlighter-rouge,
+figure.highlight {
+  margin: 0 0 24px;
+}
+
+.highlighter-rouge .highlight {
+  position: relative;
+  border: 1px solid var(--fk-line) !important;
+  border-top: 3px solid var(--fk-navy) !important;
+  background-color: var(--fk-white) !important;
+  color: var(--fk-ink) !important;
+}
+
+.highlighter-rouge .highlight pre,
+.highlighter-rouge .highlight code {
+  border: none !important;
+  background-color: transparent !important;
+  color: var(--fk-ink) !important;
+  font-family: var(--fk-mono);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.highlighter-rouge .highlight > pre {
+  margin: 0;
+  padding: 16px 20px !important;
+  overflow-x: auto;
+}
+
+// With line numbers the padding lives on the gutter and code cells instead.
+.highlighter-rouge .highlight > pre:has(.rouge-table) {
+  padding: 0 !important;
+}
+
 .highlighter-rouge .highlight table {
+  display: table;
+  width: auto;
+  margin: 0;
+  overflow: visible;
   border: none !important;
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 0;
+  font-size: 14px;
 }
-.highlighter-rouge .highlight > div,
-.highlighter-rouge .highlight > pre {
-  border: none !important;
+
+.highlighter-rouge .highlight table tr {
+  background: transparent !important;
 }
+
 .highlighter-rouge .highlight table td {
-  padding: 3px 10px !important;
+  padding: 0 !important;
   border: none !important;
   vertical-align: top;
 }
+
 .highlighter-rouge .highlight table pre {
   margin: 0;
   padding: 0;
 }
-.highlighter-rouge .highlight {
-  color: #24292e !important;
-  background-color: #f8f8f8 !important;
-  border: 1px dashed #d0d7de !important;
+
+.highlighter-rouge .highlight .rouge-table {
+  width: 100%;
 }
-.highlighter-rouge .highlight pre,
-.highlighter-rouge .highlight code {
-  color: #24292e !important;
-  background-color: #f8f8f8 !important;
-  border: none !important;
+
+.highlighter-rouge .highlight .rouge-code {
+  width: 100%;
+  padding: 16px 20px !important;
 }
+
 .highlighter-rouge .highlight .w {
   color: #bbbbbb !important;
-  background-color: #f8f8f8 !important;
 }
-.highlighter-rouge .highlight pre {
-  padding: 0px 0 !important;
-  margin: 0;
-  overflow-x: auto;
-}
+
 .highlighter-rouge .highlight .err {
   color: #a61717 !important;
   background-color: #e3d2d2 !important;
@@ -257,30 +291,29 @@
   font-weight: bold;
 }
 
-/* Line numbers gutter — same rules as syntax-dark.css, light palette */
+/* Line numbers gutter */
 .highlighter-rouge .highlight .rouge-gutter,
 .highlighter-rouge .highlight td.gutter,
 .highlighter-rouge .highlight td.linenos {
-  background-color: #f0f0f0 !important;
-  color: #656d76 !important;
-  border: none !important;
-  border-right: 1px dotted #d0d7de !important;
   width: 1%;
   min-width: 2ch;
+  padding: 16px 12px 16px 16px !important;
+  border: none !important;
+  border-right: 1px solid var(--fk-line) !important;
+  background-color: var(--fk-paper) !important;
+  color: var(--fk-slate) !important;
   text-align: right;
   user-select: none;
-  padding: 3px 10px !important;
 }
 
-/* Match lineno <pre> to gutter cell (.highlight pre was forcing #f8f8f8 on numbers) */
 .highlighter-rouge .highlight td.rouge-gutter pre.lineno,
 .highlighter-rouge .highlight td.gutter pre.lineno,
 .highlighter-rouge .highlight td.linenos pre.lineno {
-  background-color: #f0f0f0 !important;
-  color: #656d76 !important;
-  border: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  border: none !important;
+  background-color: transparent !important;
+  color: var(--fk-slate) !important;
 }
 
 /* Plain names — Rouge .n (not listed in GitHub theme file) */

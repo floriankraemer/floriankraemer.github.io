@@ -330,7 +330,20 @@ async function initMermaid() {
 
   mermaid.initialize({
     startOnLoad: false,
-    theme: 'default',
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'Barlow, Arial, Helvetica, sans-serif',
+      primaryColor: '#F8F9FA',
+      primaryBorderColor: '#1C314D',
+      primaryTextColor: '#111111',
+      secondaryColor: '#A9B8CA',
+      tertiaryColor: '#FFFFFF',
+      lineColor: '#1C314D',
+      textColor: '#111111',
+      noteBkgColor: '#E9EEF4',
+      noteBorderColor: '#A9B8CA',
+      noteTextColor: '#111111'
+    },
     flowchart: {
       useMaxWidth: true,
       htmlLabels: true
@@ -357,6 +370,8 @@ async function initMermaid() {
   var mermaidElements = document.querySelectorAll('.mermaid');
   if (mermaidElements.length > 0) {
     try {
+      // Mermaid measures label text while rendering; wait for the web fonts so boxes fit their labels.
+      await document.fonts.ready;
       await mermaid.run({ nodes: mermaidElements });
       setTimeout(setupMermaidClickHandlers, 100);
     } catch (err) {

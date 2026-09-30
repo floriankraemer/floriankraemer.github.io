@@ -71,11 +71,6 @@ Something that is not a feature but will impact other applications or teams dire
 * Use quality attributes for them whenever possible.
 * Consider the company's primary quality attributes.
 * Do not just use “yes/no” but provide a short but meaningful rationale in the fields of the table if the answer can’t be a simple yes or no.
-
-<style>
-
-</style>
-
 <table class="uc-table">
     <thead>
         <tr>

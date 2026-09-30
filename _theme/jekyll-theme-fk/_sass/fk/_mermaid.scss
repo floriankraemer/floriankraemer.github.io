@@ -1,0 +1,157 @@
+// Mermaid diagrams and the fullscreen pan/zoom modal (see assets/theme/js/mermaid-setup.js).
+
+.mermaid-wrapper {
+  position: relative;
+  margin: 20px 0;
+  text-align: center;
+  transition: opacity .2s ease;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &::after {
+    content: 'Click to view fullscreen';
+    display: block;
+    margin-top: 6px;
+    color: var(--fk-slate);
+    font: 600 11px/1.2 var(--fk-text);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  .mermaid svg {
+    cursor: pointer;
+  }
+}
+
+.mermaid {
+  width: calc(100% + 300px);
+  margin: 30px -150px;
+  text-align: center;
+
+  @media screen and (max-width: $fk-bp-tablet) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.mermaid-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 10000 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background-color: var(--fk-white) !important;
+}
+
+.mermaid-modal-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10001;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--fk-line);
+  background-color: var(--fk-white);
+}
+
+.mermaid-modal-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--fk-navy);
+  background: var(--fk-navy);
+  color: var(--fk-white);
+  font: 600 15px/1 var(--fk-text);
+  cursor: pointer;
+  transition: background-color .2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--fk-hover);
+    color: var(--fk-white);
+  }
+}
+
+.mermaid-modal-close-btn {
+  margin-left: 8px;
+}
+
+.mermaid-modal-viewport {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  touch-action: none;
+  background-color: var(--fk-white);
+}
+
+.mermaid-fullscreen {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  text-align: left;
+  transform-origin: 0 0;
+
+  svg {
+    display: block;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mermaid-modal-toolbar {
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .mermaid-modal-control {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .mermaid-modal-close-btn {
+    flex-basis: 100%;
+    max-width: 200px;
+    margin-left: 0;
+  }
+
+  .mermaid-modal-viewport {
+    top: 108px;
+  }
+}

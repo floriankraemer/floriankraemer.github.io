@@ -1,0 +1,14 @@
+---
+# jekyll-theme-fk stylesheet entry point
+---
+
+$fk-asset-base: "{{ '/assets/theme' | relative_url }}";
+
+@import
+  "fk/tokens",
+  "fk/fonts",
+  "fk/base",
+  "fk/layout",
+  "fk/components",
+  "fk/syntax",
+  "fk/mermaid";

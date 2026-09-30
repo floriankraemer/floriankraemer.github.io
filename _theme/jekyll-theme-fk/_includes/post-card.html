@@ -1,0 +1,17 @@
+{%- assign card_post = include.post -%}
+{%- assign card_category = card_post.categories | first -%}
+<li class="post-card">
+  <article class="post-card-inner">
+    <div class="post-card-meta">
+      {%- if card_category %}
+      <span class="label label-navy">{{ card_category | replace: "-", " " }}</span>
+      {%- endif %}
+      <span class="meta"><time datetime="{{ card_post.date | date_to_xmlschema }}">{{ card_post.date | date: "%Y-%m-%d" }}</time> · {% include reading-time.html content=card_post.content %} min read</span>
+    </div>
+    <h2 class="post-card-title"><a href="{{ card_post.url | relative_url }}">{{ card_post.title | escape }}</a></h2>
+    {%- if site.show_excerpts %}
+    <div class="post-card-excerpt">{{ card_post.excerpt | strip_html | truncatewords: 60 }}</div>
+    {%- endif %}
+    <a class="more-link" href="{{ card_post.url | relative_url }}" aria-label="Read article: {{ card_post.title | escape }}">Read article →</a>
+  </article>
+</li>

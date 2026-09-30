@@ -31,15 +31,15 @@ author:
 twitter_username: floriankraemer
 github_username:  floriankraemer
 linkedin_username: fkrämer
-mastodon_username: floriankraemer
 disqus:
     enable: false
     shortname: https://https-florian-kraemer-net.disqus.com
 show_excerpts: true
 google_analytics: G-5SJ21CPDTV
+logo: /assets/theme/images/avatar.png
 
 # Build settings
-theme: minima
+theme: jekyll-theme-fk
 plugins:
     - jekyll-feed
     - jekyll-seo-tag
@@ -47,7 +47,6 @@ plugins:
 
 sass:
     style: compressed
-    sass_dir: _sass
 
 kramdown:
   syntax_highlighter: rouge
@@ -62,7 +61,16 @@ header_pages:
   - open-source-projects.markdown
   - consulting.markdown
   - about.markdown
+
+footer_pages:
   - imprint.markdown
+
+# Highlight "Articles" in the main navigation while reading a post.
+defaults:
+  - scope:
+      type: posts
+    values:
+      nav_parent: articles.markdown
 
 # Include posts without dates in the site.posts collection
 include:
@@ -71,6 +79,21 @@ include:
 
 # Enable future posts
 future: false
+
+# Repository tooling that must not be published with the site.
+exclude:
+  - Dockerfile
+  - Makefile
+  - docker-compose.yaml
+  - docker-entrypoint.sh
+  - build.sh
+  - serve.sh
+  - new-site.sh
+  - Tags.txt
+  - WHEN-TO-POST-ON-LINKEDIN.txt
+  - frontmatter.json
+  - .claude/
+  - .playwright-mcp/
 
 # Exclude from processing.
 # The following items will not be processed, by default.

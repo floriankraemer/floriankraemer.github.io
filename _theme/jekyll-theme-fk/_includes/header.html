@@ -1,0 +1,44 @@
+<header class="site-header" role="banner">
+  <div class="site-header-inner">
+    <a class="site-logo" rel="author" href="{{ "/" | relative_url }}">
+      <img src="{{ "/assets/theme/images/logo-horizontal-negative.svg" | relative_url }}" alt="{{ site.title | escape }}" width="219" height="40">
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger">
+      <label for="nav-trigger" class="nav-toggle" aria-label="Toggle menu">
+        <svg viewBox="0 0 20 14" width="20" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="0" y1="1" x2="20" y2="1"/><line x1="0" y1="7" x2="20" y2="7"/><line x1="0" y1="13" x2="20" y2="13"/>
+        </svg>
+      </label>
+
+      <div class="nav-links">
+        {%- for path in site.header_pages -%}
+          {%- assign nav_page = site.pages | where: "path", path | first -%}
+          {%- unless nav_page.title -%}{%- continue -%}{%- endunless -%}
+          {%- assign nav_url = nav_page.url | relative_url -%}
+          {%- if page.url == nav_page.url or page.nav_parent == path or nav_page.nav_children contains page.path -%}
+            {%- assign nav_current = true -%}
+          {%- else -%}
+            {%- assign nav_current = false -%}
+          {%- endif -%}
+          {%- if nav_page.nav_children -%}
+            <span class="nav-dropdown">
+              <a class="page-link{% if nav_current %} is-current{% endif %}" href="{{ nav_url }}"{% if page.url == nav_page.url %} aria-current="page"{% endif %}>{{ nav_page.title | escape }}</a>
+              <span class="nav-dropdown-content">
+                {%- for child_path in nav_page.nav_children -%}
+                  {%- assign child = site.pages | where: "path", child_path | first -%}
+                  {%- if child -%}
+                    <a class="page-link" href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{{ child.nav_title | default: child.title | escape }}</a>
+                  {%- endif -%}
+                {%- endfor -%}
+              </span>
+            </span>
+          {%- else -%}
+            <a class="page-link{% if nav_current %} is-current{% endif %}" href="{{ nav_url }}"{% if nav_current %} aria-current="page"{% endif %}>{{ nav_page.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </nav>
+  </div>
+</header>
