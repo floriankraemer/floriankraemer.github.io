@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Identify Risky Files in Your Git Repositories'
+title: 'Legacy Code Refactoring: Feathers, Beck, and Bache Compared'
 categories: software-architecture
 tags: 
     - software-quality

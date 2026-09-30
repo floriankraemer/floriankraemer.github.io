@@ -134,13 +134,7 @@ Core Quote:
 
 I highly recommend you to [watch this video](https://www.youtube.com/watch?v=G6uBAwVrxHw) with Kent Beck.
 
-<div style="text-align: center;">
-<iframe width="560"
-        height="315"
-        src="https://www.youtube.com/embed/G6uBAwVrxHw"
-        frameborder="0"
-        allowfullscreen></iframe>
-</div>
+{% include youtube.html id="G6uBAwVrxHw" title="Video with Kent Beck" %}
 
 ### Summarizing the Critique
 

@@ -19,31 +19,31 @@ permalink: /feature-design/template
 | :---- |
 
 - [\<title\>](#title)
-- [Introduction {#introduction}](#introduction-introduction)
-  - [Scope \& Purpose {#scope-\&-purpose}](#scope--purpose-scope--purpose)
-  - [Stakeholders {#stakeholders}](#stakeholders-stakeholders)
-  - [Terminology {#terminology}](#terminology-terminology)
-- [Requirements {#requirements}](#requirements-requirements)
-  - [Functional Requirements {#functional-requirements}](#functional-requirements-functional-requirements)
-  - [Non-Functional Requirements {#non-functional-requirements}](#non-functional-requirements-non-functional-requirements)
-  - [Technical Requirements {#technical-requirements}](#technical-requirements-technical-requirements)
-- [Design {#design}](#design-design)
-  - [Architecture {#architecture}](#architecture-architecture)
-  - [Component Design {#component-design}](#component-design-component-design)
-  - [Data Model {#data-model}](#data-model-data-model)
-  - [Architectural Decisions Records {#architectural-decisions-records}](#architectural-decisions-records-architectural-decisions-records)
-  - [API Design {#api-design}](#api-design-api-design)
-- [Testing {#testing}](#testing-testing)
-  - [Test Cases {#test-cases}](#test-cases-test-cases)
-  - [Test Plan {#test-plan}](#test-plan-test-plan)
-- [Migration Strategie {#migration-strategie}](#migration-strategie-migration-strategie)
-- [Risks \& Mitigations {#risks-\&-mitigations}](#risks--mitigations-risks--mitigations)
-- [Development Plan {#development-plan}](#development-plan-development-plan)
-- [Resources {#resources}](#resources-resources)
+- [Introduction](#introduction)
+  - [Scope \& Purpose](#scope-purpose)
+  - [Stakeholders](#stakeholders)
+  - [Terminology](#terminology)
+- [Requirements](#requirements)
+  - [Functional Requirements](#functional-requirements)
+  - [Non-Functional Requirements](#non-functional-requirements)
+  - [Technical Requirements](#technical-requirements)
+- [Design](#design)
+  - [Architecture](#architecture)
+  - [Component Design](#component-design)
+  - [Data Model](#data-model)
+  - [Architectural Decisions Records](#architectural-decisions-records)
+  - [API Design](#api-design)
+- [Testing](#testing)
+  - [Test Cases](#test-cases)
+  - [Test Plan](#test-plan)
+- [Migration Strategie](#migration-strategie)
+- [Risks \& Mitigations](#risks-mitigations)
+- [Development Plan](#development-plan)
+- [Resources](#resources)
 
 # Introduction {#introduction}
 
-## Scope & Purpose {#scope-&-purpose}
+## Scope & Purpose {#scope-purpose}
 
 | ℹ️ Explain the purpose of the functionality and what it aims to achieve. Describe the scope of the feature, including what will and will not be covered. |
 | :---- |
@@ -132,7 +132,7 @@ permalink: /feature-design/template
 | ℹ️ If any migrations are needed describe them here. |
 | :---- |
 
-# Risks & Mitigations {#risks-&-mitigations}
+# Risks & Mitigations {#risks-mitigations}
 
 | ℹ️ Describe possible risks and provide a plan to mitigate them. A risk could be for example that ½ of a team is on vacation and we can’t deliver in time. Another risk might be the lack of knowledge in a certain area. If there are no risks then mention that explicitly and do not just remove this section. |
 | :---- |

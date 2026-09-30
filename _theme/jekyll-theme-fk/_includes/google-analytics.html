@@ -1,0 +1,10 @@
+{%- comment -%}
+  GA4 configuration. Part of jekyll-theme-fk.
+  Included only when jekyll.environment == 'production' and site.google_analytics is set.
+  Nothing is loaded from Google here: assets/theme/js/consent.js loads gtag.js only after the
+  visitor accepted analytics in the consent banner (_includes/consent-banner.html).
+
+  Verify locally: JEKYLL_ENV=production bundle exec jekyll build
+  (docker-compose sets JEKYLL_ENV=development, so analytics and the banner stay off during normal local serve.)
+{%- endcomment -%}
+<script>window.fkConsentConfig = { gaId: {{ site.google_analytics | jsonify }} };</script>

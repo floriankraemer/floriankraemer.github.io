@@ -1,0 +1,51 @@
+---
+layout: default
+list_title: "Florian Krämer - Articles"
+---
+<div class="home">
+  {%- if page.title %}
+  <h1 class="page-title">{{ page.title | escape }}</h1>
+  {%- endif %}
+
+  {{ content }}
+
+  {%- if site.paginate %}
+    {%- assign posts = paginator.posts -%}
+  {%- else %}
+    {%- assign posts = site.posts -%}
+  {%- endif %}
+
+  {%- if posts.size > 0 %}
+  <section class="post-list-section">
+    <h2 class="post-list-heading">{{ page.list_title | default: layout.list_title }}</h2>
+    <ul class="post-list">
+      {%- for post in posts %}
+      <li>
+        <div class="fk-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time><br>
+          {% include reading-time.html content=post.content %} min read
+        </div>
+        <div class="post-list-body">
+          <h3 class="post-list-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+          {%- if site.show_excerpts %}
+          <div class="post-list-excerpt">{{ post.excerpt | strip_html | truncatewords: 60 }}</div>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+
+    {%- if site.paginate %}
+    <nav class="pager" aria-label="Pagination">
+      {%- if paginator.previous_page %}
+      <a class="more-link" href="{{ paginator.previous_page_path | relative_url }}">← Newer</a>
+      {%- endif %}
+      <span class="fk-meta">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {%- if paginator.next_page %}
+      <a class="more-link" href="{{ paginator.next_page_path | relative_url }}">Older →</a>
+      {%- endif %}
+    </nav>
+    {%- endif %}
+  </section>
+  {%- endif %}
+</div>

@@ -1,0 +1,67 @@
+@use "config" as *;
+
+// Self-hosted brand fonts (SIL OFL 1.1). No third-party font requests.
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/Barlow_400Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/Barlow_400Regular_Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/Barlow_600SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/Barlow_700Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/BarlowCondensed_600SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/BarlowCondensed_700Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/IBMPlexMono_400Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$fk-asset-base}/fonts/IBMPlexMono_700Bold.woff2") format("woff2");
+}
+

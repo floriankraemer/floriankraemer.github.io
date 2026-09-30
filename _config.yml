@@ -20,26 +20,27 @@
 
 destination: _site
 title: "Florian Krämer"
-email: "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
+# Contact address used site-wide (footer, imprint, privacy policy, about, consulting). Change it only here.
+email: &email "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
 description: >- # this means to ignore newlines until "baseurl:"
   My personal website about me, software architecture, software development and technology in general.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://florian-kraemer.net" # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: "Florian Krämer"
-  email: "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
+  email: *email
 twitter_username: floriankraemer
 github_username:  floriankraemer
 linkedin_username: fkrämer
-mastodon_username: floriankraemer
 disqus:
     enable: false
     shortname: https://https-florian-kraemer-net.disqus.com
 show_excerpts: true
 google_analytics: G-5SJ21CPDTV
+logo: /assets/theme/images/avatar.png
 
 # Build settings
-theme: minima
+theme: jekyll-theme-fk
 plugins:
     - jekyll-feed
     - jekyll-seo-tag
@@ -47,7 +48,6 @@ plugins:
 
 sass:
     style: compressed
-    sass_dir: _sass
 
 kramdown:
   syntax_highlighter: rouge
@@ -62,7 +62,22 @@ header_pages:
   - open-source-projects.markdown
   - consulting.markdown
   - about.markdown
+
+footer_pages:
+  - privacy.markdown
   - imprint.markdown
+
+# Linked from the analytics consent banner.
+privacy_page: privacy.markdown
+
+# Posts use the post layout unless their front matter says otherwise,
+# and highlight "Articles" in the main navigation.
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
+      nav_parent: articles.markdown
 
 # Include posts without dates in the site.posts collection
 include:
@@ -71,6 +86,21 @@ include:
 
 # Enable future posts
 future: false
+
+# Repository tooling that must not be published with the site.
+exclude:
+  - Dockerfile
+  - Makefile
+  - docker-compose.yaml
+  - docker-entrypoint.sh
+  - build.sh
+  - serve.sh
+  - new-site.sh
+  - Tags.txt
+  - WHEN-TO-POST-ON-LINKEDIN.txt
+  - frontmatter.json
+  - .claude/
+  - .playwright-mcp/
 
 # Exclude from processing.
 # The following items will not be processed, by default.

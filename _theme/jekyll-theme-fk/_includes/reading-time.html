@@ -1,0 +1,2 @@
+{%- comment -%} Estimated reading time in minutes: 200 words per minute, rounded up. Usage: {% include reading-time.html content=post.content %} {%- endcomment -%}
+{{- include.content | number_of_words | divided_by: 200 | plus: 1 -}}

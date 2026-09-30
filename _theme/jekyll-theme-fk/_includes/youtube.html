@@ -1,0 +1,13 @@
+{%- comment -%}
+  Privacy-friendly YouTube embed. Nothing is loaded from YouTube until the visitor clicks play;
+  the player then comes from youtube-nocookie.com.
+  Usage: {% include youtube.html id="VIDEO_ID" title="Video title" %}
+{%- endcomment -%}
+<figure class="video-embed">
+  <button type="button" class="video-embed-play" data-youtube-id="{{ include.id | escape }}" data-youtube-title="{{ include.title | escape }}">
+    <svg class="video-embed-icon" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><path d="M0 0H51.2L64 12.8V64H0Z" fill="currentColor"/><path d="M25 20L45 32L25 44Z" fill="#1C314D"/></svg>
+    <span class="video-embed-title">{{ include.title | escape }}</span>
+    <span class="video-embed-note">Play video. This loads the player from YouTube (Google) and sends data to Google.</span>
+  </button>
+  <figcaption class="fk-meta"><a href="https://www.youtube.com/watch?v={{ include.id | escape }}">Watch on YouTube</a></figcaption>
+</figure>

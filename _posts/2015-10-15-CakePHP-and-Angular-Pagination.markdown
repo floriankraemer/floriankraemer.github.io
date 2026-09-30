@@ -9,7 +9,7 @@ categories:
    - CakePHP
 ---
 
-It is actually pretty easy to make your RESTful calls in CakePHP paginateable by using what the [Paginator Component](http://book.cakephp.org/3.0/en/controllers/components/pagination.html) already offers us and using [Angular UI Bootstrap Paginator](https://angular-ui.github.io/bootstrap/#/pagination) on the client-side code. On our server side, we just use [the built-in serialization](http://book.cakephp.org/3.0/en/views/json-and-xml-views.html) of CakePHP to generate the response. This is an example of a CakePHP controller `index()` method that is paginateable:
+It is actually pretty easy to make your RESTful calls in CakePHP paginateable by using what the [Paginator Component](https://book.cakephp.org/3.0/en/controllers/components/pagination.html) already offers us and using [Angular UI Bootstrap Paginator](https://angular-ui.github.io/bootstrap/#/pagination) on the client-side code. On our server side, we just use [the built-in serialization](https://book.cakephp.org/3.0/en/views/json-and-xml-views.html) of CakePHP to generate the response. This is an example of a CakePHP controller `index()` method that is paginateable:
 
 ```php
 public function index() {

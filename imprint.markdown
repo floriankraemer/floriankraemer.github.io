@@ -4,13 +4,15 @@ title: Imprint
 permalink: /imprint/
 ---
 
-Information according to § 5 TMG:
+Information according to § 5 DDG:
 
-Florian Krämer
-Reichensächser Straße 5
-Wehretal, 37287
+Florian Krämer<br>
+Reichensächser Straße 5<br>
+37287 Wehretal<br>
 Germany
 
-Responsible for the content according ot §55 Abs. 2 RStV:
+Email: [{{ site.email }}](mailto:{{ site.email }})
 
-Florian Krämer
+Responsible for the content according to § 18 Abs. 2 MStV:
+
+Florian Krämer (address as above)

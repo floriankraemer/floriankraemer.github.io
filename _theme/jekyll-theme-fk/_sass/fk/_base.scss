@@ -1,0 +1,219 @@
+@use "config" as *;
+
+// Base: reset, page background, typography, links.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--fk-paper);
+  color: var(--fk-ink);
+  font: 400 17px/1.6 var(--fk-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+// Background image (kept from the previous design).
+body::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("#{$fk-asset-base}/images/background.webp");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: -1;
+  opacity: 0.2;
+  filter: grayscale(75%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  body::before {
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 480px) {
+  body::before {
+    opacity: 0.1;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, ul, ol, dl, figure, table {
+  margin: 0 0 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--fk-ink);
+  text-wrap: balance;
+}
+
+h1 {
+  font: 700 40px/1.05 var(--fk-display);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  color: var(--fk-navy);
+}
+
+h2 {
+  font: 600 28px/1.1 var(--fk-display);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font: 600 20px/1.3 var(--fk-text);
+}
+
+h4, h5, h6 {
+  font: 600 17px/1.4 var(--fk-text);
+}
+
+a {
+  color: var(--fk-navy);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color .2s ease;
+}
+
+a:visited {
+  color: var(--fk-navy);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--fk-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--fk-hover);
+  outline-offset: 2px;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+ul, ol {
+  padding-left: 24px;
+}
+
+li > ul,
+li > ol {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+li + li {
+  margin-top: 6px;
+}
+
+ul {
+  list-style: square;
+}
+
+ul li::marker,
+ol li::marker {
+  color: var(--fk-navy);
+}
+
+hr {
+  height: 0;
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--fk-line);
+}
+
+code, kbd, samp, pre {
+  font-family: var(--fk-mono);
+}
+
+:not(pre) > code {
+  padding: .1em .35em;
+  background-color: #EEF1F4;
+  font-size: .88em;
+}
+
+blockquote {
+  margin: 32px 0;
+  padding: 0;
+  color: var(--fk-ink);
+  font-size: 20px;
+  line-height: 1.5;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 38px;
+    height: 4px;
+    margin-bottom: 16px;
+    background: var(--fk-navy);
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  cite {
+    display: block;
+    margin-top: 12px;
+    color: var(--fk-slate);
+    font: 600 12px/1.2 var(--fk-text);
+    font-style: normal;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+}
+
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+
+  th,
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--fk-line);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    border-bottom: 2px solid var(--fk-navy);
+    color: var(--fk-navy);
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, .6);
+  }
+}

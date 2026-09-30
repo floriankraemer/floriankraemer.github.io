@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+label: Software Architect & Developer
 permalink: /about/
 description: Florian Krämer – certified software architect & developer with 22+ years of experience. DDD, clean architecture, legacy refactoring, PHP, C#, and Java.
 keywords: Florian Krämer, software architect, software developer, DDD, domain-driven design, PHP, C#, clean architecture, legacy refactoring
@@ -10,17 +11,17 @@ tags:
   - software-architecture
   - consulting
 slug: ""
-custom_css: about.css
 ---
 
-![Photo of Florian Krämer](/assets/images/foto.jpg){: width="250" : style="float: right; border-radius: 50%; margin-left: 20px;"}
+![Photo of Florian Krämer](/assets/images/foto.jpg){: .portrait}
 
 
 Hey, I’m Florian Krämer
+{: .lead}
 
 a software engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP, or whatever I can get my hands on. I'm transitioning to C# and love anything object-oriented.
 
-Email me at [753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me](mailto:753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me).
+Email me at [{{ site.email }}](mailto:{{ site.email }}).
 
 Let's connect and explore how my skills and knowledge can contribute to the success of your projects.
 
@@ -49,9 +50,9 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * SOLID, YAGNI, KISS - Concepts that create good code.
 * Frameworks are just tools; I'm not dogmatic about them.
 * While I'm proficient in PHP, I also love to work on C# and Java projects as well.
-* Artificial intelligence 🤖, neural networks, agentic engineering - super interesting!
+* Artificial intelligence, neural networks, agentic engineering - super interesting!
 * Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin, Dave Farley and others.
-* I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge. 🙇
+* I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge.
 
 ## Reference Open Source Projects
 

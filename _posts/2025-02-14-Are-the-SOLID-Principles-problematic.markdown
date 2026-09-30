@@ -130,7 +130,7 @@ I totally agree with it as well.
 
 Let's assume you have an aggregate (in the context of DDD) and you add annotations or attributes (depending on your language features) to the aggregate to enable it to be used by a persistence system as well. Very strictly seen you could argue, that you've just broken the SRP. Is it bad in this case? Well, it depends. The overall system has to be understood, its goals and quality attributes, to answer that question.
 
-Another, often done and also very similar case, is the use of validation rule annotations or attributes on data transfer objects or even on persistence entities or domain entities. The answer is again an "it depends" on the context. For a simple CRUD application this is very likely good. If you have a system modelling social benefits or tax laws, it is very likely ending up in a hard to maintain system. Regarding the topic of where to do validation [check my other article](2024-02-16-About-Validation-and-Anti-Corruption-Layers.markdown) I wrote specifically about this topic.
+Another, often done and also very similar case, is the use of validation rule annotations or attributes on data transfer objects or even on persistence entities or domain entities. The answer is again an "it depends" on the context. For a simple CRUD application this is very likely good. If you have a system modelling social benefits or tax laws, it is very likely ending up in a hard to maintain system. Regarding the topic of where to do validation [check my other article]({% post_url 2024-02-16-About-Validation-and-Anti-Corruption-Layers %}) I wrote specifically about this topic.
 
 ### How to learn them the best?
 

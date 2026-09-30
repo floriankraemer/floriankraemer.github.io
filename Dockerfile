@@ -5,6 +5,7 @@ FROM ruby:4-slim
 RUN apt-get update && apt-get install -y \
     build-essential \
     git \
+    libcurl4 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory to /site
@@ -12,6 +13,8 @@ WORKDIR /site
 
 # Copy Gemfile and Gemfile.lock to the container (if Gemfile.lock exists)
 COPY Gemfile* ./
+# The theme is a path gem; bundler needs its gemspec before the sources are mounted.
+COPY _theme/jekyll-theme-fk/jekyll-theme-fk.gemspec _theme/jekyll-theme-fk/
 
 # Install Jekyll and dependencies
 RUN gem install bundler && \

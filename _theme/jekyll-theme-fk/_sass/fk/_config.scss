@@ -1,0 +1,5 @@
+// Theme settings shared by all partials. main.scss overrides $fk-asset-base with the site's baseurl.
+$fk-asset-base: "/assets/theme" !default;
+
+$fk-bp-tablet: 800px;
+$fk-bp-mobile: 600px;

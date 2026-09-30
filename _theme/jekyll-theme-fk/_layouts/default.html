@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+    {%- if jekyll.environment == 'production' and site.google_analytics %}
+      {%- include consent-banner.html -%}
+    {%- endif %}
+
+    <script src="{{ "/assets/theme/js/consent.js" | relative_url }}" defer></script>
+
+    <script src="{{ "/assets/theme/js/tabs.js" | relative_url }}"></script>
+    <script>
+      jekyllTabs.init({
+        syncTabsWithSameLabels: true,
+        addCopyToClipboardButtons: true,
+        copyToClipboardSettings: {
+          buttonHTML: '<button type="button" class="jekyll-tabs-copy-button" aria-label="Copy code to clipboard">Copy</button>',
+          showToastMessageOnCopy: true,
+          toastMessage: 'Code copied to clipboard',
+          toastDuration: 3000
+        }
+      });
+    </script>
+    <script type="module" src="{{ "/assets/theme/js/mermaid-setup.js" | relative_url }}"></script>
+
+  </body>
+
+</html>

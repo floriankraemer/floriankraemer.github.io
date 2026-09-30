@@ -10,6 +10,7 @@ help:
 	@echo "  make bash        - Open a bash shell inside the Jekyll container"
 	@echo "  make shell       - Rebuild, start, and open shell in Jekyll container"
 	@echo "  make build       - Build (or rebuild) the Jekyll container"
+	@echo "  make check       - Build the site like production and run the CI checks"
 
 # Start the Jekyll container
 .PHONY: up
@@ -30,6 +31,11 @@ logs:
 .PHONY: bash
 bash:
 	docker compose exec jekyll /bin/bash
+
+# Build the site like production and run the same checks as CI (script/check)
+.PHONY: check
+check:
+	docker compose run --rm -T -e SITE_DIR=/tmp/site-check jekyll bash script/check
 
 # Build the Jekyll container
 .PHONY: build

@@ -19,22 +19,22 @@ permalink: /feature-design/simplified-template
 | :---- |
 
 - [\<title\>](#title)
-- [Overview {#overview}](#overview-overview)
-  - [Purpose {#purpose}](#purpose-purpose)
-  - [Scope {#scope}](#scope-scope)
-  - [Stakeholders {#stakeholders}](#stakeholders-stakeholders)
-- [Requirements {#requirements}](#requirements-requirements)
-  - [Functional Requirements {#functional-requirements}](#functional-requirements-functional-requirements)
-  - [Technical Requirements {#technical-requirements}](#technical-requirements-technical-requirements)
-- [Design {#design}](#design-design)
-  - [Architecture {#architecture}](#architecture-architecture)
-  - [Architectural Decisions Records {#architectural-decisions-records}](#architectural-decisions-records-architectural-decisions-records)
-  - [API Design {#api-design}](#api-design-api-design)
-- [Testing {#testing}](#testing-testing)
-  - [Test Plan {#test-plan}](#test-plan-test-plan)
-- [Development Plan {#development-plan}](#development-plan-development-plan)
-- [Risks \& Mitigations {#risks-\&-mitigations}](#risks--mitigations-risks--mitigations)
-- [Resources {#resources}](#resources-resources)
+- [Overview](#overview)
+  - [Purpose](#purpose)
+  - [Scope](#scope)
+  - [Stakeholders](#stakeholders)
+- [Requirements](#requirements)
+  - [Functional Requirements](#functional-requirements)
+  - [Technical Requirements](#technical-requirements)
+- [Design](#design)
+  - [Architecture](#architecture)
+  - [Architectural Decisions Records](#architectural-decisions-records)
+  - [API Design](#api-design)
+- [Testing](#testing)
+  - [Test Plan](#test-plan)
+- [Development Plan](#development-plan)
+- [Risks \& Mitigations](#risks-mitigations)
+- [Resources](#resources)
 
 # Overview {#overview}
 
@@ -111,7 +111,7 @@ permalink: /feature-design/simplified-template
 |  |  |  | Person |  |  |  |
 |  | **Total:** x PD |  |  |  |  |  |
 
-# Risks & Mitigations {#risks-&-mitigations}
+# Risks & Mitigations {#risks-mitigations}
 
 | ℹ️ Describe possible risks and provide a plan to mitigate them. A risk could be for example that ½ of a team is on vacation and we can’t deliver in time. Another risk might be the lack of knowledge in a certain area. If there are no risks then mention that explicitly and do not just remove this section. |
 | :---- |
