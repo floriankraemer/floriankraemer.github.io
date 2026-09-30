@@ -28,7 +28,7 @@ So when you inspect the `$context`, the 2nd arg of a validation rule, you'll not
 
 An application rule will run after the entity object was built by the marshaller and you'll have all data available you need that was passed and merged if you used patchEntity() for example.
 
-See the "[Creating custom rule objects](http://book.cakephp.org/3.0/en/orm/validation.html#creating-custom-rule-objects)" section of the official documentation on how to create your own rule objects.
+See the "[Creating custom rule objects](https://book.cakephp.org/3.0/en/orm/validation.html#creating-custom-rule-objects)" section of the official documentation on how to create your own rule objects.
 
 ```php
 <?php

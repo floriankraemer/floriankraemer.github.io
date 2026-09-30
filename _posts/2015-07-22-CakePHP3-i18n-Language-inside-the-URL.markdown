@@ -6,7 +6,7 @@ tags:
     - cakephp
 ---
 
-In CakePHP 2.x it was pretty cumbersome to get the language across all pages into the URL. With CakePHP 3 it is just awesome and easy. [You can now create persistent URL parameters](http://book.cakephp.org/3.0/en/development/routing.html#creating-persistent-url-parameters).
+In CakePHP 2.x it was pretty cumbersome to get the language across all pages into the URL. With CakePHP 3 it is just awesome and easy. [You can now create persistent URL parameters](https://book.cakephp.org/3.0/en/development/routing.html#creating-persistent-url-parameters).
 
 This is basically all you need for the most basic implementation inside your config/routes.php. The code is mostly the same as in the previous link to the persistent URL parameters page but I've added the default language so that it is always present. If you don't want a default language to be always present just remove the elseif part. Notice that you'll have to add routes into the /:language/* scope to inject it.
 

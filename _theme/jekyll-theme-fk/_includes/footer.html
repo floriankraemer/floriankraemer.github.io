@@ -39,7 +39,9 @@
     <div class="footer-bottom">
       <span>&copy; {{ site.time | date: "%Y" }} <span class="p-name">{{ site.author.name | default: site.title | escape }}</span></span>
       <span class="footer-pages">
+        {%- if jekyll.environment == 'production' and site.google_analytics %}
         <a href="#consent-banner" data-consent-open hidden>Privacy settings</a>
+        {%- endif %}
         {%- for path in site.footer_pages -%}
           {%- assign footer_page = site.pages | where: "path", path | first -%}
           {%- if footer_page %}
