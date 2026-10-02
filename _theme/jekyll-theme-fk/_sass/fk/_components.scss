@@ -142,8 +142,33 @@
   }
 }
 
-.h-entry .post-content {
-  font-size: 18px;
+// Posts: a centered reading column. Header and running text share one measure;
+// images, code blocks and tables break out to the full content width on the same axis.
+.h-entry {
+  --fk-measure: 712px; // 70ch at the 18px post font size
+
+  .post-header {
+    max-width: var(--fk-measure);
+    margin-inline: auto;
+  }
+
+  .post-content {
+    font-size: 18px;
+
+    > p,
+    > ul:not([class]),
+    > ol:not([class]),
+    > h2, > h3, > h4, > h5, > h6,
+    > blockquote {
+      max-width: var(--fk-measure);
+      margin-inline: auto;
+    }
+
+    > p:has(> img) {
+      max-width: none;
+      text-align: center;
+    }
+  }
 }
 
 // Pages: top-level sections are separated by a rule (About, Consulting, …).
