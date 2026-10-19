@@ -75,7 +75,7 @@ If this understanding never made it into the code by using the idea of the ubiqu
 
 ## The Impact on AI
 
-There are so far a few studies ([Wirdemann et al., 2026](https://arxiv.org/abs/2608.18645); [Borg et al., 2026](https://arxiv.org/abs/2601.02200); [Tornhill, 2026](https://codescene.com/blog/unhealthy-code-is-burning-your-token-usage-heres-the-data)) that show that code that is easy to understand for humans is also easier to understand for an AI. Or in other words: You spend fewer tokens. Even if you don't read all of the code anymore, when you have to, you should be able to understand it easily and quickly.
+There are so far a few studies ([Wirdemann et al., 2026](https://arxiv.org/abs/2608.18645); [Borg et al., 2026](https://arxiv.org/abs/2601.02200); [Tornhill, 2026](https://codescene.com/blog/unhealthy-code-is-burning-your-token-usage-heres-the-data)) that suggest that code that is easy to understand for humans may also be easier to understand for an AI. Or in other words: You may spend fewer tokens. Even if you don't read all of the code anymore, when you have to, you should be able to understand it easily and quickly.
 
 ## Conclusion
 
