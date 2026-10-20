@@ -30,7 +30,7 @@ Also, the score is not the same as Cyclomatic Complexity[^cyclomatic] or Halstea
 
 Why does it matter? Well, understanding code is expensive and something we do most of the time.
 Roughly 80% of the time is spent on reading and understanding code.
-And it is also more expensive for AI agents to work with low-quality, hard-to-comprehend code.
+And it is also more expensive for AI agents to work with low-quality, hard-to-comprehend code. I'll get back to this point later on.
 
 ## Why Semantics Is Left Out
 
@@ -56,7 +56,7 @@ I would recommend everyone to peek into DDD and the concept of the ubiquitous la
 
 The classic "User" can be something *very* different. A "Nurse" and a "Doctor" are both a "User" of a system, but with very different roles and concepts. A nurse will never perform a surgery.
 
-The classic mistake here is to model something like `User.performSurgery()` vs. `Surgeon.performSurgery()`. Your `Nurse` object simply should never provide this method. This is just an example, but you get the idea, I hope. If something is different, give it a different model based on its behavior and capabilities. 
+The classic mistake here is to model something like `User.performSurgery()` vs. `Surgeon.performSurgery()`. Your `Nurse` object simply should never provide this method. This is just an example, but you get the idea. If something is different, give it a different model based on its behavior and capabilities. 
 
 By doing so, you'll also follow the SPR principle from the SOLID principles. You'll get a smaller, easier to test object. An object should do one thing or take one responsibility. In this cast it is to model a nurse. Not a surgeon, not a super generic, almighty "User".
 
@@ -67,7 +67,7 @@ I can use `setStatus()` and pass an enum, but the three methods describe the act
 
 Cognitive limits are about how much we can keep in short-term memory. Semantics is about understanding the meaning of the words.
 
-The best you can get from analyzing words is a distribution of words across a code base, but depending on the design of the code base you'll get deceptive results. You can have shitty code: if your 6000-line controller has all your "Order" logic inside, this looks "fine", because it's all in one place, right? Of course, this will very likely be garbage code if the controller has 6000 lines. If you keep looking, you'll find "Order" as well in the infrastructure layer (if one exists) or somewhere else. If an application is doing categorization and not, as it should be, grouping by capability, you'll not get anything useful from that approach. Unfortunately, such analysis almost never generated a net benefit for me. Maybe my approach is flawed; I won't rule this out.
+The best you can get from analyzing words is a distribution of words across a code base, but depending on the design of the code base you'll get deceptive results. You can have really bad code: if your 6000-line controller has all your "Order" logic inside, this looks "fine", because it's all in one place, right? Of course, this will very likely be very messy code if the controller has so many lines. If you keep looking, you'll find "Order" as well in the infrastructure layer (if one exists) or somewhere else. If an application is doing categorization and not, as it should be, grouping by capability, you'll not get anything useful from that approach. Unfortunately, such analysis almost never generated a net benefit for me. Maybe my approach is flawed; I won't rule this out.
 
 I've already experimented with different approaches, but in my opinion there is no better way than actually talking with domain experts and doing Event Storming[^event-storming] when you work in a really complex domain. *It is crucial to understand the problem space before writing code!*
 
@@ -87,7 +87,7 @@ In practice, this means using both tools for what they are good at:
 - Work with domain experts to find the right words and boundaries, and make sure exactly these words end up in your class and method names.
 - When you refactor a hotspot, don't just split it into smaller pieces, but name the pieces after the domain concepts they represent.
 
-I'm happy to answer all questions and criticism, or help you interpret results if you have doubts about them.
+I'm happy to answer all questions and criticism, or help you interpret results if you want.
 
 ---
 
