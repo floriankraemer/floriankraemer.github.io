@@ -12,7 +12,7 @@ tags:
 draft: true
 published: true
 comments: true
-date: 2026-10-21T10:13:51.000Z
+date: 2026-10-21T08:13:51.000Z
 ---
 
 I recently shared my Cognitive Code Analysis Tool for PHP[^cognitive-code-analysis] (there is a Java[^cognitive-code-analysis-java] and C#[^cognitive-code-analysis-csharp] version as well) on [LinkedIn](https://lnkd.in/p/epdmSbNA) and got a very good question in the comments:
