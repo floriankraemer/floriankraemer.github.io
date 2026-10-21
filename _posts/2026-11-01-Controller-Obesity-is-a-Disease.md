@@ -8,10 +8,10 @@ tags:
     - single-responsibility
     - SOLID
     - software-design
-draft: false
+draft: true
 published: false
 comments: true
-date: 2026-10-30
+date: 2026-11-30
 ---
 
 The shift toward "Fat Controllers" and procedural "God Services", very often leads to something called the Anemic Domain Model [1]. It might happen because framework conventions, ORM design, and deadline pressure heavily favor immediate speed over long-term architectural purity and therefore quality and long term velocity. I have seen this in small companies, in large companies creating enterprise software and when reviewing projects of cheap offshore companies. It is happening too often.
