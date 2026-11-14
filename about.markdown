@@ -19,7 +19,7 @@ slug: ""
 Hey, I’m Florian Krämer
 {: .lead}
 
-a software engineer, AI engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP, or whatever I can get my hands on. Today I increasingly work with C# and love anything object-oriented.
+a software engineer, AI engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP. Today I increasingly work with Java and C# and love anything object-oriented.
 
 Email me at [{{ site.email }}](mailto:{{ site.email }}).
 
@@ -28,16 +28,16 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 ## Achievements
 
 * I've successfully introduced AI-assisted and agentic engineering in a company.
+* Architected a modular monolith system ("Modulith") based on Clean Architecture and Event-Driven Architecture principles to enable microservices later on, from the ground up, for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), one of the world's largest horse sport streaming portals.
+* Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for the [Spryker](https://spryker.com/) Commerce OS.
+  * Implemented a security incident workflow and process in a department in collaboration with a security team.
+  * Introduced performance and quality metrics in collaboration with a QA team.
 * I've been part of the CakePHP [core team](https://cakephp.org/team).
   * Extracted and refactored the authentication & authorization into extensions.
   * Maintained several CakePHP plugins.
   * Reviewed and advised many CakePHP-based projects as part of the [Cake Development Corporation](https://www.cakedc.com/).
-* I completed a large-scale refactoring of a legacy system built by an offshore company with zero test coverage and severe coupling for one of the most popular building architecture websites.
-* I've successfully introduced a CI/CD process in a company.
-* Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for the [Spryker](https://spryker.com/) Commerce OS.
-* Implemented a security incident workflow and process in a department in collaboration with a security team.
-* Introduced performance and quality metrics in collaboration with a QA team.
-* Architected a modular monolith system ("Modulith") based on Clean Architecture and Event-Driven Architecture principles to enable microservices later on, from the ground up, for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), one of the world's largest horse sport streaming portals.
+* I completed a large-scale refactoring of a legacy system built by an offshore company with zero test coverage and severe coupling for [World-Architects.com][(https://world-architects.com)] websites.
+* I've successfully introduced a CI/CD processes in companies.
 
 ## AI Engineering
 
