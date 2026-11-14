@@ -2,8 +2,8 @@
 layout: page
 title: Consulting
 permalink: /services/consulting/
-description: Software architecture consulting, DDD, legacy modernization, and development process optimization. Get expert guidance for your team.
-keywords: software architecture consulting, DDD consulting, legacy modernization, code review, TDD, CI/CD, software development consulting
+description: Software architecture consulting, DDD, AI adoption, legacy modernization, and development process optimization. Get expert guidance for your team.
+keywords: software architecture consulting, DDD consulting, AI adoption, AI engineering, agentic engineering, AI in the SDLC, legacy modernization, code review, TDD, CI/CD, software development consulting
 ---
 
 <div class="consulting-intro">
@@ -32,6 +32,11 @@ keywords: software architecture consulting, DDD consulting, legacy modernization
   <div class="service-item">
     <h3>🏗️ Domain-Driven Design (DDD)</h3>
     <p>Apply <a href="/ddd/">DDD</a> principles to structure your application around core business logic, improving alignment with business goals and increasing clarity in your codebase.</p>
+  </div>
+  
+  <div class="service-item">
+    <h3>🤖 AI Adoption & Agentic Engineering</h3>
+    <p>Introduce AI-assisted and agentic engineering in your team without sacrificing quality: tooling selection, guidelines, guardrails, and integration into your existing development process.</p>
   </div>
   
   <div class="service-item">

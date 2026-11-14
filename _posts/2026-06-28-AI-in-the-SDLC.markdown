@@ -5,6 +5,7 @@ categories: software-architecture
 tags: 
     - software-architecture
     - ai
+    - ai-engineering
     - agentic-engineering
     - vibe-coding
     - SDLC
