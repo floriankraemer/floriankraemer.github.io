@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About Me
-label: Software Architect & Developer
+label: Software Architect & AI Engineer
 permalink: /about/
-description: Florian Krämer – certified software architect & developer with 22+ years of experience. DDD, clean architecture, legacy refactoring, PHP, C#, and Java.
-keywords: Florian Krämer, software architect, software developer, DDD, domain-driven design, PHP, C#, clean architecture, legacy refactoring
+description: Florian Krämer – certified software architect & developer with 22+ years of experience. AI engineering, AI adoption, DDD, clean architecture, legacy refactoring, PHP, C#, and Java.
+keywords: Florian Krämer, software architect, AI engineer, AI engineering, agentic engineering, AI-assisted software development, AI adoption, software developer, DDD, domain-driven design, PHP, C#, clean architecture, legacy refactoring
 tags:
   - services
   - software development
@@ -19,7 +19,7 @@ slug: ""
 Hey, I’m Florian Krämer
 {: .lead}
 
-a software engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP, or whatever I can get my hands on. I'm transitioning to C# and love anything object-oriented.
+a software engineer, AI engineer and [certified](https://zertdb.isqi.org/certification/verification/t/S%21H79YS%21audz%21-_x%21-MY/language/en) software architect. I started programming around 2000 and specialized in building web applications—primarily with PHP. Today I increasingly work with Java and C# and love anything object-oriented.
 
 Email me at [{{ site.email }}](mailto:{{ site.email }}).
 
@@ -27,16 +27,23 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 
 ## Achievements
 
+* I've successfully introduced AI-assisted and agentic engineering in a company.
+* Architected a modular monolith system ("Modulith") based on Clean Architecture and Event-Driven Architecture principles to enable microservices later on, from the ground up, for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), one of the world's largest horse sport streaming portals.
+* Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for the [Spryker](https://spryker.com/) Commerce OS.
+  * Implemented a security incident workflow and process in a department in collaboration with a security team.
+  * Introduced performance and quality metrics in collaboration with a QA team.
 * I've been part of the CakePHP [core team](https://cakephp.org/team).
   * Extracted and refactored the authentication & authorization into extensions.
   * Maintained several CakePHP plugins.
   * Reviewed and advised many CakePHP-based projects as part of the [Cake Development Corporation](https://www.cakedc.com/).
-* I completed a large-scale refactoring of a legacy system built by an offshore company with zero test coverage and severe coupling for one of the most popular building architecture websites.
-* I've successfully introduced a CI/CD process in a company.
-* Architected the [Unified Commerce](https://spryker.com/unified-commerce/) foundation for the [Spryker](https://spryker.com/) Commerce OS.
-* Implemented a security incident workflow and process in a department in collaboration with a security team.
-* Introduced performance and quality metrics in collaboration with a QA team.
-* Architected a modular monolith system ("Modulith") based on Clean Architecture and Event-Driven Architecture principles to enable microservices later on, from the ground up, for the new version of [ClipMyHorse.TV](https://clipmyhorse.tv), one of the world's largest horse sport streaming portals.
+* I completed a large-scale refactoring of a legacy system built by an offshore company with zero test coverage and severe coupling for [World-Architects.com][(https://world-architects.com)] websites.
+* I've successfully introduced a CI/CD processes in companies.
+
+## AI Engineering
+
+I use AI as an engineering tool, not as a replacement for engineering.
+I work with coding agents every day and bring them into teams and existing codebases together with the guardrails they need: conventions, reviews, tests, and CI.
+I wrote about what that changes in [AI in the Software Development Life Cycle](/software-architecture/2026/07/01/AI-in-the-SDLC.html).
 
 ## How I Am
 
@@ -50,7 +57,7 @@ Let's connect and explore how my skills and knowledge can contribute to the succ
 * SOLID, YAGNI, KISS - Concepts that create good code.
 * Frameworks are just tools; I'm not dogmatic about them.
 * While I'm proficient in PHP, I also love to work on C# and Java projects as well.
-* Artificial intelligence, neural networks, agentic engineering - super interesting!
+* I practice agentic engineering daily and treat AI output like any other code: reviewed, tested, and owned.
 * Inspired by Eric Evans, Martin Fowler, Matthias Noback, Vaughn Vernon, Robert C. Martin, Dave Farley and others.
 * I'm grateful to anyone who gave and will give me a chance to grow my skills and knowledge.
 

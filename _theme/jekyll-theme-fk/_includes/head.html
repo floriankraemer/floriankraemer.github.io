@@ -5,6 +5,8 @@
   {%- seo -%}
   {%- if page.layout == "post" -%}
     {%- include post-meta.html -%}
+  {%- elsif page.keywords -%}
+    <meta name="keywords" content="{{ page.keywords | escape }}">
   {%- endif -%}
   <link rel="preload" href="{{ "/assets/theme/fonts/Barlow_400Regular.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ "/assets/theme/fonts/BarlowCondensed_700Bold.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>

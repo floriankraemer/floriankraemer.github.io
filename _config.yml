@@ -23,7 +23,7 @@ title: "Florian Krämer"
 # Contact address used site-wide (footer, imprint, privacy policy, about, consulting). Change it only here.
 email: &email "753f3a5f-5cf3-4113-809e-20149a7c9662@anonaddy.me"
 description: >- # this means to ignore newlines until "baseurl:"
-  My personal website about me, software architecture, software development and technology in general.
+  My personal website about me, software architecture, AI engineering, software development and technology in general.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://florian-kraemer.net" # the base hostname & protocol for your site, e.g. http://example.com
 author:
